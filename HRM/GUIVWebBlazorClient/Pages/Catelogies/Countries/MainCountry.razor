@@ -1,0 +1,36 @@
+﻿@page "/countries"
+
+@using BLLVM.Catelogies.Countries
+@using GSMF.Extensions
+
+<table>
+    <thead>
+        <tr>
+            <td>@display.Display(() => mainCountry.DataCountry.IsOnly)</td>
+            <td>@display.Display(() => mainCountry.DataCountry.Code)</td>
+            <td>@display.Display(() => mainCountry.DataCountry.NameVI)</td>
+            <td>@display.Display(() => mainCountry.DataCountry.NameEN)</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in mainCountry.DataCountries)
+        {
+            <tr>
+                <td>@item.IsOnly</td>
+                <td>@item.Code</td>
+                <td>@item.NameVI</td>
+                <td>@item.NameEN</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    MainCountryVM mainCountry = new MainCountryVM();
+    DisplayName display = new DisplayName();
+    protected override async Task OnInitializedAsync()
+    {
+        await mainCountry.Get();
+        // return base.OnInitializedAsync();
+    }
+}

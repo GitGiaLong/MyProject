@@ -1,0 +1,12 @@
+D:\My\HRM\GSMF\bin\Debug\net6.0\GSMF.deps.json
+D:\My\HRM\GSMF\bin\Debug\net6.0\GSMF.dll
+D:\My\HRM\GSMF\bin\Debug\net6.0\GSMF.pdb
+D:\My\HRM\GSMF\obj\Debug\net6.0\GSMF.GeneratedMSBuildEditorConfig.editorconfig
+D:\My\HRM\GSMF\obj\Debug\net6.0\GSMF.AssemblyInfoInputs.cache
+D:\My\HRM\GSMF\obj\Debug\net6.0\GSMF.AssemblyInfo.cs
+D:\My\HRM\GSMF\obj\Debug\net6.0\GSMF.csproj.CoreCompileInputs.cache
+D:\My\HRM\GSMF\obj\Debug\net6.0\GSMF.sourcelink.json
+D:\My\HRM\GSMF\obj\Debug\net6.0\GSMF.dll
+D:\My\HRM\GSMF\obj\Debug\net6.0\refint\GSMF.dll
+D:\My\HRM\GSMF\obj\Debug\net6.0\GSMF.pdb
+D:\My\HRM\GSMF\obj\Debug\net6.0\ref\GSMF.dll
