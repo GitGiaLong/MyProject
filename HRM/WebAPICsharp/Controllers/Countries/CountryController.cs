@@ -14,15 +14,16 @@ namespace WebAPICsharp.Controllers.Countries
         public CountryController() { }
 
         [HttpGet]
-        public IActionResult Get(string? value = null)
+        //public IActionResult Get(string? value = null)
+        public IActionResult Get([FromQuery] EntityCountry? value = null)
         {
             try
             {
-                if (value != null && !string.IsNullOrEmpty(value))
+                if (value != null && !string.IsNullOrEmpty(value.IsOnly))
                 {
-                    var detail = Country.GetCountry().FirstOrDefault(x => x.IsOnly == value);
+                    var detail = Country.GetCountry().FirstOrDefault(x => x.IsOnly == value.IsOnly);
                     if (detail == null)
-                        return NotFound(new { Message = $"Không tìm thấy {value}", Success = false, status = HttpStatusCode.NotFound });
+                        return NotFound(new { Message = $"Không tìm thấy {value.IsOnly}", Success = false, status = HttpStatusCode.NotFound });
                     else
                         return Ok(new { Data = detail, Success = true, status = HttpStatusCode.OK });
                 }

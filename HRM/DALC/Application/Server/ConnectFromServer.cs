@@ -9,7 +9,7 @@ namespace DALC.Application.Server
     public class ConnectFromServer
     {
         private ConnectServer connectDB = new ConnectServer();
-        String ConnectServer = $"Server = ROYALDRAGON\\ROYALDRAGON_2012; Database = TheWorld; trusted_connection= true";
+        String ConnectServer = $"Server = ROYALDRAGON\\ROYALDRAGON_2012; Database = HRM; trusted_connection= true";
         SqlDataAdapter da;
         DataTable dt;
 

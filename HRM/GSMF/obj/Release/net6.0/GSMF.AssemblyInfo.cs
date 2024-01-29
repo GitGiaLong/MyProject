@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GSMF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5cfde3bbb83ba56b0e6d785e07f3932f880fdf26")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6f3e83bd8562c34cec66d4b7422c10ef8d69d038")]
 [assembly: System.Reflection.AssemblyProductAttribute("GSMF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GSMF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
