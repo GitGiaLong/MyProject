@@ -1,16 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Newtonsoft.Json;
 
 namespace GSMF.Extensions
 {
     public class ConvertClass
     {
-        public object ConvertClassToObject<T>(T value) 
+        public T ConvertClassToObject<T>(object? Data = null)
         {
-            return value;
+            return JsonConvert.DeserializeObject<T>(Data.ToString());
         }
     }
 }

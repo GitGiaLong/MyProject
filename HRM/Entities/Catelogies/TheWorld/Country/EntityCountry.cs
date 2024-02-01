@@ -1,5 +1,4 @@
 ﻿using Entities.Application.Base;
-using Entities.Catelogies.TheWorld.Provoice;
 using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Catelogies.TheWorld.Country
@@ -7,9 +6,17 @@ namespace Entities.Catelogies.TheWorld.Country
     public class EntityCountry : BaseModel
     {
         /// <summary>
+        /// Mã định danh
+        /// </summary>
+        [Display(Name = "Mã định danh")]
+        [MaxLength(2)]
+        public string IsOnly { get; set; } = string.Empty;
+
+        /// <summary>
         /// Mã quốc gia (3 ký tự)
         /// </summary>
         [Display(Name = "Mã quốc gia (3 ký tự)")]
+        [MaxLength(3)]
         public string Code { get; set; } = string.Empty;
 
         /// <summary>

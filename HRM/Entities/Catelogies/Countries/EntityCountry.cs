@@ -6,15 +6,16 @@ namespace Entities.Catelogies.Countries
     public class EntityCountry : BaseModel
     {
         /// <summary>
-        /// Mã Quốc Gia (2 ký tự)
+        /// Mã định danh
         /// </summary>
-        [Display(Name = "Mã quốc gia (2 ký tự)")]
+        [Display(Name = "Mã định danh")]
         public string IsOnly { get; set; } = string.Empty;
 
         /// <summary>
         /// Mã quốc gia (3 ký tự)
         /// </summary>
         [Display(Name = "Mã quốc gia (3 ký tự)")]
+        [MaxLength(3)]
         public string Code { get; set; } = string.Empty;
 
         /// <summary>

@@ -10,6 +10,11 @@ namespace DALC.Application.Procedure
         [EnumMember(Value = "ViewOrSelectQuery")] ViewOrSelectQuery,
 
         /// <summary>
+        /// ViewOrSelectQuery
+        /// </summary>
+        [EnumMember(Value = "ViewOrSelectWhereQuery")] ViewOrSelectWhereQuery,
+
+        /// <summary>
         /// InsertValueQuery
         /// </summary>
         [EnumMember(Value = "InsertValueQuery")] InsertValueQuery,

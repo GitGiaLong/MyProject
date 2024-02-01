@@ -1,14 +1,10 @@
-﻿using Entities.Catelogies.TheWorld.Country;
-using System.ComponentModel.DataAnnotations;
+﻿using Entities.Application.Base;
 
 namespace Entities.Catelogies.TheWorld
 {
-    public class EntityTheWorld 
+    public class EntityTheWorld : Paging
     {
-        /// <summary>
-        /// Mã định danh
-        /// </summary>
-        [Display(Name = "Mã định danh")]
-        public string IsOnly { get; set; } = string.Empty;
+        public string? value { get; set; } = null;
+
     }
 }

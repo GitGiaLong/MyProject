@@ -10,3 +10,4 @@ D:\My\HRM\GSMF\obj\Debug\net6.0\GSMF.dll
 D:\My\HRM\GSMF\obj\Debug\net6.0\refint\GSMF.dll
 D:\My\HRM\GSMF\obj\Debug\net6.0\GSMF.pdb
 D:\My\HRM\GSMF\obj\Debug\net6.0\ref\GSMF.dll
+D:\My\HRM\GSMF\obj\Debug\net6.0\GSMF.csproj.AssemblyReference.cache

@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace DALC.Application.Server
 {
-    public class ConnectFromServer
+    public class ConnectFromServer : QueryServer
     {
         private ConnectServer connectDB = new ConnectServer();
         String ConnectServer = $"Server = ROYALDRAGON\\ROYALDRAGON_2012; Database = HRM; trusted_connection= true";

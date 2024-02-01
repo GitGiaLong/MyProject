@@ -5,8 +5,11 @@ namespace Entities.Catelogies.TheWorld.Town
 {
     public class EntityTown : BaseModel
     {
+
+        [MaxLength(5)]
+        public string IsOnly { get; set; } = string.Empty;
         /// <summary>
-        /// Mã quốc gua
+        /// Mã quốc gia
         /// </summary>
         [Display(Name = "Mã Quận huyện")]
         public string CodeDistrist { get; set; } = string.Empty;
