@@ -12,6 +12,8 @@ Dự án của riêng tôi
 - Domain
 # GSMF
 - General Support Method Function
+# GSMFCBlazor
+- General Support Method Function Componnet Blazor
 # GUI-V-Web Blazor || GUI-V-WPF
 - Presentation Layer
 - View
