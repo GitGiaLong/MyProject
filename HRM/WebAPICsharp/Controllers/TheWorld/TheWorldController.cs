@@ -49,7 +49,7 @@ namespace WebAPICsharp.Controllers.TheWorld
         }
 
         [HttpPost]
-        public IActionResult Create(object value, EnumTheWorld type)
+        public IActionResult Create(EnumTheWorld type, object value)
         {
             try
             {

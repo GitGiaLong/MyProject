@@ -1,4 +1,7 @@
-﻿using Entities.Application.Connect.Server;
+﻿using DALC.Application.Database;
+using Entities.Application.Connect.Server;
+using GSMF.Application.Local.Extensions;
+using GSMF.Extensions;
 using System.Collections.ObjectModel;
 using System.Data;
 using System.Data.SqlClient;
@@ -8,14 +11,23 @@ namespace DALC.Application.Server
 {
     public class ConnectFromServer : QueryServer
     {
+
+        XMLExtension xMLExtension = new XMLExtension(@"..\\DALC\\Application\\Local\\ConnectServer.xml");
         private ConnectServer connectDB = new ConnectServer();
-        String ConnectServer = $"Server = ROYALDRAGON\\ROYALDRAGON_2012; Database = HRM; trusted_connection= true";
+        //String ConnectServers = $"Server = ROYALDRAGON\\ROYALDRAGON_2012; Database = HRM; trusted_connection= true";
         SqlDataAdapter da;
         DataTable dt;
-
+        public String ConnectServer(string? serverName = null, EnumDatabse database = EnumDatabse.HRM, string? user = null, string? pass = null)
+        {
+            String ConnectServer = 
+                $"Server = {(!string.IsNullOrEmpty(serverName) ? serverName : xMLExtension.GetAttributesXML("Connect", "serverName"))}; " +
+                $"Database = {database.ToEnumString()}; " +
+                $"trusted_connection= true";
+            return ConnectServer;
+        }
         public DataTable GetDataTable(string sql)
         {
-            da = new SqlDataAdapter(sql, ConnectServer);
+            da = new SqlDataAdapter(sql, ConnectServer());
             dt = new DataTable();
             da.Fill(dt);
             return dt;
@@ -24,7 +36,7 @@ namespace DALC.Application.Server
         {
             ObservableCollection<T> data = new ObservableCollection<T>();
             T obj = default(T);
-            using (SqlConnection con = new SqlConnection(ConnectServer))
+            using (SqlConnection con = new SqlConnection(ConnectServer()))
             {
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand(sql, con))
@@ -81,7 +93,7 @@ namespace DALC.Application.Server
 
         public void ExecuteData(string sql)
         {
-            SqlConnection cnn = new SqlConnection(ConnectServer);
+            SqlConnection cnn = new SqlConnection(ConnectServer());
             cnn.Open();
             SqlCommand cmd = new SqlCommand(sql, cnn);
             cmd.ExecuteNonQuery();
@@ -90,7 +102,7 @@ namespace DALC.Application.Server
 
         public string field(string sql)
         {
-            SqlConnection cnn = new SqlConnection(ConnectServer);
+            SqlConnection cnn = new SqlConnection(ConnectServer());
             cnn.Open();
             SqlCommand cmd = new SqlCommand(sql, cnn);
 

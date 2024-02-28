@@ -1,4 +1,6 @@
 ﻿using BLLVM.Application.Api;
+using Entities.Application.Connect.Api;
+using Entities.Catelogies.TheWorld;
 using Entities.Catelogies.TheWorld.Country;
 using GSMF.Extensions;
 using System.Collections.ObjectModel;
@@ -16,9 +18,17 @@ namespace BLLVM.Catelogies.Countries
 
         public MainCountryVM() { DataCountries = new ObservableCollection<EntityCountry>(); }
 
-        public async Task Get()
+        public async Task Get(EnumTheWorld enumTheWorld = EnumTheWorld.Country)
         {
-            DataCountries = await Api.AsyncActionApi<ObservableCollection<EntityCountry>>("/theWorld?EnumTheWorld=0");
+            DataCountries = await Api.AsyncActionApi<ObservableCollection<EntityCountry>>($"/theWorld?EnumTheWorld={enumTheWorld}");
         }
+
+        public async Task Action(EnumMethodApi TypeActionApi, object? Data = null)
+        {
+           var data = await Api.AsyncActionApi<ObservableCollection<EntityCountry>>($"/theWorld?type={EnumTheWorld.Country}", TypeActionApi, Data);
+        }
+
+        public int buttonAction = 0;
+
     }
 }

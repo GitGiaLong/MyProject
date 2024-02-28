@@ -846,3 +846,12 @@ D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\GUIVWebBlazorClient.dll
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\refint\GUIVWebBlazorClient.dll
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\GUIVWebBlazorClient.pdb
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\ref\GUIVWebBlazorClient.dll
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.dll
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.pdb
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.dll.gz
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.pdb.gz
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMFCBlazor.staticwebassets.runtime.json
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMFCBlazor.dll
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMFCBlazor.pdb
+D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\81wvdkd28j.gz
+D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\9g0ntnijm1.gz

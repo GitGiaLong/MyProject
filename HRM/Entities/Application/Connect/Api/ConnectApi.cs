@@ -2,8 +2,8 @@
 {
     public class ConnectApi
     {
-        //private string _Url { get; set; } = "https://localhost:44389";
-        private string _Url { get; set; } = "https://5cd1-2402-800-63a7-fa8a-b424-b020-f423-c5fc.ngrok-free.app";
+        private string _Url { get; set; } = "https://localhost:44389";
+        //private string _Url { get; set; } = "";
         public string Url { get { return _Url; } set { _Url = value; } }
         //private string _Token { get; set; } = string.Empty;
         private string _Token { get; set; } = "";

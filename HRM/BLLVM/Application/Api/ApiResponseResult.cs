@@ -25,7 +25,7 @@ namespace BLLVM.Application.Api
         }
 
 
-        public async Task<T> AsyncActionApi<T>(string urlParameters, EnumMethodApi TypeActionApi = EnumMethodApi.A, object Data = null)
+        public async Task<T> AsyncActionApi<T>(string urlParameters, EnumMethodApi TypeActionApi = EnumMethodApi.A, object? Data = null)
         {
             T? value = default(T);
             try
@@ -38,10 +38,12 @@ namespace BLLVM.Application.Api
                         value = await Request<T>(await client.GetAsync(urlParameters).ConfigureAwait(false));
                         break;
                     case EnumMethodApi.B:
-                        value = await Request<T>(await client.PutAsJsonAsync(urlParameters, Data).ConfigureAwait(false));
+                        value = await Request<T>(await client.PostAsJsonAsync(urlParameters, Data).ConfigureAwait(false));
+                        //value = await Request<T>(await client.PostAsync(urlParameters, Data).ConfigureAwait(false));
                         break;
                     case EnumMethodApi.C:
                         value = await Request<T>(await client.PutAsJsonAsync(urlParameters, Data).ConfigureAwait(false));
+                        //value = await Request<T>(await client.PutAsync(urlParameters, Data).ConfigureAwait(false));
                         break;
                     case EnumMethodApi.D:
                         value = await Request<T>(await client.DeleteAsync(urlParameters).ConfigureAwait(false));

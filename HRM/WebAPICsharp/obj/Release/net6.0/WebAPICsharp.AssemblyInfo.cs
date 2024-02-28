@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WebAPICsharp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1fa0c31e41db2fa88a8bec17e763ba02443ef890")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2ce7cdb4fb72b0e6f3b5d8f1e8f302eb45898ca3")]
 [assembly: System.Reflection.AssemblyProductAttribute("WebAPICsharp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WebAPICsharp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

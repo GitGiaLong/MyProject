@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BLLVM\BLLVM.csproj" />
+    <ProjectReference Include="..\GSMFCBlazor\GSMFCBlazor.csproj" />
     <ProjectReference Include="..\GSMF\GSMF.csproj" />
   </ItemGroup>
 

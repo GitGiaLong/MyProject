@@ -567,6 +567,19 @@
         "runtime": {
           "bin/placeholder/GSMF.dll": {}
         }
+      },
+      "GSMFCBlazor/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.25"
+        },
+        "compile": {
+          "bin/placeholder/GSMFCBlazor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GSMFCBlazor.dll": {}
+        }
       }
     },
     "net6.0/browser-wasm": {
@@ -1128,6 +1141,19 @@
         },
         "runtime": {
           "bin/placeholder/GSMF.dll": {}
+        }
+      },
+      "GSMFCBlazor/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.Web": "6.0.25"
+        },
+        "compile": {
+          "bin/placeholder/GSMFCBlazor.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GSMFCBlazor.dll": {}
         }
       }
     }
@@ -2051,12 +2077,18 @@
       "type": "project",
       "path": "../GSMF/GSMF.csproj",
       "msbuildProject": "../GSMF/GSMF.csproj"
+    },
+    "GSMFCBlazor/1.0.0": {
+      "type": "project",
+      "path": "../GSMFCBlazor/GSMFCBlazor.csproj",
+      "msbuildProject": "../GSMFCBlazor/GSMFCBlazor.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "BLLVM >= 1.0.0",
       "GSMF >= 1.0.0",
+      "GSMFCBlazor >= 1.0.0",
       "Microsoft.AspNetCore.Components.WebAssembly >= 6.0.25",
       "Microsoft.AspNetCore.Components.WebAssembly.DevServer >= 6.0.25",
       "Microsoft.NET.ILLink.Analyzers >= 7.0.100-1.23211.1",
@@ -2111,6 +2143,9 @@
           "projectReferences": {
             "D:\\My\\HRM\\BLLVM\\BLLVM.csproj": {
               "projectPath": "D:\\My\\HRM\\BLLVM\\BLLVM.csproj"
+            },
+            "D:\\My\\HRM\\GSMFCBlazor\\GSMFCBlazor.csproj": {
+              "projectPath": "D:\\My\\HRM\\GSMFCBlazor\\GSMFCBlazor.csproj"
             },
             "D:\\My\\HRM\\GSMF\\GSMF.csproj": {
               "projectPath": "D:\\My\\HRM\\GSMF\\GSMF.csproj"
