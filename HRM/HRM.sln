@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLLVM", "BLLVM\BLLVM.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GUIVWebBlazorClient", "GUIVWebBlazorClient\GUIVWebBlazorClient.csproj", "{B68C0EF7-3672-45D6-B117-8C24AF740385}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSMFCBlazor", "GSMFCBlazor\GSMFCBlazor.csproj", "{2A117BD8-86B1-47F1-BD3C-899C79284746}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GSMFCBlazor", "GSMFCBlazor\GSMFCBlazor.csproj", "{2A117BD8-86B1-47F1-BD3C-899C79284746}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GSMFCWPF", "GSMFCWPF\GSMFCWPF.csproj", "{DC177F52-39BD-4F4E-BA2D-829C68FD6B0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{2A117BD8-86B1-47F1-BD3C-899C79284746}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A117BD8-86B1-47F1-BD3C-899C79284746}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A117BD8-86B1-47F1-BD3C-899C79284746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC177F52-39BD-4F4E-BA2D-829C68FD6B0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC177F52-39BD-4F4E-BA2D-829C68FD6B0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC177F52-39BD-4F4E-BA2D-829C68FD6B0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC177F52-39BD-4F4E-BA2D-829C68FD6B0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
