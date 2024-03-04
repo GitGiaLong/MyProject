@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:viewModels="clr-namespace:BLLVM.Catelogies.Countries;assembly=BLLVM"
-                    xmlns:viewModel="clr-namespace:GUIVWPF.ViewModels">
+                    >
     <viewModels:MainCountryVM x:Key="CatelogiesVM"></viewModels:MainCountryVM>
-    <viewModel:CountriesVM x:Key="CountryVM"></viewModel:CountriesVM>
 </ResourceDictionary>

@@ -22,14 +22,18 @@ namespace BLLVM.Catelogies.Countries
         public MainCountryVM() 
         { 
             DataCountries = new ApiRestFul<ObservableCollection<EntityCountry>>();
+            Get().GetAwaiter();
         }
         public async Task Get(int page = 1, int pageSize = 10, EnumTheWorld enumTheWorld = EnumTheWorld.Country)
         {
-            DataCountries = await Api.AsyncActionApi<ObservableCollection<EntityCountry>>($"/theWorld?Page={page}&PageSize={pageSize}&typeTheWorld={enumTheWorld}");
-        }
-        public void Gets(int page = 1, int pageSize = 10, EnumTheWorld enumTheWorld = EnumTheWorld.Country)
-        {
-            DataCountries = Api.AsyncActionApi<ObservableCollection<EntityCountry>>($"/theWorld?Page={page}&PageSize={pageSize}&typeTheWorld={enumTheWorld}").GetAwaiter().GetResult();
+            try
+            { 
+                DataCountries = await Api.AsyncActionApi<ObservableCollection<EntityCountry>>($"/theWorld?Page={page}&PageSize={pageSize}&typeTheWorld={enumTheWorld}");
+            }
+            catch(Exception Ex)
+            {
+                DataCountries.Message = Ex.Message;
+            }
         }
         public async Task Action(EnumMethodApi TypeActionApi, object? Data = null)
         {

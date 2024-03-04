@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUIVWPF"
         mc:Ignorable="d"
-        DataContext="{StaticResource CountryVM}"
+        DataContext="{StaticResource CatelogiesVM}"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -39,7 +39,7 @@
                 </StackPanel>
 
                 <ListView x:Name="listviewConfigDevice" Grid.Row="1"
-                    ItemsSource="{Binding main.DataCountries.Data,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    ItemsSource="{Binding DataCountries.Data,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                     HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top">
@@ -57,7 +57,6 @@
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding NameVI}" />
                                 </Viewbox>
                                 <Viewbox MinWidth="200">
-
                                     <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding NameVI}" />
                                 </Viewbox>
                             </StackPanel>

@@ -30,4 +30,3 @@ D:\My\HRM\GUIVWPF\bin\Debug\net6.0-windows\GUIVWPF.pdb
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\GUIVWPF.csproj.CopyComplete
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\GUIVWPF.genruntimeconfig.cache
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\ref\GUIVWPF.dll
-D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
