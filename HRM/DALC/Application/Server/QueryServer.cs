@@ -10,11 +10,12 @@
         {
             return $"{query}";
         }
-        public string PagingQuery(int page = 1, int pageSize = 10, string OrderBy = "IsOnly")
+        public string PagingQuery(int page, int pageSize, string OrderBy = "IsOnly")
         {
+
             if(page > 0 && pageSize > 0)
             {
-                return $"'ORDER BY {OrderBy} OFFSET {page} ROWS FETCH NEXT {pageSize} ROWS ONLY'";
+                return $"'ORDER BY {OrderBy} OFFSET {pageSize * (page - 1) } ROWS FETCH NEXT {pageSize} ROWS ONLY'";
             }
             else
             {

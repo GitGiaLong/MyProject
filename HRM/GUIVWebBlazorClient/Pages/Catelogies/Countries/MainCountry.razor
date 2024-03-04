@@ -15,69 +15,78 @@
     .columnTable {
 
     }
+
 </style>
 
-<div>
-    <table>
-        <thead>
-            <tr class="rowTable">
-                <td>@display.Display(() => mainCountry.DataCountry.IsOnly)</td>
-                <td>@display.Display(() => mainCountry.DataCountry.Code)</td>
-                <td>@display.Display(() => mainCountry.DataCountry.NameVI)</td>
-                <td>@display.Display(() => mainCountry.DataCountry.NameEN)</td>
-            </tr>
-            <tr class="rowTable">
-                <td><input type="text" @bind-value="@(mainCountry.DataCountry.IsOnly)" /></td>
-                <td><input type="text" @bind-value="@(mainCountry.DataCountry.Code)" /></td>
-                <td><input type="text" @bind-value="@(mainCountry.DataCountry.NameVI)" /></td>
-                <td><input type="text" @bind-value="@(mainCountry.DataCountry.NameEN)" /></td>
-                <td>
-                    @if (mainCountry.buttonAction != 1)
-                    {
-                        @* <button @onclick="@(() => mainCountry.Get())">View</button> *@
-                        <button @onclick="@(() => mainCountry.buttonAction = 1)">New</button>
-                    }
-                    @if (mainCountry.buttonAction == 1)
-                    {
-                        <button @onclick="@(() => mainCountry.Action(EnumMethodApi.B,mainCountry.DataCountry))">Save</button>
-                        <button @onclick="@(() => mainCountry.buttonAction = 0)">Cancel</button>
-                    }
-                </td>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in mainCountry.DataCountries)
-            {
+@if(mainCountry.DataCountries.Data != null && mainCountry.DataCountries.Data.Count() > 0)
+{
+    <div>
+        <table>
+            <thead>
                 <tr class="rowTable">
-                    <td><input type="text" readonly="true" @bind-value="@item.IsOnly" /></td>
-                    <td><input type="text" readonly="@(mainCountry.buttonAction != 2 ? true : false)" @bind-value="@item.Code" /></td>
-                    <td><input type="text" readonly="@(mainCountry.buttonAction != 2 ? true : false)" @bind-value="@item.NameVI" /></td>
-                    <td><input type="text" readonly="@(mainCountry.buttonAction != 2 ? true : false)" @bind-value="@item.NameEN" /></td>
+                    <td>@display.Display(() => mainCountry.DataCountry.IsOnly)</td>
+                    <td>@display.Display(() => mainCountry.DataCountry.Code)</td>
+                    <td>@display.Display(() => mainCountry.DataCountry.NameVI)</td>
+                    <td>@display.Display(() => mainCountry.DataCountry.NameEN)</td>
+                </tr>
+                <tr class="rowTable">
+                    <td><input type="text" @bind-value="@(mainCountry.DataCountry.IsOnly)" /></td>
+                    <td><input type="text" @bind-value="@(mainCountry.DataCountry.Code)" /></td>
+                    <td><input type="text" @bind-value="@(mainCountry.DataCountry.NameVI)" /></td>
+                    <td><input type="text" @bind-value="@(mainCountry.DataCountry.NameEN)" /></td>
                     <td>
-                        @if (mainCountry.buttonAction != 2)
+                        @if (mainCountry.buttonAction != 1)
                         {
-                            <button @onclick="@(() => mainCountry.buttonAction = 2)">Edit</button>
+                            @* <button @onclick="@(() => mainCountry.Get())">View</button> *@
+                            <button @onclick="@(() => mainCountry.buttonAction = 1)">New</button>
                         }
-                        @if (mainCountry.buttonAction == 2)
+                        @if (mainCountry.buttonAction == 1)
                         {
-                            <button @onclick="@(() => mainCountry.Action(EnumMethodApi.C,item))">Save</button>
+                            <button @onclick="@(() => mainCountry.Action(EnumMethodApi.B,mainCountry.DataCountry))">Save</button>
                             <button @onclick="@(() => mainCountry.buttonAction = 0)">Cancel</button>
                         }
                     </td>
                 </tr>
-            
-            }
-        </tbody>
-    </table>
-    @* <span>
-        <button>&#8810;</button>
-        <button>&#60;</button>
-        <input type="text" width="10px" readonly="true"/>
-        <input type="text" width="50" readonly="true" />
-        <button>&#62;</button>
-        <button>&#8811;</button>
-    </span> *@
-</div>
+            </thead>
+            <tbody>
+                @if (mainCountry.DataCountries.Data != null && mainCountry.DataCountries.Data.Count() > 0)
+                {
+                    foreach (var item in mainCountry.DataCountries.Data)
+                    {
+                        <tr class="rowTable">
+                            <td><input type="text" readonly="true" @bind-value="@item.IsOnly" /></td>
+                            <td><input type="text" readonly="@(mainCountry.buttonAction != 2 ? true : false)" @bind-value="@item.Code" /></td>
+                            <td><input type="text" readonly="@(mainCountry.buttonAction != 2 ? true : false)" @bind-value="@item.NameVI" /></td>
+                            <td><input type="text" readonly="@(mainCountry.buttonAction != 2 ? true : false)" @bind-value="@item.NameEN" /></td>
+                            <td>
+                                @if (mainCountry.buttonAction != 2)
+                                {
+                                    <button @onclick="@(() => mainCountry.buttonAction = 2)">Edit</button>
+                                }
+                                @if (mainCountry.buttonAction == 2)
+                                {
+                                    <button @onclick="@(() => mainCountry.Action(EnumMethodApi.C,item))">Save</button>
+                                    <button @onclick="@(() => mainCountry.buttonAction = 0)">Cancel</button>
+                                }
+                            </td>
+                        </tr>
+
+                    }
+                }
+            </tbody>
+        </table>
+        <span>
+            <button @onclick="@(() => mainCountry.Get(mainCountry.DataCountries.Page = 1))">&#8810;</button>
+            <button @onclick="@(() => mainCountry.Get(mainCountry.DataCountries.Page -= 1))">&#60;</button>
+            <input type="text" style="width: 50px;" @bind-value="@(mainCountry.DataCountries.Page)" @onfocusin="@(() =>  mainCountry.Get(mainCountry.DataCountries.Page))" />
+            <label><span>/</span> @mainCountry.DataCountries.TotalPages trang</label>
+            <input type="text" style="width: 50px;" @bind-value="@(mainCountry.DataCountries.PageSize)" @onfocusin="@(() =>  mainCountry.Get(mainCountry.DataCountries.Page,mainCountry.DataCountries.PageSize))" />
+            <label><span>/</span> @mainCountry.DataCountries.TotalRecords dòng</label>
+            <button @onclick="@(() => mainCountry.Get(mainCountry.DataCountries.Page += 1))">&#62;</button>
+            <button @onclick="@(() => mainCountry.Get(mainCountry.DataCountries.TotalPages))">&#8811;</button>
+        </span>
+    </div>
+}
 @code {
     MainCountryVM mainCountry = new MainCountryVM();
     DisplayName display = new DisplayName();

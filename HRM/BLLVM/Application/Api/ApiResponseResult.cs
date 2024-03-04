@@ -25,9 +25,9 @@ namespace BLLVM.Application.Api
         }
 
 
-        public async Task<T> AsyncActionApi<T>(string urlParameters, EnumMethodApi TypeActionApi = EnumMethodApi.A, object? Data = null)
+        public async Task<ApiRestFul<T>> AsyncActionApi<T>(string urlParameters, EnumMethodApi TypeActionApi = EnumMethodApi.A, object? Data = null)
         {
-            T? value = default(T);
+            ApiRestFul<T> value = new ApiRestFul<T>();
             try
             {
                 HttpResponseMessage? response;
@@ -35,18 +35,18 @@ namespace BLLVM.Application.Api
                 switch (TypeActionApi)
                 {
                     case EnumMethodApi.A:
-                        value = await Request<T>(await client.GetAsync(urlParameters).ConfigureAwait(false));
+                        value = await Request<ApiRestFul<T>>(await client.GetAsync(urlParameters).ConfigureAwait(false));
                         break;
                     case EnumMethodApi.B:
-                        value = await Request<T>(await client.PostAsJsonAsync(urlParameters, Data).ConfigureAwait(false));
+                        value = await Request<ApiRestFul<T>>(await client.PostAsJsonAsync(urlParameters, Data).ConfigureAwait(false));
                         //value = await Request<T>(await client.PostAsync(urlParameters, Data).ConfigureAwait(false));
                         break;
                     case EnumMethodApi.C:
-                        value = await Request<T>(await client.PutAsJsonAsync(urlParameters, Data).ConfigureAwait(false));
+                        value = await Request<ApiRestFul<T>>(await client.PutAsJsonAsync(urlParameters, Data).ConfigureAwait(false));
                         //value = await Request<T>(await client.PutAsync(urlParameters, Data).ConfigureAwait(false));
                         break;
                     case EnumMethodApi.D:
-                        value = await Request<T>(await client.DeleteAsync(urlParameters).ConfigureAwait(false));
+                        value = await Request<ApiRestFul<T>>(await client.DeleteAsync(urlParameters).ConfigureAwait(false));
                         break;
                 }
 
@@ -64,8 +64,8 @@ namespace BLLVM.Application.Api
             {
                 if (response.IsSuccessStatusCode && response.StatusCode == HttpStatusCode.OK)
                 {
-                    var _request = await response.Content.ReadFromJsonAsync<ApiRestFul<T>>();
-                    return Data = _request.Data;
+                    var _request = await response.Content.ReadFromJsonAsync<T>();
+                    return Data = _request;
                     //string json = await response.Content.ReadAsStringAsync();
                 }
                 if (!response.IsSuccessStatusCode && response.StatusCode == HttpStatusCode.NotFound)

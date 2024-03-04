@@ -2,8 +2,9 @@
 using DALC.Application.Procedure;
 using DALC.Application.Server;
 using Entities.Application.Connect.Api;
-using Entities.Catelogies.Countries;
+using Entities.Application.Convert;
 using Entities.Catelogies.TheWorld;
+using Entities.Catelogies.TheWorld.Country;
 using Entities.Catelogies.TheWorld.Distrist;
 using Entities.Catelogies.TheWorld.Provoice;
 using Entities.Catelogies.TheWorld.Town;
@@ -20,7 +21,11 @@ namespace DALC.Catelogies.TheWorld
         ConvertClass Convert = new ConvertClass();
         public DALTheWorld() { }
 
-        public ObservableCollection<T> GetTheWorld<T>(EnumTheWorld Value, EntityTheWorld code)
+        public int GetTotalRecords(EnumTheWorld Value)
+        {
+            return GetTable<int>($"select count(*) from {EnumDatabse.TheWorld.ToEnumString()}..{Value.ToEnumString()}");
+        }
+        public ObservableCollection<T> GetTheWorld<T>(EnumTheWorld Value, Filter code)
         {
             string query = $"EXEC {EnumProcedure.ViewOrSelectQuery.ToEnumString()} '{EnumDatabse.TheWorld.ToEnumString()}..{Value.ToEnumString()}'";
             string sub = "";
@@ -47,7 +52,7 @@ namespace DALC.Catelogies.TheWorld
                     sub += $"{Query($"'WHERE {display.Display(() => a.IsOnly, false)} LIKE ''%{a.IsOnly}%'' AND {display.Display(() => a.CodeDistrist, false)} LIKE ''%{a.CodeDistrist}%'' AND {display.Display(() => a.DisplayName, false)} LIKE ''%{a.DisplayName}%'''")}";
                 }
             }
-            return GetDataReader<T>($"{query},{(code.value != null ? sub : PagingQuery(code.PageNumber, code.PageSize))}");
+            return GetDataReader<T>($"{query},{(code.value != null ? sub : PagingQuery(code.Page, code.PageSize))}");
         }
         public void ActionCountry(EnumMethodApi type, EnumTheWorld Value, object Data)
         {

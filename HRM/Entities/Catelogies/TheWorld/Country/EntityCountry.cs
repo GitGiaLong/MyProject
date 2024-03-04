@@ -5,30 +5,32 @@ namespace Entities.Catelogies.TheWorld.Country
 {
     public class EntityCountry : BaseModel
     {
+        private string _IsOnly = string.Empty;
         /// <summary>
         /// Mã định danh
         /// </summary>
         [Display(Name = "Mã định danh")]
-        [MaxLength(2)]
-        public string IsOnly { get; set; } = string.Empty;
+        public string IsOnly { get { return _IsOnly; } set { _IsOnly = value; OnPropertyChanged(); } }
 
+        private string _Code = string.Empty;
         /// <summary>
-        /// Mã quốc gia (3 ký tự)
+        /// Mã quốc gia
         /// </summary>
-        [Display(Name = "Mã quốc gia (3 ký tự)")]
-        [MaxLength(3)]
-        public string Code { get; set; } = string.Empty;
+        [Display(Name = "Mã quốc gia")]
+        public string Code { get { return _Code; } set { _Code = value; OnPropertyChanged(); } }
 
+        private string _NameEN = string.Empty;
         /// <summary>
         /// Tên Tiếng Anh
         /// </summary>
         [Display(Name = "Tên tiếng Anh")]
-        public string NameEN { get; set; } = string.Empty;
+        public string NameEN { get { return _NameEN; } set { _NameEN = value; OnPropertyChanged(); } }
 
+        private string _NameVI = string.Empty;
         /// <summary>
         /// Tên tiếng Việt
         /// </summary>
         [Display(Name = "Tên tiếng Việt")]
-        public string NameVI { get; set; } = string.Empty;
+        public string NameVI { get { return _NameVI; } set { _NameVI = value; OnPropertyChanged(); } }
     }
 }

@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GSMF.Extensions.Onchanged;
+using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Application.Base
 {
-    public class BaseModel
+    public class BaseModel : OnChanged, IBaseModel
     {
         public bool IsCurently { get; set; } = true;
         public DateTime CreateOn { get; set; }

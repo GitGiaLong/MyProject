@@ -16,4 +16,8 @@
     <ProjectReference Include="..\GSMF\GSMF.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Extensions\ResponseResult\" />
+  </ItemGroup>
+
 </Project>

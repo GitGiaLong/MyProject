@@ -9,6 +9,8 @@ D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\Entities.dll
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\Entities.pdb
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMF.dll
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMF.pdb
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.dll
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.pdb
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GUIVWebBlazorClient.dll
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GUIVWebBlazorClient.pdb
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\icudt_CJK.dat
@@ -243,6 +245,7 @@ D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Reflect
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Xml.XPath.XDocument.dll.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMF.pdb.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Resources.Writer.dll.gz
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.dll.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.DependencyInjection.dll.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Security.Cryptography.OpenSsl.dll.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\Microsoft.VisualBasic.dll.gz
@@ -253,6 +256,7 @@ D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Text.En
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.FileProviders.Abstractions.dll.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Numerics.Vectors.dll.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\Microsoft.CSharp.dll.gz
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.pdb.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Net.WebProxy.dll.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Private.DataContractSerialization.dll.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Security.Cryptography.Encoding.dll.gz
@@ -410,6 +414,7 @@ D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\dotnet.6.0.26.
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Net.Requests.dll.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\Microsoft.Extensions.Configuration.Binder.dll.gz
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\System.Globalization.Extensions.dll.gz
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMFCBlazor.staticwebassets.runtime.json
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GUIVWebBlazorClient.staticwebassets.runtime.json
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GUIVWebBlazorClient.dll
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GUIVWebBlazorClient.pdb
@@ -612,7 +617,9 @@ D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\icudt_no_CJK.dat
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\BLLVM.dll
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\Entities.dll
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMF.dll
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMFCBlazor.dll
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\BLLVM.pdb
+D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMFCBlazor.pdb
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMF.pdb
 D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\Entities.pdb
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\GUIVWebBlazorClient.csproj.AssemblyReference.cache
@@ -835,7 +842,9 @@ D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\kk1mygefb5.gz
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\n8jsqmyblb.gz
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\j346h6mqxl.gz
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\k04dipgh8b.gz
+D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\81wvdkd28j.gz
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\zjqfval4em.gz
+D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\9g0ntnijm1.gz
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\7zrm46s5hs.gz
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\dwbfvv2xka.gz
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\yon2w4jwcc.gz
@@ -846,12 +855,3 @@ D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\GUIVWebBlazorClient.dll
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\refint\GUIVWebBlazorClient.dll
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\GUIVWebBlazorClient.pdb
 D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\ref\GUIVWebBlazorClient.dll
-D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.dll
-D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.pdb
-D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.dll.gz
-D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\wwwroot\_framework\GSMFCBlazor.pdb.gz
-D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMFCBlazor.staticwebassets.runtime.json
-D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMFCBlazor.dll
-D:\My\HRM\GUIVWebBlazorClient\bin\Debug\net6.0\GSMFCBlazor.pdb
-D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\81wvdkd28j.gz
-D:\My\HRM\GUIVWebBlazorClient\obj\Debug\net6.0\compressed\9g0ntnijm1.gz

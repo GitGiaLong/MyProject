@@ -6,6 +6,7 @@ D:\My\HRM\WebAPICsharp\bin\Debug\net6.0\WebAPICsharp.runtimeconfig.json
 D:\My\HRM\WebAPICsharp\bin\Debug\net6.0\WebAPICsharp.dll
 D:\My\HRM\WebAPICsharp\bin\Debug\net6.0\WebAPICsharp.pdb
 D:\My\HRM\WebAPICsharp\bin\Debug\net6.0\Microsoft.OpenApi.dll
+D:\My\HRM\WebAPICsharp\bin\Debug\net6.0\Newtonsoft.Json.dll
 D:\My\HRM\WebAPICsharp\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\My\HRM\WebAPICsharp\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\My\HRM\WebAPICsharp\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
@@ -43,4 +44,3 @@ D:\My\HRM\WebAPICsharp\obj\Debug\net6.0\refint\WebAPICsharp.dll
 D:\My\HRM\WebAPICsharp\obj\Debug\net6.0\WebAPICsharp.pdb
 D:\My\HRM\WebAPICsharp\obj\Debug\net6.0\WebAPICsharp.genruntimeconfig.cache
 D:\My\HRM\WebAPICsharp\obj\Debug\net6.0\ref\WebAPICsharp.dll
-D:\My\HRM\WebAPICsharp\bin\Debug\net6.0\Newtonsoft.Json.dll

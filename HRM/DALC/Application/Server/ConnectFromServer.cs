@@ -25,6 +25,15 @@ namespace DALC.Application.Server
                 $"trusted_connection= true";
             return ConnectServer;
         }
+        public T GetTable<T>(string sql)
+        {
+            SqlConnection cnn = new SqlConnection(ConnectServer());
+            cnn.Open();
+            SqlCommand cmd = new SqlCommand(sql, cnn);
+            var rows = (T)cmd.ExecuteScalar();
+            cnn.Close();
+            return rows;
+        }
         public DataTable GetDataTable(string sql)
         {
             da = new SqlDataAdapter(sql, ConnectServer());
