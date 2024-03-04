@@ -4,67 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUIVWPF"
+        xmlns:uc="clr-namespace:GUIVWPF.UserControls"
         mc:Ignorable="d"
-        DataContext="{StaticResource CatelogiesVM}"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="4*"/>
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="4*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
-            <Grid Grid.Row="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="4*"/>
-                </Grid.RowDefinitions>
-                <StackPanel Orientation="Horizontal" Grid.Row="0"  Background="#FF3da8b7">
-                    <Border MinWidth="50" >
-                        <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="Id" />
-                    </Border>
-                    <Border MinWidth="50" >
-                        <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="Code" />
-                    </Border>
-                    <Border MinWidth="200" >
-                        <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="Tên tiếng Việt" />
-                    </Border>
-                    <Border MinWidth="200" >
-                        <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="Tên Tiếng Anh" />
-                    </Border>
-                </StackPanel>
-
-                <ListView x:Name="listviewConfigDevice" Grid.Row="1"
-                    ItemsSource="{Binding DataCountries.Data,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
-                    ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                    ScrollViewer.VerticalScrollBarVisibility="Auto"
-                    HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <Viewbox MinWidth="50">
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding IsOnly}" />
-                                </Viewbox>
-                                <Viewbox MinWidth="50">
-
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding Code}" />
-                                </Viewbox>
-                                <Viewbox MinWidth="200">
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding NameVI}" />
-                                </Viewbox>
-                                <Viewbox MinWidth="200">
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="{Binding NameVI}" />
-                                </Viewbox>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-
-                </ListView>
-            </Grid>
-        </Grid>
+        <uc:Browser x:Name="browserUc"></uc:Browser>
+        <!--<uc:TheWorld x:Name="TheWorldUc"></uc:TheWorld>-->
     </Grid>
 </Window>
