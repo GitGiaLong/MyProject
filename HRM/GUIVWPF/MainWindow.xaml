@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <uc:Browser x:Name="browserUc"></uc:Browser>
-        <!--<uc:TheWorld x:Name="TheWorldUc"></uc:TheWorld>-->
+        <!--<uc:Browser x:Name="browserUc"></uc:Browser>-->
+        <uc:TheWorld x:Name="TheWorldUc"></uc:TheWorld>
     </Grid>
 </Window>

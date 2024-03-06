@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:GUIVWPF.UserControls"
              mc:Ignorable="d" 
-             DataContext="{StaticResource CatelogiesVM}"
+             DataContext="{StaticResource TheWorldVM}"
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -39,7 +39,7 @@
                 </StackPanel>
 
                 <ListView x:Name="listviewConfigDevice" Grid.Row="1"
-                    ItemsSource="{Binding DataCountries.Data,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
+                    ItemsSource="{Binding MainCountryVM.DataCountries.Data,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                     ScrollViewer.VerticalScrollBarVisibility="Auto"
                     HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Top">

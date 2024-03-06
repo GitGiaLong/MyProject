@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:viewModels="clr-namespace:BLLVM.Catelogies.Countries;assembly=BLLVM"
+                    xmlns:Viewmodel="clr-namespace:GUIVWPF.ViewModels"
                     >
-    <viewModels:MainCountryVM x:Key="CatelogiesVM"></viewModels:MainCountryVM>
+    <Viewmodel:TheWorld x:Key="TheWorldVM"></Viewmodel:TheWorld>
 </ResourceDictionary>
