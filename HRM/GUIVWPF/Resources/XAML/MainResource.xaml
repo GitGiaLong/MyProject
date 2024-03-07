@@ -3,4 +3,6 @@
                     xmlns:Viewmodel="clr-namespace:GUIVWPF.ViewModels"
                     >
     <Viewmodel:TheWorld x:Key="TheWorldVM"></Viewmodel:TheWorld>
+    <Viewmodel:MainVM x:Key="MainVM"></Viewmodel:MainVM>
+
 </ResourceDictionary>

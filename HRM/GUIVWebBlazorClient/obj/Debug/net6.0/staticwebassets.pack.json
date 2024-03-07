@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\GUIVWebBlazorClient.styles.css"
     },
     {
+      "Id": "D:\\My\\HRM\\GUIVWebBlazorClient\\wwwroot\\css\\MainStyle.css",
+      "PackagePath": "staticwebassets\\css\\MainStyle.css"
+    },
+    {
       "Id": "D:\\My\\HRM\\GUIVWebBlazorClient\\wwwroot\\css\\app.css",
       "PackagePath": "staticwebassets\\css\\app.css"
     },

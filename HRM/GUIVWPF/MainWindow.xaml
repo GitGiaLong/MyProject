@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:GUIVWPF"
         xmlns:uc="clr-namespace:GUIVWPF.UserControls"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        WindowStartupLocation="CenterScreen"
+        DataContext="{StaticResource MainVM}"
+        Title="HRM" 
+        Height="700"
+        Width="1350"
+        MinWidth="428">
+
     <Grid>
-        <!--<uc:Browser x:Name="browserUc"></uc:Browser>-->
-        <uc:TheWorld x:Name="TheWorldUc"></uc:TheWorld>
     </Grid>
 </Window>

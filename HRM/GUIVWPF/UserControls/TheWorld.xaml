@@ -22,6 +22,7 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" Grid.Row="0"  Background="#FF3da8b7">
                     <Border MinWidth="50" >
@@ -37,7 +38,6 @@
                         <TextBlock Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" Text="Tên Tiếng Anh" />
                     </Border>
                 </StackPanel>
-
                 <ListView x:Name="listviewConfigDevice" Grid.Row="1"
                     ItemsSource="{Binding MainCountryVM.DataCountries.Data,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"
                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
@@ -64,7 +64,20 @@
                     </ListView.ItemTemplate>
 
                 </ListView>
+                <Grid Grid.Row="2" >
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button Width="50" Height="30" x:Name="btFrist" Command="{Binding FistPage}">&#8810;</Button>
+                        <Button Width="50" Height="30" x:Name="btF" Command="{Binding BackPage}">&#60;</Button>
+                        <TextBox Width="50" Height="30" x:Name="txtPage" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="{Binding MainCountryVM.DataCountries.Page}"></TextBox>
+                        <TextBlock Text="{Binding MainCountryVM.DataCountries.TotalPages}"></TextBlock>
+                        <TextBox Width="50" Height="30" x:Name="txtRow" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Text="{Binding MainCountryVM.DataCountries.PageSize}"></TextBox>
+                        <TextBlock Text="{Binding MainCountryVM.DataCountries.TotalRecords}"></TextBlock>
+                        <Button Width="50" Height="30" x:Name="btNext" Command="{Binding NextPage}">&#62;</Button>
+                        <Button Width="50" Height="30" x:Name="btLast" Command="{Binding LastPage}">&#8811;</Button>
+                    </StackPanel>
+                </Grid>
             </Grid>
+            
         </Grid>
     </Grid>
 </UserControl>

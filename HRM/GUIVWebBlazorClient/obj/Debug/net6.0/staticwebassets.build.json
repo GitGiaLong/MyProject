@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "jy3zYCurz1UW+9k//uISgtCwLNBitDRyeu/Knc+X+k8=",
+  "Hash": "o8xEsgpWwU2siM9F6xxlH59Y+aPnSUrnk/Y0/j6jm3M=",
   "Source": "GUIVWebBlazorClient",
   "BasePath": "/",
   "Mode": "Root",
@@ -8090,6 +8090,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Identity": "D:\\My\\HRM\\GUIVWebBlazorClient\\wwwroot\\css\\MainStyle.css",
+      "SourceId": "GUIVWebBlazorClient",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\My\\HRM\\GUIVWebBlazorClient\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "css/MainStyle.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\MainStyle.css"
     },
     {
       "Identity": "D:\\My\\HRM\\GUIVWebBlazorClient\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",

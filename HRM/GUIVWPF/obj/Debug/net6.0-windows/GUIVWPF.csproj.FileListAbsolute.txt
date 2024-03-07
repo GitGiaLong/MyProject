@@ -35,3 +35,4 @@ D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\TheWorld.baml
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\Browser.g.cs
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\Browser.baml
+D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\Resources\XAML\ImageResource.baml
