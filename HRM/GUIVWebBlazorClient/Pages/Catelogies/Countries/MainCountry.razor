@@ -17,8 +17,13 @@
     }
 
 </style>
-
-@if(mainCountry.DataCountries.Data != null && mainCountry.DataCountries.Data.Count() > 0)
+<div class="row l-12">
+    <input type="text" class="l-3"/>
+    <input type="text" class="l-3"/>
+    <input type="text" class="l-3"/>
+    <input type="text" class="l-3"/>
+</div>
+@if (mainCountry.DataCountries != null && mainCountry.DataCountries.Data != null && mainCountry.DataCountries.Data.Count() > 0)
 {
     <div>
         <table>
