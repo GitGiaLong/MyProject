@@ -109,7 +109,7 @@ namespace GUIVWPF.UserControls {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/GUIVWPF;V1.0.0.0;component/usercontrols/theworld.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/GUIVWPF;component/usercontrols/theworld.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\UserControls\TheWorld.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -1,0 +1,33 @@
+﻿@inject NavigationManager NavigationManager
+
+<CascadingValue Value="this">
+    <ul class="treeMenu">
+        <li class="sub-level">
+            <input class="accordion-toggle" type="checkbox" name="@IdMenu" id="@IdMenu">
+            <label class="accordion-title" for="@IdMenu" @onclick="@(()=>Href(Link))"><i class="@Icon"></i> <span>@NameMenu</span> </label>
+            @ChildContent
+        </li>
+    </ul>
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string IdMenu { get; set; } = Guid.NewGuid().ToString();
+
+    [Parameter]
+    public string NameMenu { get; set; } = "Name Menu";
+
+    [Parameter]
+    public string Link { get; set; } = "";
+
+    [Parameter]
+    public string Icon { get; set; } = "";
+
+    private void Href(string url)
+    {
+        NavigationManager.NavigateTo(url);
+    }
+}

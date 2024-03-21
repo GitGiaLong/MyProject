@@ -29,3 +29,7 @@ build_metadata.AdditionalFiles.CssScope =
 [D:/My/HRM/GSMFCBlazor/Component1.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50MS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-5hfqxkk9fy
+
+[D:/My/HRM/GSMFCBlazor/Componnet/Menu/TreMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9ubmV0XE1lbnVcVHJlTWVudS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-85ekguz0j3
