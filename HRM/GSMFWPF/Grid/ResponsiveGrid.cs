@@ -1,12 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
 namespace GSMFWPF.Grid
 {
-    public partial class ResponsiveGrid: Panel
+    public partial class ResponsiveGrid : Panel
     {
         public ResponsiveGrid()
         {
@@ -53,8 +51,8 @@ namespace GSMFWPF.Grid
             }
 
             //  Nhóm theo hàng
-                        var group = this.Children.OfType<UIElement>()
-                                     .GroupBy(x => GetActualRow(x));
+            var group = this.Children.OfType<UIElement>()
+                         .GroupBy(x => GetActualRow(x));
 
             var totalSize = new Size();
             if (group.Count() != 0)
@@ -234,6 +232,6 @@ namespace GSMFWPF.Grid
                 }
             }
         }
-       
+
     }
 }

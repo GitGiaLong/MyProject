@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GSMFWPF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2885f6d49f2bf4e20ce9b94f168ab7b94bb3ecf8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ba39542e3ad036b689fcc4fcfff61c5f339c60af")]
 [assembly: System.Reflection.AssemblyProductAttribute("GSMFWPF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GSMFWPF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -4,8 +4,12 @@ namespace GSMFWPF.Grid
 {
     public partial class ResponsiveGrid
     {
-        #region ResponsiveGrid Thuộc tính phụ thuộc để tự thiết lập
-        // thiết lập các điểm dừng khác nhau
+        #region ResponsiveGrid Thuộc tính phụ thuộc để tự thiết lập các điểm dừng khác nhau
+
+        /// <summary>
+        /// Type int
+        /// Gets or sets a value that determines grid divisions.
+        /// </summary>
         public int MaxDivision
         {
             get { return (int)GetValue(MaxDivisionProperty); }
@@ -32,12 +36,16 @@ namespace GSMFWPF.Grid
                                         typeof(ResponsiveGrid),
                                         new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
+        /// <summary>
+        /// Type int
+        /// Gets or sets a value that indicates whether grid column's lines are visible within this ResponsiveGrid.
+        /// </summary>
         public bool ShowGridLines
         {
             get { return (bool)GetValue(ShowGridLinesProperty); }
             set { SetValue(ShowGridLinesProperty, value); }
         }
-        // Using a DependencyProperty as the backing store for ShowGridLines.  This enables animation, styling, binding, etc...
+        // Using a DependencyProperty as the backing store for ShowGridLines. This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ShowGridLinesProperty =
             DependencyProperty.Register("ShowGridLines", typeof(bool), typeof(ResponsiveGrid), new PropertyMetadata(false));
 
@@ -51,7 +59,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(XSProperty, value);
         }
-        // Using a DependencyProperty as the backing store for XS.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that determines grid columns for XS(extra small)
+        /// Using a DependencyProperty as the backing store for XS.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty XSProperty =
             DependencyProperty.RegisterAttached("XS",
                                                 typeof(int),
@@ -66,7 +78,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(SMProperty, value);
         }
-        // Using a DependencyProperty as the backing store for SM.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that determines grid columns for SM(small)
+        /// Using a DependencyProperty as the backing store for SM.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty SMProperty =
             DependencyProperty.RegisterAttached("SM",
                                                 typeof(int),
@@ -81,7 +97,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(MDProperty, value);
         }
-        // Using a DependencyProperty as the backing store for MD.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that determines grid columns for MD(medium)
+        /// Using a DependencyProperty as the backing store for MD.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty MDProperty =
             DependencyProperty.RegisterAttached("MD",
                                                 typeof(int),
@@ -98,6 +118,7 @@ namespace GSMFWPF.Grid
         }
 
         /// <summary>
+        /// Gets or sets a value that determines grid columns for LG(large)
         /// Using a DependencyProperty as the backing store for LG.  This enables animation, styling, binding, etc...
         /// </summary>
         public static readonly DependencyProperty LGProperty =
@@ -118,7 +139,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(XS_OffsetProperty, value);
         }
-        // Using a DependencyProperty as the backing store for XS_Offset.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that determines grid columns offset for XS(extra small)
+        /// Using a DependencyProperty as the backing store for XS_Offset.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty XS_OffsetProperty =
             DependencyProperty.RegisterAttached("XS_Offset",
                                                 typeof(int),
@@ -133,7 +158,10 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(SM_OffsetProperty, value);
         }
-        // Using a DependencyProperty as the backing store for SM_Offset.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Gets or sets a value that determines grid columns offset for SM(small)
+        /// Using a DependencyProperty as the backing store for SM_Offset.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty SM_OffsetProperty =
             DependencyProperty.RegisterAttached("SM_Offset",
                                                 typeof(int),
@@ -148,7 +176,10 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(MD_OffsetProperty, value);
         }
-        // Using a DependencyProperty as the backing store for MD_Offset.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Gets or sets a value that determines grid columns offset for MD(medium)
+        /// Using a DependencyProperty as the backing store for MD_Offset.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty MD_OffsetProperty =
             DependencyProperty.RegisterAttached("MD_Offset",
                                                 typeof(int),
@@ -163,7 +194,10 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(LG_OffsetProperty, value);
         }
-        // Using a DependencyProperty as the backing store for LG_Offset.  This enables animation, styling, binding, etc...
+        /// <summary>
+        /// Gets or sets a value that determines grid columns offset for LG(large)
+        /// Using a DependencyProperty as the backing store for LG_Offset.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty LG_OffsetProperty =
             DependencyProperty.RegisterAttached("LG_Offset",
                                                 typeof(int),
@@ -181,7 +215,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(XS_PushProperty, value);
         }
-        // Using a DependencyProperty as the backing store for XS_Push.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that moves columns to right from the original position XS.
+        /// Using a DependencyProperty as the backing store for XS_Push.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty XS_PushProperty =
             DependencyProperty.RegisterAttached("XS_Push",
                                                 typeof(int),
@@ -197,7 +235,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(SM_PushProperty, value);
         }
-        // Using a DependencyProperty as the backing store for SM_Push.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that moves columns to right from the original position SM.
+        /// Using a DependencyProperty as the backing store for SM_Push.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty SM_PushProperty =
             DependencyProperty.RegisterAttached("SM_Push",
                                                 typeof(int),
@@ -213,7 +255,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(MD_PushProperty, value);
         }
-        // Using a DependencyProperty as the backing store for MD_Push.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that moves columns to right from the original position MD.
+        /// Using a DependencyProperty as the backing store for MD_Push.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty MD_PushProperty =
             DependencyProperty.RegisterAttached("MD_Push",
                                                 typeof(int),
@@ -229,7 +275,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(LG_PushProperty, value);
         }
-        // Using a DependencyProperty as the backing store for LG_Push.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that moves columns to right from the original position LG.
+        /// Using a DependencyProperty as the backing store for LG_Push.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty LG_PushProperty =
             DependencyProperty.RegisterAttached("LG_Push",
                                                 typeof(int),
@@ -248,7 +298,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(XS_PullProperty, value);
         }
-        // Using a DependencyProperty as the backing store for XS_Pull.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that moves columns to left from the original position XS.
+        /// Using a DependencyProperty as the backing store for XS_Pull.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty XS_PullProperty =
             DependencyProperty.RegisterAttached("XS_Pull",
                                                 typeof(int),
@@ -264,7 +318,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(SM_PullProperty, value);
         }
-        // Using a DependencyProperty as the backing store for SM_Pull.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that moves columns to left from the original position SM.
+        /// Using a DependencyProperty as the backing store for SM_Pull.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty SM_PullProperty =
             DependencyProperty.RegisterAttached("SM_Pull",
                                                 typeof(int),
@@ -280,7 +338,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(MD_PullProperty, value);
         }
-        // Using a DependencyProperty as the backing store for MD_Pull.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that moves columns to left from the original position MD.
+        /// Using a DependencyProperty as the backing store for MD_Pull.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty MD_PullProperty =
             DependencyProperty.RegisterAttached("MD_Pull",
                                                 typeof(int),
@@ -296,7 +358,11 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(LG_PullProperty, value);
         }
-        // Using a DependencyProperty as the backing store for LG_Pull.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Gets or sets a value that moves columns to left from the original position LG.
+        /// Using a DependencyProperty as the backing store for LG_Pull.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty LG_PullProperty =
             DependencyProperty.RegisterAttached("LG_Pull",
                                                 typeof(int),
@@ -315,7 +381,10 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(ActualColumnProperty, value);
         }
-        // Using a DependencyProperty as the backing store for ActualColumn.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for ActualColumn.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty ActualColumnProperty =
             DependencyProperty.RegisterAttached("ActualColumn", typeof(int), typeof(ResponsiveGrid), new PropertyMetadata(0));
 
@@ -327,7 +396,10 @@ namespace GSMFWPF.Grid
         {
             obj.SetValue(ActualRowProperty, value);
         }
-        // Using a DependencyProperty as the backing store for ActualRow.  This enables animation, styling, binding, etc...
+
+        /// <summary>
+        /// Using a DependencyProperty as the backing store for ActualRow.  This enables animation, styling, binding, etc...
+        /// </summary>
         public static readonly DependencyProperty ActualRowProperty =
             DependencyProperty.RegisterAttached("ActualRow", typeof(int), typeof(ResponsiveGrid), new PropertyMetadata(0));
 
