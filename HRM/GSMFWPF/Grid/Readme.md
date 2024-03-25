@@ -1,9 +1,5 @@
-﻿Attempt | #1 | #2 | #3 | #4 | #5 | #6 | #7 | #8 | #9 | #10 | #11
---- | --- | --- | --- |--- |--- |--- |--- |--- |--- |--- |---
-Seconds | 301 | 283 | 290 | 286 | 289 | 285 | 287 | 287 | 272 | 276 | 269
-
----------------------------------------------
-
+﻿bootstrap | ResponsiveGrid 
+--- | --- 
 bootstrap | ResponsiveGrid 
 col-xs | XS 
 col-sm | SM 
@@ -23,6 +19,12 @@ col-xs-pull | MD_Pull
 col-xs-pull | LG_Pull 
 visibility-xs, visibility-sm,… | (T.B.D.) 
 hidden-xs, hidden-sm,... | (T.B.D.) 
+
+---------------------------------------------
+
+Chú ý
+ResponsiveGrid không phù hợp với ItemsPanel vì nó không được triển khai lớp VirtualizingPanel.
+Nếu sử dụng ResponsiveGrid trong ListBox làm ItemPanel. ListBox không ảo hóa các mục của ListBox.
 
 Attention
 ResponsiveGrid is not suitable for ItemsPanel, because it isn't implemented VirtualizingPanel class.
