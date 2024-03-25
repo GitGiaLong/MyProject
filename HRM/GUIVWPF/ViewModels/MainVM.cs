@@ -7,8 +7,6 @@ namespace GUIVWPF.ViewModels
 {
     public class MainVM : OnChanged
     {
-
-
         public MainVM()
         {
 

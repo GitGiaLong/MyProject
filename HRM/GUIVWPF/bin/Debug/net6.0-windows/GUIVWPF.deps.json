@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v6.0": {
       "GUIVWPF/1.0.0": {
         "dependencies": {
-          "BLLVM": "1.0.0"
+          "BLLVM": "1.0.0",
+          "GSMFWPF": "1.0.0"
         },
         "runtime": {
           "GUIVWPF.dll": {}
@@ -46,6 +47,11 @@
         "runtime": {
           "GSMF.dll": {}
         }
+      },
+      "GSMFWPF/1.0.0": {
+        "runtime": {
+          "GSMFWPF.dll": {}
+        }
       }
     }
   },
@@ -73,6 +79,11 @@
       "sha512": ""
     },
     "GSMF/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GSMFWPF/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

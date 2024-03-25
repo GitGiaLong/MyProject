@@ -10,10 +10,11 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BLLVM\BLLVM.csproj" />
+    <ProjectReference Include="..\GSMFWPF\GSMFWPF.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Image\" />
+    <Folder Include="Asset\" />
   </ItemGroup>
 
 </Project>

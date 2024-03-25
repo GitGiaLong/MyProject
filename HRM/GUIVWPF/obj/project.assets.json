@@ -54,6 +54,19 @@
         "runtime": {
           "bin/placeholder/GSMF.dll": {}
         }
+      },
+      "GSMFWPF/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/GSMFWPF.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GSMFWPF.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       }
     }
   },
@@ -102,11 +115,17 @@
       "type": "project",
       "path": "../GSMF/GSMF.csproj",
       "msbuildProject": "../GSMF/GSMF.csproj"
+    },
+    "GSMFWPF/1.0.0": {
+      "type": "project",
+      "path": "../GSMFWPF/GSMFWPF.csproj",
+      "msbuildProject": "../GSMFWPF/GSMFWPF.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
-      "BLLVM >= 1.0.0"
+      "BLLVM >= 1.0.0",
+      "GSMFWPF >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -156,6 +175,9 @@
           "projectReferences": {
             "D:\\My\\HRM\\BLLVM\\BLLVM.csproj": {
               "projectPath": "D:\\My\\HRM\\BLLVM\\BLLVM.csproj"
+            },
+            "D:\\My\\HRM\\GSMFWPF\\GSMFWPF.csproj": {
+              "projectPath": "D:\\My\\HRM\\GSMFWPF\\GSMFWPF.csproj"
             }
           }
         }

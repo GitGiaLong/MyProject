@@ -5,7 +5,8 @@ namespace GUIVWPF.Common
     public class BaseViewModel
     {
     }
-    class RelayCommand<T> : ICommand
+
+    public class RelayCommand<T> : ICommand
     {
         private readonly Predicate<T> _canExecute;
         private readonly Action<T> _execute;
