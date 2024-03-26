@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GUIVWebBlazorClient")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8ff032642b762991ffc7b751c78037645f9ea50d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a3f9760e90bd648a43d8a6b3c37c10215bb16fab")]
 [assembly: System.Reflection.AssemblyProductAttribute("GUIVWebBlazorClient")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GUIVWebBlazorClient")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
