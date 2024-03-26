@@ -1,14 +1,12 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="row">
-    <input id="inputMenu" class="check-menu" type="checkbox" @bind-value="layoutVM.Checkmenu" />
+<input id="inputMenu" class="check-menu" type="checkbox" @bind-value="layoutVM.Checkmenu" />
+<div class="page">
     <div class="sidebar">
         <div class="topSidebar row">
-            @* logo *@
             <span class="logoCommpany row">
 
             </span>
-            @* avatar-info *@
             <span class="avatarUser" style="">
 
             </span>
@@ -21,9 +19,12 @@
             <NavMenu />
         </div>
         <div>
-            @* <label>version:<span>v1:1:1:1_Demo</span></label> *@
-        </div>
+            @* <label>version:<span>v1:1:1:1_Demo</span></label>*@
+            </div>
     </div>
+    @* <div class="sidebar">
+        
+    </div> 
 
     @* main - content *@
     <main>

@@ -66,10 +66,10 @@
             background: #FDFDFD;
         }
 
-.check-menu:checked ~ .sidebar .treeMenu .accordion-title {
+.check-menu:checked ~ .page .treeMenu .accordion-title {
     justify-content: start;
 }
-.check-menu:checked ~ .sidebar .accordion-title span {
+.check-menu:checked ~ .page .accordion-title span {
     display: block;
 }
 /*

@@ -1,6 +1,5 @@
 ﻿bootstrap | ResponsiveGrid 
 --- | --- 
-bootstrap | ResponsiveGrid 
 col-xs | XS 
 col-sm | SM 
 col-md | MD 

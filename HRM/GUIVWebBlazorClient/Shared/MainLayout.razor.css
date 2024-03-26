@@ -1,4 +1,4 @@
-﻿/*.page {
+﻿.page {
     display: grid;
     grid-template-rows: 40px 40px auto 60px 60px 40px;
     grid-template-columns: 1fr;
@@ -6,17 +6,24 @@
     gap: 4px;
     height: 100vh;
 }
-    */
-/*
-.sidebar:hover {
-    flex: 0 0 15%;*/
-/*width: 200px;*/
-/*transition: all 0.5s;*/
-/*}
 
-        .sidebar:hover ~ main {
-            flex: 0 0 85%;
-        }*/
+.sidebar {
+    grid-area: sidebar;
+    position: relative;
+    transition: all 0.5s;
+    border-right: 1px solid;
+}
+
+main {
+    grid-area: main;
+    transition: all 0.5s;
+}
+
+.check-menu {
+    visibility: hidden;
+    display: none;
+}
+
 .subMenu {
     height: 50px;
     width: 50px;
@@ -26,37 +33,6 @@
     top: 100px;
     right: -30px
 }
-
-.sidebar {
-    flex: 0 0 5%;
-    max-width: 5%;
-    height: 100vh;
-    background: #354052;
-    transition: all 0.5s;
-    position: relative;
-}
-
-main {
-    transition: all 0.5s;
-    flex: 0 0 95%;
-    max-width: 95%;
-    padding: 0.5%;
-}
-
-.check-menu {
-    visibility: hidden;
-    display: none;
-}
-
-    .check-menu:checked ~ .sidebar {
-        flex: 0 0 15%;
-        max-width: 15%;
-    }
-
-    .check-menu:checked ~ main {
-        flex: 0 0 85%;
-        max-width: 85%;
-    }
 
 .topSidebar {
     width: 100%;
@@ -79,22 +55,22 @@ main {
     justify-content: center;
 }
 
-.check-menu:checked ~ .sidebar .avatarUser {
-    width: 100px;
-    height: 100px;
-}
-
-.check-menu:checked ~ .sidebar .infoUser {
+.check-menu:checked ~ .page .infoUser {
     display: flex;
 }
-/*@media (min-width: 46.25em) {
+
+@media (min-width: 46.25em) {
 
     .page {
         display: grid;
         grid-template-rows: auto;
-        grid-template-columns: 15% auto;
+        grid-template-columns: 5% auto;
         grid-template-areas:
             'sidebar main';
         height: 100vh;
     }
-}*/
+
+    .check-menu:checked ~ .page {
+        grid-template-columns: 15% auto;
+    }
+}
