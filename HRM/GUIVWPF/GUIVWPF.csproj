@@ -14,7 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Asset\" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\XAML\Asset\" />
   </ItemGroup>
 
 </Project>

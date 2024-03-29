@@ -38,3 +38,6 @@ D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\Browser.baml
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\Resources\XAML\Style.baml
 D:\My\HRM\GUIVWPF\bin\Debug\net6.0-windows\GSMFWPF.dll
 D:\My\HRM\GUIVWPF\bin\Debug\net6.0-windows\GSMFWPF.pdb
+D:\My\HRM\GUIVWPF\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
+D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\ControlBarUc.g.cs
+D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\ControlBarUc.baml

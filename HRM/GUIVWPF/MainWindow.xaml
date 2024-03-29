@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:GUIVWPF"
         xmlns:uc="clr-namespace:GUIVWPF.UserControls"
         xmlns:rg="clr-namespace:GSMFWPF.Grid;assembly=GSMFWPF"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:iss="clr-namespace:GSMFWPF.Helper;assembly=GSMFWPF"
         mc:Ignorable="d"
         DataContext="{StaticResource MainVM}"
         Title="HRM"
@@ -15,24 +17,210 @@
         MinWidth="428"
         WindowStartupLocation="CenterScreen"
         Background="Transparent">
-    
-    <Grid>
-        <!--<Border Background="#282D33" BorderBrush="#3A4149" BorderThickness="5" CornerRadius="8,8,0,8"></Border>-->
-        <Grid.Resources>
-            <Style TargetType="{x:Type Border}">
-                <Setter Property="BorderBrush" Value="Black" />
-                <Setter Property="BorderThickness" Value="1" />
-                <Setter Property="Background" Value="LightGray" />
-                <Setter Property="Height" Value="60" />
-                <Setter Property="TextBlock.FontSize" Value="10" />
-            </Style>
-        </Grid.Resources>
-        <rg:ResponsiveGrid Margin="10" BreakPoints="345, 567, 789">
 
-            <StackPanel Background="White" rg:ResponsiveGrid.XS="12">
-                <TextBlock Text="[Header]&#xa;XS=12"/>
+    <Grid>
+        <Border Background="#282D33" BorderBrush="#3A4149" BorderThickness="5" CornerRadius="8,8,0,8"></Border>
+        <Grid x:Name="BaseGrid"
+      Background="#282D33"
+      Margin="8">
+
+            <Grid.ColumnDefinitions>
+
+                <ColumnDefinition x:Name="SideMenuColumn"
+                          Width="0.22*"
+                          MaxWidth="240" />
+
+                <ColumnDefinition x:Name="col2"
+                          Width="1*" />
+
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+
+                <RowDefinition x:Name="row1"
+                       Height="0.1*"
+                       MinHeight="65"
+                       MaxHeight="75" />
+
+                <RowDefinition x:Name="row2"
+                       Height="0.8*" />
+
+                <RowDefinition x:Name="row3"
+                       Height="0.02*" />
+
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Border Height="30"
+                Width="230"
+                Background="#373E46"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                BorderThickness="5,0,5,0"
+                BorderBrush="#FFDD00"
+                CornerRadius="5">
+
+                    <TextBlock Text="HRM" FontFamily="Fonts/#Saira Regular"
+       FontSize="18" VerticalAlignment="Center" HorizontalAlignment="Center"
+       Foreground="#DCE0E4" />      
+
+                </Border>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
+                    <!--<Button Command="{Binding MinAppCommand}"
+        CommandParameter="{Binding ElementName=ResponsiveWindow}"
+        Width="40" Height="40" />-->
+
+                    <!--<Button Command="{Binding MaxAppCommand}"
+        CommandParameter="{Binding ElementName=ResponsiveWindow}"
+        Style="{StaticResource MaxAppStyle}" />-->
+
+                    <Button Command="{Binding CloseAppCommand}"
+        CommandParameter="{Binding ElementName=ResponsiveWindow}"
+          >
+                        <Canvas Width="32" Height="32" Background="Transparent">
+                            <Path Stroke="White" Width="32" Height="32" StrokeThickness="1" Data="M28,8H14a2,2,0,0,0-2,2v2h2V10H28V20H26v2h2a2,2,0,0,0,2-2V10A2,2,0,0,0,28,8Z"/>
+                            <Path Stroke="White" StrokeThickness="1" Data="M22,14H8a2,2,0,0,0-2,2V26a2,2,0,0,0,2,2H22a2,2,0,0,0,2-2V16A2,2,0,0,0,22,14ZM8,26V16H22V26Z"/>
+                        </Canvas>
+                    </Button>
+                </StackPanel>
+            </Grid>
+
+        </Grid>
+
+
+        <!--<ContentControl Content="{Binding}">
+
+            <ContentControl.Style>
+
+                <Style TargetType="ContentControl">
+
+                    --><!--// Default Layout //--><!--
+
+                    <Setter Property="ContentTemplate"
+                            Value="{StaticResource Laptop_Layout}" />
+
+                    <Style.Triggers>
+
+                        --><!--// Desktop Layout // {width > 1400px}--><!--
+
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static iss:IsGreaterThanConverter.Instance}, ConverterParameter=1400}"
+                                     Value="True">
+
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource Desktop_Layout}" />
+
+                        </DataTrigger>
+
+                        --><!--// Tablet Landscape Layout // {width < 1200px}--><!--
+
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static iss:IsLessThanConverter.Instance}, ConverterParameter=1200}"
+                                     Value="True">
+
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource Tablet_Landscape_Layout}" />
+
+                        </DataTrigger>
+
+                        --><!--// Tablet Portrait Layout // {width < 1024px}--><!--
+
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static iss:IsLessThanConverter.Instance}, ConverterParameter=1024}"
+                                     Value="True">
+
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource Tablet_Portrait_Layout}" />
+
+                        </DataTrigger>
+
+                        --><!--// Mobile Landscape Layout // {width < 812px}--><!--
+
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static iss:IsLessThanConverter.Instance}, ConverterParameter=812}"
+                                     Value="True">
+
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource Mobile_Landscape_Layout}" />
+
+                        </DataTrigger>
+
+                        --><!--// Mobile Portrait Layout // {width < 667px}--><!--
+
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static iss:IsLessThanConverter.Instance}, ConverterParameter=667}"
+                                     Value="True">
+
+                            <Setter Property="ContentTemplate"
+                                    Value="{StaticResource Mobile_Portrait_Layout}" />
+
+                        </DataTrigger>
+
+                    </Style.Triggers>
+
+                </Style>
+
+            </ContentControl.Style>
+
+        </ContentControl>-->
+
+        <!--<ContentControl Content="{Binding}" Visibility="{Binding IsPanelVisible, Converter={StaticResource BooleanToVisibility}}">
+
+            <ContentControl.Style>
+
+                <Style TargetType="ContentControl">
+
+                    <Setter Property="ContentTemplate"
+                            Value="{StaticResource MenuTemplate}" />
+
+                </Style>
+
+            </ContentControl.Style>
+
+        </ContentControl>-->
+
+
+        <!--<Button Command="{Binding MinAppCommand}"
+                CommandParameter="{Binding ElementName=ResponsiveWindow}"
+                Width="40" Height="40" />-->
+        
+        <!--<Button Command="{Binding MaxAppCommand}"
+                CommandParameter="{Binding ElementName=ResponsiveWindow}"
+                Style="{StaticResource MaxAppStyle}" />
+        
+        <Button Command="{Binding CloseAppCommand}"
+                CommandParameter="{Binding ElementName=ResponsiveWindow}"
+                Style="{StaticResource CloseAppStyle}" />-->
+        <!--<rg:ResponsiveGrid Margin="10" BreakPoints="720, 1024, 1200">
+            --><!--46.25em 740-->
+            <!--64em 1024--><!--
+            <StackPanel rg:ResponsiveGrid.SM="2"  rg:ResponsiveGrid.MD="3" rg:ResponsiveGrid.LG="3" Height="auto"></StackPanel>
+            <StackPanel rg:ResponsiveGrid.SM="10"  rg:ResponsiveGrid.MD="9" rg:ResponsiveGrid.LG="9" Height="auto">
+                <uc:ControlBarUc x:Name="BarControl"></uc:ControlBarUc>
             </StackPanel>
-            <Border rg:ResponsiveGrid.XS="6" rg:ResponsiveGrid.SM="3" rg:ResponsiveGrid.MD="2">
+            --><!--<StackPanel  Orientation="Horizontal" Background="White" rg:ResponsiveGrid.XS="12">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                        <i:InvokeCommandAction Command="{Binding MouseMoveCommand}" CommandParameter="{Binding ElementName=ResponsiveWindow}"></i:InvokeCommandAction>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="12*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Grid.Column="0">
+                        <TextBlock Text="HRM"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Grid.Column="1" Orientation="Horizontal" Margin="0 0 10 0">
+                        <Button x:Name="Min" Command="{Binding MinAppCommand}" CommandParameter="{Binding ElementName=ResponsiveWindow}" Style="{StaticResource ExitWindow}" />
+                        <Button x:Name="Max" Command="{Binding MaxAppCommand}" CommandParameter="{Binding ElementName=ResponsiveWindow}" Style="{StaticResource ExitWindow}" />
+                        <Button x:Name="Close" Command="{Binding CloseAppCommand}" CommandParameter="{Binding ElementName=ResponsiveWindow}" Style="{StaticResource ExitWindow}" />
+                   
+                    </StackPanel>
+                </Grid>
+            </StackPanel>-->
+            <!--<Border rg:ResponsiveGrid.XS="6" rg:ResponsiveGrid.SM="3" rg:ResponsiveGrid.MD="2">
                 <TextBlock Text="[A]&#xa;XS=6&#xa;SM=3&#xa;MD=2"/>
             </Border>
             <Border rg:ResponsiveGrid.XS="6" rg:ResponsiveGrid.SM="3" rg:ResponsiveGrid.MD="2">
@@ -50,12 +238,11 @@
             <Border rg:ResponsiveGrid.XS="12" rg:ResponsiveGrid.SM="6" rg:ResponsiveGrid.MD="2">
                 <TextBlock Text="[F]&#xa;XS=12&#xa;SM=6&#xa;MD=2"/>
             </Border>
-
             <Border rg:ResponsiveGrid.XS="12">
                 <TextBlock Text="[Footer]&#xa;XS=12"/>
-            </Border>
+            </Border>--><!--
 
 
-        </rg:ResponsiveGrid>
+        </rg:ResponsiveGrid>-->
     </Grid>
 </Window>
