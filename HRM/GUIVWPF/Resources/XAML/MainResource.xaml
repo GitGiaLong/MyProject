@@ -16,7 +16,7 @@
 
     <!--// Desktop //-->
 
-    <!--<DataTemplate x:Key="Desktop_Layout">
+    <DataTemplate x:Key="Desktop_Layout">
 
         <Grid x:Name="BaseGrid"
               Background="#282D33"
@@ -134,7 +134,7 @@
 
         </Grid>
 
-    </DataTemplate>-->
+    </DataTemplate>
 
     <!--// Laptop //-->
 
