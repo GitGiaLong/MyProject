@@ -7,17 +7,23 @@
         xmlns:uc="clr-namespace:GUIVWPF.UserControls"
         xmlns:rg="clr-namespace:GSMFWPF.Grid;assembly=GSMFWPF"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
-        xmlns:iss="clr-namespace:GSMFWPF.Helper;assembly=GSMFWPF"
         mc:Ignorable="d"
+        
         DataContext="{StaticResource MainVM}"
         Title="HRM"
         x:Name="ResponsiveWindow"
         Height="700"
         Width="1350"
         MinWidth="428"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent">
-
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5"/>
+    </WindowChrome.WindowChrome>
+    
     <Grid>
         <Border Background="#282D33" BorderBrush="#3A4149" BorderThickness="5" CornerRadius="8,8,0,8"></Border>
         <Grid x:Name="BaseGrid"
@@ -50,7 +56,7 @@
 
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Grid.Column="1">
+            <Grid Grid.Row="0" Grid.Column="1" Margin="1,1,-1,594" Grid.RowSpan="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
@@ -71,21 +77,10 @@
 
                 </Border>
                 <StackPanel Grid.Column="1" VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
-                    <!--<Button Command="{Binding MinAppCommand}"
-        CommandParameter="{Binding ElementName=ResponsiveWindow}"
-        Width="40" Height="40" />-->
+                    <Button Command="{Binding MinAppCommand}" CommandParameter="{Binding ElementName=ResponsiveWindow}" Style="{StaticResource MinAppStyle}" />
 
-                    <!--<Button Command="{Binding MaxAppCommand}"
-        CommandParameter="{Binding ElementName=ResponsiveWindow}"
-        Style="{StaticResource MaxAppStyle}" />-->
-
-                    <Button Command="{Binding CloseAppCommand}"
-        CommandParameter="{Binding ElementName=ResponsiveWindow}"
-          >
-                        <Canvas Width="32" Height="32" Background="Transparent">
-                            <Path Stroke="White" Width="32" Height="32" StrokeThickness="1" Data="M28,8H14a2,2,0,0,0-2,2v2h2V10H28V20H26v2h2a2,2,0,0,0,2-2V10A2,2,0,0,0,28,8Z"/>
-                            <Path Stroke="White" StrokeThickness="1" Data="M22,14H8a2,2,0,0,0-2,2V26a2,2,0,0,0,2,2H22a2,2,0,0,0,2-2V16A2,2,0,0,0,22,14ZM8,26V16H22V26Z"/>
-                        </Canvas>
+                    <Button Command="{Binding MaxAppCommand}" CommandParameter="{Binding ElementName=ResponsiveWindow}" Style="{StaticResource MaxAppStyle}" />
+                    <Button Command="{Binding CloseAppCommand}" CommandParameter="{Binding ElementName=ResponsiveWindow}"  Style="{StaticResource CloseAppStyle}">
                     </Button>
                 </StackPanel>
             </Grid>

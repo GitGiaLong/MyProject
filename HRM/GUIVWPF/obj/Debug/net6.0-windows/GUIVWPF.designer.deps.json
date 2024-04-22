@@ -6,6 +6,18 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
+      "FontAwesome5/2.1.11": {
+        "runtime": {
+          "lib/net6.0-windows7.0/FontAwesome5.Net.dll": {
+            "assemblyVersion": "2.1.11.0",
+            "fileVersion": "2.1.11.0"
+          },
+          "lib/net6.0-windows7.0/FontAwesome5.dll": {
+            "assemblyVersion": "2.1.11.0",
+            "fileVersion": "2.1.11.0"
+          }
+        }
+      },
       "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
         "runtime": {
           "lib/net6.0-windows7.0/Microsoft.Xaml.Behaviors.dll": {
@@ -25,6 +37,13 @@
     }
   },
   "libraries": {
+    "FontAwesome5/2.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OGwy+ZJoJR7U71eA3BenwP7rdVviVYp8p6ptdBEhoMRuRsSV4vGM/LypVBhonBI43WSxXBysSoE5uQ2SkYKNvA==",
+      "path": "fontawesome5/2.1.11",
+      "hashPath": "fontawesome5.2.1.11.nupkg.sha512"
+    },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
       "type": "package",
       "serviceable": true,
