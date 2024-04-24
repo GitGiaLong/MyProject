@@ -17,7 +17,6 @@ D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\GUIVWPF.csproj.AssemblyReference.cach
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\Resources\XAML\Style.baml
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\MainWindow.g.cs
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\Browser.g.cs
-D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\ControlBarUc.g.cs
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\TheWorld.g.cs
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\App.g.cs
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -27,7 +26,6 @@ D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\App.baml
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\MainWindow.baml
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\Resources\XAML\MainResource.baml
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\Browser.baml
-D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\ControlBarUc.baml
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\UserControls\TheWorld.baml
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\GUIVWPF.g.resources
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\GUIVWPF.GeneratedMSBuildEditorConfig.editorconfig
@@ -41,5 +39,5 @@ D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\refint\GUIVWPF.dll
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\GUIVWPF.pdb
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\GUIVWPF.genruntimeconfig.cache
 D:\My\HRM\GUIVWPF\obj\Debug\net6.0-windows\ref\GUIVWPF.dll
-D:\My\HRM\GUIVWPF\bin\Debug\net6.0-windows\FontAwesome5.Net.dll
-D:\My\HRM\GUIVWPF\bin\Debug\net6.0-windows\FontAwesome5.dll
+D:\My\HRM\GUIVWPF\bin\Debug\net6.0-windows\FontAwesome.Sharp.dll
+D:\My\HRM\GUIVWPF\bin\Debug\net6.0-windows\FontAwesome.Sharp.Pro.dll

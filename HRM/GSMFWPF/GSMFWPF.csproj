@@ -8,8 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="FontsIcon\Fonts\" />
-    <Folder Include="TreeView\" />
+    <ProjectReference Include="..\GSMF\GSMF.csproj" />
   </ItemGroup>
 
 </Project>

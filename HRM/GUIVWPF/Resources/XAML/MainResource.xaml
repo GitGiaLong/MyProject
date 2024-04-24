@@ -202,11 +202,11 @@
 
             </Grid>
 
-            <!--<ContentControl x:Name="SideMenuPanel"
+            <ContentControl x:Name="SideMenuPanel"
                             Grid.Row="0"
                             Grid.RowSpan="3"
                             Grid.Column="0"
-                            Template="{StaticResource SideMenuTemplate}" />-->
+                            Template="{StaticResource SideMenuTemplate}" />
 
             <ScrollViewer Grid.Row="1"
                           Grid.Column="1"
@@ -262,7 +262,7 @@
 
     <!--// Tablet Landscape //-->
 
-    <!--<DataTemplate x:Key="Tablet_Landscape_Layout">
+    <DataTemplate x:Key="Tablet_Landscape_Layout">
 
         <Grid x:Name="BaseGrid"
               Background="#282D33"
@@ -387,11 +387,11 @@
 
         </Grid>
 
-    </DataTemplate>-->
+    </DataTemplate>
 
     <!--// Tablet Portrait //-->
 
-    <!--<DataTemplate x:Key="Tablet_Portrait_Layout">
+    <DataTemplate x:Key="Tablet_Portrait_Layout">
 
         <Grid x:Name="BaseGrid"
               Background="#282D33"
@@ -513,11 +513,11 @@
 
         </Grid>
 
-    </DataTemplate>-->
+    </DataTemplate>
 
     <!--// Mobile Landscape //-->
 
-    <!--<DataTemplate x:Key="Mobile_Landscape_Layout">
+    <DataTemplate x:Key="Mobile_Landscape_Layout">
 
         <Grid x:Name="BaseGrid"
               Background="#282D33"
@@ -639,11 +639,11 @@
 
         </Grid>
 
-    </DataTemplate>-->
+    </DataTemplate>
 
     <!--// Mobile Portrait //-->
 
-    <!--<DataTemplate x:Key="Mobile_Portrait_Layout">
+    <DataTemplate x:Key="Mobile_Portrait_Layout">
 
         <Grid x:Name="BaseGrid"
               Background="#282D33"
@@ -764,7 +764,7 @@
 
         </Grid>
 
-    </DataTemplate>-->
+    </DataTemplate>
 
 
 </ResourceDictionary>

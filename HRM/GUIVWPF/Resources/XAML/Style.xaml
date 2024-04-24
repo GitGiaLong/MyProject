@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:fa="http://schemas.fontawesome.com/icons/"
+                    xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"
                     >
     <!--#region Side Menu-->
 
@@ -61,119 +61,50 @@
 
     </ControlTemplate>
 
-    <Style x:Key="HamburgerMenuButton"
-           TargetType="Button">
+    <Style x:Key="HamburgerMenuButton" TargetType="Button">
 
-        <Setter Property="Height"
-                Value="45" />
-        <Setter Property="Width"
-                Value="45" />
-        <Setter Property="HorizontalAlignment"
-                Value="Left" />
-        <Setter Property="VerticalAlignment"
-                Value="Top" />
-        <Setter Property="Margin"
-                Value="15,5,0,0" />
+        <Setter Property="Height" Value="45" />
+        <Setter Property="Width" Value="45" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="15,5,0,0" />
 
         <Setter Property="Template">
-
             <Setter.Value>
-
                 <ControlTemplate TargetType="{x:Type Button}">
-
-                    <Border x:Name="border"
-                            BorderThickness="0">
-                        <Canvas>
-                            <Path Stroke="White" StrokeThickness="1" Data="M1 9C0.44772 9 0 8.5523 0 8C0 7.4477 0.44772 7 1 7H19C19.5523 7 20 7.4477 20 8C20 8.5523 19.5523 9 19 9H1zM1 2C0.44772 2 0 1.55228 0 1C0 0.44772 0.44772 0 1 0H19C19.5523 0 20 0.44772 20 1C20 1.55228 19.5523 2 19 2H1zM1 16C0.44772 16 0 15.5523 0 15C0 14.4477 0.44772 14 1 14H19C19.5523 14 20 14.4477 20 15C20 15.5523 19.5523 16 19 16H1z"/>
-                        </Canvas>
+                    <Border x:Name="border" BorderThickness="0">
+                        <fa:IconBlock x:Name="Icocloseapp" Icon="Bars" Foreground="White" FontSize="24"/>
                     </Border>
-
                     <ControlTemplate.Triggers>
-
-                        <Trigger Property="IsMouseOver"
-                                 Value="True">
-
-                            <Setter Property="Opacity"
-                                    TargetName="border"
-                                    Value="0.5" />
-
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" TargetName="border" Value="0.5" />
                         </Trigger>
-
-                        <Trigger Property="IsPressed"
-                                 Value="True">
-
-                            <Setter Property="Opacity"
-                                    TargetName="border"
-                                    Value="0.5" />
-
-                        </Trigger>
-
                     </ControlTemplate.Triggers>
-
                 </ControlTemplate>
-
             </Setter.Value>
-
         </Setter>
     </Style>
 
-    <Style x:Key="CloseMenuButton"
-           TargetType="{x:Type Button}">
-
-        <Setter Property="Height"
-                Value="30" />
-        <Setter Property="Width"
-                Value="30" />
-        <Setter Property="HorizontalAlignment"
-                Value="Center" />
-        <Setter Property="VerticalAlignment"
-                Value="Center" />
-        <!--<Setter Property="Margin"
-                Value="0,10,10,0" />-->
-
+    <Style x:Key="CloseMenuButton" TargetType="{x:Type Button}">
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Width" Value="30" />
+        <Setter Property="HorizontalAlignment" Value="Right" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Margin" Value="0,10,10,0" />
         <Setter Property="Template">
-
             <Setter.Value>
-
                 <ControlTemplate TargetType="{x:Type Button}">
-
-                    <Border x:Name="border"
-                            BorderThickness="0">
-                        <Canvas>
-                            <Path Width="64" Height="64" Stroke="White" StrokeThickness="1" Data="M490.667,234.667H158.17l112.915-112.915c8.331-8.331,8.331-21.839,0-30.17s-21.839-8.331-30.17,0L91.582,240.915 c-0.497,0.497-0.967,1.02-1.413,1.563c-0.202,0.246-0.378,0.506-0.568,0.759c-0.228,0.304-0.463,0.601-0.674,0.917 c-0.203,0.303-0.379,0.618-0.564,0.929c-0.171,0.286-0.351,0.566-0.509,0.861c-0.169,0.317-0.313,0.643-0.465,0.966 c-0.145,0.308-0.299,0.611-0.43,0.926c-0.13,0.314-0.235,0.635-0.349,0.953c-0.122,0.338-0.251,0.672-0.356,1.018 c-0.096,0.318-0.167,0.642-0.248,0.963c-0.089,0.353-0.188,0.702-0.259,1.061c-0.074,0.372-0.117,0.747-0.171,1.122 c-0.045,0.314-0.105,0.623-0.136,0.941c-0.068,0.693-0.105,1.388-0.105,2.083c0,0.007-0.001,0.015-0.001,0.022 s0.001,0.015,0.001,0.022c0.001,0.695,0.037,1.39,0.105,2.083c0.031,0.318,0.091,0.627,0.136,0.941 c0.054,0.375,0.097,0.75,0.171,1.122c0.071,0.36,0.17,0.708,0.259,1.061c0.081,0.322,0.151,0.645,0.248,0.963 c0.105,0.346,0.234,0.68,0.356,1.018c0.114,0.318,0.219,0.639,0.349,0.953c0.131,0.316,0.284,0.618,0.43,0.926 c0.152,0.323,0.296,0.649,0.465,0.966c0.158,0.295,0.338,0.575,0.509,0.861c0.186,0.311,0.361,0.626,0.564,0.929 c0.211,0.316,0.447,0.613,0.674,0.917c0.19,0.253,0.365,0.513,0.568,0.759c0.446,0.544,0.916,1.067,1.413,1.563l149.333,149.333 c8.331,8.331,21.839,8.331,30.17,0s8.331-21.839,0-30.17L158.17,277.333h332.497c11.782,0,21.333-9.551,21.333-21.333 S502.449,234.667,490.667,234.667z"/>
-                            <Path Width="64" Height="64" Stroke="White" StrokeThickness="1" Data="M21.333,85.333C9.551,85.333,0,94.885,0,106.667v298.667c0,11.782,9.551,21.333,21.333,21.333 c11.782,0,21.333-9.551,21.333-21.333V106.667C42.667,94.885,33.115,85.333,21.333,85.333z"/>
-                        </Canvas>
-
+                    <Border x:Name="border" BorderThickness="0">
+                        <fa:IconBlock x:Name="arrowLeft" Icon="ArrowLeft" Foreground="White" FontSize="24"/>
                     </Border>
-
                     <ControlTemplate.Triggers>
-
-                        <Trigger Property="IsMouseOver"
-                                 Value="True">
-
-                            <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="white" />
-
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" TargetName="border" Value="0.5" />
                         </Trigger>
-
-                        <Trigger Property="IsPressed"
-                                 Value="True">
-
-                            <Setter Property="Background"
-                                    TargetName="border"
-                                    Value="white" />
-
-                        </Trigger>
-
                     </ControlTemplate.Triggers>
-
                 </ControlTemplate>
-
             </Setter.Value>
-
         </Setter>
-
     </Style>
 
     <DataTemplate x:Key="MainMenuTemplate">
@@ -240,11 +171,11 @@
         <Setter Property="Width"
                 Value="40" />
         <Setter Property="HorizontalAlignment"
-                Value="Center" />
+                Value="Right" />
         <Setter Property="VerticalAlignment"
-                Value="Center" />
-        <!--<Setter Property="Padding"
-                Value="0,10,10,0" />-->
+                Value="Top" />
+        <Setter Property="Margin"
+                Value="0,6,5,0" />
 
         
         <Setter Property="Template">
@@ -252,26 +183,16 @@
             <Setter.Value>
 
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border>
-                        <fa:ImageAwesome Icon="Solid_SignOutAlt" Foreground="White" Width="32" Height="32"/>
+                    <Border x:Name="border">
+                        <fa:IconBlock x:Name="Icocloseapp" Icon="SignOut" Foreground="White" FontSize="24"/>
                     </Border>
                     <ControlTemplate.Triggers>
 
                         <Trigger Property="IsMouseOver"
                                  Value="True">
-                            <!--<Setter Property="Opacity" 
-                                    TargetName="closeapp"
-                                    Value="0.5" />-->
-
-
-                        </Trigger>
-
-                        <Trigger Property="IsPressed"
-                                 Value="True">
-
-                            <!--<Setter Property="Opacity" 
-                                    TargetName="canvas"
-                                    Value="0.5" />-->
+                            <Setter Property="Opacity" 
+                                    TargetName="border"
+                                    Value="0.5" />
 
                         </Trigger>
 
@@ -285,7 +206,6 @@
 
     </Style>
 
-
     <Style x:Key="MaxAppStyle"
            TargetType="{x:Type Button}">
 
@@ -294,11 +214,11 @@
         <Setter Property="Width"
                 Value="40" />
         <Setter Property="HorizontalAlignment"
-                Value="Center" />
+                Value="Right" />
         <Setter Property="VerticalAlignment"
-                Value="Center" />
-        <!--<Setter Property="Margin"
-                Value="0,8,40,0" />-->
+                Value="Top" />
+        <Setter Property="Margin"
+                Value="0,10,35,0" />
 
         <Setter Property="Template">
 
@@ -310,7 +230,7 @@
                             BorderThickness="0"
                             >
                         <Canvas>
-                            <fa:ImageAwesome Icon="Solid_WindowRestore" Foreground="White" Width="32" Height="32"/>
+                            <fa:IconBlock x:Name="Icocloseapp" Icon="WindowRestore" Foreground="White" FontSize="24"/>
                         </Canvas>
 
                     </Border>
@@ -323,14 +243,6 @@
                                     TargetName="border"
                                     Value="0.5" />
 
-                        </Trigger>
-
-                        <Trigger Property="IsPressed"
-                                 Value="True">
-
-                            <Setter Property="Opacity"
-                                    TargetName="border"
-                                    Value="0.5" />
                         </Trigger>
 
                     </ControlTemplate.Triggers>
@@ -351,11 +263,11 @@
         <Setter Property="Width"
                 Value="40" />
         <Setter Property="HorizontalAlignment"
-                Value="Center" />
+                Value="Right" />
         <Setter Property="VerticalAlignment"
-                Value="Bottom" />
-        <!--<Setter Property="Margin"
-                Value="0,1,90,0" />-->
+                Value="Top" />
+        <Setter Property="Margin"
+                Value="0,10,70,0" />
 
         <Setter Property="Template">
 
@@ -367,7 +279,7 @@
                             BorderThickness="0"
                             >
                         <Canvas>
-                            <fa:ImageAwesome Icon="Solid_WindowMinimize" Foreground="White" Width="32" Height="32"/>
+                            <fa:IconBlock x:Name="Icocloseapp" Icon="WindowMinimize" Foreground="White" FontSize="24"/>
                         </Canvas>
 
                     </Border>
@@ -535,7 +447,6 @@
     </Style>
 
     <!--#endregion-->
-
 
     <Style x:Key="ExitWindows" TargetType="{x:Type Button}">
         <Setter Property="Height"

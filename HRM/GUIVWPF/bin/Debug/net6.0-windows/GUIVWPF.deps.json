@@ -9,7 +9,7 @@
       "GUIVWPF/1.0.0": {
         "dependencies": {
           "BLLVM": "1.0.0",
-          "FontAwesome5": "2.1.11",
+          "FontAwesome.Sharp.Pro": "6.3.0",
           "GSMFWPF": "1.0.0",
           "Microsoft.Xaml.Behaviors.Wpf": "1.1.77"
         },
@@ -17,15 +17,22 @@
           "GUIVWPF.dll": {}
         }
       },
-      "FontAwesome5/2.1.11": {
+      "FontAwesome.Sharp/6.3.0": {
         "runtime": {
-          "lib/net6.0-windows7.0/FontAwesome5.Net.dll": {
-            "assemblyVersion": "2.1.11.0",
-            "fileVersion": "2.1.11.0"
-          },
-          "lib/net6.0-windows7.0/FontAwesome5.dll": {
-            "assemblyVersion": "2.1.11.0",
-            "fileVersion": "2.1.11.0"
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {
+            "assemblyVersion": "6.3.0.0",
+            "fileVersion": "6.3.0.0"
+          }
+        }
+      },
+      "FontAwesome.Sharp.Pro/6.3.0": {
+        "dependencies": {
+          "FontAwesome.Sharp": "6.3.0"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.Pro.dll": {
+            "assemblyVersion": "6.3.0.0",
+            "fileVersion": "6.3.0.0"
           }
         }
       },
@@ -71,6 +78,9 @@
         }
       },
       "GSMFWPF/1.0.0": {
+        "dependencies": {
+          "GSMF": "1.0.0"
+        },
         "runtime": {
           "GSMFWPF.dll": {}
         }
@@ -83,12 +93,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "FontAwesome5/2.1.11": {
+    "FontAwesome.Sharp/6.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OGwy+ZJoJR7U71eA3BenwP7rdVviVYp8p6ptdBEhoMRuRsSV4vGM/LypVBhonBI43WSxXBysSoE5uQ2SkYKNvA==",
-      "path": "fontawesome5/2.1.11",
-      "hashPath": "fontawesome5.2.1.11.nupkg.sha512"
+      "sha512": "sha512-3/Fb0N04yYK8An07oox5ISlUyNgsnWildHfoP69uqTEOsemQemRyciphMkXZOcdBupjUD+lVsRE3FqG41/dzPA==",
+      "path": "fontawesome.sharp/6.3.0",
+      "hashPath": "fontawesome.sharp.6.3.0.nupkg.sha512"
+    },
+    "FontAwesome.Sharp.Pro/6.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-OnocgtWLmfGsQYP6yazZSYixYU01VY0NMLsUTDBJV6y7e6aVjWMu/RrNa4otcF7j9Wo1T6xtatg6bSOCPlKo5g==",
+      "path": "fontawesome.sharp.pro/6.3.0",
+      "hashPath": "fontawesome.sharp.pro.6.3.0.nupkg.sha512"
     },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
       "type": "package",

@@ -2,24 +2,32 @@
   "version": 3,
   "targets": {
     "net6.0-windows7.0": {
-      "FontAwesome5/2.1.11": {
+      "FontAwesome.Sharp/6.3.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0-windows7.0/FontAwesome5.Net.dll": {
-            "related": ".xml"
-          },
-          "lib/net6.0-windows7.0/FontAwesome5.dll": {
-            "related": ".Net.xml;.xml"
-          }
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {}
         },
         "runtime": {
-          "lib/net6.0-windows7.0/FontAwesome5.Net.dll": {
-            "related": ".xml"
-          },
-          "lib/net6.0-windows7.0/FontAwesome5.dll": {
-            "related": ".Net.xml;.xml"
-          }
-        }
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
+      },
+      "FontAwesome.Sharp.Pro/6.3.0": {
+        "type": "package",
+        "dependencies": {
+          "FontAwesome.Sharp": "6.3.0"
+        },
+        "compile": {
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.Pro.dll": {}
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/FontAwesome.Sharp.Pro.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App"
+        ]
       },
       "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
         "type": "package",
@@ -93,6 +101,9 @@
       "GSMFWPF/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "GSMF": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/GSMFWPF.dll": {}
         },
@@ -106,56 +117,34 @@
     }
   },
   "libraries": {
-    "FontAwesome5/2.1.11": {
-      "sha512": "OGwy+ZJoJR7U71eA3BenwP7rdVviVYp8p6ptdBEhoMRuRsSV4vGM/LypVBhonBI43WSxXBysSoE5uQ2SkYKNvA==",
+    "FontAwesome.Sharp/6.3.0": {
+      "sha512": "3/Fb0N04yYK8An07oox5ISlUyNgsnWildHfoP69uqTEOsemQemRyciphMkXZOcdBupjUD+lVsRE3FqG41/dzPA==",
       "type": "package",
-      "path": "fontawesome5/2.1.11",
+      "path": "fontawesome.sharp/6.3.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "fontawesome5.2.1.11.nupkg.sha512",
-        "fontawesome5.nuspec",
-        "icon.png",
-        "lib/net40/FontAwesome5.Net.dll",
-        "lib/net40/FontAwesome5.Net.xml",
-        "lib/net40/FontAwesome5.dll",
-        "lib/net40/FontAwesome5.xml",
-        "lib/net462/FontAwesome5.Net.dll",
-        "lib/net462/FontAwesome5.Net.xml",
-        "lib/net462/FontAwesome5.dll",
-        "lib/net462/FontAwesome5.xml",
-        "lib/net472/FontAwesome5.Net.dll",
-        "lib/net472/FontAwesome5.Net.xml",
-        "lib/net472/FontAwesome5.dll",
-        "lib/net472/FontAwesome5.xml",
-        "lib/net5.0-windows7.0/FontAwesome5.Net.dll",
-        "lib/net5.0-windows7.0/FontAwesome5.Net.xml",
-        "lib/net5.0-windows7.0/FontAwesome5.dll",
-        "lib/net5.0-windows7.0/FontAwesome5.xml",
-        "lib/net5.0/FontAwesome5.dll",
-        "lib/net5.0/FontAwesome5.xml",
-        "lib/net6.0-windows7.0/FontAwesome5.Net.dll",
-        "lib/net6.0-windows7.0/FontAwesome5.Net.xml",
-        "lib/net6.0-windows7.0/FontAwesome5.dll",
-        "lib/net6.0-windows7.0/FontAwesome5.xml",
-        "lib/net6.0/FontAwesome5.dll",
-        "lib/net6.0/FontAwesome5.xml",
-        "lib/netcoreapp3.1/FontAwesome5.Net.dll",
-        "lib/netcoreapp3.1/FontAwesome5.Net.xml",
-        "lib/netcoreapp3.1/FontAwesome5.dll",
-        "lib/netcoreapp3.1/FontAwesome5.xml",
-        "lib/netstandard1.4/FontAwesome5.dll",
-        "lib/netstandard1.4/FontAwesome5.xml",
-        "lib/netstandard2.1/FontAwesome5.dll",
-        "lib/netstandard2.1/FontAwesome5.xml",
-        "lib/uap10.0/FontAwesome5.UWP.XML",
-        "lib/uap10.0/FontAwesome5.UWP.dll",
-        "lib/uap10.0/FontAwesome5.UWP.pri",
-        "lib/uap10.0/FontAwesome5.UWP/Fonts/Font Awesome 5 Brands-Regular-400.otf",
-        "lib/uap10.0/FontAwesome5.UWP/Fonts/Font Awesome 5 Free-Regular-400.otf",
-        "lib/uap10.0/FontAwesome5.UWP/Fonts/Font Awesome 5 Free-Solid-900.otf",
-        "lib/uap10.0/FontAwesome5.dll",
-        "lib/uap10.0/FontAwesome5.xml"
+        "fontawesome.sharp.6.3.0.nupkg.sha512",
+        "fontawesome.sharp.nuspec",
+        "lib/net472/FontAwesome.Sharp.dll",
+        "lib/net48/FontAwesome.Sharp.dll",
+        "lib/net6.0-windows7.0/FontAwesome.Sharp.dll",
+        "lib/netcoreapp3.1/FontAwesome.Sharp.dll"
+      ]
+    },
+    "FontAwesome.Sharp.Pro/6.3.0": {
+      "sha512": "OnocgtWLmfGsQYP6yazZSYixYU01VY0NMLsUTDBJV6y7e6aVjWMu/RrNa4otcF7j9Wo1T6xtatg6bSOCPlKo5g==",
+      "type": "package",
+      "path": "fontawesome.sharp.pro/6.3.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "fontawesome.sharp.pro.6.3.0.nupkg.sha512",
+        "fontawesome.sharp.pro.nuspec",
+        "lib/net472/FontAwesome.Sharp.Pro.dll",
+        "lib/net48/FontAwesome.Sharp.Pro.dll",
+        "lib/net6.0-windows7.0/FontAwesome.Sharp.Pro.dll",
+        "lib/netcoreapp3.1/FontAwesome.Sharp.Pro.dll"
       ]
     },
     "Microsoft.Xaml.Behaviors.Wpf/1.1.77": {
@@ -234,7 +223,7 @@
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
       "BLLVM >= 1.0.0",
-      "FontAwesome5 >= 2.1.11",
+      "FontAwesome.Sharp.Pro >= 6.3.0",
       "GSMFWPF >= 1.0.0",
       "Microsoft.Xaml.Behaviors.Wpf >= 1.1.77"
     ]
@@ -303,9 +292,9 @@
       "net6.0-windows7.0": {
         "targetAlias": "net6.0-windows",
         "dependencies": {
-          "FontAwesome5": {
+          "FontAwesome.Sharp.Pro": {
             "target": "Package",
-            "version": "[2.1.11, )"
+            "version": "[6.3.0, )"
           },
           "Microsoft.Xaml.Behaviors.Wpf": {
             "target": "Package",

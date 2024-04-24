@@ -1,7 +1,7 @@
 {
   "entryAssembly": "GUIVWebBlazorClient",
   "resources": {
-    "hash": "sha256-JREgC7xV79GWRe3Unbtlki/GqONq+oFTMY3+dL98kM8=",
+    "hash": "sha256-NCZs61ikpkrjoMtwXh6VQD5jD8kVNi6Ik9/YhMnkapc=",
     "runtime": {
       "dotnet.6.0.26.zldu2hn6lg.js": "sha256-q4SPzhRyXlR1HXK6WAbwJRNI6jvBBYUisoHeH0+eRyM=",
       "dotnet.timezones.blat": "sha256-klrDSl9zL0jGM+Fc+fiCLbJ5Z7U2C9fTDn0+NmIH9VY=",
@@ -201,18 +201,18 @@
       "mscorlib.dll": "sha256-s5oSn2ty4Q1q2t/0DWCHXo4ll77GsoYrYe5ExHyAg0o=",
       "netstandard.dll": "sha256-AH9oqzxpl6lGTr9vEnTGTk40WK7IpSuGlKS3dTEC67I=",
       "System.Private.CoreLib.dll": "sha256-ae6NSkrFVtQY8QH8C38+ZYQDBUinD+PjmAf/eE/eVMQ=",
-      "BLLVM.dll": "sha256-Pac77QLml7meRDEy/k7Wf23AvkAjLR2UCO31BAg8uS0=",
-      "Entities.dll": "sha256-z9zyu+JuRMH51NiK7WvxCj3Q/Z0L46XTnG+3fVH++kY=",
-      "GSMF.dll": "sha256-EQmv36JXy79i9Js2PwWYh6h5xcVJg5whWw2Psj1+4VE=",
-      "GSMFCBlazor.dll": "sha256-CZCqM+YNSQw9cDhg7HHFo8JIQnuIslUmAIvzmd+R1nU=",
-      "GUIVWebBlazorClient.dll": "sha256-3CGwfTpd48Xk1kbEZWTFRoS4liTT/AtApsrjFK5n+VI="
+      "BLLVM.dll": "sha256-Y9gOb2g5q1SYx6BeTXg40NE91uuViV6c9ZnwIyMJQjI=",
+      "Entities.dll": "sha256-0wlWPLzg7HR3pERJhephINA44F22SvOKNGPPnIpTEKM=",
+      "GSMF.dll": "sha256-G50j4cRvZtcW1Anp9zqpyk0jQKWNfiAwlewrIsXmp58=",
+      "GSMFCBlazor.dll": "sha256-aIjtlr+6KMlU/eJtkZPfRxnfc0f0WQpM76rZv/MExsk=",
+      "GUIVWebBlazorClient.dll": "sha256-MTEU/CY/4mqhGDJ9p2wuS6h4iUf9v+cCyRT7T4nT9ko="
     },
     "pdb": {
-      "BLLVM.pdb": "sha256-J2un+cCDVCbw93QNZ6P0js4zbrMTaE0iArEBnRaLAow=",
-      "GSMFCBlazor.pdb": "sha256-b6BDdvcL8vxWCCDPBPJxI81iSwIcvgMp7CxEHIyg+LQ=",
-      "GSMF.pdb": "sha256-q8gBXeqVO2Qs68wyBHM9t7lI130oWgcb47iv4o/hlZg=",
-      "Entities.pdb": "sha256-gdcNw9mQ2zcUl4Hgtrx1ckt0pXsQNUXd5OK9Cn2KAJc=",
-      "GUIVWebBlazorClient.pdb": "sha256-FbtfqjOwqI/7leMV0UHWbjYkCmYYj5UdEB2qiTvUVog="
+      "BLLVM.pdb": "sha256-SeVzBf0Hs4DGmRwULxOnyRhbzT1JkQwYT5qRKNFedsw=",
+      "GSMFCBlazor.pdb": "sha256-PTR0lSPhrDjHvSy6VGNsjvh4QTO7ReMhLr7bpIYyXC8=",
+      "GSMF.pdb": "sha256-0GeRkAf8FrpqGsDuug1fULdTNdZYNBhUujgAErBxwhU=",
+      "Entities.pdb": "sha256-7n1Z/MWW4rtyogteOIgpkmtLWoNQZvi6SkNxTuTK+sI=",
+      "GUIVWebBlazorClient.pdb": "sha256-In623ke1dIFViI+5RZafnUXkVo7sgY+ZwJIZnUymEgE="
     },
     "runtimeAssets": {
       "dotnet.wasm": {
