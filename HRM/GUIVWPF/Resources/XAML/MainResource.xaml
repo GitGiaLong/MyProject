@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:Viewmodel="clr-namespace:GUIVWPF.ViewModels"
                     xmlns:uc="clr-namespace:GUIVWPF.UserControls"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
                     >
 
     <ResourceDictionary.MergedDictionaries>
-
         <ResourceDictionary>
             <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
         </ResourceDictionary>
@@ -14,68 +14,65 @@
     <Viewmodel:TheWorld x:Key="TheWorldVM"></Viewmodel:TheWorld>
     <Viewmodel:MainVM x:Key="MainVM"></Viewmodel:MainVM>
 
-    <!--// Desktop //-->
+    <!--// Screens TV 1200px//-->
+
+    <DataTemplate x:Key="TV_Layout">
+        <Grid x:Name="BaseGrid" Background="#282D33" Margin="8">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition x:Name="SideMenuColumn" Width="0.22*" MaxWidth="240" />
+                <ColumnDefinition x:Name="col2" Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <ContentControl Grid.Column="0" Template="{StaticResource MenuTemplatess}" />
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <Border CornerRadius="0 4 0 0" Grid.Row="0" Background="#373E46">
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="MouseLeftButtonDown">
+                            <i:InvokeCommandAction Command="{Binding MouseMoveCommand}" CommandParameter="{Binding ElementName=ResponsiveWindow}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </Border>
+
+                <Border CornerRadius="0 0 4 0" Grid.Row="2" Background="#373E46"/>
+            </Grid>
+
+        </Grid>
+
+    </DataTemplate>
 
     <DataTemplate x:Key="Desktop_Layout">
-
-        <Grid x:Name="BaseGrid"
-              Background="#282D33"
-              Margin="8">
-
+        <Grid x:Name="BaseGrid" Background="#282D33" Margin="8">
             <Grid.ColumnDefinitions>
-
-                <ColumnDefinition x:Name="SideMenuColumn"
-                                  Width="0.22*"
-                                  MaxWidth="240" />
-
-                <ColumnDefinition x:Name="col2"
-                                  Width="1*" />
-
+                <ColumnDefinition x:Name="SideMenuColumn" Width="0.22*" MaxWidth="240" />
+                <ColumnDefinition x:Name="col2" Width="1*" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-
-                <RowDefinition x:Name="row1"
-                               Height="0.1*"
-                               MinHeight="60"
-                               MaxHeight="68" />
-
-                <RowDefinition x:Name="row2"
-                               Height="0.8*" />
-
-                <RowDefinition x:Name="row3"
-                               Height="0.02*" />
-
+                <RowDefinition x:Name="row1" Height="0.1*" MinHeight="60" MaxHeight="68" />
+                <RowDefinition x:Name="row2" Height="0.8*" />
+                <RowDefinition x:Name="row3" Height="0.02*" />
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0"
-                  Grid.Column="1"
-                  Height="30"
-                  Width="230"
-                  VerticalAlignment="Top"
-                  HorizontalAlignment="Left"
-                  Margin="20,20,0,0">
-
-                <Border Height="30"
-                        Width="230"
-                        Background="#373E46"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
+            <Grid Grid.Row="0" Grid.Column="1" Height="30" Width="230" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,20,0,0">
+                <Border Height="30" Width="230" Background="#373E46" HorizontalAlignment="Center" VerticalAlignment="Top" 
                         BorderThickness="5,0,5,0"
                         BorderBrush="#FFDD00"
                         CornerRadius="5">
-
                     <Grid>
-
                         <TextBlock Text="HRM"
-                                   FontFamily="Fonts/#Saira Regular"
                                    FontSize="18"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
                                    Foreground="#DCE0E4" />
 
-                        <TextBlock Text="Version: Demo"
-                                   FontFamily="Fonts/#Saira SemiBold"
+                        <TextBlock Text="Version: Demo" 
                                    FontSize="10"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
@@ -88,56 +85,29 @@
             </Grid>
 
 
-            <ContentControl Grid.Row="0"
-                            Grid.RowSpan="3"
-                            Grid.Column="0"
-                            Template="{StaticResource SideMenuTemplate}" />
-
-            <ScrollViewer Grid.Row="1"
-                          Grid.Column="1"
-                          VerticalScrollBarVisibility="Auto">
-
-                <Grid x:Name="Card_Grid"
-                      Background="Transparent"
-                      VerticalAlignment="Top"
-                      Margin="10,0,10,0">
-
+            <ContentControl Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Template="{StaticResource SideMenuTemplate}" />
+            <ScrollViewer Grid.Row="1" Grid.Column="1" VerticalScrollBarVisibility="Auto">
+                <Grid x:Name="Card_Grid" Background="Transparent" VerticalAlignment="Top" Margin="10,0,10,0">
                     <Grid.ColumnDefinitions>
-
-                        <ColumnDefinition x:Name="c0"
-                                          Width="1*" />
-                        <ColumnDefinition x:Name="c1"
-                                          Width="1*" />
-                        <ColumnDefinition x:Name="c2"
-                                          Width="1*" />
-                        <ColumnDefinition x:Name="c3"
-                                          Width="1*" />
-
+                        <ColumnDefinition x:Name="c0" Width="1*" />
+                        <ColumnDefinition x:Name="c1" Width="1*" />
+                        <ColumnDefinition x:Name="c2" Width="1*" />
+                        <ColumnDefinition x:Name="c3" Width="1*" />
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
-
-                        <RowDefinition x:Name="CG_R1"
-                                       Height="130" />
-                        <RowDefinition x:Name="CG_R2"
-                                       Height="0" />
-                        <RowDefinition x:Name="CG_R3"
-                                       Height="462" />
-                        <RowDefinition x:Name="CG_R4"
-                                       Height="315" />
-
+                        <RowDefinition x:Name="CG_R1" Height="130" />
+                        <RowDefinition x:Name="CG_R2" Height="0" />
+                        <RowDefinition x:Name="CG_R3" Height="462" />
+                        <RowDefinition x:Name="CG_R4" Height="315" />
                     </Grid.RowDefinitions>
-                   
                 </Grid>
-
             </ScrollViewer>
 
         </Grid>
 
     </DataTemplate>
-
-    <!--// Laptop //-->
-
+    
     <DataTemplate x:Key="Laptop_Layout">
 
         <Grid x:Name="BaseGrid"
@@ -190,7 +160,6 @@
                     <Grid>
 
                         <TextBlock Text="HRM"
-                                   FontFamily="Fonts/#Saira Regular"
                                    FontSize="18"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
@@ -260,9 +229,7 @@
 
     </DataTemplate>
 
-    <!--// Tablet Landscape //-->
-
-    <DataTemplate x:Key="Tablet_Landscape_Layout">
+    <DataTemplate x:Key="Tablet_Layout">
 
         <Grid x:Name="BaseGrid"
               Background="#282D33"
@@ -313,14 +280,12 @@
                     <Grid>
 
                         <TextBlock Text="HRM"
-                                   FontFamily="Fonts/#Saira Regular"
                                    FontSize="18"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
                                    Foreground="#DCE0E4" />
 
-                        <TextBlock Text="Version: Demo Tablet Landscape"
-                                   FontFamily="Fonts/Saira SemiBold"
+                        <TextBlock Text="Version: Demo Tablet"
                                    FontSize="10"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
@@ -389,9 +354,7 @@
 
     </DataTemplate>
 
-    <!--// Tablet Portrait //-->
-
-    <DataTemplate x:Key="Tablet_Portrait_Layout">
+    <DataTemplate x:Key="Mobile_Layout">
 
         <Grid x:Name="BaseGrid"
               Background="#282D33"
@@ -442,140 +405,12 @@
                     <Grid>
 
                         <TextBlock Text="HRM"
-                                   FontFamily="Fonts/#Saira Regular"
-                                   FontSize="18"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"
-                                   Foreground="#DCE0E4" />
-
-                        <TextBlock Text="Version: Demo Tablet Portrait"
-                                   FontFamily="Fonts/#Saira SemiBold"
-                                   FontSize="10"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"
-                                   Foreground="Transparent" />
-
-                    </Grid>
-
-                </Border>
-
-            </Grid>
-
-            <Button Grid.Row="0"
-                    Grid.Column="1"
-                    Command="{Binding ShowMenuCommand}"
-                    Style="{StaticResource HamburgerMenuButton}" />
-
-
-            <ScrollViewer Grid.Row="1"
-                          Grid.Column="1"
-                          VerticalScrollBarVisibility="Auto">
-
-                <Grid x:Name="Card_Grid"
-                      Background="Transparent"
-                      Height="900"
-                      VerticalAlignment="Top"
-                      Margin="10,0,10,0">
-
-                    <Grid.ColumnDefinitions>
-
-                        <ColumnDefinition x:Name="c0"
-                                          Width="1*" />
-                        <ColumnDefinition x:Name="c1"
-                                          Width="1*" />
-                        <ColumnDefinition x:Name="c2"
-                                          Width="1*" />
-                        <ColumnDefinition x:Name="c3"
-                                          Width="1*" />
-
-                    </Grid.ColumnDefinitions>
-
-                    <Grid.RowDefinitions>
-
-                        <RowDefinition x:Name="CG_R1"
-                                       Height="0.30*" />
-                        <RowDefinition x:Name="CG_R2"
-                                       Height="0*" />
-                        <RowDefinition x:Name="CG_R3"
-                                       Height="0.80*" />
-                        <RowDefinition x:Name="CG_R4"
-                                       Height="0.40*" />
-                        <RowDefinition x:Name="CG_R5"
-                                       Height="0.80*" />
-                        <RowDefinition x:Name="CG_R6"
-                                       Height="0.02*" />
-
-                    </Grid.RowDefinitions>
-
-                </Grid>
-
-            </ScrollViewer>
-
-        </Grid>
-
-    </DataTemplate>
-
-    <!--// Mobile Landscape //-->
-
-    <DataTemplate x:Key="Mobile_Landscape_Layout">
-
-        <Grid x:Name="BaseGrid"
-              Background="#282D33"
-              Margin="8">
-
-            <Grid.ColumnDefinitions>
-
-                <ColumnDefinition x:Name="SideMenuColumn"
-                                  Width="0" />
-
-                <ColumnDefinition x:Name="col2"
-                                  Width="1*" />
-
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-
-                <RowDefinition x:Name="row1"
-                               Height="0.1*"
-                               MinHeight="65"
-                               MaxHeight="75" />
-
-                <RowDefinition x:Name="row2"
-                               Height="0.8*" />
-
-                <RowDefinition x:Name="row3"
-                               Height="0.02*" />
-
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="0"
-                  Grid.Column="1"
-                  Height="30"
-                  Width="230"
-                  VerticalAlignment="Top"
-                  HorizontalAlignment="Center"
-                  Margin="0,20,0,0">
-
-                <Border Height="30"
-                        Width="230"
-                        Background="#373E46"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
-                        BorderThickness="5,0,5,0"
-                        BorderBrush="#FFDD00"
-                        CornerRadius="5">
-
-                    <Grid>
-
-                        <TextBlock Text="HRM"
-                                   FontFamily="Fonts/#Saira Regular"
                                    FontSize="18"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
                                    Foreground="#DCE0E4" />
 
                         <TextBlock Text="Version: Demo Mobile Landscape"
-                                   FontFamily="Fonts/#Saira SemiBold"
                                    FontSize="10"
                                    VerticalAlignment="Center"
                                    HorizontalAlignment="Center"
@@ -641,130 +476,5 @@
 
     </DataTemplate>
 
-    <!--// Mobile Portrait //-->
-
-    <DataTemplate x:Key="Mobile_Portrait_Layout">
-
-        <Grid x:Name="BaseGrid"
-              Background="#282D33"
-              Margin="8">
-
-            <Grid.ColumnDefinitions>
-
-                <ColumnDefinition x:Name="SideMenuColumn"
-                                  Width="0" />
-
-                <ColumnDefinition x:Name="col2"
-                                  Width="1*" />
-
-            </Grid.ColumnDefinitions>
-
-            <Grid.RowDefinitions>
-
-                <RowDefinition x:Name="row1"
-                               Height="0.1*"
-                               MinHeight="65"
-                               MaxHeight="75" />
-
-                <RowDefinition x:Name="row2"
-                               Height="0.8*" />
-
-                <RowDefinition x:Name="row3"
-                               Height="0.02*" />
-
-            </Grid.RowDefinitions>
-
-            <Grid Grid.Row="0"
-                  Grid.Column="1"
-                  Height="30"
-                  Width="230"
-                  VerticalAlignment="Top"
-                  HorizontalAlignment="Center"
-                  Margin="0,20,0,0">
-
-                <Border Height="30"
-                        Width="230"
-                        Background="#373E46"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Top"
-                        BorderThickness="5,0,5,0"
-                        BorderBrush="#FFDD00"
-                        CornerRadius="5">
-
-                    <Grid>
-
-                        <TextBlock Text="HRM"
-                                   FontFamily="Fonts/#Saira Regular"
-                                   FontSize="18"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"
-                                   Foreground="#DCE0E4" />
-
-                        <TextBlock Text="Version: Demo Mobile Portrait"
-                                   FontFamily="Fonts/#Saira SemiBold"
-                                   FontSize="10"
-                                   VerticalAlignment="Center"
-                                   HorizontalAlignment="Center"
-                                   Foreground="Transparent" />
-
-                    </Grid>
-
-                </Border>
-
-            </Grid>
-
-            <Button Grid.Row="0"
-                    Grid.Column="1"
-                    Command="{Binding ShowMenuCommand}"
-                    Style="{StaticResource HamburgerMenuButton}" />
-
-            <ScrollViewer Grid.Row="1"
-                          Grid.Column="1"
-                          VerticalScrollBarVisibility="Auto">
-
-                <Grid x:Name="Card_Grid"
-                      Background="Transparent"
-                      Height="1540"
-                      VerticalAlignment="Top"
-                      Margin="10,0,10,0">
-
-                    <Grid.ColumnDefinitions>
-
-                        <ColumnDefinition x:Name="c0"
-                                          Width="1*" />
-                        <ColumnDefinition x:Name="c1"
-                                          Width="1*" />
-                        <ColumnDefinition x:Name="c2"
-                                          Width="1*" />
-                        <ColumnDefinition x:Name="c3"
-                                          Width="1*" />
-
-                    </Grid.ColumnDefinitions>
-
-                    <Grid.RowDefinitions>
-
-                        <RowDefinition x:Name="CG_R1"
-                                       Height="116" />
-                        <RowDefinition x:Name="CG_R2"
-                                       Height="116" />
-                        <RowDefinition x:Name="CG_R3"
-                                       Height="500" />
-                        <RowDefinition x:Name="CG_R4"
-                                       Height="315" />
-                        <RowDefinition x:Name="CG_R5"
-                                       Height="480" />
-                        <RowDefinition x:Name="CG_R6"
-                                       Height="10" />
-
-                    </Grid.RowDefinitions>
-
-                </Grid>
-
-            </ScrollViewer>
-
-        </Grid>
-
-    </DataTemplate>
-
-
+    
 </ResourceDictionary>

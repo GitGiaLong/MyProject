@@ -4,22 +4,21 @@
                     >
     <!--#region Side Menu-->
 
-    <Style x:Key="SideMenuStyle"
-           TargetType="Border">
-
-        <Setter Property="Background"
-                Value="#373E46" />
-        <Setter Property="CornerRadius"
-                Value="4,0,0,4" />
-        <Setter Property="MinWidth"
-                Value="200" />
-        <Setter Property="Margin"
-                Value="2,2,0,2" />
-
+    <Style x:Key="MenuSide" TargetType="Border">
+        <Setter Property="Background" Value="#373E46" />
+        <Setter Property="CornerRadius" Value="4,0,0,4" />
+        <Setter Property="MinWidth" Value="50" />
+        <Setter Property="Margin" Value="2,2,0,2" />
+    </Style>
+    
+    <Style x:Key="SideMenuStyle" TargetType="Border">
+        <Setter Property="Background" Value="#373E46" />
+        <Setter Property="CornerRadius" Value="4,0,0,4" />
+        <Setter Property="MinWidth" Value="50" />
+        <Setter Property="Margin" Value="2,2,0,2" />
     </Style>
 
-    <Style x:Key="MenuStackPanelStyle"
-           TargetType="StackPanel">
+    <Style x:Key="MenuStackPanelStyle" TargetType="StackPanel">
 
         <Setter Property="Orientation"
                 Value="Vertical" />
@@ -33,6 +32,22 @@
                 Value="0,180,0,0" />
 
     </Style>
+
+    <ControlTemplate x:Key="MenuTemplatess">
+
+        <Grid Grid.Column="0" Background="#373E46">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1.5*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <!--<Border Grid.Row="0" VerticalAlignment="Bottom" BorderBrush="Black" Width="80" BorderThickness="3" Height="80" CornerRadius="50,50,50,50"></Border>-->
+            <Border Grid.Row="2" >
+
+            </Border>
+        </Grid>
+
+    </ControlTemplate>
 
     <ControlTemplate x:Key="SideMenuTemplate">
 
@@ -49,7 +64,6 @@
                 </StackPanel>
 
                 <TextBlock Text="Version: Demo"
-                           FontFamily="Fonts/#Saira SemiBold"
                            FontSize="10"
                            VerticalAlignment="Bottom"
                            HorizontalAlignment="Center"
@@ -112,7 +126,6 @@
         <Border Style="{StaticResource SideMenuStyle}">
 
             <Grid>
-
                 <Button Command="{Binding CloseMenuCommand}"
                         Style="{StaticResource CloseMenuButton}" />
 
@@ -121,7 +134,6 @@
                 </StackPanel>
 
                 <TextBlock Text="Version: Demo"
-                           FontFamily="Fonts/#Saira SemiBold"
                            FontSize="10"
                            VerticalAlignment="Bottom"
                            HorizontalAlignment="Center"
@@ -447,19 +459,5 @@
     </Style>
 
     <!--#endregion-->
-
-    <Style x:Key="ExitWindows" TargetType="{x:Type Button}">
-        <Setter Property="Height"
-        Value="40" />
-        <Setter Property="Width"
-        Value="40" />
-        <Setter Property="HorizontalAlignment"
-        Value="Right" />
-        <Setter Property="VerticalAlignment"
-        Value="Top" />
-        <Setter Property="Foreground" Value="White"></Setter>
-        <Setter Property="Margin"
-        Value="0,15,15,0" />
-    </Style>
     
 </ResourceDictionary>

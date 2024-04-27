@@ -13,35 +13,30 @@
         x:Name="ResponsiveWindow"
         Height="700"
         Width="1350"
-        MinWidth="428"
+        MinWidth="480"
+        MinHeight="740"
         AllowsTransparency="True"
         WindowStyle="None"
-        ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
         Background="Transparent">
     <WindowChrome.WindowChrome>
-        <WindowChrome CaptionHeight="0" ResizeBorderThickness="5"/>
+        <WindowChrome CaptionHeight="0" ResizeBorderThickness="2"/>
     </WindowChrome.WindowChrome>
     
     <Grid>
-        <Border Background="#282D33" BorderBrush="#3A4149" BorderThickness="5" CornerRadius="8,8,0,8"></Border>
-       
+        <Border Background="#282D33" BorderBrush="#3A4149" BorderThickness="5" CornerRadius="8,8,8,8"></Border>
+
         <ContentControl Content="{Binding}">
 
             <ContentControl.Style>
 
                 <Style TargetType="ContentControl">
 
-                    <!--// Default Layout //-->
+                    <Setter Property="ContentTemplate" Value="{StaticResource TV_Layout}" />
 
-                    <Setter Property="ContentTemplate"
-                            Value="{StaticResource Laptop_Layout}" />
+                    <!--<Style.Triggers>
 
-                    <Style.Triggers>
-
-                        <!--// Desktop Layout // {width > 1400px}-->
-
-                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static rg:LayoutGreaterThan.Instance}, ConverterParameter=1400}"
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static rg:LayoutGreaterThan.Instance}, ConverterParameter=1199}"
                                      Value="True">
 
                             <Setter Property="ContentTemplate"
@@ -49,47 +44,31 @@
 
                         </DataTrigger>
 
-                        <!--// Tablet Landscape Layout // {width < 1200px}-->
-
-                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static rg:LayoutLessThan.Instance}, ConverterParameter=1200}"
-                                     Value="True">
-
-                            <Setter Property="ContentTemplate"
-                                    Value="{StaticResource Tablet_Landscape_Layout}" />
-
-                        </DataTrigger>
-
-                        <!--// Tablet Portrait Layout // {width < 1024px}-->
-
                         <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static rg:LayoutLessThan.Instance}, ConverterParameter=1024}"
                                      Value="True">
 
                             <Setter Property="ContentTemplate"
-                                    Value="{StaticResource Tablet_Portrait_Layout}" />
+                                    Value="{StaticResource Laptop_Layout}" />
 
                         </DataTrigger>
 
-                        <!--// Mobile Landscape Layout // {width < 812px}-->
-
-                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static rg:LayoutLessThan.Instance}, ConverterParameter=812}"
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static rg:LayoutLessThan.Instance}, ConverterParameter=740}"
                                      Value="True">
 
                             <Setter Property="ContentTemplate"
-                                    Value="{StaticResource Mobile_Landscape_Layout}" />
+                                    Value="{StaticResource Tablet_Layout}" />
 
                         </DataTrigger>
 
-                        <!--// Mobile Portrait Layout // {width < 667px}-->
-
-                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static rg:LayoutLessThan.Instance}, ConverterParameter=667}"
+                        <DataTrigger Binding="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Window}, Converter={x:Static rg:LayoutLessThan.Instance}, ConverterParameter=480}"
                                      Value="True">
 
                             <Setter Property="ContentTemplate"
-                                    Value="{StaticResource Mobile_Portrait_Layout}" />
+                                    Value="{StaticResource Mobile_Layout}" />
 
                         </DataTrigger>
 
-                    </Style.Triggers>
+                    </Style.Triggers>-->
 
                 </Style>
 
@@ -102,10 +81,7 @@
             <ContentControl.Style>
 
                 <Style TargetType="ContentControl">
-
-                    <Setter Property="ContentTemplate"
-                            Value="{StaticResource MenuTemplate}" />
-
+                    <Setter Property="ContentTemplate" Value="{StaticResource MenuTemplate}" />
                 </Style>
 
             </ContentControl.Style>
