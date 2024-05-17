@@ -1,17 +1,21 @@
-﻿*{box-sizing: border-box; margin: 0;}
+﻿/**{box-sizing: border-box; margin: 0;}
+
+.center{justify-content: center; align-content: center;}
+.vCneter{}
+.hCenter{}
 
 .row {
-    display: flex; /* cho nằm theo chiều ngang */
-    flex-wrap: wrap; /* cho xuống dòng khi quá giới hạn row */
-}
+    display: flex;*/ /* cho nằm theo chiều ngang */
+    /*flex-wrap: wrap;*/ /* cho xuống dòng khi quá giới hạn row */
+/*}
 
-.col {padding: 0 1%;}
+.col {padding: 0 1%;}*/
 
 /* 
     XS => Extra Small 
     Mobile min-width: 480px or min-width: 767px Test 
 */
-.XS-0 {display: none;}
+/*.XS-0 {display: none;}
 .XS-1 {flex: 0 0 8.33333%; max-width: 8.33333%;}
 .XS-2 {flex: 0 0 16.66667%; max-width: 16.66667%;}
 .XS-3 {flex: 0 0 25%; max-width: 25%;}
@@ -35,14 +39,14 @@
 .XS-o-8 {margin-left: 66.66667%;}
 .XS-o-9 {margin-left: 75%;}
 .XS-o-10 {margin-left: 83.33333%;}
-.XS-o-11 {margin-left: 91.66667%;}
+.XS-o-11 {margin-left: 91.66667%;}*/
 
 /*
     SM => Small
     Ipad-Tablet min 739px
-    Ipad-Tablet min 481 - max 768 or 768 - 1023 Test
+    Ipad-Tablet min 481 or 600 - max 768 or 768 - 1023 Test
 */
-@media (min-width: 46.1875em) {
+/*@media (min-width: 46.1875em) {
 .SM-0 { display: none; }
 .SM-1 { display: block; flex: 0 0 8.33333%; max-width: 8.33333%; }
 .SM-2 { display: block; flex: 0 0 16.66667%; max-width: 16.66667%; }
@@ -68,14 +72,14 @@
 .SM-o-9 { margin-left: 75%; }
 .SM-o-10 { margin-left: 83.33333%; }
 .SM-o-11 { margin-left: 91.66667%;}
-}
+}*/
 
 /*
     MD => Medium
     Laptop min 740px - max 1023px
-    Laptop min 769 max 1024* or 1024 - 1439 Test
+    Laptop min 769 - 992 max 1024 - 1439 Test
 */
-@media (min-width: 46.25em) and (max-width: 63.9375em) {
+/*@media (min-width: 46.25em) and (max-width: 63.9375em) {
 .MD-0 {display: none;}
 .MD-1 {flex: 0 0 8.33333%; max-width: 8.33333%;}
 .MD-2 {flex: 0 0 16.66667%; max-width: 16.66667%;}
@@ -101,13 +105,13 @@
 .MD-o-9 {margin-left: 75%;}
 .MD-o-10 {margin-left: 83.33333%;}
 .MD-o-11 {margin-left: 91.66667%;}
-}
+}*/
 /*
     LG => Large
     PC Desktop  min 1024 - max 1199  
     PC Desktop min 1025 max 1200* or min 1440 Test
 */
-@media (min-width: 64em) and (max-width: 74.9375em) {
+/*@media (min-width: 64em) and (max-width: 74.9375em) {
 
 .LG-0 { display: none; }
 .LG-1 { display: block; flex: 0 0 8.33333%; max-width: 8.33333%; }
@@ -133,13 +137,13 @@
 .LG-o-9 { margin-left: 75%; }
 .LG-o-10 { margin-left: 83.33333%; }
 .LG-o-11 { margin-left: 91.66667%; }
-}
+}*/
 
 /*
     XL => Extra Large
     Extra Large Screens TV Extra Large Screens TV min 1201 Test
 */
-@media (min-width: 75em) {
+/*@media (min-width: 75em) {
 .XL-0 {display: none;}
 .XL-1 {flex: 0 0 8.33333%; max-width: 8.33333%;}
 .XL-2 {flex: 0 0 16.66667%; max-width: 16.66667%;}
@@ -165,4 +169,4 @@
 .XL-o-9 {margin-left: 75%;}
 .XL-o-10 {margin-left: 83.33333%;}
 .XL-o-11 {margin-left: 91.66667%;}
-}
+}*/

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GSMFCBlazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25e7c18f55a9328bdb7eab36a5d7e465764d3773")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9094598b3a948a37560000bea859375adda5600a")]
 [assembly: System.Reflection.AssemblyProductAttribute("GSMFCBlazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GSMFCBlazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

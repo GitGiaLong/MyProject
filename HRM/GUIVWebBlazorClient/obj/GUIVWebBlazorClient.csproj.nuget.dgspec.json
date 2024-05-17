@@ -190,7 +190,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "D:\\My\\HRM\\GSMF\\GSMF.csproj": {
+                "projectPath": "D:\\My\\HRM\\GSMF\\GSMF.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

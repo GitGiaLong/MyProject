@@ -575,6 +575,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "GSMF": "1.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.25"
         },
         "compile": {
@@ -1153,6 +1154,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "GSMF": "1.0.0",
           "Microsoft.AspNetCore.Components.Web": "6.0.25"
         },
         "compile": {

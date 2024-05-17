@@ -23,3 +23,8 @@ D:\My\HRM\GSMFCBlazor\obj\Debug\net6.0\GSMFCBlazor.dll
 D:\My\HRM\GSMFCBlazor\obj\Debug\net6.0\refint\GSMFCBlazor.dll
 D:\My\HRM\GSMFCBlazor\obj\Debug\net6.0\GSMFCBlazor.pdb
 D:\My\HRM\GSMFCBlazor\obj\Debug\net6.0\ref\GSMFCBlazor.dll
+D:\My\HRM\GSMFCBlazor\bin\Debug\net6.0\GSMF.dll
+D:\My\HRM\GSMFCBlazor\bin\Debug\net6.0\GSMF.pdb
+D:\My\HRM\GSMFCBlazor\obj\Debug\net6.0\GSMFCBlazor.csproj.CopyComplete
+D:\My\HRM\GSMFCBlazor\obj\Debug\net6.0\scopedcss\Componnet\PageLayout\Page.razor.rz.scp.css
+D:\My\HRM\GSMFCBlazor\obj\Debug\net6.0\scopedcss\Componnet\Working\CatCode.razor.rz.scp.css

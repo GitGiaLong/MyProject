@@ -17,6 +17,11 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\FontAwesome\" />
+    <Folder Include="wwwroot\Javascripts\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GSMF\GSMF.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,38 +1,54 @@
-﻿@inherits LayoutComponentBase
+﻿@using GSMFCBlazor.Componnet.PageLayout;
 
-<input id="inputMenu" class="check-menu" type="checkbox" @bind-value="layoutVM.Checkmenu" />
-<div class="page">
+@inherits LayoutComponentBase
+
+<Page ActionSidebar="@(layoutVM.Checkmenu)" Body="@Body">
+    <NavMenu></NavMenu>
+</Page>
+@* <input id="inputMenu" class="check-menu" type="checkbox" @bind-value="layoutVM.Checkmenu" />
+<div class="layout">
     <div class="sidebar">
+        <div class="logo"></div>
+        <div class="row user">
+            <span class="avatar"></span>
+            <span class="info">
+
+            </span>
+            <label for="inputMenu" class="subMenu fa-solid @(layoutVM.Checkmenu == true ? "fa-angles-left" : "fa-angles-right")"></label>
+        </div>
+        <nav></nav>
+        <div></div>
         <div class="topSidebar row">
-            <span class="logoCommpany row">
+            <span class="logo row">
 
             </span>
             <span class="avatarUser" style="">
 
             </span>
             <span class="infoUser">
-
+                <span>Trần Nguyễn Trọng Thuỷ</span>
+                <span>Lập trình viên</span>
             </span>
         </div>
-        <label for="inputMenu" class="subMenu"></label>
-        <div class="typeMenu">
+        <label for="inputMenu" class="subMenu fa-solid @(layoutVM.Checkmenu == true ? "fa-angles-left" : "fa-angles-right")"></label>
+        <hr style="margin: 0 5%" />
+        <div class="centerSidebar">
             <NavMenu />
         </div>
-        <div>
-            @* <label>version:<span>v1:1:1:1_Demo</span></label>*@
-            </div>
+        <hr style="margin: 0 5%"/>
+        <div class="bottomSidebar">
+            <span class="fa-solid fa-gear row" style="font-size: 30px; justify-content: center; align-content: center; padding: 5px 0;"></span>
+            <span class="fa-solid fa-network-wired row" style="font-size: 30px; justify-content: center; align-content: center;"></span>
+            <label>version: Demo</label>
+        </div>
     </div>
-    @* <div class="sidebar">
-        
-    </div> 
 
-    @* main - content *@
     <main>
         <article>
             @Body
         </article>
     </main>
-</div>
+</div> *@
 
 @code{
     LayoutVM layoutVM = new LayoutVM();

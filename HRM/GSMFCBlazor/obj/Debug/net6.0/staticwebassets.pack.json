@@ -5,6 +5,14 @@
       "PackagePath": "staticwebassets\\GSMFCBlazor.bundle.scp.css"
     },
     {
+      "Id": "D:\\My\\HRM\\GSMFCBlazor\\wwwroot\\Css\\ContellationStyle.css",
+      "PackagePath": "staticwebassets\\Css\\ContellationStyle.css"
+    },
+    {
+      "Id": "D:\\My\\HRM\\GSMFCBlazor\\wwwroot\\Css\\Layouts.css",
+      "PackagePath": "staticwebassets\\Css\\Layouts.css"
+    },
+    {
       "Id": "D:\\My\\HRM\\GSMFCBlazor\\wwwroot\\FontAwesome\\CODE_OF_CONDUCT.md",
       "PackagePath": "staticwebassets\\FontAwesome\\CODE_OF_CONDUCT.md"
     },

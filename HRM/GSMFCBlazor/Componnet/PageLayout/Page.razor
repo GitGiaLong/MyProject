@@ -1,0 +1,37 @@
+﻿@inherits LayoutComponentBase
+
+<CascadingValue Value="this">
+    <input id="inputMenu" hidden class="actionPage" type="checkbox" @bind-value="@ActionSidebar" />
+    <div class="layout">
+        <div id="menuBar" class="sidebar">
+            <div class="logoSidebar"></div>
+            <div class="row userSidebar">
+                <span class="avatarUser"></span>
+                <span class="infoUser"></span>
+                <label for="inputMenu" class="subMenu fa-solid @(ActionSidebar == true ? "fa-angles-left" : "fa-angles-right")"></label>
+
+            </div>
+            <nav class="menuNav">
+                @ChildContent
+            </nav>
+            <nav class="subNav">
+            </nav>
+        </div>
+        <main>
+            <article>
+                @Body
+            </article>
+        </main>
+    </div>
+</CascadingValue>
+
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    private bool _ActionSidebar = false;
+    
+    [Parameter]
+    public bool ActionSidebar { get { return _ActionSidebar; } set { _ActionSidebar = value; } }
+}

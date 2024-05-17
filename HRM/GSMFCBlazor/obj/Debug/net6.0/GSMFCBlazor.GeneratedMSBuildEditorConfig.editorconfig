@@ -33,3 +33,11 @@ build_metadata.AdditionalFiles.CssScope = b-5hfqxkk9fy
 [D:/My/HRM/GSMFCBlazor/Componnet/Menu/TreMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9ubmV0XE1lbnVcVHJlTWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-85ekguz0j3
+
+[D:/My/HRM/GSMFCBlazor/Componnet/PageLayout/Page.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9ubmV0XFBhZ2VMYXlvdXRcUGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-v8x0jvqy4b
+
+[D:/My/HRM/GSMFCBlazor/Componnet/Working/CatCode.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9ubmV0XFdvcmtpbmdcQ2F0Q29kZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-diuklis2bv

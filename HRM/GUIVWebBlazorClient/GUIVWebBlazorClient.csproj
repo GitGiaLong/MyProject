@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -15,6 +15,10 @@
     <ProjectReference Include="..\BLLVM\BLLVM.csproj" />
     <ProjectReference Include="..\GSMFCBlazor\GSMFCBlazor.csproj" />
     <ProjectReference Include="..\GSMF\GSMF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\JS\" />
   </ItemGroup>
 
 </Project>

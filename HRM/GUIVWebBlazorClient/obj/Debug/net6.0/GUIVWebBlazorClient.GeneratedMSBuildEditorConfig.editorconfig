@@ -26,6 +26,10 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/My/HRM/GUIVWebBlazorClient/Dashboard/DashboardMain.razor]
+build_metadata.AdditionalFiles.TargetPath = RGFzaGJvYXJkXERhc2hib2FyZE1haW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/My/HRM/GUIVWebBlazorClient/Pages/Catelogies/Countries/MainCountry.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2F0ZWxvZ2llc1xDb3VudHJpZXNcTWFpbkNvdW50cnkucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -42,8 +46,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/My/HRM/GUIVWebBlazorClient/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/My/HRM/GUIVWebBlazorClient/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/My/HRM/GUIVWebBlazorClient/TodoTask/TodoTaskMain.razor]
+build_metadata.AdditionalFiles.TargetPath = VG9kb1Rhc2tcVG9kb1Rhc2tNYWluLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/My/HRM/GUIVWebBlazorClient/_Imports.razor]
@@ -53,7 +65,3 @@ build_metadata.AdditionalFiles.CssScope =
 [D:/My/HRM/GUIVWebBlazorClient/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-zkk1vzp0q5
-
-[D:/My/HRM/GUIVWebBlazorClient/Shared/NavMenu.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = b-xuxp4hwpux
