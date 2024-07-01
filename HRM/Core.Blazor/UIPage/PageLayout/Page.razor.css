@@ -1,0 +1,60 @@
+﻿.avatarUser {
+    width: 80px;
+    height: 80px;
+    border: 0.5px solid;
+    border-radius: 50%;
+}
+
+.userSidebar {
+    width: 100%;
+    padding: 2%;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+}
+
+.subMenu {
+    position: absolute;
+    right: -10px;
+    cursor: pointer;
+}
+
+.layout {
+    display: grid;
+    height: 100vh;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    box-shadow: 1px 1px 10px #888888;
+}
+
+main {
+    grid-area: main;
+}
+
+@media (max-width: 46.1875em) {
+    .layout {
+        grid-template-rows: auto 40px;
+        grid-template-columns: auto;
+        grid-template-areas: 'main' 'sidebar';
+    }
+}
+
+@media (min-width: 46.1875em) {
+    .layout {
+        grid-template-rows: auto;
+        grid-template-columns: 6% auto;
+        grid-template-areas:
+            'sidebar main';
+        transition: all 0.5s;
+    }
+
+    .actionPage:checked ~ .layout {
+        grid-template-columns: 15% auto;
+    }
+
+        .actionPage:checked ~ .layout .userSidebar {
+            justify-content: flex-start;
+        }
+}

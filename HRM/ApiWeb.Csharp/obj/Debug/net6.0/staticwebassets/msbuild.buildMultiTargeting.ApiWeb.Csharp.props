@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\ApiWeb.Csharp.props" />
+</Project>
