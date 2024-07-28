@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "fnAC5hVAHp1eS3JKPnninCKrYcMZ1PDPh7+vUTiqIeY=",
+  "Source": "Csharp.WebApi",
+  "BasePath": "_content/Csharp.WebApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

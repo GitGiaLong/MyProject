@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Contellation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eef41a0b6400143e7e57e769c5c168259dcf35e0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+db420f099425ab872d8fa29766b818142defe3d2")]
 [assembly: System.Reflection.AssemblyProductAttribute("Contellation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Contellation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

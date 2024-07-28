@@ -1,7 +1,7 @@
 {
   "entryAssembly": "Blazor.Client",
   "resources": {
-    "hash": "sha256-YnnzE0Ind+HLkwQQpQXMyWDvEXfIrLg5Q7gDY9n0X/k=",
+    "hash": "sha256-08pdp8NC36TpJjSfNlN4oORPSloiGgrM86fZwvCpj/k=",
     "runtime": {
       "dotnet.6.0.26.zldu2hn6lg.js": "sha256-q4SPzhRyXlR1HXK6WAbwJRNI6jvBBYUisoHeH0+eRyM=",
       "dotnet.timezones.blat": "sha256-klrDSl9zL0jGM+Fc+fiCLbJ5Z7U2C9fTDn0+NmIH9VY=",
@@ -209,17 +209,17 @@
       "netstandard.dll": "sha256-AH9oqzxpl6lGTr9vEnTGTk40WK7IpSuGlKS3dTEC67I=",
       "System.Private.CoreLib.dll": "sha256-ae6NSkrFVtQY8QH8C38+ZYQDBUinD+PjmAf/eE/eVMQ=",
       "Blazor.Shared.dll": "sha256-QgypXuCNrfPCDWRRu37y9b0kAMaQOYE0HzKruykM/Lw=",
-      "Core.Blazor.dll": "sha256-YjovrncPD5zzqpgTdO3dxgR63mBCtv1ZvFPVstOzVWU=",
-      "Core.Entities.dll": "sha256-mP8/UARs+L2MxiEMtZj3q/p+5uOvaLaWLdd2ZUH7dJg=",
-      "Core.Library.dll": "sha256-+jK8vUVr/xa8GFeRErrB9pBI/Wyzzneu5jXJ7tDLZog=",
-      "Blazor.Client.dll": "sha256-68R79jN+/Ac7RItuRcDv03npuR5jaF0vuO4s//6N36Q="
+      "Core.Blazor.dll": "sha256-HXAi3soP+I4/ZJCZf781TZBL9jkzPDXbfuHwdbLSoh4=",
+      "Core.Entities.dll": "sha256-Hndv6nsy9EYrnRkaYtFpi625h/mTpPTgR9oNHquleOo=",
+      "Core.Library.dll": "sha256-QTXipYcnBu+yDnPH7RBymJ0k1lXQmJ8O5ZR863hsLLI=",
+      "Blazor.Client.dll": "sha256-ojwNjuHqWSf5GXmBsY9+/MQIywci965LjNfDeRDH5gk="
     },
     "pdb": {
-      "Core.Blazor.pdb": "sha256-pdMOUT3EL5j9d0cmjYgdmTftVtxBlfjt8tZPj5Ols4Q=",
+      "Core.Blazor.pdb": "sha256-eFkyIc8IaXkP6OwXjBm2oYd2lL88Rcj1qzHfZlaZGys=",
       "Blazor.Shared.pdb": "sha256-DEVmyI2svCZMYmEc45hCvUpFpb9Bp2cH+lGs/rMcJH8=",
-      "Core.Entities.pdb": "sha256-WYG6d4xuy/9wAHLBq/7tvt0PprRIgGkEWn3lH4srycA=",
-      "Core.Library.pdb": "sha256-458rLN4e3nJnMHudD5itfDebzB+qzbkjWuOaTQ1trJ4=",
-      "Blazor.Client.pdb": "sha256-Tor2l2Am72OsLWSEC4Tzkef+ez8qT5JVG3+qsI/sw8E="
+      "Core.Entities.pdb": "sha256-ZAfHE40RAnA9BeBF+qifiGXHktyfv5ASLJwLmtGzXYY=",
+      "Core.Library.pdb": "sha256-i1errIwzWMSJgHvKSDJ6SfNkJOVbALzPABONWgiAxB0=",
+      "Blazor.Client.pdb": "sha256-J7IdgAIU3xRSf7cktMMs9vSxCkH8Q9e8AozX1fZp+as="
     },
     "runtimeAssets": {
       "dotnet.wasm": {

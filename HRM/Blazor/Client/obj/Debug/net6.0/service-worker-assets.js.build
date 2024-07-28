@@ -17,12 +17,12 @@
       "url": "manifest.json"
     },
     {
-      "hash": "sha256-WsodyzFQEqoCeWm9fWtzSnJzr8m7ZepWJ9Lta2m3DpI=",
-      "url": "Blazor.Client.styles.css"
-    },
-    {
       "hash": "sha256-9hjFpEvc2hKkrXX6g9QL\/PLMHhAP4ctc\/9LNFUSRGhI=",
       "url": "_framework\/blazor.webassembly.js"
+    },
+    {
+      "hash": "sha256-WsodyzFQEqoCeWm9fWtzSnJzr8m7ZepWJ9Lta2m3DpI=",
+      "url": "Blazor.Client.styles.css"
     },
     {
       "hash": "sha256-20M2qOa5f92L\/Lz8r8NydqmQZTuoECoOCMvR7iAwCh0=",

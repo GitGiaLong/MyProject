@@ -1,7 +1,6 @@
 ﻿using Core.API.JwtSetup;
 using Core.API.JwtSetup.Options;
 using Core.Entities.Applications.Connects.Server;
-//using Core.Library.Services.LoggerManagers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;

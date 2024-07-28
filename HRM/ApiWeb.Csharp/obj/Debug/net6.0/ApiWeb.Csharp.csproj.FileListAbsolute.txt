@@ -86,3 +86,4 @@ D:\My\HRM\ApiWeb.Csharp\obj\Debug\net6.0\refint\ApiWeb.Csharp.dll
 D:\My\HRM\ApiWeb.Csharp\obj\Debug\net6.0\ApiWeb.Csharp.pdb
 D:\My\HRM\ApiWeb.Csharp\obj\Debug\net6.0\ApiWeb.Csharp.genruntimeconfig.cache
 D:\My\HRM\ApiWeb.Csharp\obj\Debug\net6.0\ref\ApiWeb.Csharp.dll
+D:\My\HRM\ApiWeb.Csharp\bin\Debug\net6.0\WebApi.config

@@ -1,0 +1,13 @@
+D:\My\HRM\Core.Entities\bin\Release\net6.0\Core.Entities.deps.json
+D:\My\HRM\Core.Entities\bin\Release\net6.0\Core.Entities.dll
+D:\My\HRM\Core.Entities\bin\Release\net6.0\Core.Entities.pdb
+D:\My\HRM\Core.Entities\obj\Release\net6.0\Core.Entities.csproj.AssemblyReference.cache
+D:\My\HRM\Core.Entities\obj\Release\net6.0\Core.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\My\HRM\Core.Entities\obj\Release\net6.0\Core.Entities.AssemblyInfoInputs.cache
+D:\My\HRM\Core.Entities\obj\Release\net6.0\Core.Entities.AssemblyInfo.cs
+D:\My\HRM\Core.Entities\obj\Release\net6.0\Core.Entities.csproj.CoreCompileInputs.cache
+D:\My\HRM\Core.Entities\obj\Release\net6.0\Core.Entities.sourcelink.json
+D:\My\HRM\Core.Entities\obj\Release\net6.0\Core.Entities.dll
+D:\My\HRM\Core.Entities\obj\Release\net6.0\refint\Core.Entities.dll
+D:\My\HRM\Core.Entities\obj\Release\net6.0\Core.Entities.pdb
+D:\My\HRM\Core.Entities\obj\Release\net6.0\ref\Core.Entities.dll

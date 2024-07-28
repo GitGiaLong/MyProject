@@ -12,12 +12,13 @@ namespace Core.Entities.Managements.User
         //[BsonRepresentation(BsonType.ObjectId)]
         //public string IsOnly { get; set; }
 
-        //UserName
+        private string _Username = string.Empty;
         [DisplayName("Tên Đăng Nhập")]
-        public string Username { get; set; }
+        public string Username { get {return _Username; } set { _Username = value; } }
 
+        private string _Password = string.Empty;
         [DisplayName("Mật khẩu")]
-        public string Password { get; set; }
+        public string Password { get { return _Password; } set { _Password = value; } }
 
         /// <summary>
         /// Mức độ Level
