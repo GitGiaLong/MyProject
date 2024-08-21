@@ -11,3 +11,16 @@ D:\My\HRM\Core.Entities\obj\Debug\net6.0\Core.Entities.dll
 D:\My\HRM\Core.Entities\obj\Debug\net6.0\refint\Core.Entities.dll
 D:\My\HRM\Core.Entities\obj\Debug\net6.0\Core.Entities.pdb
 D:\My\HRM\Core.Entities\obj\Debug\net6.0\ref\Core.Entities.dll
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\bin\Debug\net6.0\Core.Entities.deps.json
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\bin\Debug\net6.0\Core.Entities.dll
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\bin\Debug\net6.0\Core.Entities.pdb
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\obj\Debug\net6.0\Core.Entities.csproj.AssemblyReference.cache
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\obj\Debug\net6.0\Core.Entities.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\obj\Debug\net6.0\Core.Entities.AssemblyInfoInputs.cache
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\obj\Debug\net6.0\Core.Entities.AssemblyInfo.cs
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\obj\Debug\net6.0\Core.Entities.csproj.CoreCompileInputs.cache
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\obj\Debug\net6.0\Core.Entities.sourcelink.json
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\obj\Debug\net6.0\Core.Entities.dll
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\obj\Debug\net6.0\refint\Core.Entities.dll
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\obj\Debug\net6.0\Core.Entities.pdb
+C:\Users\giath\Source\Repos\MyProject\HRM\Core.Entities\obj\Debug\net6.0\ref\Core.Entities.dll

@@ -1,29 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\My\\HRM\\Blazor\\Server\\Blazor.Server.csproj": {}
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj": {}
   },
   "projects": {
-    "D:\\My\\HRM\\Blazor\\Client\\Blazor.Client.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My\\HRM\\Blazor\\Client\\Blazor.Client.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj",
         "projectName": "Blazor.Client",
-        "projectPath": "D:\\My\\HRM\\Blazor\\Client\\Blazor.Client.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "D:\\My\\HRM\\Blazor\\Client\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\giath\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -31,10 +25,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -42,11 +33,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\My\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
-                "projectPath": "D:\\My\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
               },
-              "D:\\My\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
-                "projectPath": "D:\\My\\HRM\\Core.Blazor\\Core.Blazor.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj"
               }
             }
           }
@@ -55,6 +46,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -73,19 +69,19 @@
             "Microsoft.NET.ILLink.Analyzers": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.100-1.23211.1, )",
+              "version": "[7.0.100-1.23401.1, )",
               "autoReferenced": true
             },
             "Microsoft.NET.ILLink.Tasks": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[7.0.100-1.23211.1, )",
+              "version": "[7.0.100-1.23401.1, )",
               "autoReferenced": true
             },
             "Microsoft.NET.Sdk.WebAssembly.Pack": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[8.0.1, )",
+              "version": "[8.0.8, )",
               "autoReferenced": true
             }
           },
@@ -105,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {
@@ -114,26 +110,20 @@
         }
       }
     },
-    "D:\\My\\HRM\\Blazor\\Server\\Blazor.Server.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
         "projectName": "Blazor.Server",
-        "projectPath": "D:\\My\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "D:\\My\\HRM\\Blazor\\Server\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\giath\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -141,10 +131,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -152,11 +139,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\My\\HRM\\Blazor\\Client\\Blazor.Client.csproj": {
-                "projectPath": "D:\\My\\HRM\\Blazor\\Client\\Blazor.Client.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj"
               },
-              "D:\\My\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
-                "projectPath": "D:\\My\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
               }
             }
           }
@@ -165,6 +152,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -195,30 +187,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\My\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj",
         "projectName": "Blazor.Shared",
-        "projectPath": "D:\\My\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "D:\\My\\HRM\\Blazor\\Shared\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\giath\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -226,10 +212,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -243,6 +226,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -264,30 +252,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\My\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My\\HRM\\Core.Blazor\\Core.Blazor.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj",
         "projectName": "Core.Blazor",
-        "projectPath": "D:\\My\\HRM\\Core.Blazor\\Core.Blazor.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "D:\\My\\HRM\\Core.Blazor\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\giath\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -295,10 +277,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -306,8 +285,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\My\\HRM\\Core.Library\\Core.Library.csproj": {
-                "projectPath": "D:\\My\\HRM\\Core.Library\\Core.Library.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj"
               }
             }
           }
@@ -316,6 +295,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -343,30 +327,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\My\\HRM\\Core.Entities\\Core.Entities.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My\\HRM\\Core.Entities\\Core.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj",
         "projectName": "Core.Entities",
-        "projectPath": "D:\\My\\HRM\\Core.Entities\\Core.Entities.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "D:\\My\\HRM\\Core.Entities\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\giath\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -374,10 +352,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -391,6 +366,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -418,30 +398,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\My\\HRM\\Core.Library\\Core.Library.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\My\\HRM\\Core.Library\\Core.Library.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
         "projectName": "Core.Library",
-        "projectPath": "D:\\My\\HRM\\Core.Library\\Core.Library.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "D:\\My\\HRM\\Core.Library\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.1\\Components\\Offline Packages",
-          "C:\\Program Files\\DevExpress 22.2\\Components\\Offline Packages",
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
           "C:\\Users\\giath\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.1.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -449,10 +423,7 @@
           "net6.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\DevExpress 22.1\\Components\\System\\Components\\Packages": {},
-          "C:\\Program Files\\DevExpress 22.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
@@ -460,8 +431,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "D:\\My\\HRM\\Core.Entities\\Core.Entities.csproj": {
-                "projectPath": "D:\\My\\HRM\\Core.Entities\\Core.Entities.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj"
               }
             }
           }
@@ -470,6 +441,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -513,7 +489,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

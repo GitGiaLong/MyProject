@@ -1,0 +1,26 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Themes/Colors.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Themes/Styles.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Themes/FontFamilies.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Buttons/Button.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Buttons/Anchor.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Buttons/HyperlinkButton.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/TextBoxs/TextBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/NumberBoxs/NumberBox.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/CheckBoxs/CheckBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Sliders/Slider.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/ToolTips/ToolTip.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/ContextMenus/DefaultContextMenu.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/ScrollViewers/DefaultTextBoxScrollViewerStyle.xaml"/>
+        
+    </ResourceDictionary.MergedDictionaries>
+    
+</ResourceDictionary>

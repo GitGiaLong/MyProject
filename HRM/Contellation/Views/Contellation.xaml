@@ -5,16 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Contellation.Views"
         xmlns:i="clr-namespace:Core.WPF.Interactivities;assembly=Core.WPF"
+        xmlns:ui="clr-namespace:Core.WPF.Controls;assembly=Core.WPF"
         mc:Ignorable="d"
         Title="Contellation" Height="450" Width="800">
     <Grid>
-        <Border Background="#282D33" BorderBrush="#3A4149" BorderThickness="5" CornerRadius="8,8,8,8">
+        <ui:NumberBox Height="40" Width="200" Style="{StaticResource UiNumberBoxStyle}"/>
+        <!--<Border Background="#282D33" BorderBrush="#3A4149" BorderThickness="5" CornerRadius="8,8,8,8">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">
                     <i:InvokeCommandAction Command="{Binding}"/>
                 </i:EventTrigger>
             </i:Interaction.Triggers>
-        </Border>
+        </Border>-->
 
     </Grid>
 </Window>

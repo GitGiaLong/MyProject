@@ -403,12 +403,18 @@
           "Microsoft.AspNetCore.Components.WebAssembly": "6.0.25"
         },
         "runtime": {
-          "Blazor.Client.dll": {}
+          "Blazor.Client.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Blazor.Shared/1.0.0": {
         "runtime": {
-          "Blazor.Shared.dll": {}
+          "Blazor.Shared.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Core.Blazor/1.0.0": {
@@ -417,7 +423,10 @@
           "Microsoft.AspNetCore.Components.Web": "6.0.31"
         },
         "runtime": {
-          "Core.Blazor.dll": {}
+          "Core.Blazor.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Core.Entities/1.0.0": {
@@ -425,7 +434,10 @@
           "System.IdentityModel.Tokens.Jwt": "6.35.0"
         },
         "runtime": {
-          "Core.Entities.dll": {}
+          "Core.Entities.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Core.Library/1.0.0": {
@@ -438,7 +450,10 @@
           "System.Data.SqlClient": "4.8.6"
         },
         "runtime": {
-          "Core.Library.dll": {}
+          "Core.Library.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       }
     }

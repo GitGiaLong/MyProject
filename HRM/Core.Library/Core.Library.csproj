@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Folder Include="Applications\API\" />
+    <Folder Include="FontAwesome\*" />
   </ItemGroup>
 
   <ItemGroup>
