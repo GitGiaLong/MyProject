@@ -105,3 +105,4 @@ C:\Users\giath\Source\Repos\MyProject\HRM\Contellation\obj\Debug\net6.0-windows\
 C:\Users\giath\Source\Repos\MyProject\HRM\Contellation\obj\Debug\net6.0-windows\Contellation.pdb
 C:\Users\giath\Source\Repos\MyProject\HRM\Contellation\obj\Debug\net6.0-windows\Contellation.genruntimeconfig.cache
 C:\Users\giath\Source\Repos\MyProject\HRM\Contellation\obj\Debug\net6.0-windows\ref\Contellation.dll
+C:\Users\giath\source\repos\MyProject\HRM\Contellation\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs

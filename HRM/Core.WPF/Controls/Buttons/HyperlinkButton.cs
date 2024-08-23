@@ -3,16 +3,14 @@ using System.Windows;
 
 namespace Core.WPF.Controls
 {
-    /// <summary>
-    /// Button that opens a URL in a web browser.
-    /// </summary>
+    /// <summary> Button that opens a URL in a web browser. </summary>
     public class HyperlinkButton : Button
     {
         /// <summary> Gets or sets the URL (or application shortcut) to open. </summary>
         public string NavigateUri
         {
-            get => GetValue(NavigateUriProperty) as string ?? string.Empty;
-            set => SetValue(NavigateUriProperty, value);
+            get { return GetValue(NavigateUriProperty) as string ?? string.Empty; }
+            set { SetValue(NavigateUriProperty, value); }
         }
         /// <summary>Identifies the <see cref="NavigateUri"/> dependency property.</summary>
         public static readonly DependencyProperty NavigateUriProperty = DependencyProperty.Register(nameof(NavigateUri), typeof(string),

@@ -12,31 +12,22 @@ namespace Core.WPF.Controls
     /// </summary>
     public class TextBox : System.Windows.Controls.TextBox
     {
-        /// <summary>
-        /// Gets or sets displayed <see cref="IconElement"/>.
-        /// </summary>
-        public string? Icon
-        {
-            get => (string?)GetValue(IconProperty);
-            set => SetValue(IconProperty, value);
-        }
+        /// <summary> Gets or sets displayed <see cref="Icon"/>. </summary>
+        public string? Icon { get { return (string?)GetValue(IconProperty); } set { SetValue(IconProperty, value); } }
         /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(string),
             typeof(TextBox), new PropertyMetadata(null));
-        public FontFamily? FontIcon
-        {
-            get => (FontFamily?)GetValue(FontIconProperty);
-            set => SetValue(FontIconProperty, value);
-        }
-
+        
+        public FontFamily? FontIcon { get { return (FontFamily?)GetValue(FontIconProperty); } set { SetValue(FontIconProperty, value); } }
         /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty FontIconProperty = DependencyProperty.Register(nameof(FontIcon), typeof(FontFamily),
             typeof(TextBox), new PropertyMetadata(null));
+        
         /// <summary> Gets or sets which side the icon should be placed on. </summary>
         public ElementPlacement IconPlacement
         {
-            get => (ElementPlacement)GetValue(IconPlacementProperty);
-            set => SetValue(IconPlacementProperty, value);
+            get { return (ElementPlacement)GetValue(IconPlacementProperty); }
+            set { SetValue(IconPlacementProperty, value); }
         }
         /// <summary>Identifies the <see cref="IconPlacement"/> dependency property.</summary>
         public static readonly DependencyProperty IconPlacementProperty = DependencyProperty.Register(nameof(IconPlacement), typeof(ElementPlacement),
@@ -45,56 +36,48 @@ namespace Core.WPF.Controls
         /// <summary> Gets or sets numbers pattern. </summary>
         public string PlaceholderText
         {
-            get => (string)GetValue(PlaceholderTextProperty);
-            set => SetValue(PlaceholderTextProperty, value);
+            get { return (string)GetValue(PlaceholderTextProperty); }
+            set { SetValue(PlaceholderTextProperty, value); }
         }
         /// <summary>Identifies the <see cref="PlaceholderText"/> dependency property.</summary>
         public static readonly DependencyProperty PlaceholderTextProperty = DependencyProperty.Register(nameof(PlaceholderText), typeof(string),
             typeof(TextBox), new PropertyMetadata(string.Empty));
 
-        /// <summary>
-        /// Gets or sets a value indicating whether to display the placeholder text.
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether to display the placeholder text. </summary>
         public bool PlaceholderEnabled
         {
-            get => (bool)GetValue(PlaceholderEnabledProperty);
-            set => SetValue(PlaceholderEnabledProperty, value);
+            get { return (bool)GetValue(PlaceholderEnabledProperty); }
+            set { SetValue(PlaceholderEnabledProperty, value); }
         }
         /// <summary>Identifies the <see cref="PlaceholderEnabled"/> dependency property.</summary>
         public static readonly DependencyProperty PlaceholderEnabledProperty = DependencyProperty.Register(nameof(PlaceholderEnabled), typeof(bool),
             typeof(TextBox), new PropertyMetadata(true));
 
-        /// <summary>
-        /// Gets or sets a value indicating whether to enable the clear button.
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether to enable the clear button. </summary>
         public bool ClearButtonEnabled
         {
-            get => (bool)GetValue(ClearButtonEnabledProperty);
-            set => SetValue(ClearButtonEnabledProperty, value);
+            get { return (bool)GetValue(ClearButtonEnabledProperty); }
+            set { SetValue(ClearButtonEnabledProperty, value); }
         }
         /// <summary>Identifies the <see cref="ClearButtonEnabled"/> dependency property.</summary>
         public static readonly DependencyProperty ClearButtonEnabledProperty = DependencyProperty.Register(nameof(ClearButtonEnabled), typeof(bool),
             typeof(TextBox), new PropertyMetadata(true));
 
-        /// <summary>
-        /// Gets or sets a value indicating whether to show the clear button when <see cref="TextBox"/> is focused.
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether to show the clear button when <see cref="TextBox"/> is focused. </summary>
         public bool ShowClearButton
         {
-            get => (bool)GetValue(ShowClearButtonProperty);
-            protected set => SetValue(ShowClearButtonProperty, value);
+            get { return (bool)GetValue(ShowClearButtonProperty); }
+            protected set { SetValue(ShowClearButtonProperty, value); }
         }
         /// <summary>Identifies the <see cref="ShowClearButton"/> dependency property.</summary>
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(nameof(ShowClearButton), typeof(bool),
             typeof(TextBox), new PropertyMetadata(false));
 
-        /// <summary>
-        /// Gets or sets a value indicating whether text selection is enabled.
-        /// </summary>
+        /// <summary> Gets or sets a value indicating whether text selection is enabled. </summary>
         public bool IsTextSelectionEnabled
         {
-            get => (bool)GetValue(IsTextSelectionEnabledProperty);
-            set => SetValue(IsTextSelectionEnabledProperty, value);
+            get { return (bool)GetValue(IsTextSelectionEnabledProperty); }
+            set { SetValue(IsTextSelectionEnabledProperty, value); }
         }
         /// <summary>Identifies the <see cref="IsTextSelectionEnabled"/> dependency property.</summary>
         public static readonly DependencyProperty IsTextSelectionEnabledProperty = DependencyProperty.Register(nameof(IsTextSelectionEnabled), typeof(bool),
@@ -143,7 +126,10 @@ namespace Core.WPF.Controls
         protected void RevealClearButton() { if (ClearButtonEnabled && IsKeyboardFocusWithin) { SetCurrentValue(ShowClearButtonProperty, Text.Length > 0); } }
 
         /// <summary> Hides the clear button by <see cref="ShowClearButton"/> property. </summary>
-        protected void HideClearButton() { if (ClearButtonEnabled && !IsKeyboardFocusWithin && ShowClearButton) { SetCurrentValue(ShowClearButtonProperty, false); } }
+        protected void HideClearButton() 
+        { 
+            if (ClearButtonEnabled && !IsKeyboardFocusWithin && ShowClearButton) { SetCurrentValue(ShowClearButtonProperty, false); } 
+        }
 
         /// <summary> Triggered when the user clicks the clear text button. </summary>
         protected virtual void OnClearButtonClick() { if (Text.Length > 0) { SetCurrentValue(TextProperty, string.Empty); } }
@@ -151,7 +137,7 @@ namespace Core.WPF.Controls
         /// <summary> Triggered by clicking a button in the control template. </summary>
         protected virtual void OnTemplateButtonClick(string? parameter)
         {
-            Debug.WriteLine($"INFO: {typeof(TextBox)} button clicked", "CoreLibUI.Controls.TextBox");
+            Debug.WriteLine($"INFO: {typeof(TextBox)} button clicked", "Core.WPF.Controls.TextBox");
 
             OnClearButtonClick();
         }

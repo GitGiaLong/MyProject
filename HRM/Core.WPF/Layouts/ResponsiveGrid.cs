@@ -25,7 +25,7 @@ namespace Core.WPF.Layouts
             {
                 if (child != null)
                 {
-                    // Không bố trí khi đã thu gọn 
+                    /// Không bố trí khi đã thu gọn 
                     if (child.Visibility == Visibility.Collapsed) { continue; }
 
                     var span = this.GetSpan(child, availableSize.Width);
@@ -35,7 +35,7 @@ namespace Core.WPF.Layouts
 
                     if (count + span + offset > this.MaxDivision)
                     {
-                        // cài lại
+                        /// cài lại
                         currentRow++;
                         count = 0;
                     }
@@ -50,7 +50,7 @@ namespace Core.WPF.Layouts
                 }
             }
 
-            //  Nhóm theo hàng
+            ///  Nhóm theo hàng
             var group = this.Children.OfType<UIElement>()
                          .GroupBy(x => GetActualRow(x));
 
@@ -73,22 +73,10 @@ namespace Core.WPF.Layouts
             var getMD = new Func<UIElement, int>((o) => { var x = GetMD(o); return x != 0 ? x : getSM(o); });
             var getLG = new Func<UIElement, int>((o) => { var x = GetLG(o); return x != 0 ? x : getMD(o); });
 
-            if (width < this.BreakPoints.XS_SM)
-            {
-                span = getXS(element);
-            }
-            else if (width < this.BreakPoints.SM_MD)
-            {
-                span = getSM(element);
-            }
-            else if (width < this.BreakPoints.MD_LG)
-            {
-                span = getMD(element);
-            }
-            else
-            {
-                span = getLG(element);
-            }
+            if (width < this.BreakPoints.XS_SM) { span = getXS(element); }
+            else if (width < this.BreakPoints.SM_MD) { span = getSM(element); }
+            else if (width < this.BreakPoints.MD_LG) { span = getMD(element); }
+            else { span = getLG(element); }
 
             return Math.Min(Math.Max(0, span), this.MaxDivision); ;
         }
@@ -102,22 +90,10 @@ namespace Core.WPF.Layouts
             var getMD = new Func<UIElement, int>((o) => { var x = GetMD_Offset(o); return x != 0 ? x : getSM(o); });
             var getLG = new Func<UIElement, int>((o) => { var x = GetLG_Offset(o); return x != 0 ? x : getMD(o); });
 
-            if (width < this.BreakPoints.XS_SM)
-            {
-                span = getXS(element);
-            }
-            else if (width < this.BreakPoints.SM_MD)
-            {
-                span = getSM(element);
-            }
-            else if (width < this.BreakPoints.MD_LG)
-            {
-                span = getMD(element);
-            }
-            else
-            {
-                span = getLG(element);
-            }
+            if (width < this.BreakPoints.XS_SM) { span = getXS(element); }
+            else if (width < this.BreakPoints.SM_MD) { span = getSM(element); }
+            else if (width < this.BreakPoints.MD_LG) { span = getMD(element); }
+            else { span = getLG(element); }
 
             return Math.Min(Math.Max(0, span), this.MaxDivision); ;
         }
@@ -131,22 +107,10 @@ namespace Core.WPF.Layouts
             var getMD = new Func<UIElement, int>((o) => { var x = GetMD_Push(o); return x != 0 ? x : getSM(o); });
             var getLG = new Func<UIElement, int>((o) => { var x = GetLG_Push(o); return x != 0 ? x : getMD(o); });
 
-            if (width < this.BreakPoints.XS_SM)
-            {
-                span = getXS(element);
-            }
-            else if (width < this.BreakPoints.SM_MD)
-            {
-                span = getSM(element);
-            }
-            else if (width < this.BreakPoints.MD_LG)
-            {
-                span = getMD(element);
-            }
-            else
-            {
-                span = getLG(element);
-            }
+            if (width < this.BreakPoints.XS_SM) { span = getXS(element); }
+            else if (width < this.BreakPoints.SM_MD) { span = getSM(element); }
+            else if (width < this.BreakPoints.MD_LG) { span = getMD(element); }
+            else { span = getLG(element); }
 
             return Math.Min(Math.Max(0, span), this.MaxDivision); ;
         }
@@ -160,22 +124,10 @@ namespace Core.WPF.Layouts
             var getMD = new Func<UIElement, int>((o) => { var x = GetMD_Pull(o); return x != 0 ? x : getSM(o); });
             var getLG = new Func<UIElement, int>((o) => { var x = GetLG_Pull(o); return x != 0 ? x : getMD(o); });
 
-            if (width < this.BreakPoints.XS_SM)
-            {
-                span = getXS(element);
-            }
-            else if (width < this.BreakPoints.SM_MD)
-            {
-                span = getSM(element);
-            }
-            else if (width < this.BreakPoints.MD_LG)
-            {
-                span = getMD(element);
-            }
-            else
-            {
-                span = getLG(element);
-            }
+            if (width < this.BreakPoints.XS_SM) { span = getXS(element); }
+            else if (width < this.BreakPoints.SM_MD) { span = getSM(element); }
+            else if (width < this.BreakPoints.MD_LG) { span = getMD(element); }
+            else { span = getLG(element); }
 
             return Math.Min(Math.Max(0, span), this.MaxDivision); ;
         }
@@ -184,7 +136,7 @@ namespace Core.WPF.Layouts
         {
             var columnWidth = finalSize.Width / this.MaxDivision;
 
-            // Nhóm theo hàng
+            /// Nhóm theo hàng
             var group = this.Children.OfType<UIElement>().GroupBy(x => GetActualRow(x));
 
             double temp = 0;
@@ -219,7 +171,7 @@ namespace Core.WPF.Layouts
         protected override void OnRender(DrawingContext dc)
         {
             base.OnRender(dc);
-            // ShowGridLines (Nếu được bật, hãy vẽ lưới hướng dẫn trước khi vẽ các phần tử khác nhau để dễ thấy)
+            /// ShowGridLines (Nếu được bật, hãy vẽ lưới hướng dẫn trước khi vẽ các phần tử khác nhau để dễ thấy)
             if (this.ShowGridLines)
             {
                 var gridNum = this.MaxDivision;

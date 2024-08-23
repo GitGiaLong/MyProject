@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using Core.WPF.Controls.Interfaces.NumberBox;
 
 namespace Core.WPF.Controls.NumberBoxs
 {
@@ -26,31 +27,16 @@ namespace Core.WPF.Controls.NumberBoxs
         }
 
         /// <inheritdoc />
-        public double? ParseDouble(string? value)
-        {
-            return double.TryParse(value, out double d) ? d : null;
-        }
+        public double? ParseDouble(string? value) { return double.TryParse(value, out double d) ? d : null; }
 
         /// <inheritdoc />
-        public int? ParseInt(string? value)
-        {
-            return int.TryParse(value, out int i) ? i : null;
-        }
+        public int? ParseInt(string? value) { return int.TryParse(value, out int i) ? i : null; }
 
         /// <inheritdoc />
-        public uint? ParseUInt(string? value)
-        {
-            return uint.TryParse(value, out uint ui) ? ui : (uint?)null;
-        }
+        public uint? ParseUInt(string? value) { return uint.TryParse(value, out uint ui) ? ui : (uint?)null; }
 
-        private static string GetFormatSpecifier()
-        {
-            return "G";
-        }
+        private static string GetFormatSpecifier() { return "G"; }
 
-        private static CultureInfo GetCurrentCultureConverter()
-        {
-            return CultureInfo.CurrentCulture;
-        }
+        private static CultureInfo GetCurrentCultureConverter() { return CultureInfo.CurrentCulture; }
     }
 }

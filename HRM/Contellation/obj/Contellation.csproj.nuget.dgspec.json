@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Contellation\\Contellation.csproj": {}
+    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Contellation\\Contellation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Contellation\\Contellation.csproj": {
+    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Contellation\\Contellation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Contellation\\Contellation.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Contellation\\Contellation.csproj",
         "projectName": "Contellation",
-        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Contellation\\Contellation.csproj",
+        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Contellation\\Contellation.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Contellation\\obj\\",
         "projectStyle": "PackageReference",
@@ -33,8 +33,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj": {
-                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj"
+              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj": {
+                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj"
               }
             }
           }
@@ -76,12 +76,12 @@
         }
       }
     },
-    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj": {
+    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj",
         "projectName": "Core.Entities",
-        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj",
+        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\obj\\",
         "projectStyle": "PackageReference",
@@ -147,12 +147,12 @@
         }
       }
     },
-    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
+    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
         "projectName": "Core.Library",
-        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
+        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\obj\\",
         "projectStyle": "PackageReference",
@@ -176,8 +176,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj": {
-                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj"
+              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj": {
+                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj"
               }
             }
           }
@@ -238,12 +238,12 @@
         }
       }
     },
-    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj": {
+    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj",
         "projectName": "Core.WPF",
-        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj",
+        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\obj\\",
         "projectStyle": "PackageReference",
@@ -267,8 +267,8 @@
           "net6.0-windows7.0": {
             "targetAlias": "net6.0-windows",
             "projectReferences": {
-              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
-                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj"
+              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
+                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj"
               }
             }
           }

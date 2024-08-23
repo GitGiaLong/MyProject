@@ -9,7 +9,6 @@
         mc:Ignorable="d"
         Title="Contellation" Height="450" Width="800">
     <Grid>
-        <ui:NumberBox Height="40" Width="200" Style="{StaticResource UiNumberBoxStyle}"/>
         <!--<Border Background="#282D33" BorderBrush="#3A4149" BorderThickness="5" CornerRadius="8,8,8,8">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">

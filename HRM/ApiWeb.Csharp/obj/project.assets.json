@@ -3141,9 +3141,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\ApiWeb.Csharp\\ApiWeb.Csharp.csproj",
+      "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\ApiWeb.Csharp\\ApiWeb.Csharp.csproj",
       "projectName": "ApiWeb.Csharp",
-      "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\ApiWeb.Csharp\\ApiWeb.Csharp.csproj",
+      "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\ApiWeb.Csharp\\ApiWeb.Csharp.csproj",
       "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\ApiWeb.Csharp\\obj\\",
       "projectStyle": "PackageReference",
@@ -3167,8 +3167,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.API\\Core.API.csproj": {
-              "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.API\\Core.API.csproj"
+            "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.API\\Core.API.csproj": {
+              "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.API\\Core.API.csproj"
             }
           }
         }

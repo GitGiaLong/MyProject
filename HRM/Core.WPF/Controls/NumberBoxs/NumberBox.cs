@@ -1,4 +1,6 @@
-﻿using Core.WPF.Controls.NumberBoxs;
+﻿using Core.WPF.Controls.Enums.NumberBox;
+using Core.WPF.Controls.Interfaces.NumberBox;
+using Core.WPF.Controls.NumberBoxs;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -15,8 +17,8 @@ namespace Core.WPF.Controls
         /// <summary> Gets or sets the numeric value of a <see cref="NumberBox"/>.</summary>
         public double? Value
         {
-            get => (double?)GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
+            get { return (double?)GetValue(ValueProperty); }
+            set { SetValue(ValueProperty, value); }
         }
         /// <summary>Identifies the <see cref="Value"/> dependency property.</summary>
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(double?), typeof(NumberBox),
@@ -25,8 +27,8 @@ namespace Core.WPF.Controls
         /// <summary>Gets or sets the number of decimal places to be rounded when converting from Text to Value.</summary>
         public int MaxDecimalPlaces
         {
-            get => (int)GetValue(MaxDecimalPlacesProperty);
-            set => SetValue(MaxDecimalPlacesProperty, value);
+            get { return (int)GetValue(MaxDecimalPlacesProperty); }
+            set { SetValue(MaxDecimalPlacesProperty, value); }
         }
         /// <summary>Identifies the <see cref="MaxDecimalPlaces"/> dependency property.</summary>
         public static readonly DependencyProperty MaxDecimalPlacesProperty = DependencyProperty.Register(nameof(MaxDecimalPlaces), typeof(int),
@@ -37,8 +39,8 @@ namespace Core.WPF.Controls
         /// </summary>
         public double SmallChange
         {
-            get => (double)GetValue(SmallChangeProperty);
-            set => SetValue(SmallChangeProperty, value);
+            get { return (double)GetValue(SmallChangeProperty); }
+            set { SetValue(SmallChangeProperty, value); }
         }
         /// <summary>Identifies the <see cref="SmallChange"/> dependency property.</summary>
         public static readonly DependencyProperty SmallChangeProperty = DependencyProperty.Register(nameof(SmallChange), typeof(double),
@@ -49,8 +51,8 @@ namespace Core.WPF.Controls
         /// </summary>
         public double LargeChange
         {
-            get => (double)GetValue(LargeChangeProperty);
-            set => SetValue(LargeChangeProperty, value);
+            get { return (double)GetValue(LargeChangeProperty); }
+            set { SetValue(LargeChangeProperty, value); }
         }
         /// <summary>Identifies the <see cref="LargeChange"/> dependency property.</summary>
         public static readonly DependencyProperty LargeChangeProperty = DependencyProperty.Register(nameof(LargeChange), typeof(double),
@@ -61,8 +63,8 @@ namespace Core.WPF.Controls
         /// </summary>
         public double Maximum
         {
-            get => (double)GetValue(MaximumProperty);
-            set => SetValue(MaximumProperty, value);
+            get { return (double)GetValue(MaximumProperty); }
+            set { SetValue(MaximumProperty, value); }
         }
         /// <summary>Identifies the <see cref="Maximum"/> dependency property.</summary>
         public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(nameof(Maximum), typeof(double),
@@ -73,8 +75,8 @@ namespace Core.WPF.Controls
         /// </summary>
         public double Minimum
         {
-            get => (double)GetValue(MinimumProperty);
-            set => SetValue(MinimumProperty, value);
+            get { return (double)GetValue(MinimumProperty); }
+            set { SetValue(MinimumProperty, value); }
         }
         /// <summary>Identifies the <see cref="Minimum"/> dependency property.</summary>
         public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(nameof(Minimum), typeof(double),
@@ -85,8 +87,8 @@ namespace Core.WPF.Controls
         /// </summary>
         public bool AcceptsExpression
         {
-            get => (bool)GetValue(AcceptsExpressionProperty);
-            set => SetValue(AcceptsExpressionProperty, value);
+            get { return (bool)GetValue(AcceptsExpressionProperty); }
+            set { SetValue(AcceptsExpressionProperty, value); }
         }
         /// <summary>Identifies the <see cref="AcceptsExpression"/> dependency property.</summary>
         public static readonly DependencyProperty AcceptsExpressionProperty = DependencyProperty.Register(nameof(AcceptsExpression), typeof(bool),
@@ -97,8 +99,8 @@ namespace Core.WPF.Controls
         /// </summary>
         public NumberBoxSpinButtonPlacementMode SpinButtonPlacementMode
         {
-            get => (NumberBoxSpinButtonPlacementMode)GetValue(SpinButtonPlacementModeProperty);
-            set => SetValue(SpinButtonPlacementModeProperty, value);
+            get { return (NumberBoxSpinButtonPlacementMode)GetValue(SpinButtonPlacementModeProperty); }
+            set { SetValue(SpinButtonPlacementModeProperty, value); }
         }
         /// <summary>Identifies the <see cref="SpinButtonPlacementMode"/> dependency property.</summary>
         public static readonly DependencyProperty SpinButtonPlacementModeProperty = DependencyProperty.Register(nameof(SpinButtonPlacementMode),
@@ -109,24 +111,24 @@ namespace Core.WPF.Controls
         /// </summary>
         public NumberBoxValidationMode ValidationMode
         {
-            get => (NumberBoxValidationMode)GetValue(ValidationModeProperty);
-            set => SetValue(ValidationModeProperty, value);
+            get { return (NumberBoxValidationMode)GetValue(ValidationModeProperty); }
+            set { SetValue(ValidationModeProperty, value); }
         }
         /// <summary>Identifies the <see cref="ValidationMode"/> dependency property.</summary>
-        public static readonly DependencyProperty ValidationModeProperty = DependencyProperty.Register(nameof(ValidationMode),
-            typeof(NumberBoxValidationMode), typeof(NumberBox), new PropertyMetadata(NumberBoxValidationMode.InvalidInputOverwritten));
+        public static readonly DependencyProperty ValidationModeProperty = DependencyProperty.Register(nameof(ValidationMode), typeof(NumberBoxValidationMode), 
+            typeof(NumberBox), new PropertyMetadata(NumberBoxValidationMode.InvalidInputOverwritten));
 
         /// <summary>
         /// Gets or sets the number formatter.
         /// </summary>
         public INumberFormatter? NumberFormatter
         {
-            get => (INumberFormatter?)GetValue(NumberFormatterProperty);
-            set => SetValue(NumberFormatterProperty, value);
+            get { return (INumberFormatter?)GetValue(NumberFormatterProperty); }
+            set { SetValue(NumberFormatterProperty, value); }
         }
         /// <summary>Identifies the <see cref="NumberFormatter"/> dependency property.</summary>
-        public static readonly DependencyProperty NumberFormatterProperty = DependencyProperty.Register(nameof(NumberFormatter),
-            typeof(INumberFormatter), typeof(NumberBox), new PropertyMetadata(null, OnNumberFormatterChanged));
+        public static readonly DependencyProperty NumberFormatterProperty = DependencyProperty.Register(nameof(NumberFormatter), typeof(INumberFormatter), 
+            typeof(NumberBox), new PropertyMetadata(null, OnNumberFormatterChanged));
 
         /// <summary>
         /// Occurs after the user triggers evaluation of new input by pressing the Enter key, clicking a spin button, or by changing focus.
@@ -137,8 +139,8 @@ namespace Core.WPF.Controls
             remove => RemoveHandler(ValueChangedEvent, value);
         }
         /// <summary>Identifies the <see cref="ValueChanged"/> routed event.</summary>
-        public static readonly RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent(nameof(ValueChanged),
-            RoutingStrategy.Bubble, typeof(RoutedEventHandler), typeof(NumberBox));
+        public static readonly RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent(nameof(ValueChanged), RoutingStrategy.Bubble, 
+            typeof(RoutedEventHandler), typeof(NumberBox));
 
         static NumberBox()
         {

@@ -16,8 +16,6 @@ col-xs-pull | XS_Pull
 col-xs-pull | SM_Pull 
 col-xs-pull | MD_Pull 
 col-xs-pull | LG_Pull 
-visibility-xs, visibility-sm,… | (T.B.D.) 
-hidden-xs, hidden-sm,... | (T.B.D.) 
 
 ---------------------------------------------
 
