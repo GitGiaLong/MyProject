@@ -11,7 +11,7 @@
         "projectName": "Core.API",
         "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.API\\Core.API.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.API\\obj\\",
+        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -173,7 +173,7 @@
         "projectName": "Core.Library",
         "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\obj\\",
+        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

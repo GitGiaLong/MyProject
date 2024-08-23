@@ -1,7 +1,5 @@
 ﻿using Core.WPF.Interactivities.Enums;
 using Core.WPF.Interactivities.Interfaces;
-using System.Windows;
-using System.Windows.Markup;
 
 namespace Core.WPF.Interactivities.Extensions
 {
@@ -10,7 +8,7 @@ namespace Core.WPF.Interactivities.Extensions
     {
         public static readonly DependencyProperty ConditionsProperty = DependencyProperty.Register("Conditions", typeof(ConditionCollection), typeof(ConditionalExpression), new PropertyMetadata(null));
         public static readonly DependencyProperty ForwardChainingProperty = DependencyProperty.Register("ForwardChaining", typeof(ForwardChaining), typeof(ConditionalExpression), new PropertyMetadata(ForwardChaining.And));
-        
+
         protected override Freezable CreateInstanceCore()
         {
             return new ConditionalExpression();

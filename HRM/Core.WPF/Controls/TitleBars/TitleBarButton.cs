@@ -1,5 +1,4 @@
-﻿using Core.WPF.Controls.Enums;
-using Core.WPF.Interop;
+﻿using Core.WPF.Interop;
 using Core.WPF.Properties;
 using System.ComponentModel;
 using System.Windows.Automation.Peers;

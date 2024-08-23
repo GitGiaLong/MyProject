@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Diagnostics.CodeAnalysis;
+﻿using Core.WPF.Interactivities.Enums;
+using System.Collections;
 using System.Globalization;
-using System.Windows;
-using Core.WPF.Interactivities.Enums;
 
 namespace Core.WPF.Interactivities.Extensions
 {

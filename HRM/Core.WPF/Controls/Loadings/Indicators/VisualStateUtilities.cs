@@ -1,14 +1,12 @@
-﻿using System.Windows;
-
-namespace Core.WPF.Controls.Loadings.Indicators
+﻿namespace Core.WPF.Controls.Loadings.Indicators
 {
     internal static class VisualStateUtilities
     {
         public static IEnumerable<VisualStateGroup> GetActiveVisualStateGroups(this FrameworkElement element) =>
             element.GetVisualStateGroupsByName(VisualStateGroupNames.ActiveStates.Name);
 
-        public static IEnumerable<VisualState> GetActiveVisualStates(this FrameworkElement element) => 
-            element .GetActiveVisualStateGroups().GetAllVisualStatesByName(VisualStateNames.ActiveState.Name);
+        public static IEnumerable<VisualState> GetActiveVisualStates(this FrameworkElement element) =>
+            element.GetActiveVisualStateGroups().GetAllVisualStatesByName(VisualStateNames.ActiveState.Name);
 
         public static IEnumerable<VisualState> GetAllVisualStatesByName(this IEnumerable<VisualStateGroup> visualStateGroups, string name) =>
             visualStateGroups.SelectMany(vsg => vsg.GetVisualStatesByName(name));

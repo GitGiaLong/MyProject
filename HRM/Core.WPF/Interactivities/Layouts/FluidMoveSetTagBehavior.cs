@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace Core.WPF.Interactivities.Layouts
+﻿namespace Core.WPF.Interactivities.Layouts
 {
 
     public sealed class FluidMoveSetTagBehavior : FluidMoveBehaviorBase

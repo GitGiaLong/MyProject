@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         Title="Contellation" Height="450" Width="800">
     <Grid>
+        <ui:TitleBar Title="aaaaa"/>
         <!--<Border Background="#282D33" BorderBrush="#3A4149" BorderThickness="5" CornerRadius="8,8,8,8">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="MouseLeftButtonDown">

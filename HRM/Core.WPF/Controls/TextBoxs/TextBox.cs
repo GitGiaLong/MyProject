@@ -1,9 +1,7 @@
 ﻿using Core.WPF.Controls.Enums;
 using Core.WPF.Extensions.Inputs;
 using System.Diagnostics;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 
 namespace Core.WPF.Controls
 {
@@ -17,12 +15,12 @@ namespace Core.WPF.Controls
         /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(string),
             typeof(TextBox), new PropertyMetadata(null));
-        
+
         public FontFamily? FontIcon { get { return (FontFamily?)GetValue(FontIconProperty); } set { SetValue(FontIconProperty, value); } }
         /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty FontIconProperty = DependencyProperty.Register(nameof(FontIcon), typeof(FontFamily),
             typeof(TextBox), new PropertyMetadata(null));
-        
+
         /// <summary> Gets or sets which side the icon should be placed on. </summary>
         public ElementPlacement IconPlacement
         {
@@ -126,9 +124,9 @@ namespace Core.WPF.Controls
         protected void RevealClearButton() { if (ClearButtonEnabled && IsKeyboardFocusWithin) { SetCurrentValue(ShowClearButtonProperty, Text.Length > 0); } }
 
         /// <summary> Hides the clear button by <see cref="ShowClearButton"/> property. </summary>
-        protected void HideClearButton() 
-        { 
-            if (ClearButtonEnabled && !IsKeyboardFocusWithin && ShowClearButton) { SetCurrentValue(ShowClearButtonProperty, false); } 
+        protected void HideClearButton()
+        {
+            if (ClearButtonEnabled && !IsKeyboardFocusWithin && ShowClearButton) { SetCurrentValue(ShowClearButtonProperty, false); }
         }
 
         /// <summary> Triggered when the user clicks the clear text button. </summary>

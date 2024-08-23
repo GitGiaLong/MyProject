@@ -1,6 +1,5 @@
 ﻿using Core.WPF.Controls.Enums;
 using Core.WPF.Controls.Loadings.Indicators;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace Core.WPF.Controls

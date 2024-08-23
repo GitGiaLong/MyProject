@@ -2,7 +2,6 @@
 using Core.WPF.Hardware;
 using Microsoft.Win32;
 using System.Windows.Interop;
-using System.Windows.Media;
 
 namespace Core.WPF.Interop
 {
@@ -59,7 +58,7 @@ namespace Core.WPF.Interop
             var pvAttribute = 0x0; /// Disable
             Dwmapi.DWMWINDOWATTRIBUTE dwAttribute = Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE;
 
-            if (!Win32.Utilities.IsOSWindows11Insider1OrNewer) { dwAttribute = Dwmapi.DWMWINDOWATTRIBUTE.DMWA_USE_IMMERSIVE_DARK_MODE_OLD; }
+            if (!Extensions.Utilities.IsOSWindows11Insider1OrNewer) { dwAttribute = Dwmapi.DWMWINDOWATTRIBUTE.DMWA_USE_IMMERSIVE_DARK_MODE_OLD; }
 
             /// TODO: Validate HRESULT
             _ = Dwmapi.DwmSetWindowAttribute(handle, dwAttribute, ref pvAttribute, Marshal.SizeOf(typeof(int)));
@@ -89,7 +88,7 @@ namespace Core.WPF.Interop
             var pvAttribute = 0x1; /// Enable
             Dwmapi.DWMWINDOWATTRIBUTE dwAttribute = Dwmapi.DWMWINDOWATTRIBUTE.DWMWA_USE_IMMERSIVE_DARK_MODE;
 
-            if (!Win32.Utilities.IsOSWindows11Insider1OrNewer) { dwAttribute = Dwmapi.DWMWINDOWATTRIBUTE.DMWA_USE_IMMERSIVE_DARK_MODE_OLD; }
+            if (!Extensions.Utilities.IsOSWindows11Insider1OrNewer) { dwAttribute = Dwmapi.DWMWINDOWATTRIBUTE.DMWA_USE_IMMERSIVE_DARK_MODE_OLD; }
 
             /// TODO: Validate HRESULT
             _ = Dwmapi.DwmSetWindowAttribute(handle, dwAttribute, ref pvAttribute, Marshal.SizeOf(typeof(int)));

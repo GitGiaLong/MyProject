@@ -1,6 +1,5 @@
-﻿using System.ComponentModel;
-using System.Windows;
-using Core.WPF.Layouts.Converter;
+﻿using Core.WPF.Layouts.Converter;
+using System.ComponentModel;
 
 namespace Core.WPF.Layouts
 {

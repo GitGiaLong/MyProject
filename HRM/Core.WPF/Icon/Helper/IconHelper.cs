@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Reflection;
-using System.Windows.Media;
-using System.Windows;
 
 namespace Core.WPF.Icon
 {

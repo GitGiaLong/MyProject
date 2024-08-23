@@ -1,6 +1,5 @@
 ﻿using Core.WPF.Appearance;
 using Core.WPF.Appearance.Enums;
-using System.Windows.Markup;
 
 namespace Core.WPF.Markup
 {

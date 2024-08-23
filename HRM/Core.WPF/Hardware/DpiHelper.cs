@@ -1,6 +1,5 @@
 ﻿using Core.WPF.Interop;
 using System.Windows.Interop;
-using System.Windows.Media;
 
 namespace Core.WPF.Hardware
 {

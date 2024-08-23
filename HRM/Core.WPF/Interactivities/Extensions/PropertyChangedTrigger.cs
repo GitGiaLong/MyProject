@@ -1,11 +1,9 @@
-﻿using System.Windows;
-
-namespace Core.WPF.Interactivities.Extensions
+﻿namespace Core.WPF.Interactivities.Extensions
 {
     public class PropertyChangedTrigger : TriggerBase<DependencyObject>
     {
         public static readonly DependencyProperty BindingProperty = DependencyProperty.Register("Binding", typeof(object), typeof(PropertyChangedTrigger), new PropertyMetadata(OnBindingChanged));
-        
+
         public object Binding
         {
             get { return (object)this.GetValue(BindingProperty); }

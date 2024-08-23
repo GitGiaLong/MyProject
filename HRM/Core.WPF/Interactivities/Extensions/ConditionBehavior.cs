@@ -1,6 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Markup;
-using Core.WPF.Interactivities.Interfaces;
+﻿using Core.WPF.Interactivities.Interfaces;
 
 namespace Core.WPF.Interactivities.Extensions
 {

@@ -7,4 +7,5 @@ global using System.Threading.Tasks;
 global using System.Runtime.InteropServices;
 global using System.Windows;
 global using System.Windows.Media;
+global using System.Windows.Markup;
 

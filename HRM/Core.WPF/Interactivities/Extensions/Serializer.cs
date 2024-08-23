@@ -1,13 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using Core.WPF.Interactivities.Enums;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
-using System.Text;
-using System.Windows;
 using System.Windows.Annotations;
-using System.Windows.Media;
 using System.Xml;
 using System.Xml.Serialization;
-using Core.WPF.Interactivities.Enums;
 
 namespace Core.WPF.Interactivities
 {
@@ -35,14 +32,14 @@ namespace Core.WPF.Interactivities
                 public bool ShowDesignTimeAnnotationsAtStart { get; set; }
             }
 
-            
+
             public class ViewStateData
             {
                 public double Zoom { get; set; }
                 public Point? Center { get; set; }
             }
 
-            
+
             public class Screen
             {
                 public ScreenType Type { get; set; }
@@ -51,7 +48,7 @@ namespace Core.WPF.Interactivities
                 public string DisplayName { get; set; }
                 public string FileName { get; set; }
 
-            
+
                 public List<Annotation> Annotations { get; set; }
 
                 public Point Position { get; set; }
@@ -63,7 +60,7 @@ namespace Core.WPF.Interactivities
                 }
             }
 
-            
+
             public class VisualTag
             {
                 public string Name { get; set; }

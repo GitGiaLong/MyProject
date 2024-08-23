@@ -1,7 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Media;
-
-namespace Core.WPF.Icon
+﻿namespace Core.WPF.Icon
 {
 
     public class IconBlock : IconBlockBase<IconChar>, IHaveIconFont

@@ -1,5 +1,4 @@
 ﻿using Core.WPF.Interactivities.Enums;
-using System.Windows;
 using System.Windows.Media.Animation;
 
 namespace Core.WPF.Interactivities.Medias

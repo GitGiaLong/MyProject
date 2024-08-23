@@ -1,6 +1,4 @@
-﻿using System.Windows.Markup;
-
-namespace Core.WPF.Markup
+﻿namespace Core.WPF.Markup
 {
     /// <summary>
     /// Provides a dictionary implementation that contains <c>Core.WPF</c> controls resources 

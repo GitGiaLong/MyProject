@@ -1,7 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Media;
-
-namespace Core.WPF.Interactivities
+﻿namespace Core.WPF.Interactivities
 {
     public static class DependencyObjectHelper
     {

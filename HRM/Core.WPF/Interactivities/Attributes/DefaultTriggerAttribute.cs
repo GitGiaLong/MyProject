@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Globalization;
-using Core.WPF.Interactivities.Extensions;
 
 namespace Core.WPF.Interactivities
 {

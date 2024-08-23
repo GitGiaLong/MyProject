@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using System.Globalization;
-using System.Windows;
 
 namespace Core.WPF.Interactivities
 {

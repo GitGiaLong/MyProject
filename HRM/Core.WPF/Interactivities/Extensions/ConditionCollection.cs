@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace Core.WPF.Interactivities.Extensions
+﻿namespace Core.WPF.Interactivities.Extensions
 {
     public class ConditionCollection : FreezableCollection<ComparisonCondition> { }
 }

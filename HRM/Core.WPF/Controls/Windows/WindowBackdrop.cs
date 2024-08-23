@@ -6,7 +6,6 @@ using System.Windows.Interop;
 
 namespace Core.WPF.Controls.Windows
 {
-
     /// <summary> Applies the chosen backdrop effect to the selected window. </summary>
     public static class WindowBackdrop
     {
@@ -18,10 +17,10 @@ namespace Core.WPF.Controls.Windows
         {
             return backdropType switch
             {
-                WindowBackdropType.Auto => Win32.Utilities.IsOSWindows11Insider1OrNewer,
-                WindowBackdropType.Tabbed => Win32.Utilities.IsOSWindows11Insider1OrNewer,
-                WindowBackdropType.Mica => Win32.Utilities.IsOSWindows11OrNewer,
-                WindowBackdropType.Acrylic => Win32.Utilities.IsOSWindows7OrNewer,
+                WindowBackdropType.Auto => Extensions.Utilities.IsOSWindows11Insider1OrNewer,
+                WindowBackdropType.Tabbed => Extensions.Utilities.IsOSWindows11Insider1OrNewer,
+                WindowBackdropType.Mica => Extensions.Utilities.IsOSWindows11OrNewer,
+                WindowBackdropType.Acrylic => Extensions.Utilities.IsOSWindows7OrNewer,
                 WindowBackdropType.None => true,
                 _ => false
             };
@@ -76,7 +75,7 @@ namespace Core.WPF.Controls.Windows
             _ = UnsafeNativeMethods.RemoveWindowCaption(hWnd);
 
             /// 22H1
-            if (!Win32.Utilities.IsOSWindows11Insider1OrNewer)
+            if (!Extensions.Utilities.IsOSWindows11Insider1OrNewer)
             {
                 if (backdropType != WindowBackdropType.None) { return ApplyLegacyMicaBackdrop(hWnd); }
 

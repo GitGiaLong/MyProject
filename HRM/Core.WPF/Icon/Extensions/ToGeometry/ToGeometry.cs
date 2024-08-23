@@ -1,6 +1,4 @@
-﻿using System.Windows.Media;
-
-namespace Core.WPF.Icon
+﻿namespace Core.WPF.Icon
 {
     public class ToGeometry : ToGeometryBase<IconChar>
     {

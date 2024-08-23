@@ -1,7 +1,6 @@
 ﻿using Core.WPF.Controls.Enums.NumberBox;
 using Core.WPF.Controls.Interfaces.NumberBox;
 using Core.WPF.Controls.NumberBoxs;
-using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 
@@ -115,7 +114,7 @@ namespace Core.WPF.Controls
             set { SetValue(ValidationModeProperty, value); }
         }
         /// <summary>Identifies the <see cref="ValidationMode"/> dependency property.</summary>
-        public static readonly DependencyProperty ValidationModeProperty = DependencyProperty.Register(nameof(ValidationMode), typeof(NumberBoxValidationMode), 
+        public static readonly DependencyProperty ValidationModeProperty = DependencyProperty.Register(nameof(ValidationMode), typeof(NumberBoxValidationMode),
             typeof(NumberBox), new PropertyMetadata(NumberBoxValidationMode.InvalidInputOverwritten));
 
         /// <summary>
@@ -127,7 +126,7 @@ namespace Core.WPF.Controls
             set { SetValue(NumberFormatterProperty, value); }
         }
         /// <summary>Identifies the <see cref="NumberFormatter"/> dependency property.</summary>
-        public static readonly DependencyProperty NumberFormatterProperty = DependencyProperty.Register(nameof(NumberFormatter), typeof(INumberFormatter), 
+        public static readonly DependencyProperty NumberFormatterProperty = DependencyProperty.Register(nameof(NumberFormatter), typeof(INumberFormatter),
             typeof(NumberBox), new PropertyMetadata(null, OnNumberFormatterChanged));
 
         /// <summary>
@@ -139,7 +138,7 @@ namespace Core.WPF.Controls
             remove => RemoveHandler(ValueChangedEvent, value);
         }
         /// <summary>Identifies the <see cref="ValueChanged"/> routed event.</summary>
-        public static readonly RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent(nameof(ValueChanged), RoutingStrategy.Bubble, 
+        public static readonly RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent(nameof(ValueChanged), RoutingStrategy.Bubble,
             typeof(RoutedEventHandler), typeof(NumberBox));
 
         static NumberBox()

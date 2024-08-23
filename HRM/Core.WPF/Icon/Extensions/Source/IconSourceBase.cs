@@ -1,7 +1,4 @@
-﻿using System.Windows.Markup;
-using System.Windows.Media;
-
-namespace Core.WPF.Icon
+﻿namespace Core.WPF.Icon
 {
 
     [MarkupExtensionReturnType(typeof(ImageSource))]

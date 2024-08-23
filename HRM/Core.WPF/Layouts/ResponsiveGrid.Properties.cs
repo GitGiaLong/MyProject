@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace Core.WPF.Layouts
+﻿namespace Core.WPF.Layouts
 {
     public partial class ResponsiveGrid
     {
@@ -118,7 +116,7 @@ namespace Core.WPF.Layouts
         #endregion
 
         #region  Pull Property
-        
+
         public static int GetXS_Pull(DependencyObject obj) { return (int)obj.GetValue(XS_PullProperty); }
         public static void SetXS_Pull(DependencyObject obj, int value) { obj.SetValue(XS_PullProperty, value); }
         /// <summary> Gets or sets a value that moves columns to left from the original position XS. </summary>
@@ -149,12 +147,12 @@ namespace Core.WPF.Layouts
 
         public static int GetActualColumn(DependencyObject obj) { return (int)obj.GetValue(ActualColumnProperty); }
         protected static void SetActualColumn(DependencyObject obj, int value) { obj.SetValue(ActualColumnProperty, value); }
-        public static readonly DependencyProperty ActualColumnProperty = DependencyProperty.RegisterAttached("ActualColumn", typeof(int), 
+        public static readonly DependencyProperty ActualColumnProperty = DependencyProperty.RegisterAttached("ActualColumn", typeof(int),
             typeof(ResponsiveGrid), new PropertyMetadata(0));
 
         public static int GetActualRow(DependencyObject obj) { return (int)obj.GetValue(ActualRowProperty); }
         protected static void SetActualRow(DependencyObject obj, int value) { obj.SetValue(ActualRowProperty, value); }
-        public static readonly DependencyProperty ActualRowProperty = DependencyProperty.RegisterAttached("ActualRow", typeof(int), 
+        public static readonly DependencyProperty ActualRowProperty = DependencyProperty.RegisterAttached("ActualRow", typeof(int),
             typeof(ResponsiveGrid), new PropertyMetadata(0));
 
         #endregion

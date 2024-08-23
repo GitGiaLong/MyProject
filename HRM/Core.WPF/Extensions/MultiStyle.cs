@@ -1,7 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Markup;
-
-namespace Core.WPF.Extensions
+﻿namespace Core.WPF.Extensions
 {
     [MarkupExtensionReturnType(typeof(Style))]
     internal class MultiStyle : MarkupExtension

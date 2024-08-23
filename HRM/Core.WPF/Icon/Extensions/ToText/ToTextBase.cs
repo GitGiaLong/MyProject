@@ -1,6 +1,4 @@
-﻿using System.Windows.Markup;
-
-namespace Core.WPF.Icon
+﻿namespace Core.WPF.Icon
 {
     [MarkupExtensionReturnType(typeof(string))]
     public class ToTextBase<TEnum> : MarkupExtension where TEnum : struct, IConvertible, IComparable, IFormattable

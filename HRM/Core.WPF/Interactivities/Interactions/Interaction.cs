@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace Core.WPF.Interactivities
+﻿namespace Core.WPF.Interactivities
 {
     public static class Interaction
     {

@@ -2,7 +2,6 @@
 using System.Diagnostics;
 using System.Globalization;
 using System.Reflection;
-using System.Windows;
 
 namespace Core.WPF.Interactivities
 {

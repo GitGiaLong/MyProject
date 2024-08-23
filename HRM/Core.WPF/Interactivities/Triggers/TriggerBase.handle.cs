@@ -1,6 +1,4 @@
-﻿using System.Windows;
-
-namespace Core.WPF.Interactivities
+﻿namespace Core.WPF.Interactivities
 {
     public abstract class TriggerBase<T> : TriggerBase where T : DependencyObject
     {

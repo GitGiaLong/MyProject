@@ -1,7 +1,5 @@
 ﻿using Core.WPF.Interactivities.Enums;
-using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace Core.WPF.Interactivities.Inputs
 {

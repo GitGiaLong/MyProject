@@ -1,6 +1,4 @@
-﻿using System.Windows.Markup;
-
-namespace Core.WPF.Controls.Loadings.Indicators
+﻿namespace Core.WPF.Controls.Loadings.Indicators
 {
     internal class VisualStateNames : MarkupExtension
     {

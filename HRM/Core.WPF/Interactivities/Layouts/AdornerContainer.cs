@@ -1,7 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Media;
-
-namespace Core.WPF.Interactivities.Layouts
+﻿namespace Core.WPF.Interactivities.Layouts
 {
     public class AdornerContainer : System.Windows.Documents.Adorner
     {

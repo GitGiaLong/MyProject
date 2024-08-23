@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using System.IO;
 using System.Reflection;
-using System.Windows;
 using System.Windows.Navigation;
 
 namespace Core.WPF.Interactivities

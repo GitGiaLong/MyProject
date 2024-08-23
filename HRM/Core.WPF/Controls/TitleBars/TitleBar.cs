@@ -1,6 +1,5 @@
 ﻿using Core.WPF.Appearance;
 using Core.WPF.Appearance.Enums;
-using Core.WPF.Controls.Enums;
 using Core.WPF.Designers;
 using Core.WPF.Extensions;
 using Core.WPF.Extensions.Inputs;
