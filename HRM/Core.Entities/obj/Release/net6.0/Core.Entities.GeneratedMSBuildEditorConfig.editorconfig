@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Core.Entities
-build_property.ProjectDir = D:\My\HRM\Core.Entities\
+build_property.ProjectDir = C:\Users\giath\source\repos\MyProject\HRM\Core.Entities\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

@@ -25,8 +25,7 @@
                                         <VisualState x:Name="Inactive" />
                                         <VisualState x:Name="Active">
                                             <Storyboard SpeedRatio="{TemplateBinding SpeedRatio}">
-                                                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever"
-                                                                               Storyboard.TargetName="PART_Canvas0"
+                                                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetName="PART_Canvas0"
                                                                                Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)">
                                                     <LinearDoubleKeyFrame KeyTime="0:0:0.000" Value="0" />
                                                     <LinearDoubleKeyFrame KeyTime="0:0:3.000" Value="360" />
@@ -65,9 +64,7 @@
                                                             <PathFigure StartPoint="0,0">
                                                                 <PathFigure.Segments>
                                                                     <PathSegmentCollection>
-                                                                        <ArcSegment Size="16,16" IsLargeArc="True"
-                                                                                    SweepDirection="CounterClockwise"
-                                                                                    Point="16,16" />
+                                                                        <ArcSegment Size="16,16" IsLargeArc="True" SweepDirection="CounterClockwise" Point="16,16" />
                                                                     </PathSegmentCollection>
                                                                 </PathFigure.Segments>
                                                             </PathFigure>
@@ -100,8 +97,7 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type controls:Loading}">
-                            <Border x:Name="PART_Border" BorderBrush="{TemplateBinding BorderBrush}"
-                                    BorderThickness="{TemplateBinding BorderThickness}"
+                            <Border x:Name="PART_Border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"
                                     Background="{TemplateBinding Background}">
                                 <VisualStateManager.VisualStateGroups>
                                     <VisualStateGroup x:Name="SizeStates">
@@ -112,14 +108,12 @@
                                         <VisualState x:Name="Inactive" />
                                         <VisualState x:Name="Active">
                                             <Storyboard SpeedRatio="{TemplateBinding SpeedRatio}">
-                                                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever"
-                                                                               Storyboard.TargetName="PART_Canvas0"
+                                                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetName="PART_Canvas0"
                                                                                Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)">
                                                     <LinearDoubleKeyFrame KeyTime="0:0:0.000" Value="0" />
                                                     <LinearDoubleKeyFrame KeyTime="0:0:3.000" Value="360" />
                                                 </DoubleAnimationUsingKeyFrames>
-                                                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever"
-                                                                               Storyboard.TargetName="PART_Canvas1"
+                                                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetName="PART_Canvas1"
                                                                                Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)">
                                                     <LinearDoubleKeyFrame KeyTime="0:0:0.000" Value="0" />
                                                     <LinearDoubleKeyFrame KeyTime="0:0:2.000" Value="-360" />
@@ -159,9 +153,7 @@
                                                             <PathFigure StartPoint="0,0">
                                                                 <PathFigure.Segments>
                                                                     <PathSegmentCollection>
-                                                                        <ArcSegment Size="40,40" IsLargeArc="True"
-                                                                                    SweepDirection="CounterClockwise"
-                                                                                    Point="40,40" />
+                                                                        <ArcSegment Size="40,40" IsLargeArc="True" SweepDirection="CounterClockwise" Point="40,40" />
                                                                     </PathSegmentCollection>
                                                                 </PathFigure.Segments>
                                                             </PathFigure>
@@ -184,9 +176,7 @@
                                                             <PathFigure StartPoint="0,0">
                                                                 <PathFigure.Segments>
                                                                     <PathSegmentCollection>
-                                                                        <ArcSegment Size="30,30" IsLargeArc="True"
-                                                                                    SweepDirection="Clockwise"
-                                                                                    Point="40,40" />
+                                                                        <ArcSegment Size="30,30" IsLargeArc="True" SweepDirection="Clockwise" Point="40,40" />
                                                                     </PathSegmentCollection>
                                                                 </PathFigure.Segments>
                                                             </PathFigure>

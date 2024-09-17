@@ -1056,7 +1056,8 @@
           "Microsoft.JSInterop": "6.0.31",
           "NLog": "5.3.2",
           "Newtonsoft.Json": "13.0.3",
-          "System.Data.SqlClient": "4.8.6"
+          "System.Data.SqlClient": "4.8.6",
+          "System.Drawing.Common": "6.0.0"
         },
         "compile": {
           "bin/placeholder/Core.Library.dll": {}

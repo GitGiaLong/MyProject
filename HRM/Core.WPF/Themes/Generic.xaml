@@ -5,21 +5,36 @@
 
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Themes/Colors.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Themes/Styles.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Themes/Converters.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Themes/FontFamilies.xaml"/>
 
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Buttons/Button.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Buttons/Anchor.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Buttons/HyperlinkButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Buttons/DropDownButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Buttons/RadioButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Buttons/SplitButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Buttons/ToggleButton.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Datetimes/Calendar.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Datetimes/CalendarDatePicker.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Datetimes/DatePicker.xaml"/>
 
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/TextBoxs/TextBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/NumberBoxs/NumberBox.xaml"/>
 
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/CheckBoxs/CheckBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Sliders/Slider.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/ToggleSwitchs/ToggleSwitch.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/ToolTips/ToolTip.xaml"/>
 
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/TitleBars/TitleBar.xaml"/>
 
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Flyouts/Flyout.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Gravatars/Gravatar.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Frames/Frame.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Windows/WindowsBase.xaml"/>
+        
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/Loadings/Loading.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/ContextMenus/DefaultContextMenu.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Controls/ScrollViewers/DefaultTextBoxScrollViewerStyle.xaml"/>

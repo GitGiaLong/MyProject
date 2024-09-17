@@ -12,15 +12,17 @@ namespace Core.WPF.Controls
             set { SetValue(IconProperty, value); }
         }
         /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
-        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(string), typeof(Button), new PropertyMetadata(null));
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(string), 
+            typeof(Button), new PropertyMetadata(null));
 
-        public FontFamily? FontIcon
+        public FontFamily? FontFamilyIcon
         {
-            get { return (FontFamily?)GetValue(FontIconProperty); }
-            set { SetValue(FontIconProperty, value); }
+            get { return (FontFamily?)GetValue(FontFamilyIconProperty); }
+            set { SetValue(FontFamilyIconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Appearance"/> dependency property.</summary>
-        public static readonly DependencyProperty FontIconProperty = DependencyProperty.Register(nameof(FontIcon), typeof(string), typeof(Button), new PropertyMetadata(null));
+        /// <summary>Identifies the <see cref="FontFamilyIcon"/> dependency property.</summary>
+        public static readonly DependencyProperty FontFamilyIconProperty = DependencyProperty.Register(nameof(FontFamilyIcon), typeof(FontFamily), 
+            typeof(Button), new PropertyMetadata(null));
 
         /// <summary>Gets or sets background <see cref="Brush"/>.</summary>
         public Brush MouseOverBackground
@@ -29,7 +31,8 @@ namespace Core.WPF.Controls
             set { SetValue(MouseOverBackgroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="MouseOverBackground"/> dependency property.</summary>
-        public static readonly DependencyProperty MouseOverBackgroundProperty = DependencyProperty.Register(nameof(MouseOverBackground), typeof(Brush), typeof(Button),
+        public static readonly DependencyProperty MouseOverBackgroundProperty = DependencyProperty.Register(nameof(MouseOverBackground), typeof(Brush), 
+            typeof(Button),
             new PropertyMetadata(Border.BackgroundProperty.DefaultMetadata.DefaultValue));
 
         /// <summary>Gets or sets border <see cref="Brush"/> when the user mouses over the button.</summary>
@@ -39,8 +42,8 @@ namespace Core.WPF.Controls
             set { SetValue(MouseOverBorderBrushProperty, value); }
         }
         /// <summary>Identifies the <see cref="MouseOverBorderBrush"/> dependency property.</summary>
-        public static readonly DependencyProperty MouseOverBorderBrushProperty = DependencyProperty.Register(nameof(MouseOverBorderBrush), typeof(Brush), typeof(Button),
-            new PropertyMetadata(Border.BorderBrushProperty.DefaultMetadata.DefaultValue));
+        public static readonly DependencyProperty MouseOverBorderBrushProperty = DependencyProperty.Register(nameof(MouseOverBorderBrush), typeof(Brush), 
+            typeof(Button), new PropertyMetadata(Border.BorderBrushProperty.DefaultMetadata.DefaultValue));
 
         /// <summary>Gets or sets the foreground <see cref="Brush"/> when the user clicks the button.</summary>
         public Brush PressedForeground
@@ -49,8 +52,8 @@ namespace Core.WPF.Controls
             set { SetValue(PressedForegroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="PressedForeground"/> dependency property.</summary>
-        public static readonly DependencyProperty PressedForegroundProperty = DependencyProperty.Register(nameof(PressedForeground), typeof(Brush), typeof(Button),
-            new FrameworkPropertyMetadata(SystemColors.ControlTextBrush, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty PressedForegroundProperty = DependencyProperty.Register(nameof(PressedForeground), typeof(Brush), 
+            typeof(Button), new FrameworkPropertyMetadata(SystemColors.ControlTextBrush, FrameworkPropertyMetadataOptions.Inherits));
 
         /// <summary>Gets or sets background <see cref="Brush"/> when the user clicks the button.</summary>
         public Brush PressedBackground
@@ -59,8 +62,8 @@ namespace Core.WPF.Controls
             set { SetValue(PressedBackgroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="PressedBackground"/> dependency property.</summary>
-        public static readonly DependencyProperty PressedBackgroundProperty = DependencyProperty.Register(nameof(PressedBackground), typeof(Brush), typeof(Button),
-            new PropertyMetadata(Border.BackgroundProperty.DefaultMetadata.DefaultValue));
+        public static readonly DependencyProperty PressedBackgroundProperty = DependencyProperty.Register(nameof(PressedBackground), typeof(Brush), 
+            typeof(Button), new PropertyMetadata(Border.BackgroundProperty.DefaultMetadata.DefaultValue));
 
         /// <summary>Gets or sets border <see cref="Brush"/> when the user clicks the button.</summary>
         public Brush PressedBorderBrush
@@ -69,8 +72,8 @@ namespace Core.WPF.Controls
             set { SetValue(PressedBorderBrushProperty, value); }
         }
         /// <summary>Identifies the <see cref="PressedBorderBrush"/> dependency property.</summary>
-        public static readonly DependencyProperty PressedBorderBrushProperty = DependencyProperty.Register(nameof(PressedBorderBrush), typeof(Brush), typeof(Button),
-            new PropertyMetadata(Border.BorderBrushProperty.DefaultMetadata.DefaultValue));
+        public static readonly DependencyProperty PressedBorderBrushProperty = DependencyProperty.Register(nameof(PressedBorderBrush), typeof(Brush), 
+            typeof(Button), new PropertyMetadata(Border.BorderBrushProperty.DefaultMetadata.DefaultValue));
 
         /// <summary>Gets or sets a value that represents the degree to which the corners of a <see cref="T:System.Windows.Controls.Border" /> are rounded.</summary>
         public CornerRadius CornerRadius
@@ -79,7 +82,7 @@ namespace Core.WPF.Controls
             set { SetValue(CornerRadiusProperty, (object)value); }
         }
         /// <summary>Identifies the <see cref="CornerRadius"/> dependency property.</summary>
-        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), typeof(Button),
-            new FrameworkPropertyMetadata(default(CornerRadius), FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender));
+        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), 
+            typeof(Button), new FrameworkPropertyMetadata(default(CornerRadius), FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender));
     }
 }

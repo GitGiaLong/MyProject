@@ -11,8 +11,8 @@ namespace Core.WPF.Controls
         /// <summary> Gets or sets the Type of the button.</summary>
         public TitleBarButtonType ButtonType
         {
-            get => (TitleBarButtonType)GetValue(ButtonTypeProperty);
-            set => SetValue(ButtonTypeProperty, value);
+            get { return (TitleBarButtonType)GetValue(ButtonTypeProperty); }
+            set { SetValue(ButtonTypeProperty, value); }
         }
         /// <summary>Identifies the <see cref="ButtonType"/> dependency property.</summary>
         public static readonly DependencyProperty ButtonTypeProperty = DependencyProperty.Register(nameof(ButtonType), typeof(TitleBarButtonType),
@@ -21,8 +21,8 @@ namespace Core.WPF.Controls
         /// <summary> Gets or sets the foreground of the navigation buttons. </summary>
         public Brush ButtonsForeground
         {
-            get => (Brush)GetValue(ButtonsForegroundProperty);
-            set => SetValue(ButtonsForegroundProperty, value);
+            get { return (Brush)GetValue(ButtonsForegroundProperty); }
+            set { SetValue(ButtonsForegroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="ButtonsForeground"/> dependency property.</summary>
         public static readonly DependencyProperty ButtonsForegroundProperty = DependencyProperty.Register(nameof(ButtonsForeground), typeof(Brush),
@@ -31,8 +31,8 @@ namespace Core.WPF.Controls
         /// <summary> Gets or sets the foreground of the navigation buttons when moused over.</summary>
         public Brush? MouseOverButtonsForeground
         {
-            get => (Brush?)GetValue(MouseOverButtonsForegroundProperty);
-            set => SetValue(MouseOverButtonsForegroundProperty, value);
+            get { return (Brush?)GetValue(MouseOverButtonsForegroundProperty); }
+            set { SetValue(MouseOverButtonsForegroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="MouseOverButtonsForeground"/> dependency property.</summary>
         public static readonly DependencyProperty MouseOverButtonsForegroundProperty = DependencyProperty.Register(nameof(MouseOverButtonsForeground), typeof(Brush),
@@ -40,8 +40,8 @@ namespace Core.WPF.Controls
 
         public Brush RenderButtonsForeground
         {
-            get => (Brush)GetValue(RenderButtonsForegroundProperty);
-            set => SetValue(RenderButtonsForegroundProperty, value);
+            get { return (Brush)GetValue(RenderButtonsForegroundProperty); }
+            set { SetValue(RenderButtonsForegroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="RenderButtonsForeground"/> dependency property.</summary>
         public static readonly DependencyProperty RenderButtonsForegroundProperty = DependencyProperty.Register(nameof(RenderButtonsForeground), typeof(Brush),

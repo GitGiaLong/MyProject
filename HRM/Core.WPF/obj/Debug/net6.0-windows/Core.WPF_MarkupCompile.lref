@@ -1,8 +1,16 @@
-﻿
+﻿C:\Users\giath\source\repos\MyProject\HRM\Core.WPF\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
 
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Buttons\Anchor.xaml;;
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Buttons\Button.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Buttons\DropDownButton.xaml;;
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Buttons\HyperlinkButton.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Buttons\SplitButton.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Datetimes\Calendar.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Datetimes\CalendarDatePicker.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Datetimes\DatePicker.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Expanders\Expander.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Flyouts\Flyout.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Gravatars\Gravatar.xaml;;
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Loadings\Loading.xaml;;
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Loadings\LoadingStyles\LoadingArc.xaml;;
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Loadings\LoadingStyles\LoadingDoubleBounce.xaml;;
@@ -12,6 +20,10 @@ FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Loadings\LoadingSty
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Loadings\LoadingStyles\LoadingThreeDots.xaml;;
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Loadings\LoadingStyles\LoadingWave.xaml;;
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\NumberBoxs\NumberBox.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\TextBoxs\RichTextBox.xaml;;
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\TextBoxs\TextBox.xaml;;
 FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\TitleBars\TitleBar.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\ToggleSwitchs\ToggleSwitch.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Controls\Windows\WindowsBase.xaml;;
+FC:\Users\giath\source\repos\MyProject\HRM\Core.WPF\Themes\Converters.xaml;;
 

@@ -28,7 +28,7 @@
 @code {
     protected override void OnInitialized()
     {
-        // redirect to home if already logged in
+        /// redirect to home if already logged in
         if (AccountService.User != null)
         {
             NavigationManager.NavigateTo("");

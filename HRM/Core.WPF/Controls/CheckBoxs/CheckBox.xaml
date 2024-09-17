@@ -6,15 +6,6 @@
         <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Themes/FontFamilies.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Color x:Key="FallbackColor">#FFFF0000</Color>
-
-    <Thickness x:Key="CheckBoxPadding">11,5,11,6</Thickness>
-    <Thickness x:Key="CheckBoxBorderThemeThickness">1</Thickness>
-    <Thickness x:Key="CheckBoxContentMargin">8,0,0,0</Thickness>
-    <system:Double x:Key="CheckBoxIconSize">14</system:Double>
-    <system:Double x:Key="CheckBoxHeight">22</system:Double>
-    <system:Double x:Key="CheckBoxWidth">22</system:Double>
-
     <Style x:Key="DefaultCheckBoxStyle" TargetType="{x:Type CheckBox}">
         <!--  Universal focus  -->
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
@@ -45,7 +36,7 @@
                                      Background="Transparent">
                         <BulletDecorator.Bullet>
                             <Border x:Name="ControlBorderIconPresenter" HorizontalAlignment="Left" VerticalAlignment="Center"
-                                    Width="{StaticResource CheckBoxHeight}" Height="{StaticResource CheckBoxWidth}"
+                                    Width="22" Height="22"
                                     Background="{TemplateBinding Background}" CornerRadius="{TemplateBinding Border.CornerRadius}">
                                 <Border x:Name="StrokeBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" 
                                         CornerRadius="{TemplateBinding Border.CornerRadius}">

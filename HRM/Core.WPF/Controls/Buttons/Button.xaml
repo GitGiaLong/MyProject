@@ -3,10 +3,12 @@
                     xmlns:controls="clr-namespace:Core.WPF.Controls"
                     >
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Themes/FontFamilies.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
     <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}">
-        <!--  Universal focus  -->
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
-        <!--  Universal focus  -->
         <Setter Property="BorderBrush" Value="Gray" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="11 5 11 6" />
@@ -31,20 +33,19 @@
                                           HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
                                           Content="{TemplateBinding Content}"
                                           ContentTemplate="{TemplateBinding ContentTemplate}" 
-                                          TextElement.Foreground="{TemplateBinding Foreground}" 
-                                          />
+                                          TextElement.Foreground="{TemplateBinding Foreground}" />
 
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Background" Value="#80b9ee" />
                             <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
-                            <!--<Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="#ABCFF2" />-->
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="#ABCFF2" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Background" Value="#2D3236" />
                             <Setter Property="BorderBrush" Value="Transparent" />
-                            <!--<Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="#A6A6A6" />-->
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="#A6A6A6" />
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Background" Value="#212D3B" />
@@ -67,12 +68,12 @@
         <Setter Property="MouseOverBackground" Value="#ABCFF2" />
         <!--<Setter Property="PressedBackground" Value="" />-->
         <!--<Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />-->
-        <Setter Property="PressedForeground" Value="White" />
+        <Setter Property="PressedForeground" Value="#FFFFFF" />
         <Setter Property="BorderBrush" Value="Gray" />
         <Setter Property="PressedBorderBrush" Value="Transparent" />
         <Setter Property="MouseOverBorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="11,5,11,6" />
+        <Setter Property="Padding" Value="11 5 11 6" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -99,7 +100,7 @@
                                 <ContentPresenter x:Name="ControlIcon" Grid.Column="0" Margin="0,0,8,0" VerticalAlignment="Center" Focusable="False"
                                                   Content="{TemplateBinding Icon}" ContentTemplate="{TemplateBinding ContentTemplate}"
                                                   TextElement.FontSize="{TemplateBinding FontSize}"
-                                                  TextElement.FontFamily="{TemplateBinding FontIcon}" 
+                                                  TextElement.FontFamily="{TemplateBinding FontFamilyIcon}" 
                                                   TextElement.Foreground="{TemplateBinding Foreground}" />
 
                                 <ContentPresenter x:Name="ContentPresenter" Grid.Column="1" VerticalAlignment="Center" 
@@ -113,8 +114,6 @@
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsPressed" Value="False" />
                             </MultiTrigger.Conditions>
-                            <!--<Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{Binding MouseOverForeground, RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{Binding MouseOverForeground, RelativeSource={RelativeSource TemplatedParent}}" />-->
                             <Setter TargetName="ContentBorder" Property="Background" Value="{Binding MouseOverBackground, RelativeSource={RelativeSource TemplatedParent}}" />
                             <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{Binding MouseOverBorderBrush, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>

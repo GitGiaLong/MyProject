@@ -11,7 +11,7 @@
         "projectName": "Blazor.Client",
         "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Client\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -117,7 +117,7 @@
         "projectName": "Blazor.Server",
         "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Server\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -144,6 +144,9 @@
               },
               "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
                 "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
+              },
+              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
+                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj"
               }
             }
           }
@@ -263,7 +266,7 @@
         "projectName": "Core.Blazor",
         "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -409,7 +412,7 @@
         "projectName": "Core.Library",
         "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -471,6 +474,10 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.6, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [

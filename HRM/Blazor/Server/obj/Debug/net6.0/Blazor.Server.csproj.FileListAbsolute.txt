@@ -146,3 +146,8 @@ C:\Users\giath\source\repos\MyProject\HRM\Blazor\Server\obj\Debug\net6.0\refint\
 C:\Users\giath\source\repos\MyProject\HRM\Blazor\Server\obj\Debug\net6.0\Blazor.Server.pdb
 C:\Users\giath\source\repos\MyProject\HRM\Blazor\Server\obj\Debug\net6.0\Blazor.Server.genruntimeconfig.cache
 C:\Users\giath\source\repos\MyProject\HRM\Blazor\Server\obj\Debug\net6.0\ref\Blazor.Server.dll
+C:\Users\giath\source\repos\MyProject\HRM\Blazor\Server\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\giath\source\repos\MyProject\HRM\Blazor\Server\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\giath\source\repos\MyProject\HRM\Blazor\Server\bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\giath\source\repos\MyProject\HRM\Blazor\Server\bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\giath\source\repos\MyProject\HRM\Blazor\Server\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll

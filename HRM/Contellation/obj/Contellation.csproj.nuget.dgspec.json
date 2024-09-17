@@ -11,7 +11,7 @@
         "projectName": "Contellation",
         "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Contellation\\Contellation.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Contellation\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Contellation\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -154,7 +154,7 @@
         "projectName": "Core.Library",
         "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -216,6 +216,10 @@
             "System.Data.SqlClient": {
               "target": "Package",
               "version": "[4.8.6, )"
+            },
+            "System.Drawing.Common": {
+              "target": "Package",
+              "version": "[6.0.0, )"
             }
           },
           "imports": [
@@ -245,7 +249,7 @@
         "projectName": "Core.WPF",
         "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

@@ -17,7 +17,7 @@ namespace Contellation.Views
     /// <summary>
     /// Interaction logic for Contellation.xaml
     /// </summary>
-    public partial class Contellation : Window
+    public partial class Contellation //: Window
     {
         public Contellation()
         {

@@ -1,10 +1,11 @@
 ﻿namespace Core.WPF.Properties
 {
     internal static class UiElement
-    {        /// <summary>
-             /// Do not call it outside of NCHITTEST, NCLBUTTONUP, NCLBUTTONDOWN messages!
-             /// </summary>
-             /// <returns><see langword="true"/> if mouse is over the element. <see langword="false"/> otherwise.</returns>
+    {        
+        /// <summary>
+        /// Do not call it outside of NCHITTEST, NCLBUTTONUP, NCLBUTTONDOWN messages!
+        /// </summary>
+        /// <returns><see langword="true"/> if mouse is over the element. <see langword="false"/> otherwise.</returns>
         public static bool IsMouseOverElement(this UIElement element, IntPtr lParam)
         {
             // This method will be invoked very often and must be as simple as possible.

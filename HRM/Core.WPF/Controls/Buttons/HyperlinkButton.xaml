@@ -2,10 +2,12 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:Core.WPF.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Core.WPF;component/Themes/FontFamilies.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
     <Style x:Key="DefaultUiHyperlinkButtonStyle" TargetType="{x:Type controls:HyperlinkButton}">
-        <!--  Universal focus  -->
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
-        <!--  Universal focus  -->
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="Foreground" Value="#70EBDE" />
         <Setter Property="BorderThickness" Value="0" />
@@ -38,7 +40,7 @@
                             <ContentControl x:Name="ControlIcon" Grid.Column="0" VerticalAlignment="Center" Focusable="False"
                                             Margin="0,0,8,0"
                                             Content="{TemplateBinding Icon}" 
-                                            FontFamily="{TemplateBinding FontIcon}"
+                                            FontFamily="{TemplateBinding FontFamilyIcon}"
                                             Foreground="{TemplateBinding Foreground}" />
 
                             <ContentPresenter x:Name="ContentPresenter" Grid.Column="1" Content="{TemplateBinding Content}"

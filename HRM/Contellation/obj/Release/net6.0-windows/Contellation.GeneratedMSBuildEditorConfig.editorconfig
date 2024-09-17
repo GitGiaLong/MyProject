@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Contellation
-build_property.ProjectDir = D:\My\HRM\Contellation\
+build_property.ProjectDir = C:\Users\giath\source\repos\MyProject\HRM\Contellation\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

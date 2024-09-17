@@ -8,12 +8,8 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultTextBoxStyle" TargetType="{x:Type TextBox}">
-        <!--  Universal focus  -->
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
-        <!--  Universal focus  -->
-        <!--  Universal ContextMenu  -->
         <Setter Property="ContextMenu" Value="{DynamicResource DefaultControlContextMenu}" />
-        <!--  Universal ContextMenu  -->
         <Setter Property="Foreground" Value="#FFFFFF" />
         <Setter Property="CaretBrush" Value="#FFFFFF" />
         <Setter Property="Background" Value="#2D3236" />
@@ -101,7 +97,7 @@
 
                     <ContentPresenter x:Name="ControlIconLeft" Grid.Column="0" Margin="10,0,0,0"
                                       Focusable="False" Visibility="Visible" VerticalAlignment="Center"
-                                      Content="{TemplateBinding Icon}" TextElement.FontFamily="{TemplateBinding FontIcon}"
+                                      Content="{TemplateBinding Icon}" TextElement.FontFamily="{TemplateBinding FontFamilyIcon}"
                                       TextElement.FontSize="{TemplateBinding FontSize}" TextElement.Foreground="{TemplateBinding Foreground}" />
 
                     <Grid Grid.Column="1" Margin="{TemplateBinding Padding}">
@@ -128,7 +124,7 @@
                     </controls:Button>
 
                     <ContentPresenter x:Name="ControlIconRight" Grid.Column="3" Margin="0 0 10 0" VerticalAlignment="Center"
-                                      Content="{TemplateBinding Icon}" TextElement.FontFamily="{TemplateBinding FontIcon}"
+                                      Content="{TemplateBinding Icon}" TextElement.FontFamily="{TemplateBinding FontFamilyIcon}"
                                       TextElement.FontSize="{TemplateBinding FontSize}"
                                       TextElement.Foreground="{TemplateBinding Foreground}" />
                 </Grid>
@@ -218,12 +214,8 @@
     </ControlTemplate>
 
     <Style x:Key="DefaultUiTextBoxStyle" TargetType="{x:Type controls:TextBox}">
-        <!--  Universal focus  -->
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
-        <!--  Universal focus  -->
-        <!--  Universal ContextMenu  -->
         <Setter Property="ContextMenu" Value="{DynamicResource DefaultControlContextMenu}" />
-        <!--  Universal ContextMenu  -->
         <Setter Property="Foreground" Value="#FFFFFF" />
         <Setter Property="CaretBrush" Value="#FFFFFF" />
         <Setter Property="Background" Value="#2D3236" />

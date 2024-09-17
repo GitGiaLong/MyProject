@@ -11,14 +11,22 @@ namespace Core.WPF.Controls
     public class TextBox : System.Windows.Controls.TextBox
     {
         /// <summary> Gets or sets displayed <see cref="Icon"/>. </summary>
-        public string? Icon { get { return (string?)GetValue(IconProperty); } set { SetValue(IconProperty, value); } }
+        public string? Icon 
+        { 
+            get { return (string?)GetValue(IconProperty); } 
+            set { SetValue(IconProperty, value); } 
+        }
         /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(string),
             typeof(TextBox), new PropertyMetadata(null));
 
-        public FontFamily? FontIcon { get { return (FontFamily?)GetValue(FontIconProperty); } set { SetValue(FontIconProperty, value); } }
+        public FontFamily? FontFamilyIcon 
+        { 
+            get { return (FontFamily?)GetValue(FontFamilyIconProperty); } 
+            set { SetValue(FontFamilyIconProperty, value); } 
+        }
         /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
-        public static readonly DependencyProperty FontIconProperty = DependencyProperty.Register(nameof(FontIcon), typeof(FontFamily),
+        public static readonly DependencyProperty FontFamilyIconProperty = DependencyProperty.Register(nameof(FontFamilyIcon), typeof(FontFamily),
             typeof(TextBox), new PropertyMetadata(null));
 
         /// <summary> Gets or sets which side the icon should be placed on. </summary>
