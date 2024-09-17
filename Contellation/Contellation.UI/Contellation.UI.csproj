@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Generics\" />
+    <ProjectReference Include="..\Core.Libraries.WPF\Core.Libraries.WPF.csproj" />
   </ItemGroup>
 
 </Project>
