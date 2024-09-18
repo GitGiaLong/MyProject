@@ -2508,9 +2508,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
+      "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
       "projectName": "Blazor.Server",
-      "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
+      "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
       "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\obj\\",
       "projectStyle": "PackageReference",
@@ -2534,14 +2534,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj": {
-              "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj"
+            "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj": {
+              "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj"
             },
-            "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
-              "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
+            "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
+              "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
             },
-            "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
-              "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj"
+            "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
+              "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj"
             }
           }
         }

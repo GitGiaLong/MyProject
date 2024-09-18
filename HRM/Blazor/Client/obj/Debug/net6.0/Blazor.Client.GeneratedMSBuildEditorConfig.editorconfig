@@ -13,43 +13,43 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = Blazor.Client
 build_property.RootNamespace = Blazor.Client
-build_property.ProjectDir = C:\Users\giath\source\repos\MyProject\HRM\Blazor\Client\
+build_property.ProjectDir = C:\Users\giath\Source\Repos\MyProject\HRM\Blazor\Client\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\giath\source\repos\MyProject\HRM\Blazor\Client
+build_property.MSBuildProjectDirectory = C:\Users\giath\Source\Repos\MyProject\HRM\Blazor\Client
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/giath/source/repos/MyProject/HRM/Blazor/Client/App.razor]
+[C:/Users/giath/Source/Repos/MyProject/HRM/Blazor/Client/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/giath/source/repos/MyProject/HRM/Blazor/Client/Authentications/Logout.razor]
+[C:/Users/giath/Source/Repos/MyProject/HRM/Blazor/Client/Authentications/Logout.razor]
 build_metadata.AdditionalFiles.TargetPath = QXV0aGVudGljYXRpb25zXExvZ291dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/giath/source/repos/MyProject/HRM/Blazor/Client/DashBoard/Index.razor]
+[C:/Users/giath/Source/Repos/MyProject/HRM/Blazor/Client/DashBoard/Index.razor]
 build_metadata.AdditionalFiles.TargetPath = RGFzaEJvYXJkXEluZGV4LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/giath/source/repos/MyProject/HRM/Blazor/Client/Shared/SurveyPrompt.razor]
+[C:/Users/giath/Source/Repos/MyProject/HRM/Blazor/Client/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/giath/source/repos/MyProject/HRM/Blazor/Client/_Imports.razor]
+[C:/Users/giath/Source/Repos/MyProject/HRM/Blazor/Client/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/giath/source/repos/MyProject/HRM/Blazor/Client/Authentications/Login.razor]
+[C:/Users/giath/Source/Repos/MyProject/HRM/Blazor/Client/Authentications/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = QXV0aGVudGljYXRpb25zXExvZ2luLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-0u8sq7dsgd
 
-[C:/Users/giath/source/repos/MyProject/HRM/Blazor/Client/Shared/MainLayout.razor]
+[C:/Users/giath/Source/Repos/MyProject/HRM/Blazor/Client/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-9ludf2gi79
 
-[C:/Users/giath/source/repos/MyProject/HRM/Blazor/Client/Shared/NavMenu.razor]
+[C:/Users/giath/Source/Repos/MyProject/HRM/Blazor/Client/Shared/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-i79u14xeqs

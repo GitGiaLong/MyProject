@@ -1757,9 +1757,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Contellation\\Contellation.csproj",
+      "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Contellation\\Contellation.csproj",
       "projectName": "Contellation",
-      "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Contellation\\Contellation.csproj",
+      "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Contellation\\Contellation.csproj",
       "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Contellation\\obj\\",
       "projectStyle": "PackageReference",
@@ -1783,8 +1783,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj": {
-              "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj"
+            "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj": {
+              "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj"
             }
           }
         }

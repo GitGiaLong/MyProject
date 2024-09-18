@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj": {}
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj": {}
   },
   "projects": {
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj",
         "projectName": "Blazor.Client",
-        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Client\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
-                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
               },
-              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
-                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj"
               }
             }
           }
@@ -110,14 +110,14 @@
         }
       }
     },
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
         "projectName": "Blazor.Server",
-        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\Blazor.Server.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Server\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -139,14 +139,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj": {
-                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Client\\Blazor.Client.csproj"
               },
-              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
-                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj"
               },
-              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
-                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj"
               }
             }
           }
@@ -194,12 +194,12 @@
         }
       }
     },
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj",
         "projectName": "Blazor.Shared",
-        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\Blazor.Shared.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Blazor\\Shared\\obj\\",
         "projectStyle": "PackageReference",
@@ -259,14 +259,14 @@
         }
       }
     },
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj",
         "projectName": "Core.Blazor",
-        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\Core.Blazor.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Blazor\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Blazor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -288,8 +288,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
-                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj"
               }
             }
           }
@@ -334,12 +334,12 @@
         }
       }
     },
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj",
         "projectName": "Core.Entities",
-        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\obj\\",
         "projectStyle": "PackageReference",
@@ -405,14 +405,14 @@
         }
       }
     },
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
         "projectName": "Core.Library",
-        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\obj\\",
+        "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -434,8 +434,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj": {
-                "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj"
+              "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj": {
+                "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Entities\\Core.Entities.csproj"
               }
             }
           }

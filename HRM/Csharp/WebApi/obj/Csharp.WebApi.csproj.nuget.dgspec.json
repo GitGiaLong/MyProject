@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Csharp\\WebApi\\Csharp.WebApi.csproj": {}
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Csharp\\WebApi\\Csharp.WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Csharp\\WebApi\\Csharp.WebApi.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Csharp\\WebApi\\Csharp.WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Csharp\\WebApi\\Csharp.WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Csharp\\WebApi\\Csharp.WebApi.csproj",
         "projectName": "Csharp.WebApi",
-        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Csharp\\WebApi\\Csharp.WebApi.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Csharp\\WebApi\\Csharp.WebApi.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Csharp\\WebApi\\obj\\",
         "projectStyle": "PackageReference",

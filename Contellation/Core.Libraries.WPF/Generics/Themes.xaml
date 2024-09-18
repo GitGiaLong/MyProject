@@ -10,5 +10,8 @@
 
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Button.xaml"/>
 
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/TitleBars/TitleBar.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Windows/WindowBase.xaml"/>
+
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

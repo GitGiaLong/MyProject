@@ -8,8 +8,4 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Contellation.UI\Contellation.UI.csproj" />
-  </ItemGroup>
-
 </Project>

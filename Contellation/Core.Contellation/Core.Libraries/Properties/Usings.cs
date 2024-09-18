@@ -1,6 +1,1 @@
-﻿namespace Core.Libraries.Properties
-{
-    public class Usings
-    {
-    }
-}
+﻿global using System.Windows;

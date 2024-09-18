@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Csharp\\CoreApi\\Csharp.CoreApi.csproj": {}
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Csharp\\CoreApi\\Csharp.CoreApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Csharp\\CoreApi\\Csharp.CoreApi.csproj": {
+    "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Csharp\\CoreApi\\Csharp.CoreApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Csharp\\CoreApi\\Csharp.CoreApi.csproj",
+        "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Csharp\\CoreApi\\Csharp.CoreApi.csproj",
         "projectName": "Csharp.CoreApi",
-        "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Csharp\\CoreApi\\Csharp.CoreApi.csproj",
+        "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Csharp\\CoreApi\\Csharp.CoreApi.csproj",
         "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Csharp\\CoreApi\\obj\\",
         "projectStyle": "PackageReference",

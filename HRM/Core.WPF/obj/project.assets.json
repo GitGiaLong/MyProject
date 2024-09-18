@@ -1736,9 +1736,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj",
+      "projectUniqueName": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj",
       "projectName": "Core.WPF",
-      "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj",
+      "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\Core.WPF.csproj",
       "packagesPath": "C:\\Users\\giath\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.WPF\\obj\\",
       "projectStyle": "PackageReference",
@@ -1762,8 +1762,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
-              "projectPath": "C:\\Users\\giath\\source\\repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj"
+            "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj": {
+              "projectPath": "C:\\Users\\giath\\Source\\Repos\\MyProject\\HRM\\Core.Library\\Core.Library.csproj"
             }
           }
         }
