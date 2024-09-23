@@ -9,9 +9,29 @@
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/Styles.xaml"/>
 
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Button.xaml"/>
+        
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/Calendar.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/DatePicker.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/CalendarDatePicker.xaml"/>
 
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/TitleBars/TitleBar.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Windows/WindowBase.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Expanders/Expander.xaml"/>
+        
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/TextBoxs/TextBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/TextBoxs/RichTextBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Scrolls/DefaultTextBoxScrollViewerStyle.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/NumberBoxs/NumberBox.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/ToggleSwitchs/ToggleSwitch.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Loadings/Loading.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Sliders/Slider.xaml"/>
+
+        <!--<ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/TitleBars/TitleBar.xaml"/>-->
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Frames/Frame.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/ContextMenus/DefaultContextMenu.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/ToolTips/ToolTip.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Windows/Window.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

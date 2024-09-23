@@ -211,6 +211,7 @@ namespace Core.Libraries.WPF.Controls
         public Action<TitleBar, System.Windows.Window>? MinimizeActionOverride { get; set; }
 
         private readonly List<Button> _buttons = new List<Button>();
+        private readonly Button _button = new();
         private System.Windows.Window _currentWindow = null!;
 
         /*private System.Windows.Controls.Grid _mainGrid = null!;*/
@@ -249,8 +250,7 @@ namespace Core.Libraries.WPF.Controls
         }
 
         /// <summary>
-        /// Invoked whenever application code or an internal process,
-        /// such as a rebuilding layout pass, calls the ApplyTemplate method.
+        /// Invoked whenever application code or an internal process, such as a rebuilding layout pass, calls the ApplyTemplate method.
         /// </summary>
         public override void OnApplyTemplate()
         {

@@ -147,28 +147,34 @@
                             <Setter TargetName="ControlIcon" Property="Visibility" Value="Collapsed" />
                         </Trigger>
 
-                        <Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Other}">
+                        <!--<Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Other}">
                             <Setter Property="CommandParameter" Value="{x:Static typeControl:ButtonAction.Other}" />
-                            <Setter Property="Icon" Value="i" />
-                        </Trigger>
+                        </Trigger>-->
                         <Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Minimize}">
                             <Setter Property="CommandParameter" Value="{x:Static typeControl:ButtonAction.Minimize}" />
                             <Setter Property="Command" Value="{x:Static SystemCommands.MinimizeWindowCommand}" />
-                            <Setter Property="Icon" Value="_" />
+                            <Setter Property="Icon" Value="&#xf2d1;" />
+                            <Setter Property="FontFamilyIcon" Value="{StaticResource FontAwesome_Light_Pro}" />
                         </Trigger>
-                        <Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Restore}">
+                        <!--<Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Restore}">
                             <Setter Property="CommandParameter" Value="{x:Static typeControl:ButtonAction.Restore}" />
-                            <Setter Property="Icon" Value="o" />
-                        </Trigger>
+                            <Setter Property="Command" Value="{x:Static SystemCommands.MaximizeWindowCommand}" />
+                            <Setter Property="FontFamilyIcon" Value="{StaticResource FontAwesome_Light_Pro}" />
+                            <Setter Property="Icon" Value="&#xf2d2;" />
+                        </Trigger>-->
                         <Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Maximize}">
                             <Setter Property="CommandParameter" Value="{x:Static typeControl:ButtonAction.Maximize}" />
                             <Setter Property="Command" Value="{x:Static SystemCommands.MaximizeWindowCommand}" />
+                            <!--<Setter Property="FontFamilyIcon" Value="{StaticResource FontAwesome_Light_Pro}" />-->
                             <Setter Property="Icon" Value="O" />
                         </Trigger>
                         <Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Close}">
                             <Setter Property="CommandParameter" Value="{x:Static typeControl:ButtonAction.Close}" />
                             <Setter Property="Command" Value="{x:Static SystemCommands.CloseWindowCommand}" />
-                            <Setter Property="Icon" Value="x" />
+                            <Setter Property="FontFamilyIcon" Value="{StaticResource FontAwesome_Light_Pro}" />
+                            <Setter Property="Icon" Value="&#xf00d;" />
+                            <Setter Property="MouseOverButtonsForeground" Value="White" />
+                            <Setter Property="MouseOverBackground" Value="#F44336" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

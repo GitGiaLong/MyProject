@@ -11,8 +11,4 @@
     <ProjectReference Include="..\Core.Contellation\Core.Libraries\Core.Libraries.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Fonts\*.ttf" />
-  </ItemGroup>
-
 </Project>

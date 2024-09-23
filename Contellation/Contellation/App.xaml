@@ -2,7 +2,6 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Contellation"
-             xmlns:ContellationUi="clr-namespace:Contellation.UI;assembly=Contellation.UI"
              xmlns:ui="clr-namespace:Core.Libraries.WPF.Controls;assembly=Core.Libraries.WPF"
              StartupUri="View/Contellation.xaml">
     <Application.Resources>

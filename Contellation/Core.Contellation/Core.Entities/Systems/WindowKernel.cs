@@ -15,15 +15,16 @@ namespace Core.Entities.Systems
         internal const string IpHlpApi = "iphlpapi.dll";*/
         public const string Kernel32 = "kernel32.dll";
 
-        /*internal const string Memory_L1_3 = "api-ms-win-core-memory-l1-1-3.dll";
-        internal const string Mswsock = "mswsock.dll";
-        internal const string NCrypt = "ncrypt.dll";
-        internal const string NtDll = "ntdll.dll";
-        internal const string Odbc32 = "odbc32.dll";
-        internal const string OleAut32 = "oleaut32.dll";
-        internal const string PerfCounter = "perfcounter.dll";
-        internal const string RoBuffer = "api-ms-win-core-winrt-robuffer-l1-1-0.dll";
-        internal const string Secur32 = "secur32.dll";*/
+        //internal const string Memory_L1_3 = "api-ms-win-core-memory-l1-1-3.dll";
+        //internal const string Mswsock = "mswsock.dll";
+        //internal const string NCrypt = "ncrypt.dll";
+        public const string MsImg = "msimg32.dll";
+        public const string NtDll = "ntdll.dll";
+        //internal const string Odbc32 = "odbc32.dll";
+        //internal const string OleAut32 = "oleaut32.dll";
+        //internal const string PerfCounter = "perfcounter.dll";
+        //internal const string RoBuffer = "api-ms-win-core-winrt-robuffer-l1-1-0.dll";
+        //internal const string Secur32 = "secur32.dll";
         public const string Shell32 = "shell32.dll";
 
         /*internal const string SspiCli = "sspicli.dll";*/
@@ -31,7 +32,7 @@ namespace Core.Entities.Systems
         public const string UxTheme = "uxtheme.dll";
 
         public const string Gdi32 = "gdi32.dll";
-        /*internal const string Gdip = "gdiplus.dll";*/
+        public const string GdiPlus = "gdiplus.dll";
         public const string Version = "version.dll";
         /*internal const string WebSocket = "websocket.dll";
         internal const string WinHttp = "winhttp.dll";
