@@ -5,8 +5,14 @@ using System.Windows.Controls;
 namespace Core.Libraries.WPF.Controls
 {
     /// <summary>
+    /// Inherited from the <see cref="System.Windows.Controls.ContentControl"/>.
     /// A control featuring a range of loading indicating animations.
     /// </summary>
+    /// <example>
+    /// <code lang="xml">
+    /// &lt;ui:Loading Mode="Arc" /&gt;
+    /// </code>
+    /// </example>
     [TemplatePart(Name = TemplateBorderName, Type = typeof(Border))]
     public class Loading : Control
     {

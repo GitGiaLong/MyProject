@@ -9,6 +9,11 @@ namespace Core.Libraries.WPF.Controls
     /// <summary>
     /// Represents a control that allows a user to pick a date from a calendar display.
     /// </summary>
+    /// <example>
+    /// <code lang="xml">
+    /// &lt;ui:CalendarDatePicker /&gt;
+    /// </code>
+    /// </example>
     public class CalendarDatePicker : Button
     {
         private Popup? _popup;

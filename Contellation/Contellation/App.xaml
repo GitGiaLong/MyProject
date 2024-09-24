@@ -10,7 +10,7 @@
                 <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/Themes.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/FontFamilies.xaml" />
 
-                <!--<ResourceDictionary Source="pack://application:,,,/Contellation;component/Resources/Dictionaries/Styles/StyleResource.xaml" />-->
+                <ResourceDictionary Source="pack://application:,,,/Contellation;component/ResoureDictionaries/ViewModelResource.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

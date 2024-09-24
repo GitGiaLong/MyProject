@@ -11,6 +11,14 @@ namespace Core.Libraries.WPF.Controls
     /// <summary>
     /// Inherited from the <see cref="System.Windows.Controls.Button"/>.
     /// </summary>
+    /// <example>
+    /// <code lang="xml">
+    /// &lt;ui:Button
+    ///     Content="WPF UI button with font icon"
+    ///     Icon="'&#x1F308;" 
+    ///     FontFamilyIcon="{StaticReource FontAwesome_Solid}"/&gt;
+    /// </code>
+    /// </example>
     public class Button : System.Windows.Controls.Button
     {
         /// <summary> 

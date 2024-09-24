@@ -4,6 +4,17 @@ using System.Windows.Controls;
 
 namespace Core.Libraries.WPF.Controls
 {
+    /// <summary>
+    /// Inherited from the <see cref="System.Windows.Controls.ContentControl"/>.
+    /// </summary>
+    /// <example>
+    /// <code lang="xml">
+    /// &lt;ui:Gravatar Id="Anything" /&gt;
+    /// </code>
+    /// <code lang="xml">
+    /// &lt;ui:Gravatar Source="{url or path}" /&gt;
+    /// </code>
+    /// </example>
     public class Gravatar : ContentControl
     {
         public IGravatar Generator

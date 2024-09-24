@@ -8,6 +8,13 @@ namespace Core.Libraries.WPF.Controls
     /// <summary>
     /// Represents a control that can be used to display and edit numbers.
     /// </summary>
+    /// <example>
+    /// <code lang="xml">
+    /// &lt;ui:NumberBox
+    ///     Icon="'&#x1F308;" 
+    ///     FontFamilyIcon="{StaticReource FontAwesome_Solid}"/&gt;
+    /// </code>
+    /// </example>
     public class NumberBox : TextBox
     {
         private bool _valueUpdating;

@@ -3,10 +3,15 @@
                     xmlns:converter="clr-namespace:Core.Libraries.WPF.Converters">
 
     <converter:ByteToImage x:Key="ByteToImage" />
-    
+
     <converter:LessThan x:Key="LessThan" />
     <converter:GreaterThan x:Key="GreaterThan" />
 
     <converter:AnimationFactorToValueConverter x:Key="AnimationFactorToValueConverter" />
+    
+    <converter:LeftSplitThicknessConverter x:Key="LeftSplitThicknessConverter" />
+    <converter:RightSplitThicknessConverter x:Key="RightSplitThicknessConverter" />
+    <converter:LeftSplitCornerRadiusConverter x:Key="LeftSplitCornerRadiusConverter" />
+    <converter:RightSplitCornerRadiusConverter x:Key="RightSplitCornerRadiusConverter" />
     
 </ResourceDictionary>
