@@ -1,12 +1,16 @@
-﻿using Core.Libraries.WPF.Controls;
-using Core.Libraries.WPF.Extensions.Intputs;
-using Core.Libraries.WPF.Extensions.Snackbar;
-using System.Windows.Input;
-
-namespace Contellation.ViewModels
+﻿namespace Contellation.ViewModels
 {
     public class TestVM
     {
-
+        private List<string> stringss = new List<string>();
+        public List<string> strings { get => stringss; set => stringss = value; }
+        public TestVM() 
+        {
+            strings.Add("aaa");
+            strings.Add("aaB");
+            strings.Add("aaV");
+            strings.Add("aaD");
+            strings.Add("aaC");
+        }
     }
 }

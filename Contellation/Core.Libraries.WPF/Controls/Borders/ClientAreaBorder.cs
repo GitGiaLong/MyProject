@@ -1,15 +1,9 @@
 ﻿using Core.Libraries.Systems.Extensions;
 using Core.Libraries.WPF.Hardware;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Core.Libraries.WPF.Controls
 {
-
     /// <summary>
     /// If you use <see cref="WindowChrome"/> to extend the UI elements to the non-client area, you can include this container
     /// in the template of <see cref="Window"/> so that the content inside automatically fills the client area.
@@ -26,7 +20,6 @@ namespace Core.Libraries.WPF.Controls
         private static Thickness? _windowChromeNonClientFrameThickness;
         private bool _borderBrushApplied = false;
         private System.Windows.Window? _oldWindow;
-
 
         /// <summary>
         /// Gets the system value for the padded border thickness (<see cref="User32.SM.CXPADDEDBORDER"/>) in WPF units.
@@ -87,21 +80,9 @@ namespace Core.Libraries.WPF.Controls
 
         public ClientAreaBorder()
         {
-            //ApplicationTheme = Appearance.ApplicationThemeManager.GetAppTheme();
-            //Appearance.ApplicationThemeManager.Changed += OnThemeChanged;
+
         }
 
-        //private void OnThemeChanged(ApplicationTheme currentApplicationTheme, Color systemAccent)
-        //{
-        //    ApplicationTheme = currentApplicationTheme;
-
-        //    if (!_borderBrushApplied || _oldWindow == null)
-        //    {
-        //        return;
-        //    }
-
-        //    ApplyDefaultWindowBorder();
-        //}
 
         /// <inheritdoc />
         protected override void OnVisualParentChanged(DependencyObject oldParent)

@@ -3,8 +3,8 @@
                     xmlns:controls="clr-namespace:Core.Libraries.WPF.Controls">
 
     <Style x:Key="DefaultFlyoutStyle" TargetType="{x:Type controls:Flyout}">
-        <Setter Property="Background" Value="#2C2C2C" />
-        <Setter Property="BorderBrush" Value="#33000000" />
+        <Setter Property="Background" Value="{DynamicResource Col_2C2C2C}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Col_33000000}" />
         <Setter Property="Margin" Value="0" />
         <Setter Property="MinWidth" Value="20" />
         <Setter Property="MinHeight" Value="20" />

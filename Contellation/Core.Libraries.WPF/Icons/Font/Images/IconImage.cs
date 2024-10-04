@@ -3,7 +3,7 @@ using Core.Libraries.WPF.Icons.Font.Images;
 using Core.Libraries.WPF.Icons.Helpers;
 using Core.Libraries.WPF.Icons.Interfaces;
 
-namespace Core.Libraries.WPF.Icons.Font
+namespace Core.Libraries.WPF.Icons
 {
     public class IconImage : IconImageBase<IconType>, IIconFont
     {

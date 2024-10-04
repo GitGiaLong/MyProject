@@ -4,7 +4,7 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/FontFamilies.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/Styles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultDatePickerTextBoxStyle" TargetType="{x:Type DatePickerTextBox}">
@@ -14,8 +14,8 @@
         <Setter Property="VerticalContentAlignment" Value="Stretch" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="#FFFFFF"/>
-        <Setter Property="CaretBrush" Value="#FFFFFF"/>
+        <Setter Property="Foreground" Value="{DynamicResource Col_FFFFFF}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource Col_FFFFFF}"/>
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
@@ -33,9 +33,9 @@
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
         <Setter Property="ContextMenu" Value="{DynamicResource DefaultControlContextMenu}" />
         <Setter Property="CalendarStyle" Value="{DynamicResource DefaultCalendarStyle}" />
-        <Setter Property="Foreground" Value="#000000"/>
-        <Setter Property="Background" Value="#0FFFFFFF"/>
-        <Setter Property="BorderBrush" Value="Gray" />
+        <Setter Property="Foreground" Value="{DynamicResource Col_000000}"/>
+        <Setter Property="Background" Value="{DynamicResource Col_0FFFFFFF}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource Col_808080}" />
         <Setter Property="BorderThickness" Value="1 1 1 1" />
         <Setter Property="FontSize" Value="14" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -72,7 +72,7 @@
                                                            Focusable="{TemplateBinding Focusable}" Foreground="{TemplateBinding Foreground}" />
                                     </Grid>
                                     <!--  Buttons and Icons have no padding from the main element to allow absolute positions if height is larger than the text entry zone  -->
-                                    <controls:Button x:Name="PART_Button" Grid.Column="1" Width="24" Height="24" Margin="0,5,4,0" Padding="0,5,4,0"
+                                    <controls:Button x:Name="PART_Button" Grid.Column="1" Width="24" Height="24" Margin="0,5,4,0" Padding="0"
                                                      HorizontalAlignment="Center" VerticalAlignment="Top"
                                                      Background="Transparent" BorderBrush="Transparent" Cursor="Arrow"
                                                      HorizontalContentAlignment="Center" VerticalContentAlignment="Center"
@@ -81,9 +81,9 @@
                             </Border>
                             <!--  The Accent Border is a separate element so that changes to the border thickness do not affect the position of the element  -->
                             <Border x:Name="AccentBorder" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
-                                    BorderThickness="0,0,0,1" CornerRadius="{TemplateBinding Border.CornerRadius}">
+                                    BorderThickness="0 0 0 1" CornerRadius="{TemplateBinding Border.CornerRadius}">
                                 <Border.BorderBrush>
-                                    <SolidColorBrush Color="#8BFFFFFF" />
+                                    <SolidColorBrush Color="{DynamicResource C_8BFFFFFF}" />
                                 </Border.BorderBrush>
                             </Border>
                         </Grid>
@@ -93,15 +93,15 @@
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsKeyboardFocusWithin" Value="True">
-                            <Setter TargetName="AccentBorder" Property="BorderThickness" Value="0,0,0,2" />
+                            <Setter TargetName="AccentBorder" Property="BorderThickness" Value="0 0 0 2" />
                             <Setter TargetName="AccentBorder" Property="BorderBrush">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="#80b9ee" />
+                                    <SolidColorBrush Color="{DynamicResource C_80b9ee}" />
                                 </Setter.Value>
                             </Setter>
                             <Setter TargetName="ContentBorder" Property="Background">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="#B31E1E1E" />
+                                    <SolidColorBrush Color="{DynamicResource C_B31E1E1E}" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
@@ -113,7 +113,7 @@
                             </MultiTrigger.Conditions>
                             <Setter TargetName="ContentBorder" Property="Background">
                                 <Setter.Value>
-                                    <SolidColorBrush Color="#15FFFFFF" />
+                                    <SolidColorBrush Color="{DynamicResource C_15FFFFFF}" />
                                 </Setter.Value>
                             </Setter>
                         </MultiTrigger>
@@ -121,10 +121,10 @@
                             <Setter Property="Cursor" Value="IBeam" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="ContentBorder" Property="Background" Value="#0BFFFFFF" />
-                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="#12FFFFFF" />
-                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="#12FFFFFF" />
-                            <Setter Property="Foreground" Value="#5DFFFFFF" />
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource Col_0BFFFFFF}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource Col_12FFFFFF}" />
+                            <Setter TargetName="AccentBorder" Property="BorderBrush" Value="{DynamicResource Col_12FFFFFF}" />
+                            <Setter Property="Foreground" Value="{DynamicResource Col_5DFFFFFF}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

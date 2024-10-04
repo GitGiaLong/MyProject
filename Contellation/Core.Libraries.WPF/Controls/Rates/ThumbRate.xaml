@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Core.Libraries.WPF.Controls"
+                    xmlns:controlType="clr-namespace:Core.Libraries.WPF.Controls.Rates"
+                    >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/FontFamilies.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Button.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="DefaultUiThumbRateStyle" TargetType="{x:Type controls:ThumbRate}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Foreground" Value="{DynamicResource Col_559ce4}" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Focusable" Value="False" />
+        <Setter Property="KeyboardNavigation.IsTabStop" Value="False" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:ThumbRate}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <controls:Button x:Name="ThumbsUpButtonIcon" Grid.Column="0" Background="Transparent" BorderBrush="Transparent"
+                            Command="{Binding Path=TemplateButtonCommand, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                            CommandParameter="{x:Static controlType:ThumbRateState.Liked}"
+                            Foreground="{TemplateBinding Foreground}" Icon="&#xf164;" FontFamilyIcon="{StaticResource FontAwesome_Solid}"/>
+
+                        <controls:Button  x:Name="ThumbsDownButtonIcon" Grid.Column="1" Background="Transparent" BorderBrush="Transparent"
+                            Command="{Binding Path=TemplateButtonCommand, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                            CommandParameter="{x:Static controlType:ThumbRateState.Disliked}"
+                            Foreground="{TemplateBinding Foreground}" Icon="&#xf165;" FontFamilyIcon="{StaticResource FontAwesome_Solid}"/>
+
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="State" Value="Liked">
+                            <!--<Setter TargetName="ThumbsUpButtonIcon" Property="B" Value="True" />-->
+                        </Trigger>
+                        <Trigger Property="State" Value="Disliked">
+                            <!--<Setter TargetName="ThumbsDownButtonIcon" Property="Filled" Value="True" />-->
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style BasedOn="{StaticResource DefaultUiThumbRateStyle}" TargetType="{x:Type controls:ThumbRate}" />
+
+</ResourceDictionary>

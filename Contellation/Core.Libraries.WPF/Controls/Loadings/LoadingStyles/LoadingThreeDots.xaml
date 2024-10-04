@@ -5,7 +5,7 @@
     <Style x:Key="LoadingThreeDotsKey" TargetType="{x:Type controls:Loading}">
         <Style.Triggers>
             <Trigger Property="Mode" Value="ThreeDots">
-                <Setter Property="Foreground" Value="#CC119EDA"/>
+                <Setter Property="Foreground" Value="{DynamicResource C_CC119EDA}"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
                 <Setter Property="HorizontalAlignment" Value="Center"/>
                 <Setter Property="MinWidth" Value="70"/>

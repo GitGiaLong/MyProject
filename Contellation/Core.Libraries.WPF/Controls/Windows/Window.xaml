@@ -19,9 +19,9 @@
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <StackPanel Name="ButtonPanel" WindowChrome.IsHitTestVisibleInChrome="True" UseLayoutRounding="True" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
-                        <controls:Button x:Name="PART_MinimizeButton" Grid.Column="2" ActionButton="Minimize"/>
-                        <controls:Button x:Name="PART_MaximizeButton" Grid.Column="3" ActionButton="Maximize"/>
-                        <controls:Button x:Name="PART_CloseButton" Grid.Column="4" ActionButton="Close" MouseOverButtonsForeground="White"  MouseOverBackground="Red" />
+                        <controls:Button x:Name="PART_MinimizeButton" ActionButton="Minimize"/>
+                        <controls:Button x:Name="PART_MaximizeButton" ActionButton="Maximize"/>
+                        <controls:Button x:Name="PART_CloseButton" ActionButton="Close"/>
                     </StackPanel>
                     <Grid Grid.Column="0">
                         <Grid.ColumnDefinitions>
@@ -76,7 +76,7 @@
                 <Setter Property="Visibility" Value="Collapsed" TargetName="PART_MaximizeButton"/>
             </Trigger>
             <Trigger Property="IsMaximized" Value="True">
-                <Setter Property="Icon" Value="o" TargetName="PART_MaximizeButton"/>
+                <Setter Property="Icon" Value="&#xf2d2;" TargetName="PART_MaximizeButton"/>
             </Trigger>
             <Trigger Property="ShowMinimize" Value="False">
                 <Setter Property="Visibility" Value="Collapsed" TargetName="PART_MinimizeButton"/>
@@ -87,31 +87,13 @@
             <Trigger Property="ShowClose" Value="False">
                 <Setter Property="Visibility" Value="Collapsed" TargetName="PART_CloseButton"/>
             </Trigger>
-            <Trigger Property="IsMouseOver" Value="True" SourceName="PART_CloseButton">
-                <Setter Property="Background" TargetName="PART_CloseButton" Value="{Binding CloseButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
-                <Setter Property="Foreground" TargetName="PART_CloseButton" Value="{Binding CloseButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
-            </Trigger>
-            <Trigger Property="IsMouseOver" Value="True" SourceName="PART_MaximizeButton">
-                <Setter Property="Background" TargetName="PART_MaximizeButton" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
-                <Setter Property="Foreground" TargetName="PART_MaximizeButton" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
-            </Trigger>
-            <Trigger Property="IsMouseOver" Value="True" SourceName="PART_MinimizeButton">
-                <Setter Property="Background" TargetName="PART_MinimizeButton" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
-                <Setter Property="Foreground" TargetName="PART_MinimizeButton" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
-            </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-
 
     <Style x:Key="WindowCustom" TargetType="{x:Type controls:Window}">
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="#262e2f"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="Template" Value="{StaticResource WindowWin10Template}"/>
-        <!--<Style.Triggers>
-            <Trigger Property="hc:WindowAttach.ExtendContentToNonClientArea" Value="true">
-                <Setter Property="Template" Value="{StaticResource WindowWin10ExtendContentToNonClientTemplate}"/>
-            </Trigger>
-        </Style.Triggers>-->
     </Style>
 </ResourceDictionary>

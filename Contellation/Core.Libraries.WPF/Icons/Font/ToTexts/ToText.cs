@@ -1,7 +1,7 @@
 ﻿using Core.Entities.Icons;
 using Core.Libraries.WPF.Icons.Font.ToTexts;
 
-namespace Core.Libraries.WPF.Icons.Font
+namespace Core.Libraries.WPF.Icons
 {
     public class ToText : ToTextBase<IconType>
     {

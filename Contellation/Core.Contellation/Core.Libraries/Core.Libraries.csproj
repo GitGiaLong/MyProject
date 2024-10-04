@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -7,11 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core.Entities\Core.Entities.csproj" />
+    <Compile Remove="FontAwesomes\**" />
+    <EmbeddedResource Remove="FontAwesomes\**" />
+    <None Remove="FontAwesomes\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="FontAwesomes\*" />
+    <ProjectReference Include="..\Core.Entities\Core.Entities.csproj" />
   </ItemGroup>
 
 </Project>

@@ -11,7 +11,7 @@ namespace Core.Libraries.WPF.Controls
     /// </summary>
     /// <example>
     /// <code lang="xml">
-    /// &lt;ui:CalendarDatePicker /&gt;
+    ///     &lt;ui:CalendarDatePicker /&gt;
     /// </code>
     /// </example>
     public class CalendarDatePicker : Button

@@ -4,16 +4,16 @@
 
     <Style x:Key="DefaultUiToggleSwitchStyle" TargetType="{x:Type controls:ToggleSwitch}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
-        <Setter Property="Background" Value="{DynamicResource ToggleSwitchFillOn}" />
-        <Setter Property="Foreground" Value="{DynamicResource ToggleSwitchContentForeground}" />
+        <Setter Property="Background" Value="{DynamicResource Col_559ce4}" />
+        <Setter Property="Foreground" Value="{DynamicResource Col_E4000000}" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Padding" Value="8,6,0,0" />
+        <Setter Property="Padding" Value="8 6 0 0" />
         <Setter Property="HorizontalAlignment" Value="Left" />
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Left" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Normal" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -28,11 +28,11 @@
                         <Grid Grid.Column="0" Width="40" Height="20">
                             <Rectangle x:Name="ToggleRectangle" Width="40" Height="20" RadiusX="10" RadiusY="10"
                                        HorizontalAlignment="Center" VerticalAlignment="Center" StrokeThickness="1"
-                                       Fill="#19000000" Stroke="#8BFFFFFF"  />
+                                       Fill="{DynamicResource Col_19000000}" Stroke="{DynamicResource Col_8BFFFFFF}"  />
                             <Rectangle x:Name="ActiveToggleRectangle" Width="40" Height="20" Opacity="0.0" RadiusX="10" RadiusY="10"
                                        HorizontalAlignment="Center" VerticalAlignment="Center" StrokeThickness="0" Fill="{TemplateBinding Background}" />
                             <Ellipse x:Name="ToggleEllipse" Width="12" Height="12" Margin="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-                                     RenderTransformOrigin="0.5, 0.5" Fill="#C5FFFFFF" >
+                                     RenderTransformOrigin="0.5, 0.5" Fill="{DynamicResource Col_C5FFFFFF}" >
                                 <Ellipse.RenderTransform>
                                     <TranslateTransform X="-9" />
                                 </Ellipse.RenderTransform>
@@ -111,8 +111,7 @@
                                 <Condition Property="Content" Value="{x:Null}" />
                                 <Condition Property="IsChecked" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ContentPresenter" Property="Content" 
-                                    Value="{Binding OnContent, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ContentPresenter" Property="Content" Value="{Binding OnContent, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
 
                         <MultiTrigger>
@@ -120,8 +119,7 @@
                                 <Condition Property="Content" Value="{x:Null}" />
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ContentPresenter" Property="Content" 
-                                    Value="{Binding OffContent, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ContentPresenter" Property="Content" Value="{Binding OffContent, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
 
                         <MultiTrigger>
@@ -129,8 +127,7 @@
                                 <Condition Property="Content" Value="" />
                                 <Condition Property="IsChecked" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ContentPresenter" Property="Content" 
-                                    Value="{Binding OnContent, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ContentPresenter" Property="Content" Value="{Binding OnContent, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
 
                         <MultiTrigger>
@@ -138,8 +135,7 @@
                                 <Condition Property="Content" Value="" />
                                 <Condition Property="IsChecked" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ContentPresenter" Property="Content" 
-                                    Value="{Binding OffContent, RelativeSource={RelativeSource TemplatedParent}}" />
+                            <Setter TargetName="ContentPresenter" Property="Content" Value="{Binding OffContent, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
 
                         <MultiTrigger>
@@ -148,9 +144,9 @@
                                 <Condition Property="IsChecked" Value="False" />
                                 <Condition Property="IsEnabled" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ToggleRectangle" Property="Fill" Value="#0BFFFFFF" />
-                            <Setter TargetName="ToggleRectangle" Property="Stroke" Value="#8BFFFFFF" />
-                            <Setter TargetName="ToggleEllipse" Property="Fill" Value="#C5FFFFFF" />
+                            <Setter TargetName="ToggleRectangle" Property="Fill" Value="{DynamicResource Col_0BFFFFFF}" />
+                            <Setter TargetName="ToggleRectangle" Property="Stroke" Value="{DynamicResource Col_8BFFFFFF}" />
+                            <Setter TargetName="ToggleEllipse" Property="Fill" Value="{DynamicResource Col_C5FFFFFF}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
@@ -158,28 +154,28 @@
                                 <Condition Property="IsChecked" Value="True" />
                                 <Condition Property="IsEnabled" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="#80b9ee" />
-                            <Setter TargetName="ToggleRectangle" Property="Stroke" Value="#80b9ee" />
-                            <Setter TargetName="ActiveToggleEllipse" Property="Fill" Value="#000000" />
+                            <Setter Property="Background" Value="{DynamicResource Col_80b9ee}" />
+                            <Setter TargetName="ToggleRectangle" Property="Stroke" Value="{DynamicResource Col_80b9ee}" />
+                            <Setter TargetName="ActiveToggleEllipse" Property="Fill" Value="{DynamicResource Col_000000}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsChecked" Value="False" />
                                 <Condition Property="IsEnabled" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ToggleRectangle" Property="Stroke" Value="#28FFFFFF" />
-                            <Setter TargetName="ToggleRectangle" Property="Fill" Value="#00FFFFFF" />
-                            <Setter TargetName="ToggleEllipse" Property="Fill" Value="#5DFFFFFF" />
-                            <Setter Property="Foreground" Value="#5DFFFFFF" />
+                            <Setter TargetName="ToggleRectangle" Property="Stroke" Value="{DynamicResource Col_28FFFFFF}" />
+                            <Setter TargetName="ToggleRectangle" Property="Fill" Value="{DynamicResource Col_00FFFFFF}" />
+                            <Setter TargetName="ToggleEllipse" Property="Fill" Value="{DynamicResource Col_5DFFFFFF}" />
+                            <Setter Property="Foreground" Value="{DynamicResource Col_5DFFFFFF}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsChecked" Value="True" />
                                 <Condition Property="IsEnabled" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ActiveToggleRectangle" Property="Fill" Value="#5DFFFFFF" />
-                            <Setter TargetName="ActiveToggleEllipse" Property="Fill" Value="#77000000" />
-                            <Setter Property="Foreground" Value="#5DFFFFFF" />
+                            <Setter TargetName="ActiveToggleRectangle" Property="Fill" Value="{DynamicResource Col_5DFFFFFF}" />
+                            <Setter TargetName="ActiveToggleEllipse" Property="Fill" Value="{DynamicResource Col_77000000}" />
+                            <Setter Property="Foreground" Value="{DynamicResource Col_5DFFFFFF}" />
                         </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

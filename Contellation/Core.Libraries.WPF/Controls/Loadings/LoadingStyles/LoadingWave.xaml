@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:Core.Libraries.WPF.Controls">
 
     <Style x:Key="LoadingWaveKey" TargetType="{x:Type controls:Loading}">
-        <Setter Property="Foreground" Value="#CC119EDA"/>
+        <Setter Property="Foreground" Value="{DynamicResource C_CC119EDA}"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Height" Value="25"/>

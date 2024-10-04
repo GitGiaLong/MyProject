@@ -13,5 +13,7 @@
     <converter:RightSplitThicknessConverter x:Key="RightSplitThicknessConverter" />
     <converter:LeftSplitCornerRadiusConverter x:Key="LeftSplitCornerRadiusConverter" />
     <converter:RightSplitCornerRadiusConverter x:Key="RightSplitCornerRadiusConverter" />
+    <converter:BorderCircularClipConverter x:Key="BorderCircularClipConverter" />
+    <converter:FallbackBrushConverter x:Key="FallbackBrushConverter" />
     
 </ResourceDictionary>

@@ -4,7 +4,7 @@ using System.Globalization;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace Core.Libraries.WPF.Icons.Font
+namespace Core.Libraries.WPF.Icons
 {
     [ValueConversion(typeof(IconType), typeof(Image))]
     public class IconToImageConverter : IValueConverter, IIconFont

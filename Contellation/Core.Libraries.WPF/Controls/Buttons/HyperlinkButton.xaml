@@ -5,7 +5,7 @@
     <Style x:Key="DefaultUiHyperlinkButtonStyle" TargetType="{x:Type controls:HyperlinkButton}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="Foreground" Value="#70EBDE" />
+        <Setter Property="Foreground" Value="{DynamicResource Col_70EBDE}" />
         <Setter Property="BorderThickness" Value="0" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="Padding" Value="11 5 11 6" />
@@ -13,9 +13,9 @@
         <Setter Property="VerticalAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
-        <Setter Property="FontSize" Value="{DynamicResource ControlContentThemeFontSize}" />
+        <Setter Property="FontSize" Value="14" />
         <Setter Property="FontWeight" Value="Normal" />
-        <Setter Property="CornerRadius" Value="{DynamicResource ControlCornerRadius}" />
+        <Setter Property="CornerRadius" Value="4" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
@@ -45,26 +45,26 @@
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsPressed" Value="False" />
                             </MultiTrigger.Conditions>
-                            <Setter TargetName="ContentBorder" Property="Background" Value="#2D3236" />
-                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="#FFFFFF" />
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource Col_2D3236}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource Col_FFFFFF}" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="IsMouseOver" Value="True" />
                                 <Condition Property="IsPressed" Value="True" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" Value="#2D3236" />
-                            <Setter TargetName="ControlIcon" Property="Foreground" Value="#ABCFF2" />
-                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="#ABCFF2" />
+                            <Setter Property="Background" Value="{DynamicResource Col_2D3236}" />
+                            <Setter TargetName="ControlIcon" Property="Foreground" Value="{DynamicResource Col_ABCFF2}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource Col_ABCFF2}" />
                         </MultiTrigger>
                         <Trigger Property="Icon" Value="{x:Null}">
                             <Setter TargetName="ControlIcon" Property="Margin" Value="0" />
                             <Setter TargetName="ControlIcon" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Background" Value="#2D3236" />
-                            <Setter TargetName="ControlIcon" Property="Foreground" Value="#A6A6A6" />
-                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="#A6A6A6" />
+                            <Setter Property="Background" Value="{DynamicResource Col_2D3236}" />
+                            <Setter TargetName="ControlIcon" Property="Foreground" Value="{DynamicResource Col_A6A6A6}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource Col_A6A6A6}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

@@ -5,13 +5,12 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Button.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/Converters.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/FontFamilies.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/Styles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultSplitButtonToggleButtonStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="Foreground" Value="#FFFFFF" />
+        <Setter Property="Foreground" Value="{DynamicResource Col_FFFFFF}" />
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="Transparent" />
         <Setter Property="BorderThickness" Value="0" />
@@ -91,9 +90,9 @@
                             <Setter TargetName="ControlIcon" Property="TextElement.Foreground" Value="{Binding PressedForeground, RelativeSource={RelativeSource TemplatedParent}}" />
                         </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="ContentBorder" Property="Background" Value="#4DF9F9F9" />
-                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="#0F000000" />
-                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="#5C000000" />
+                            <Setter TargetName="ContentBorder" Property="Background" Value="{DynamicResource Col_4DF9F9F9}" />
+                            <Setter TargetName="ContentBorder" Property="BorderBrush" Value="{DynamicResource Col_0F000000}" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource Col_5C000000}" />
                         </Trigger>
                         <Trigger Property="Content" Value="{x:Null}">
                             <Setter TargetName="ControlIcon" Property="Margin" Value="0" />

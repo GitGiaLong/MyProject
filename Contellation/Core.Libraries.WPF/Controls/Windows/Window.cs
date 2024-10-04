@@ -12,25 +12,32 @@ namespace Core.Libraries.WPF.Controls
 {
     public class Window : System.Windows.Window
     {
-
-        #region prop
+        private double _tempNonClientAreaHeight;
+        private readonly Thickness _commonPadding;
+        private const string ElementMaximizeButton = "PART_MaximizeButton";
 
         public object AreaBarContent
         {
             get { return GetValue(AreBarContentProperty); }
             set { SetValue(AreBarContentProperty, value); }
         }
-        public static readonly DependencyProperty AreBarContentProperty = DependencyProperty.Register(nameof(AreaBarContent), typeof(object), 
+        public static readonly DependencyProperty AreBarContentProperty = DependencyProperty.Register(nameof(AreaBarContent), typeof(object),
             typeof(Window), new PropertyMetadata(default(object)));
 
+        /// <summary>
+        /// Area Bar Background
+        /// </summary>
         public Brush AreaBarBackground
         {
             get { return (Brush)GetValue(AreaBarBackgroundProperty); }
             set { SetValue(AreaBarBackgroundProperty, value); }
         }
-        public static readonly DependencyProperty AreaBarBackgroundProperty = DependencyProperty.Register(nameof(AreaBarBackground), typeof(Brush), 
+        public static readonly DependencyProperty AreaBarBackgroundProperty = DependencyProperty.Register(nameof(AreaBarBackground), typeof(Brush),
             typeof(Window), new PropertyMetadata(default(Brush)));
 
+        /// <summary>
+        /// Area Bar Foreground
+        /// </summary>
         public Brush AreaBarForeground
         {
             get { return (Brush)GetValue(AreaBarForegroundProperty); }
@@ -39,12 +46,15 @@ namespace Core.Libraries.WPF.Controls
         public static readonly DependencyProperty AreaBarForegroundProperty = DependencyProperty.Register(nameof(AreaBarForeground), typeof(Brush),
             typeof(Window), new PropertyMetadata(default(Brush)));
 
+        /// <summary>
+        /// Area Bar Height
+        /// </summary>
         public double AreaBarHeight
         {
             get { return (double)GetValue(AreaBarHeightProperty); }
             set { SetValue(AreaBarHeightProperty, value); }
         }
-        public static readonly DependencyProperty AreaBarHeightProperty = DependencyProperty.Register(nameof(AreaBarHeight), typeof(double), 
+        public static readonly DependencyProperty AreaBarHeightProperty = DependencyProperty.Register(nameof(AreaBarHeight), typeof(double),
             typeof(Window), new PropertyMetadata(22.0));
 
         /// <summary>
@@ -94,17 +104,6 @@ namespace Core.Libraries.WPF.Controls
         /// <summary>Identifies the <see cref="ShowClose"/> dependency property.</summary>
         public static readonly DependencyProperty ShowCloseProperty = DependencyProperty.Register(nameof(ShowClose), typeof(bool),
             typeof(Window), new PropertyMetadata(true));
-
-        #endregion
-
-        #region fields
-
-        private double _tempNonClientAreaHeight;
-        private readonly Thickness _commonPadding;
-        private const string ElementMaximizeButton = "PART_MaximizeButton";
-
-        #endregion
-
 
         static Window()
         {
@@ -195,7 +194,10 @@ namespace Core.Libraries.WPF.Controls
             _buttons.Add(maximizeButton);
 
         }
-        /// <summary> Listening window hooks after rendering window content to SizeToContent support</summary>
+        
+        /// <summary> 
+        /// Listening window hooks after rendering window content to SizeToContent support
+        /// </summary>
         private void OnWindowContentRendered(object? sender, EventArgs e)
         {
             if (sender is not Window window) { return; }

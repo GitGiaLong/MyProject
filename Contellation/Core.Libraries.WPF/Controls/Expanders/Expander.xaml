@@ -47,9 +47,9 @@
 
     <Style x:Key="DefaultExpanderStyle" TargetType="{x:Type Expander}">
         <Setter Property="FocusVisualStyle" Value="{DynamicResource DefaultControlFocusVisualStyle}" />
-        <Setter Property="Background" Value="#0DFFFFFF" />
-        <Setter Property="Foreground" Value="#FFFFFF" />
-        <Setter Property="BorderBrush" Value="#19000000" />
+        <Setter Property="Background" Value="{DynamicResource Col_0DFFFFFF}" />
+        <Setter Property="Foreground" Value="{DynamicResource Col_FFFFFF}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Col_19000000}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Padding" Value="11" />
         <Setter Property="HorizontalAlignment" Value="Stretch" />
@@ -87,7 +87,7 @@
                         <!--  Collapsed content to expand  -->
                         <Grid Grid.Row="1" ClipToBounds="True">
                             <Border x:Name="ContentPresenterBorder"
-                                    Background="#08FFFFFF" BorderBrush="{TemplateBinding BorderBrush}"
+                                    Background="{DynamicResource Col_08FFFFFF}" BorderBrush="{TemplateBinding BorderBrush}"
                                     BorderThickness="1 0 1 1" CornerRadius="0 0 4 4" Visibility="Collapsed">
                                 <ContentPresenter x:Name="ContentPresenter" Margin="{TemplateBinding Padding}"
                                                   HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
@@ -142,12 +142,12 @@
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="#5DFFFFFF" />
-                            <Setter TargetName="ExpanderToggleButton" Property="Foreground" Value="#5DFFFFFF" />
-                            <Setter TargetName="ExpanderToggleButton" Property="BorderBrush" Value="#19000000" />
+                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource Col_5DFFFFFF}" />
+                            <Setter TargetName="ExpanderToggleButton" Property="Foreground" Value="{DynamicResource Col_5DFFFFFF}" />
+                            <Setter TargetName="ExpanderToggleButton" Property="BorderBrush" Value="{DynamicResource Col_19000000}" />
                         </Trigger>
                         <Trigger SourceName="ExpanderToggleButton" Property="IsMouseOver" Value="True">
-                            <Setter TargetName="ExpanderToggleButton" Property="BorderBrush" Value="#1C1C1C" />
+                            <Setter TargetName="ExpanderToggleButton" Property="BorderBrush" Value="{DynamicResource Col_1C1C1C}" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

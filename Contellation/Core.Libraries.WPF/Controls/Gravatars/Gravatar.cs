@@ -9,10 +9,10 @@ namespace Core.Libraries.WPF.Controls
     /// </summary>
     /// <example>
     /// <code lang="xml">
-    /// &lt;ui:Gravatar Id="Anything" /&gt;
+    ///     &lt;ui:Gravatar Id="Anything" /&gt;
     /// </code>
     /// <code lang="xml">
-    /// &lt;ui:Gravatar Source="{url or path}" /&gt;
+    ///     &lt;ui:Gravatar Source="{url or path}" /&gt;
     /// </code>
     /// </example>
     public class Gravatar : ContentControl

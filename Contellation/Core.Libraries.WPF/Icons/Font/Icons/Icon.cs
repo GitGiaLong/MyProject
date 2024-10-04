@@ -2,7 +2,7 @@
 using Core.Libraries.WPF.Icons.Font.Icons;
 using Core.Libraries.WPF.Icons.Interfaces;
 
-namespace Core.Libraries.WPF.Icons.Font
+namespace Core.Libraries.WPF.Icons
 {
     public class Icon : IconBase<IconBlock, IconType>, IIconFont
     {

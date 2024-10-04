@@ -48,9 +48,9 @@ namespace Core.Libraries.WPF.Controls
         /// <summary>
         /// Gets or sets background <see cref="Brush"/>.
         /// </summary>
-        public Brush MouseOverBackground
+        public Brush? MouseOverBackground
         {
-            get { return (Brush)GetValue(MouseOverBackgroundProperty); }
+            get { return (Brush?)GetValue(MouseOverBackgroundProperty); }
             set { SetValue(MouseOverBackgroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="MouseOverBackground"/> dependency property.</summary>
@@ -60,9 +60,9 @@ namespace Core.Libraries.WPF.Controls
         /// <summary>
         /// Gets or sets border <see cref="Brush"/> when the user mouses over the button.
         /// </summary>
-        public Brush MouseOverBorderBrush
+        public Brush? MouseOverBorderBrush
         {
-            get { return (Brush)GetValue(MouseOverBorderBrushProperty); }
+            get { return (Brush?)GetValue(MouseOverBorderBrushProperty); }
             set { SetValue(MouseOverBorderBrushProperty, value); }
         }
         /// <summary>Identifies the <see cref="MouseOverBorderBrush"/> dependency property.</summary>
@@ -72,9 +72,9 @@ namespace Core.Libraries.WPF.Controls
         /// <summary>
         /// Gets or sets the foreground <see cref="Brush"/> when the user clicks the button.
         /// </summary>
-        public Brush PressedForeground
+        public Brush? PressedForeground
         {
-            get { return (Brush)GetValue(PressedForegroundProperty); }
+            get { return (Brush?)GetValue(PressedForegroundProperty); }
             set { SetValue(PressedForegroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="PressedForeground"/> dependency property.</summary>
@@ -84,9 +84,9 @@ namespace Core.Libraries.WPF.Controls
         /// <summary>
         /// Gets or sets background <see cref="Brush"/> when the user clicks the button.
         /// </summary>
-        public Brush PressedBackground
+        public Brush? PressedBackground
         {
-            get { return (Brush)GetValue(PressedBackgroundProperty); }
+            get { return (Brush?)GetValue(PressedBackgroundProperty); }
             set { SetValue(PressedBackgroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="PressedBackground"/> dependency property.</summary>
@@ -96,9 +96,9 @@ namespace Core.Libraries.WPF.Controls
         /// <summary>
         /// Gets or sets border <see cref="Brush"/> when the user clicks the button.
         /// </summary>
-        public Brush PressedBorderBrush
+        public Brush? PressedBorderBrush
         {
-            get { return (Brush)GetValue(PressedBorderBrushProperty); }
+            get { return (Brush?)GetValue(PressedBorderBrushProperty); }
             set { SetValue(PressedBorderBrushProperty, value); }
         }
         /// <summary>Identifies the <see cref="PressedBorderBrush"/> dependency property.</summary>
@@ -128,13 +128,38 @@ namespace Core.Libraries.WPF.Controls
         /// <summary>Identifies the <see cref="ActionButton"/> dependency property.</summary>
         public static readonly DependencyProperty ActionButtonProperty = DependencyProperty.Register(nameof(ActionButton), typeof(ButtonAction),
             typeof(Button), new PropertyMetadata(ButtonAction.Unknown, OnButtonTypeChanged));
+        
+        private static void OnButtonTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is not Button titleBarButton) { return; }
+
+            titleBarButton.OnButtonTypeChanged(e);
+        }
+        protected void OnButtonTypeChanged(DependencyPropertyChangedEventArgs e)
+        {
+            var buttonType = (ButtonAction)e.NewValue;
+
+            _returnValue = buttonType switch
+            {
+                ButtonAction.Unknown => User32.WM_NCHITTEST.HTNOWHERE,
+
+                ButtonAction.Other => User32.WM_NCHITTEST.HTCLIENT,
+                ButtonAction.Help => User32.WM_NCHITTEST.HTHELP,
+
+                ButtonAction.Minimize => User32.WM_NCHITTEST.HTMINBUTTON,
+                ButtonAction.Close => User32.WM_NCHITTEST.HTCLOSE,
+                ButtonAction.Restore => User32.WM_NCHITTEST.HTMAXBUTTON,
+                ButtonAction.Maximize => User32.WM_NCHITTEST.HTMAXBUTTON,
+                _ => throw new ArgumentOutOfRangeException("e.NewValue", buttonType, $"Unsupported button type: {buttonType}.")
+            };
+        }
 
         /// <summary>
         /// Gets or sets the foreground of the navigation buttons.
         /// </summary>
-        public Brush ButtonsForeground
+        public Brush? ButtonsForeground
         {
-            get { return (Brush)GetValue(ButtonsForegroundProperty); }
+            get { return (Brush?)GetValue(ButtonsForegroundProperty); }
             set { SetValue(ButtonsForegroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="ButtonsForeground"/> dependency property.</summary>
@@ -153,9 +178,9 @@ namespace Core.Libraries.WPF.Controls
         public static readonly DependencyProperty MouseOverButtonsForegroundProperty = DependencyProperty.Register(nameof(MouseOverButtonsForeground), typeof(Brush),
                 typeof(Button), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.Inherits));
 
-        public Brush RenderButtonsForeground
+        public Brush? RenderButtonsForeground
         {
-            get { return (Brush)GetValue(RenderButtonsForegroundProperty); }
+            get { return (Brush?)GetValue(RenderButtonsForegroundProperty); }
             set { SetValue(RenderButtonsForegroundProperty, value); }
         }
         /// <summary>Identifies the <see cref="RenderButtonsForeground"/> dependency property.</summary>
@@ -253,30 +278,5 @@ namespace Core.Libraries.WPF.Controls
             }
         }
 
-        private static void OnButtonTypeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is not Button titleBarButton) { return; }
-
-            titleBarButton.OnButtonTypeChanged(e);
-        }
-
-        protected void OnButtonTypeChanged(DependencyPropertyChangedEventArgs e)
-        {
-            var buttonType = (ButtonAction)e.NewValue;
-
-            _returnValue = buttonType switch
-            {
-                ButtonAction.Unknown => User32.WM_NCHITTEST.HTNOWHERE,
-
-                ButtonAction.Other => User32.WM_NCHITTEST.HTCLIENT,
-                ButtonAction.Help => User32.WM_NCHITTEST.HTHELP,
-
-                ButtonAction.Minimize => User32.WM_NCHITTEST.HTMINBUTTON,
-                ButtonAction.Close => User32.WM_NCHITTEST.HTCLOSE,
-                ButtonAction.Restore => User32.WM_NCHITTEST.HTMAXBUTTON,
-                ButtonAction.Maximize => User32.WM_NCHITTEST.HTMAXBUTTON,
-                _ => throw new ArgumentOutOfRangeException("e.NewValue", buttonType, $"Unsupported button type: {buttonType}.")
-            };
-        }
     }
 }

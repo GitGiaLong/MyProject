@@ -2,7 +2,7 @@
 using Core.Libraries.WPF.Icons.Font.ToGeometries;
 using Core.Libraries.WPF.Icons.Helpers;
 
-namespace Core.Libraries.WPF.Icons.Font
+namespace Core.Libraries.WPF.Icons
 {
     public class ToGeometry : ToGeometryBase<IconType>
     {

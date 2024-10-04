@@ -7,10 +7,10 @@
         <Setter Property="Width" Value="Auto" />
         <Setter Property="TextElement.FontSize" Value="12" />
         <Setter Property="TextBlock.TextAlignment" Value="Justify" />
-        <Setter Property="TextElement.Foreground" Value="#FFFFFF" />
-        <Setter Property="Foreground" Value="#FFFFFF" />
-        <Setter Property="Background" Value="#2C2C2C" />
-        <Setter Property="BorderBrush" Value="#33000000" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource Col_FFFFFF}" />
+        <Setter Property="Foreground" Value="{DynamicResource Col_FFFFFF}" />
+        <Setter Property="Background" Value="{DynamicResource Col_2C2C2C}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource Col_33000000}" />
         <Setter Property="SnapsToDevicePixels" Value="True" />
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Template">
@@ -20,7 +20,7 @@
                             Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" MaxWidth="{TemplateBinding MaxWidth}"
                             Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" >
                         <Border.Effect>
-                            <DropShadowEffect BlurRadius="30" Direction="0" Opacity="0.4" ShadowDepth="0" Color="#202020" />
+                            <DropShadowEffect BlurRadius="30" Direction="0" Opacity="0.4" ShadowDepth="0" Color="{DynamicResource C_202020}" />
                         </Border.Effect>
                         <ContentPresenter Margin="4" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <ContentPresenter.Resources>

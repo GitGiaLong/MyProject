@@ -2,13 +2,11 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Contellation"
-             xmlns:ui="clr-namespace:Core.Libraries.WPF.Controls;assembly=Core.Libraries.WPF"
              StartupUri="View/Contellation.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/Themes.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/FontFamilies.xaml" />
 
                 <ResourceDictionary Source="pack://application:,,,/Contellation;component/ResoureDictionaries/ViewModelResource.xaml" />
             </ResourceDictionary.MergedDictionaries>

@@ -4,7 +4,7 @@
                     xmlns:typeControl="clr-namespace:Core.Entities.Conntrols.Enums;assembly=Core.Entities">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/FontFamilies.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/Styles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}">
@@ -147,33 +147,38 @@
                             <Setter TargetName="ControlIcon" Property="Visibility" Value="Collapsed" />
                         </Trigger>
 
-                        <!--<Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Other}">
-                            <Setter Property="CommandParameter" Value="{x:Static typeControl:ButtonAction.Other}" />
-                        </Trigger>-->
                         <Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Minimize}">
                             <Setter Property="CommandParameter" Value="{x:Static typeControl:ButtonAction.Minimize}" />
                             <Setter Property="Command" Value="{x:Static SystemCommands.MinimizeWindowCommand}" />
+                            <Setter Property="FontFamilyIcon" Value="{StaticResource FontAwesome_Light_Pro}" />
                             <Setter Property="Icon" Value="&#xf2d1;" />
-                            <Setter Property="FontFamilyIcon" Value="{StaticResource FontAwesome_Light_Pro}" />
+                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="CornerRadius" Value="0" />
+                            <Setter Property="Margin" Value="0" />
+                            <Setter Property="Width" Value="48" />
+                            <Setter Property="ToolTip" Value="Minimize" />
                         </Trigger>
-                        <!--<Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Restore}">
-                            <Setter Property="CommandParameter" Value="{x:Static typeControl:ButtonAction.Restore}" />
-                            <Setter Property="Command" Value="{x:Static SystemCommands.MaximizeWindowCommand}" />
-                            <Setter Property="FontFamilyIcon" Value="{StaticResource FontAwesome_Light_Pro}" />
-                            <Setter Property="Icon" Value="&#xf2d2;" />
-                        </Trigger>-->
                         <Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Maximize}">
                             <Setter Property="CommandParameter" Value="{x:Static typeControl:ButtonAction.Maximize}" />
                             <Setter Property="Command" Value="{x:Static SystemCommands.MaximizeWindowCommand}" />
-                            <!--<Setter Property="FontFamilyIcon" Value="{StaticResource FontAwesome_Light_Pro}" />-->
-                            <Setter Property="Icon" Value="O" />
+                            <Setter Property="FontFamilyIcon" Value="{StaticResource FontAwesome_Light_Pro}" />
+                            <Setter Property="Icon" Value="&#xf0c8;" />
+                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="CornerRadius" Value="0" />
+                            <Setter Property="Margin" Value="0" />
+                            <Setter Property="Width" Value="48" />
                         </Trigger>
                         <Trigger Property="ActionButton" Value="{x:Static typeControl:ButtonAction.Close}">
                             <Setter Property="CommandParameter" Value="{x:Static typeControl:ButtonAction.Close}" />
                             <Setter Property="Command" Value="{x:Static SystemCommands.CloseWindowCommand}" />
                             <Setter Property="FontFamilyIcon" Value="{StaticResource FontAwesome_Light_Pro}" />
                             <Setter Property="Icon" Value="&#xf00d;" />
-                            <Setter Property="MouseOverButtonsForeground" Value="White" />
+                            <Setter Property="BorderThickness" Value="0" />
+                            <Setter Property="CornerRadius" Value="0" />
+                            <Setter Property="Margin" Value="0" />
+                            <Setter Property="Width" Value="48" />
+                            <Setter Property="ToolTip" Value="Exit" />
+                            <Setter Property="MouseOverButtonsForeground" Value="Gray" />
                             <Setter Property="MouseOverBackground" Value="#F44336" />
                         </Trigger>
                     </ControlTemplate.Triggers>
