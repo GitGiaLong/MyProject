@@ -12,89 +12,49 @@ namespace Core.Libraries.WPF.Controls
     /// </summary>
     public class InfoBar : System.Windows.Controls.ContentControl
     {
-        /// <summary>Identifies the <see cref="IsClosable"/> dependency property.</summary>
-        public static readonly DependencyProperty IsClosableProperty = DependencyProperty.Register(
-            nameof(IsClosable),
-            typeof(bool),
-            typeof(InfoBar),
-            new PropertyMetadata(true)
-        );
-
-        /// <summary>Identifies the <see cref="IsOpen"/> dependency property.</summary>
-        public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(
-            nameof(IsOpen),
-            typeof(bool),
-            typeof(InfoBar),
-            new PropertyMetadata(false)
-        );
-
-        /// <summary>Identifies the <see cref="Title"/> dependency property.</summary>
-        public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(
-            nameof(Title),
-            typeof(string),
-            typeof(InfoBar),
-            new PropertyMetadata(string.Empty)
-        );
-
-        /// <summary>Identifies the <see cref="Message"/> dependency property.</summary>
-        public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
-            nameof(Message),
-            typeof(string),
-            typeof(InfoBar),
-            new PropertyMetadata(string.Empty)
-        );
-
-        /// <summary>Identifies the <see cref="Severity"/> dependency property.</summary>
-        public static readonly DependencyProperty SeverityProperty = DependencyProperty.Register(
-            nameof(Severity),
-            typeof(InfoBarSeverity),
-            typeof(InfoBar),
-            new PropertyMetadata(InfoBarSeverity.Informational)
-        );
-
-        /// <summary>Identifies the <see cref="TemplateButtonCommand"/> dependency property.</summary>
-        public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(
-            nameof(TemplateButtonCommand),
-            typeof(IRelayCommand),
-            typeof(InfoBar),
-            new PropertyMetadata(null)
-        );
-
         /// <summary>
         /// Gets or sets a value indicating whether the user can close the <see cref="InfoBar" />. Defaults to <c>true</c>.
         /// </summary>
         public bool IsClosable
         {
-            get => (bool)GetValue(IsClosableProperty);
-            set => SetValue(IsClosableProperty, value);
+            get { return (bool)GetValue(IsClosableProperty); }
+            set { SetValue(IsClosableProperty, value); }
         }
+        public static readonly DependencyProperty IsClosableProperty = DependencyProperty.Register(nameof(IsClosable), typeof(bool),
+            typeof(InfoBar), new PropertyMetadata(true));
 
         /// <summary>
         /// Gets or sets a value indicating whether the <see cref="InfoBar" /> is open.
         /// </summary>
         public bool IsOpen
         {
-            get => (bool)GetValue(IsOpenProperty);
-            set => SetValue(IsOpenProperty, value);
+            get { return (bool)GetValue(IsOpenProperty); }
+            set { SetValue(IsOpenProperty, value); }
         }
+        public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(nameof(IsOpen), typeof(bool),
+            typeof(InfoBar), new PropertyMetadata(false));
 
         /// <summary>
         /// Gets or sets the title of the <see cref="InfoBar" />.
         /// </summary>
         public string Title
         {
-            get => (string)GetValue(TitleProperty);
-            set => SetValue(TitleProperty, value);
+            get { return (string)GetValue(TitleProperty); }
+            set { SetValue(TitleProperty, value); }
         }
+        public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(nameof(Title), typeof(string),
+            typeof(InfoBar), new PropertyMetadata(string.Empty));
 
         /// <summary>
         /// Gets or sets the message of the <see cref="InfoBar" />.
         /// </summary>
         public string Message
         {
-            get => (string)GetValue(MessageProperty);
-            set => SetValue(MessageProperty, value);
+            get { return (string)GetValue(MessageProperty); }
+            set { SetValue(MessageProperty, value); }
         }
+        public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(nameof(Message), typeof(string),
+            typeof(InfoBar), new PropertyMetadata(string.Empty));
 
         /// <summary>
         /// Gets or sets the type of the <see cref="InfoBar" /> to apply
@@ -103,25 +63,26 @@ namespace Core.Libraries.WPF.Controls
         /// </summary>
         public InfoBarSeverity Severity
         {
-            get => (InfoBarSeverity)GetValue(SeverityProperty);
-            set => SetValue(SeverityProperty, value);
+            get { return (InfoBarSeverity)GetValue(SeverityProperty); }
+            set { SetValue(SeverityProperty, value); }
         }
+        public static readonly DependencyProperty SeverityProperty = DependencyProperty.Register(nameof(Severity), typeof(InfoBarSeverity),
+            typeof(InfoBar), new PropertyMetadata(InfoBarSeverity.Informational));
 
         /// <summary>
         /// Gets the <see cref="RelayCommand{T}"/> triggered after clicking
         /// the close button.
         /// </summary>
         public IRelayCommand TemplateButtonCommand => (IRelayCommand)GetValue(TemplateButtonCommandProperty);
+        public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(nameof(TemplateButtonCommand), typeof(IRelayCommand),
+            typeof(InfoBar), new PropertyMetadata(null));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="InfoBar"/> class.
         /// </summary>
         public InfoBar()
         {
-            SetValue(
-                TemplateButtonCommandProperty,
-                new RelayCommand<object>(_ => SetCurrentValue(IsOpenProperty, false))
-            );
+            SetValue(TemplateButtonCommandProperty, new RelayCommand<object>(_ => SetCurrentValue(IsOpenProperty, false)));
         }
     }
 }

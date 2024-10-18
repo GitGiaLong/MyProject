@@ -17,7 +17,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (string)GetValue(PasswordProperty); }
             set { SetValue(PasswordProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Password"/> dependency property.</summary>
         public static readonly DependencyProperty PasswordProperty = DependencyProperty.Register(nameof(Password), typeof(string),
             typeof(PasswordBox), new PropertyMetadata(string.Empty, OnPasswordChanged));
 
@@ -38,8 +37,6 @@ namespace Core.Libraries.WPF.Controls
             UpdateTextContents(false);
         }
 
-        //----
-
         /// <summary>
         /// Gets or sets character used to mask the password.
         /// </summary>
@@ -48,9 +45,8 @@ namespace Core.Libraries.WPF.Controls
             get { return (char)GetValue(PasswordCharProperty); }
             set { SetValue(PasswordCharProperty, value); }
         }
-        /// <summary>Identifies the <see cref="PasswordChar"/> dependency property.</summary>
         public static readonly DependencyProperty PasswordCharProperty = DependencyProperty.Register(nameof(PasswordChar), typeof(char),
-            typeof(PasswordBox), new PropertyMetadata('*', OnPasswordCharChanged));
+            typeof(PasswordBox), new PropertyMetadata('●', OnPasswordCharChanged));
 
         /// <summary>
         /// Is called when <see cref="PasswordChar"/> property is changing.
@@ -77,8 +73,6 @@ namespace Core.Libraries.WPF.Controls
             control.OnPasswordCharChanged();
         }
 
-        //----
-
         /// <summary>
         /// Gets a value indicating whether the password is revealed.
         /// </summary>
@@ -87,7 +81,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(IsPasswordRevealedProperty); }
             private set { SetValue(IsPasswordRevealedProperty, value); }
         }
-        /// <summary>Identifies the <see cref="IsPasswordRevealed"/> dependency property.</summary>
         public static readonly DependencyProperty IsPasswordRevealedProperty = DependencyProperty.Register(nameof(IsPasswordRevealed), typeof(bool),
             typeof(PasswordBox), new PropertyMetadata(false, OnIsPasswordRevealedChanged));
 
@@ -109,11 +102,13 @@ namespace Core.Libraries.WPF.Controls
             _lockUpdatingContents = false;
         }
 
-        //----
-
-
-        public static readonly DependencyProperty IsSafeEnabledProperty = DependencyProperty.Register(
-            nameof(IsSafeEnabled), typeof(bool), typeof(PasswordBox), new PropertyMetadata(true, OnIsSafeEnabledChanged));
+        public bool IsSafeEnabled
+        {
+            get { return (bool)GetValue(IsSafeEnabledProperty); }
+            set { SetValue(IsSafeEnabledProperty, value); }
+        }
+        public static readonly DependencyProperty IsSafeEnabledProperty = DependencyProperty.Register(nameof(IsSafeEnabled), typeof(bool), 
+            typeof(PasswordBox), new PropertyMetadata(true, OnIsSafeEnabledChanged));
 
         private static void OnIsSafeEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -121,15 +116,13 @@ namespace Core.Libraries.WPF.Controls
             p.SetCurrentValue(UnsafePasswordProperty, !(bool)e.NewValue ? p.Password : string.Empty);
         }
 
-        public bool IsSafeEnabled
+        public string UnsafePassword
         {
-            get => (bool)GetValue(IsSafeEnabledProperty);
-            set => SetValue(IsSafeEnabledProperty, value);
+            get { return (string)GetValue(UnsafePasswordProperty); }
+            set { SetValue(UnsafePasswordProperty, value); }
         }
-
-        public static readonly DependencyProperty UnsafePasswordProperty = DependencyProperty.Register(
-            nameof(UnsafePassword), typeof(string), typeof(PasswordBox), new FrameworkPropertyMetadata(default(string),
-                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnUnsafePasswordChanged));
+        public static readonly DependencyProperty UnsafePasswordProperty = DependencyProperty.Register(nameof(UnsafePassword), typeof(string), 
+            typeof(PasswordBox), new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnUnsafePasswordChanged));
 
         private static void OnUnsafePasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -140,14 +133,6 @@ namespace Core.Libraries.WPF.Controls
             }
         }
 
-        public string UnsafePassword
-        {
-            get => (string)GetValue(UnsafePasswordProperty);
-            set => SetValue(UnsafePasswordProperty, value);
-        }
-
-        //--
-
         /// <summary>
         /// Gets or sets a value indicating whether whether to display the  password reveal button.
         /// </summary>
@@ -156,7 +141,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(RevealButtonEnabledProperty); }
             set { SetValue(RevealButtonEnabledProperty, value); }
         }
-        /// <summary>Identifies the <see cref="RevealButtonEnabled"/> dependency property.</summary>
         public static readonly DependencyProperty RevealButtonEnabledProperty = DependencyProperty.Register(nameof(RevealButtonEnabled), typeof(bool),
             typeof(PasswordBox), new PropertyMetadata(true));
 
@@ -172,7 +156,6 @@ namespace Core.Libraries.WPF.Controls
             add => AddHandler(PasswordChangedEvent, value);
             remove => RemoveHandler(PasswordChangedEvent, value);
         }
-        /// <summary>Identifies the <see cref="PasswordChanged"/> routed event.</summary>
         public static readonly RoutedEvent PasswordChangedEvent = EventManager.RegisterRoutedEvent(nameof(PasswordChanged), RoutingStrategy.Bubble,
             typeof(RoutedEventHandler), typeof(PasswordBox));
 

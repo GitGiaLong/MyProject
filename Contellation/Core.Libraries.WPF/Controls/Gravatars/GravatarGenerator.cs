@@ -22,10 +22,7 @@ namespace Core.Libraries.WPF.Controls.Gravatars
             }
 
             var index = 0;
-            for (var i = 0; i < 2; i++)
-            {
-                for (var j = 0; j < 5; j++, index++) { AddRec(i, j, renderData[index] == 0); }
-            }
+            for (var i = 0; i < 2; i++) { for (var j = 0; j < 5; j++, index++) { AddRec(i, j, renderData[index] == 0); } }
 
             for (var j = 0; j < 5; j++, index++) { AddRec(2, j, renderData[index] == 0); }
 

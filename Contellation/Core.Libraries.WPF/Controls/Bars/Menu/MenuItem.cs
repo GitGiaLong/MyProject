@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.Libraries.WPF.Controls.Bars.Menu
+﻿namespace Core.Libraries.WPF.Controls.Bars.Menu
 {
 
     /// <summary>
@@ -12,23 +6,21 @@ namespace Core.Libraries.WPF.Controls.Bars.Menu
     /// </summary>
     public class MenuItem : System.Windows.Controls.MenuItem
     {
+        /// <summary>
+        /// Gets or sets displayed <see cref="Icon"/>.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("WpfAnalyzers.DependencyProperty", "WPF0012:CLR property type should match registered type",
+            Justification = "seems harmless")]
+        public new string? Icon
+        {
+            get { return (string?)GetValue(IconProperty); }
+            set { SetValue(IconProperty, value); }
+        }
+
         static MenuItem()
         {
             IconProperty.OverrideMetadata(typeof(MenuItem), new FrameworkPropertyMetadata(null));
         }
 
-        /// <summary>
-        /// Gets or sets displayed <see cref="Icon"/>.
-        /// </summary>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "WpfAnalyzers.DependencyProperty",
-            "WPF0012:CLR property type should match registered type",
-            Justification = "seems harmless"
-        )]
-        public new string? Icon
-        {
-            get => (string?)GetValue(IconProperty);
-            set => SetValue(IconProperty, value);
-        }
     }
 }

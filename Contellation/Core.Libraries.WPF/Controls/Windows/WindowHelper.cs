@@ -33,10 +33,10 @@ namespace Core.Libraries.WPF.Controls.Windows
                         {
                             var desktopWnd = new HandleRef(null, IntPtr.Zero);
 
-                            // Win32Exception will get the Win32 error code so we don't have to
+                            /// Win32Exception will get the Win32 error code so we don't have to
                             var dc = InteropMethods.GetDC(desktopWnd);
 
-                            // Detecting error case from unmanaged call, required by PREsharp to throw a Win32Exception
+                            /// Detecting error case from unmanaged call, required by PREsharp to throw a Win32Exception
                             if (dc == IntPtr.Zero)
                             {
                                 throw new Win32Exception();

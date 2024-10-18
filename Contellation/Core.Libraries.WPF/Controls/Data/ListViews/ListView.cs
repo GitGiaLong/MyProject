@@ -24,37 +24,28 @@ namespace Core.Libraries.WPF.Controls
     /// </example>
     public class ListView : System.Windows.Controls.ListView
     {
-        /// <summary>Identifies the <see cref="ViewState"/> dependency property.</summary>
-        public static readonly DependencyProperty ViewStateProperty = DependencyProperty.Register(
-            nameof(ViewState),
-            typeof(ListViewViewState),
-            typeof(ListView),
-            new FrameworkPropertyMetadata(ListViewViewState.Default, OnViewStateChanged)
-        );
-
         /// <summary>
         /// Gets or sets the view state of the <see cref="ListView"/>, enabling custom logic based on the current view.
         /// </summary>
         /// <value>The current view state of the <see cref="ListView"/>.</value>
         public ListViewViewState ViewState
         {
-            get => (ListViewViewState)GetValue(ViewStateProperty);
-            set => SetValue(ViewStateProperty, value);
+            get { return (ListViewViewState)GetValue(ViewStateProperty); }
+            set { SetValue(ViewStateProperty, value); }
         }
+        public static readonly DependencyProperty ViewStateProperty = DependencyProperty.Register(nameof(ViewState), typeof(ListViewViewState),
+            typeof(ListView), new FrameworkPropertyMetadata(ListViewViewState.Default, OnViewStateChanged));
 
         private static void OnViewStateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is not ListView self)
-            {
-                return;
-            }
+            if (d is not ListView self) { return; }
 
             self.OnViewStateChanged(e);
         }
 
         protected virtual void OnViewStateChanged(DependencyPropertyChangedEventArgs e)
         {
-            // Hook for derived classes to react to ViewState property changes
+            /// Hook for derived classes to react to ViewState property changes
         }
 
         public ListView()
@@ -64,15 +55,12 @@ namespace Core.Libraries.WPF.Controls
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
-            Loaded -= OnLoaded; // prevent memory leaks
+            Loaded -= OnLoaded; /// prevent memory leaks
 
-            // Setup initial ViewState and hook into View property changes
-            var descriptor = DependencyPropertyDescriptor.FromProperty(
-                System.Windows.Controls.ListView.ViewProperty,
-                typeof(System.Windows.Controls.ListView)
-            );
+            /// Setup initial ViewState and hook into View property changes
+            var descriptor = DependencyPropertyDescriptor.FromProperty(System.Windows.Controls.ListView.ViewProperty, typeof(System.Windows.Controls.ListView));
             descriptor?.AddValueChanged(this, OnViewPropertyChanged);
-            UpdateViewState(); // set the initial state
+            UpdateViewState(); /// set the initial state
         }
 
         private void OnViewPropertyChanged(object? sender, EventArgs e)
@@ -94,10 +82,7 @@ namespace Core.Libraries.WPF.Controls
 
         static ListView()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(
-                typeof(ListView),
-                new FrameworkPropertyMetadata(typeof(ListView))
-            );
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(ListView), new FrameworkPropertyMetadata(typeof(ListView)));
         }
 
         protected override DependencyObject GetContainerForItemOverride()
@@ -110,5 +95,4 @@ namespace Core.Libraries.WPF.Controls
             return item is ListViewItem;
         }
     }
-
 }

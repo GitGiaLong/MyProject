@@ -13,7 +13,6 @@
             get { return GetValue(OffContentProperty); }
             set { SetValue(OffContentProperty, value); }
         }
-        /// <summary>Identifies the <see cref="OffContent"/> dependency property.</summary>
         public static readonly DependencyProperty OffContentProperty = DependencyProperty.Register(nameof(OffContent), typeof(object),
             typeof(ToggleSwitch), new PropertyMetadata(null));
 
@@ -25,7 +24,6 @@
             get { return GetValue(OnContentProperty); }
             set { SetValue(OnContentProperty, value); }
         }
-        /// <summary>Identifies the <see cref="OnContent"/> dependency property.</summary>
         public static readonly DependencyProperty OnContentProperty = DependencyProperty.Register(nameof(OnContent), typeof(object),
             typeof(ToggleSwitch), new PropertyMetadata(null));
     }

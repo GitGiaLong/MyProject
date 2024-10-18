@@ -8,7 +8,6 @@ namespace Core.Libraries.WPF.Controls
     {
         #region Properties
 
-
         /// <summary>
         /// Gets or sets the cashed mask to apply to the textbox
         /// </summary>
@@ -17,27 +16,19 @@ namespace Core.Libraries.WPF.Controls
             get { return (MaskedTextProvider)GetValue(MaskProviderCashedProperty); }
             set { SetValue(MaskProviderCashedProperty, value); }
         }
-
-        /// <summary>
-        /// Dependency property to store the cashed mask to apply to the textbox
-        /// </summary>
-        private static readonly DependencyProperty MaskProviderCashedProperty =
-            DependencyProperty.Register("MaskProviderCashed", typeof(MaskedTextProvider), typeof(TextBoxMasked), new UIPropertyMetadata(null, MaskChanged));
+        private static readonly DependencyProperty MaskProviderCashedProperty = DependencyProperty.Register(nameof(MaskProviderCashed), typeof(MaskedTextProvider), 
+                typeof(TextBoxMasked), new UIPropertyMetadata(null, MaskChanged));
 
         /// <summary>
         /// Gets or sets the cashed mask format string to apply to the textbox
         /// </summary>
-        private String MaskProviderCashedMask
+        private string MaskProviderCashedMask
         {
-            get { return (String)GetValue(MaskProviderCashedMaskProperty); }
+            get { return (string)GetValue(MaskProviderCashedMaskProperty); }
             set { SetValue(MaskProviderCashedMaskProperty, value); }
         }
-
-        /// <summary>
-        /// Dependency property to store the mask format string to apply to the textbox
-        /// </summary>
-        private static readonly DependencyProperty MaskProviderCashedMaskProperty =
-            DependencyProperty.Register("MaskProviderCashedMask", typeof(string), typeof(TextBoxMasked), new UIPropertyMetadata(String.Empty, MaskChanged));
+        private static readonly DependencyProperty MaskProviderCashedMaskProperty = DependencyProperty.Register(nameof(MaskProviderCashedMask), typeof(string), 
+                typeof(TextBoxMasked), new UIPropertyMetadata(string.Empty, MaskChanged));
 
         /// <summary>
         /// Gets the MaskTextProvider for the specified Mask
@@ -93,12 +84,8 @@ namespace Core.Libraries.WPF.Controls
             get { return (char)GetValue(PromptCharCachedProperty); }
             set { SetValue(PromptCharCachedProperty, value); }
         }
-
-        /// <summary>
-        /// Dependency property to store the cashed promt char to apply to the textbox mask
-        /// </summary>
-        private static readonly DependencyProperty PromptCharCachedProperty =
-            DependencyProperty.Register("PromptCharCached", typeof(char), typeof(TextBoxMasked), new UIPropertyMetadata(' ', MaskChanged));
+        private static readonly DependencyProperty PromptCharCachedProperty = DependencyProperty.Register(nameof(PromptCharCached), typeof(char), 
+            typeof(TextBoxMasked), new UIPropertyMetadata(' ', MaskChanged));
 
         /// <summary>
         /// Gets or sets the promt char to apply to the textbox mask
@@ -108,12 +95,8 @@ namespace Core.Libraries.WPF.Controls
             get { return (char)GetValue(PromptCharProperty); }
             set { SetValue(PromptCharProperty, value); }
         }
-
-        /// <summary>
-        /// Dependency property to store the promt char to apply to the textbox mask
-        /// </summary>
-        public static readonly DependencyProperty PromptCharProperty =
-            DependencyProperty.Register("PromptChar", typeof(char), typeof(TextBoxMasked), new UIPropertyMetadata(' ', MaskChanged));
+        public static readonly DependencyProperty PromptCharProperty = DependencyProperty.Register(nameof(PromptChar), typeof(char),
+            typeof(TextBoxMasked), new UIPropertyMetadata(' ', MaskChanged));
 
         /// <summary>
         /// Gets or sets the mask to apply to the textbox
@@ -123,12 +106,8 @@ namespace Core.Libraries.WPF.Controls
             get { return (string)GetValue(MaskProperty); }
             set { SetValue(MaskProperty, value); }
         }
-
-        /// <summary>
-        /// Dependency property to store the mask to apply to the textbox
-        /// </summary>
-        public static readonly DependencyProperty MaskProperty =
-            DependencyProperty.Register("Mask", typeof(string), typeof(TextBoxMasked), new UIPropertyMetadata(String.Empty, MaskChanged));
+        public static readonly DependencyProperty MaskProperty = DependencyProperty.Register(nameof(Mask), typeof(string), 
+            typeof(TextBoxMasked), new UIPropertyMetadata(string.Empty, MaskChanged));
 
         /// <summary>
         /// callback for when the Mask property is changed
@@ -150,13 +129,6 @@ namespace Core.Libraries.WPF.Controls
             get { return TextBoxMaskedFilterProvider.Instance.FilterForMaskedType(Filter); ; }
         }
 
-
-        /// <summary>
-        /// Dependency property to store the filter to apply to the textbox
-        /// </summary>
-        public static readonly DependencyProperty FilterProperty =
-            DependencyProperty.Register("Filter", typeof(TextBoxMaskedFilterType), typeof(TextBoxMasked), new UIPropertyMetadata(TextBoxMaskedFilterType.Any, MaskChanged));
-
         /// <summary>
         /// Gets a predefined filter for the specified RegExp
         /// </summary>
@@ -165,6 +137,9 @@ namespace Core.Libraries.WPF.Controls
             get { return (TextBoxMaskedFilterType)GetValue(FilterProperty); }
             set { SetValue(FilterProperty, value); }
         }
+        public static readonly DependencyProperty FilterProperty = DependencyProperty.Register(nameof(Filter), typeof(TextBoxMaskedFilterType), 
+            typeof(TextBoxMasked), new UIPropertyMetadata(TextBoxMaskedFilterType.Any, MaskChanged));
+
         #endregion
 
         /// <summary>
@@ -177,7 +152,12 @@ namespace Core.Libraries.WPF.Controls
             TextProperty.OverrideMetadata(typeof(TextBoxMasked), metaData);
         }
 
-        //force the text of the control to use the mask
+        /// <summary>
+        /// force the text of the control to use the mask
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         private static object ForceText(DependencyObject sender, object value)
         {
             var textBox = (TextBoxMasked)sender;
@@ -203,7 +183,11 @@ namespace Core.Libraries.WPF.Controls
             CommandBindings.Add(new CommandBinding(ApplicationCommands.Cut, null, CancelCommand));
         }
 
-        //cancel the command
+        /// <summary>
+        /// cancel the command
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private static void CancelCommand(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = false;
@@ -296,7 +280,11 @@ namespace Core.Libraries.WPF.Controls
 
         #region Helper Methods
 
-        //refreshes the text of the textbox
+        /// <summary>
+        /// refreshes the text of the textbox
+        /// </summary>
+        /// <param name="provider"></param>
+        /// <param name="position"></param>
         private void RefreshText(MaskedTextProvider provider, int position)
         {
             if (provider != null)
@@ -305,7 +293,12 @@ namespace Core.Libraries.WPF.Controls
                 SelectionStart = position;
             }
         }
-        //gets the next position in the textbox to move
+
+        /// <summary>
+        /// gets the next position in the textbox to move
+        /// </summary>
+        /// <param name="startPosition"></param>
+        /// <returns></returns>
         private int GetNextCharacterPosition(int startPosition)
         {
             if (MaskProvider != null)

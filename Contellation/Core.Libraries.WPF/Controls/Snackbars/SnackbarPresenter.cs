@@ -3,11 +3,12 @@
 
     public class SnackbarPresenter : System.Windows.Controls.ContentPresenter
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("WpfAnalyzers.DependencyProperty", "WPF0012:CLR property type should match registered type", Justification = "seems harmless")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("WpfAnalyzers.DependencyProperty", "WPF0012:CLR property type should match registered type", 
+            Justification = "seems harmless")]
         public new Snackbar? Content
         {
-            get => (Snackbar?)GetValue(ContentProperty);
-            protected set => SetValue(ContentProperty, value);
+            get { return (Snackbar?)GetValue(ContentProperty); }
+            protected set { SetValue(ContentProperty, value); }
         }
 
         public SnackbarPresenter()
@@ -39,10 +40,7 @@
         {
             Queue.Enqueue(snackbar);
 
-            if (Content is null)
-            {
-                ShowQueuedSnackbars(); // TODO: Fix detached process
-            }
+            if (Content is null) { ShowQueuedSnackbars();  }
         }
 
         public virtual async Task ImmediatelyDisplay(Snackbar snackbar)
@@ -62,6 +60,10 @@
             ResetCancellationTokenSource();
         }
 
+        /// <summary>
+        /// TODO: Fix detached process
+        /// </summary>
+        /// <returns></returns>
         private async Task ShowQueuedSnackbars()
         {
             while (Queue.Count > 0 && !CancellationTokenSource.IsCancellationRequested)
@@ -72,26 +74,22 @@
             }
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("WpfAnalyzers.DependencyProperty", "WPF0041:Set mutable dependency properties using SetCurrentValue", Justification = "SetCurrentValue(ContentProperty, ...) will not work")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("WpfAnalyzers.DependencyProperty", "WPF0041:Set mutable dependency properties using SetCurrentValue", 
+            Justification = "SetCurrentValue(ContentProperty, ...) will not work")]
         private async Task ShowSnackbar(Snackbar snackbar)
         {
             Content = snackbar;
 
             snackbar.SetCurrentValue(Snackbar.IsShownProperty, true);
 
-            try
-            {
-                await Task.Delay(snackbar.Timeout, CancellationTokenSource.Token);
-            }
-            catch
-            {
-                return;
-            }
+            try { await Task.Delay(snackbar.Timeout, CancellationTokenSource.Token); }
+            catch { return; }
 
             await HidSnackbar(snackbar);
         }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("WpfAnalyzers.DependencyProperty", "WPF0041:Set mutable dependency properties using SetCurrentValue", Justification = "SetCurrentValue(ContentProperty, ...) will not work")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("WpfAnalyzers.DependencyProperty", "WPF0041:Set mutable dependency properties using SetCurrentValue", 
+            Justification = "SetCurrentValue(ContentProperty, ...) will not work")]
         private async Task HidSnackbar(Snackbar snackbar)
         {
             snackbar.SetCurrentValue(Snackbar.IsShownProperty, false);

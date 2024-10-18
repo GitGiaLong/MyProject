@@ -18,44 +18,24 @@ namespace Core.Libraries.WPF.Controls
     [StyleTypedProperty(Property = nameof(ItemContainerStyle), StyleTargetType = typeof(BreadcrumbBarItem))]
     public class BreadcrumbBar : System.Windows.Controls.ItemsControl
     {
-        /// <summary>Identifies the <see cref="Command"/> dependency property.</summary>
-        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
-            nameof(Command),
-            typeof(ICommand),
-            typeof(BreadcrumbBar),
-            new PropertyMetadata(null)
-        );
-
-        /// <summary>Identifies the <see cref="TemplateButtonCommand"/> dependency property.</summary>
-        public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(
-            nameof(TemplateButtonCommand),
-            typeof(IRelayCommand),
-            typeof(BreadcrumbBar),
-            new PropertyMetadata(null)
-        );
-
-        /// <summary>
-        /// Gets the <see cref="RelayCommand{T}"/> triggered after clicking
-        /// </summary>
-        public IRelayCommand TemplateButtonCommand => (IRelayCommand)GetValue(TemplateButtonCommandProperty);
-
-        /// <summary>Identifies the <see cref="ItemClicked"/> routed event.</summary>
-        public static readonly RoutedEvent ItemClickedEvent = EventManager.RegisterRoutedEvent(
-            nameof(ItemClicked),
-            RoutingStrategy.Bubble,
-            typeof(TypedEventHandler<BreadcrumbBar, BreadcrumbBarItemClickedEventArgs>),
-            typeof(BreadcrumbBar)
-        );
-
         /// <summary>
         /// Gets or sets custom command executed after selecting the item.
         /// </summary>
         [Localizability(LocalizationCategory.NeverLocalize)]
         public ICommand? Command
         {
-            get => (ICommand?)GetValue(CommandProperty);
-            set => SetValue(CommandProperty, value);
+            get { return (ICommand?)GetValue(CommandProperty); }
+            set { SetValue(CommandProperty, value); }
         }
+        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(nameof(Command), typeof(ICommand),
+            typeof(BreadcrumbBar), new PropertyMetadata(null));
+
+        /// <summary>
+        /// Gets the <see cref="RelayCommand{T}"/> triggered after clicking
+        /// </summary>
+        public IRelayCommand TemplateButtonCommand => (IRelayCommand)GetValue(TemplateButtonCommandProperty);
+        public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(nameof(TemplateButtonCommand), typeof(IRelayCommand),
+            typeof(BreadcrumbBar), new PropertyMetadata(null));
 
         /// <summary>
         /// Occurs when an item is clicked in the <see cref="BreadcrumbBar"/>.
@@ -65,6 +45,8 @@ namespace Core.Libraries.WPF.Controls
             add => AddHandler(ItemClickedEvent, value);
             remove => RemoveHandler(ItemClickedEvent, value);
         }
+        public static readonly RoutedEvent ItemClickedEvent = EventManager.RegisterRoutedEvent(nameof(ItemClicked), RoutingStrategy.Bubble,
+            typeof(TypedEventHandler<BreadcrumbBar, BreadcrumbBarItemClickedEventArgs>), typeof(BreadcrumbBar));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BreadcrumbBar"/> class.
@@ -82,15 +64,9 @@ namespace Core.Libraries.WPF.Controls
             var args = new BreadcrumbBarItemClickedEventArgs(ItemClickedEvent, this, item, index);
             RaiseEvent(args);
 
-            if (Command?.CanExecute(item) ?? false)
-            {
-                Command.Execute(item);
-            }
+            if (Command?.CanExecute(item) ?? false) { Command.Execute(item); }
 
-            if (Command?.CanExecute(null) ?? false)
-            {
-                Command.Execute(null);
-            }
+            if (Command?.CanExecute(null) ?? false) { Command.Execute(null); }
         }
 
         protected override bool IsItemItsOwnContainerOverride(object item)

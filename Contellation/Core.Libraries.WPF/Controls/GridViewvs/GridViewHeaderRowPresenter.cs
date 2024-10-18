@@ -4,26 +4,21 @@ using System.Windows.Controls;
 
 namespace Core.Libraries.WPF.Controls
 {
-
     /// <summary>
-    /// Extends <see cref="System.Windows.Controls.GridViewHeaderRowPresenter"/>, and adds layout support for <see cref="GridViewColumn"/>, which can have <see cref="GridViewColumn.MinWidth"/> and <see cref="GridViewColumn.MaxWidth"/>.
+    /// Extends <see cref="System.Windows.Controls.GridViewHeaderRowPresenter"/>, 
+    /// and adds layout support for <see cref="GridViewColumn"/>, which can have <see cref="GridViewColumn.MinWidth"/> 
+    /// and <see cref="GridViewColumn.MaxWidth"/>.
     /// </summary>
     public class GridViewHeaderRowPresenter : System.Windows.Controls.GridViewHeaderRowPresenter
     {
-        public GridViewHeaderRowPresenter()
-        {
-            Loaded += OnLoaded;
-        }
+        public GridViewHeaderRowPresenter() { Loaded += OnLoaded; }
 
         protected override Size ArrangeOverride(Size arrangeSize)
         {
-            // update the desired width of each column (clamps desiredwidth to MinWidth and MaxWidth)
+            /// update the desired width of each column (clamps desiredwidth to MinWidth and MaxWidth)
             if (Columns != null)
             {
-                foreach (GridViewColumn column in Columns.OfType<GridViewColumn>())
-                {
-                    column.UpdateDesiredWidth();
-                }
+                foreach (GridViewColumn column in Columns.OfType<GridViewColumn>()) { column.UpdateDesiredWidth(); }
             }
 
             return base.ArrangeOverride(arrangeSize);
@@ -33,10 +28,7 @@ namespace Core.Libraries.WPF.Controls
         {
             if (Columns != null)
             {
-                foreach (GridViewColumn column in Columns.OfType<GridViewColumn>())
-                {
-                    column.UpdateDesiredWidth();
-                }
+                foreach (GridViewColumn column in Columns.OfType<GridViewColumn>()) { column.UpdateDesiredWidth(); }
             }
 
             return base.MeasureOverride(constraint);
@@ -49,10 +41,7 @@ namespace Core.Libraries.WPF.Controls
 
         private void UpdateIndicatorStyle()
         {
-            FieldInfo? indicatorField = typeof(System.Windows.Controls.GridViewHeaderRowPresenter).GetField(
-                "_indicator",
-                BindingFlags.NonPublic | BindingFlags.Instance
-            );
+            FieldInfo? indicatorField = typeof(System.Windows.Controls.GridViewHeaderRowPresenter).GetField("_indicator", BindingFlags.NonPublic | BindingFlags.Instance);
 
             if (indicatorField == null)
             {
@@ -65,14 +54,10 @@ namespace Core.Libraries.WPF.Controls
                 indicator.Margin = new Thickness(0);
                 indicator.Width = 3.0;
 
-                ResourceDictionary resourceDictionary =
-                    new()
-                    {
-                        Source = new Uri(
-                            "pack://application:,,,/Wpf.Ui;component/Controls/GridView/GridViewHeaderRowIndicator.xaml",
-                            UriKind.Absolute
-                        )
-                    };
+                ResourceDictionary resourceDictionary = new ResourceDictionary()
+                {
+                    Source = new Uri("pack://application:,,,/Core.Libraries.WPF;component/Controls/GridViews/GridViewHeaderRowIndicator.xaml", UriKind.Absolute)
+                };
 
                 if (resourceDictionary["GridViewHeaderRowIndicatorTemplate"] is ControlTemplate template)
                 {

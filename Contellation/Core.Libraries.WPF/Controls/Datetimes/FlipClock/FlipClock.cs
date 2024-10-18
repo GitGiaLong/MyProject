@@ -10,17 +10,21 @@ namespace Core.Libraries.WPF.Controls
 
         private bool _isDisposed;
 
-        public static readonly DependencyProperty NumberListProperty = DependencyProperty.Register(
-            nameof(NumberList), typeof(List<int>), typeof(FlipClock), new PropertyMetadata(new List<int> { 0, 0, 0, 0, 0, 0 }));
-
         public List<int> NumberList
         {
-            get => (List<int>)GetValue(NumberListProperty);
-            set => SetValue(NumberListProperty, value);
+            get { return (List<int>)GetValue(NumberListProperty); }
+            set { SetValue(NumberListProperty, value); }
         }
+        public static readonly DependencyProperty NumberListProperty = DependencyProperty.Register(nameof(NumberList), typeof(List<int>), 
+            typeof(FlipClock), new PropertyMetadata(new List<int> { 0, 0, 0, 0, 0, 0 }));
 
-        public static readonly DependencyProperty DisplayTimeProperty = DependencyProperty.Register(
-            nameof(DisplayTime), typeof(DateTime), typeof(FlipClock), new PropertyMetadata(default(DateTime), OnDisplayTimeChanged));
+        public DateTime DisplayTime
+        {
+            get { return (DateTime)GetValue(DisplayTimeProperty); }
+            set { SetValue(DisplayTimeProperty, value); }
+        }
+        public static readonly DependencyProperty DisplayTimeProperty = DependencyProperty.Register(nameof(DisplayTime), typeof(DateTime), 
+            typeof(FlipClock), new PropertyMetadata(default(DateTime), OnDisplayTimeChanged));
 
         private static void OnDisplayTimeChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
         {
@@ -28,20 +32,14 @@ namespace Core.Libraries.WPF.Controls
             var v = (DateTime)e.NewValue;
 
             ctl.NumberList = new List<int>
-        {
-            v.Hour / 10,
-            v.Hour % 10,
-            v.Minute / 10,
-            v.Minute % 10,
-            v.Second / 10,
-            v.Second % 10
-        };
-        }
-
-        public DateTime DisplayTime
-        {
-            get => (DateTime)GetValue(DisplayTimeProperty);
-            set => SetValue(DisplayTimeProperty, value);
+            {
+                v.Hour / 10,
+                v.Hour % 10,
+                v.Minute / 10,
+                v.Minute % 10,
+                v.Second / 10,
+                v.Second % 10
+            };
         }
 
         public FlipClock()

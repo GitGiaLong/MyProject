@@ -65,7 +65,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(ShowMinimizeProperty); }
             set { SetValue(ShowMinimizeProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ShowMinimize"/> dependency property.</summary>
         public static readonly DependencyProperty ShowMinimizeProperty = DependencyProperty.Register(nameof(ShowMinimize), typeof(bool),
             typeof(Window), new PropertyMetadata(true));
 
@@ -77,7 +76,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(ShowMaximizeProperty); }
             set { SetValue(ShowMaximizeProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ShowMaximize"/> dependency property.</summary>
         public static readonly DependencyProperty ShowMaximizeProperty = DependencyProperty.Register(nameof(ShowMaximize), typeof(bool),
             typeof(Window), new PropertyMetadata(true));
 
@@ -89,7 +87,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(IsMaximizedProperty); }
             internal set { SetValue(IsMaximizedProperty, value); }
         }
-        /// <summary>Identifies the <see cref="IsMaximized"/> dependency property.</summary>
         public static readonly DependencyProperty IsMaximizedProperty = DependencyProperty.Register(nameof(IsMaximized), typeof(bool),
             typeof(Window), new PropertyMetadata(false));
 
@@ -101,7 +98,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(ShowCloseProperty); }
             set { SetValue(ShowCloseProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ShowClose"/> dependency property.</summary>
         public static readonly DependencyProperty ShowCloseProperty = DependencyProperty.Register(nameof(ShowClose), typeof(bool),
             typeof(Window), new PropertyMetadata(true));
 
@@ -194,7 +190,7 @@ namespace Core.Libraries.WPF.Controls
             _buttons.Add(maximizeButton);
 
         }
-        
+
         /// <summary> 
         /// Listening window hooks after rendering window content to SizeToContent support
         /// </summary>

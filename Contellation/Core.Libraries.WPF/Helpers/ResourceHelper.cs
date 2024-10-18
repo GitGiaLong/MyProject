@@ -2,7 +2,7 @@
 {
 
     /// <summary>
-    /// 资源帮助类
+    /// Resource help class
     /// </summary>
     public class ResourceHelper
     {

@@ -2,35 +2,31 @@
 
 namespace Core.Libraries.WPF.Controls
 {
-
     public class CirclePanel : Panel
     {
-        public static readonly DependencyProperty DiameterProperty = DependencyProperty.Register(
-            nameof(Diameter), typeof(double), typeof(CirclePanel), new FrameworkPropertyMetadata(170.0, FrameworkPropertyMetadataOptions.AffectsMeasure));
-
         public double Diameter
         {
-            get => (double)GetValue(DiameterProperty);
-            set => SetValue(DiameterProperty, value);
+            get { return (double)GetValue(DiameterProperty); }
+            set { SetValue(DiameterProperty, value); }
         }
-
-        public static readonly DependencyProperty KeepVerticalProperty = DependencyProperty.Register(
-            nameof(KeepVertical), typeof(bool), typeof(CirclePanel), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        public static readonly DependencyProperty DiameterProperty = DependencyProperty.Register(nameof(Diameter), typeof(double), 
+            typeof(CirclePanel), new FrameworkPropertyMetadata(170.0, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public bool KeepVertical
         {
-            get => (bool)GetValue(KeepVerticalProperty);
-            set => SetValue(KeepVerticalProperty, value);
+            get { return (bool)GetValue(KeepVerticalProperty); }
+            set { SetValue(KeepVerticalProperty, value); }
         }
-
-        public static readonly DependencyProperty OffsetAngleProperty = DependencyProperty.Register(
-            nameof(OffsetAngle), typeof(double), typeof(CirclePanel), new FrameworkPropertyMetadata(.0, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        public static readonly DependencyProperty KeepVerticalProperty = DependencyProperty.Register(nameof(KeepVertical), typeof(bool), 
+            typeof(CirclePanel), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public double OffsetAngle
         {
-            get => (double)GetValue(OffsetAngleProperty);
-            set => SetValue(OffsetAngleProperty, value);
+            get { return (double)GetValue(OffsetAngleProperty); }
+            set { SetValue(OffsetAngleProperty, value); }
         }
+        public static readonly DependencyProperty OffsetAngleProperty = DependencyProperty.Register(nameof(OffsetAngle), typeof(double), 
+            typeof(CirclePanel), new FrameworkPropertyMetadata(.0, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         protected override Size MeasureOverride(Size availableSize)
         {
@@ -40,10 +36,7 @@ namespace Core.Libraries.WPF.Controls
 
             var newSize = new Size(diameter, diameter);
 
-            foreach (UIElement element in Children)
-            {
-                element.Measure(newSize);
-            }
+            foreach (UIElement element in Children) { element.Measure(newSize); }
 
             return newSize;
         }

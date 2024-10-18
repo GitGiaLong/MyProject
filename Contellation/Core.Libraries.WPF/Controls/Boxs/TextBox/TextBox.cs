@@ -18,7 +18,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (string?)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(string),
             typeof(TextBox), new PropertyMetadata(null));
 
@@ -30,7 +29,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (FontFamily?)GetValue(FontFamilyIconProperty); }
             set { SetValue(FontFamilyIconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="FontFamilyIcon"/> dependency property.</summary>
         public static readonly DependencyProperty FontFamilyIconProperty = DependencyProperty.Register(nameof(FontFamilyIcon), typeof(FontFamily),
             typeof(TextBox), new PropertyMetadata(null));
 
@@ -42,7 +40,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (HorizontalPlacement)GetValue(IconPlacementProperty); }
             set { SetValue(IconPlacementProperty, value); }
         }
-        /// <summary>Identifies the <see cref="IconPlacement"/> dependency property.</summary>
         public static readonly DependencyProperty IconPlacementProperty = DependencyProperty.Register(nameof(IconPlacement), typeof(HorizontalPlacement),
             typeof(TextBox), new PropertyMetadata(HorizontalPlacement.Left));
 
@@ -54,7 +51,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (string)GetValue(PlaceholderTextProperty); }
             set { SetValue(PlaceholderTextProperty, value); }
         }
-        /// <summary>Identifies the <see cref="PlaceholderText"/> dependency property.</summary>
         public static readonly DependencyProperty PlaceholderTextProperty = DependencyProperty.Register(nameof(PlaceholderText), typeof(string),
             typeof(TextBox), new PropertyMetadata(string.Empty));
 
@@ -66,7 +62,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(PlaceholderEnabledProperty); }
             set { SetValue(PlaceholderEnabledProperty, value); }
         }
-        /// <summary>Identifies the <see cref="PlaceholderEnabled"/> dependency property.</summary>
         public static readonly DependencyProperty PlaceholderEnabledProperty = DependencyProperty.Register(nameof(PlaceholderEnabled), typeof(bool),
             typeof(TextBox), new PropertyMetadata(true));
 
@@ -78,7 +73,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(ClearButtonEnabledProperty); }
             set { SetValue(ClearButtonEnabledProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ClearButtonEnabled"/> dependency property.</summary>
         public static readonly DependencyProperty ClearButtonEnabledProperty = DependencyProperty.Register(nameof(ClearButtonEnabled), typeof(bool),
             typeof(TextBox), new PropertyMetadata(true));
 
@@ -90,7 +84,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(ShowClearButtonProperty); }
             protected set { SetValue(ShowClearButtonProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ShowClearButton"/> dependency property.</summary>
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(nameof(ShowClearButton), typeof(bool),
             typeof(TextBox), new PropertyMetadata(false));
 
@@ -102,7 +95,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(IsTextSelectionEnabledProperty); }
             set { SetValue(IsTextSelectionEnabledProperty, value); }
         }
-        /// <summary>Identifies the <see cref="IsTextSelectionEnabled"/> dependency property.</summary>
         public static readonly DependencyProperty IsTextSelectionEnabledProperty = DependencyProperty.Register(nameof(IsTextSelectionEnabled), typeof(bool),
             typeof(TextBox), new PropertyMetadata(false));
 
@@ -110,11 +102,12 @@ namespace Core.Libraries.WPF.Controls
         /// Gets the command triggered when clicking the button. 
         /// </summary>
         public IRelayCommand TemplateButtonCommand => (IRelayCommand)GetValue(TemplateButtonCommandProperty);
-        /// <summary>Identifies the <see cref="TemplateButtonCommand"/> dependency property.</summary>
         public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(nameof(TemplateButtonCommand), typeof(IRelayCommand),
             typeof(TextBox), new PropertyMetadata(null));
 
-        /// <summary> Initializes a new instance of the <see cref="TextBox"/> class. </summary>
+        /// <summary> 
+        /// Initializes a new instance of the <see cref="TextBox"/> class. 
+        /// </summary>
         public TextBox() 
         { 
             SetValue(TemplateButtonCommandProperty, new RelayCommand<string>(OnTemplateButtonClick)); 

@@ -13,7 +13,6 @@
             get { return (bool)GetValue(IsTextSelectionEnabledProperty); }
             set { SetValue(IsTextSelectionEnabledProperty, value); }
         }
-        /// <summary>Identifies the <see cref="IsTextSelectionEnabled"/> dependency property.</summary>
         public static readonly DependencyProperty IsTextSelectionEnabledProperty = DependencyProperty.Register(nameof(IsTextSelectionEnabled), typeof(bool),
             typeof(RichTextBox), new PropertyMetadata(false));
     }

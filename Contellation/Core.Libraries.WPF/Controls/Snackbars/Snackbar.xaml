@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:Core.Libraries.WPF.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Button.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Normal/Button.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/FontFamilies.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     

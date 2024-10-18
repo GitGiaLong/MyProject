@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Core.Libraries.WPF.Controls.Dialogs.ContentDialog
+﻿namespace Core.Libraries.WPF.Controls.Dialogs.ContentDialog
 {
     public enum ContentDialogButton
     {

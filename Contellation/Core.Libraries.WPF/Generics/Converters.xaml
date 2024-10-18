@@ -7,6 +7,7 @@
     <converter:LessThan x:Key="LessThan" />
     <converter:GreaterThan x:Key="GreaterThan" />
 
+    <BooleanToVisibilityConverter x:Key="Boolean2VisibilityConverter"/>
     <converter:AnimationFactorToValueConverter x:Key="AnimationFactorToValueConverter" />
     
     <converter:LeftSplitThicknessConverter x:Key="LeftSplitThicknessConverter" />
@@ -15,5 +16,6 @@
     <converter:RightSplitCornerRadiusConverter x:Key="RightSplitCornerRadiusConverter" />
     <converter:BorderCircularClipConverter x:Key="BorderCircularClipConverter" />
     <converter:FallbackBrushConverter x:Key="FallbackBrushConverter" />
+    <converter:Object2VisibilityConverter x:Key="Object2VisibilityConverter" />
     
 </ResourceDictionary>

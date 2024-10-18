@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-
-namespace Core.Libraries.WPF.Controls
+﻿namespace Core.Libraries.WPF.Controls
 {
     /// <summary>
     /// Extended <see cref="System.Windows.Controls.TreeViewItem"/> with <see cref="SymbolRegular"/> properties.
@@ -12,10 +10,9 @@ namespace Core.Libraries.WPF.Controls
         /// </summary>
         public string? Icon
         {
-            get => (string?)GetValue(IconProperty);
-            set => SetValue(IconProperty, value);
+            get { return (string?)GetValue(IconProperty); }
+            set { SetValue(IconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(string),
             typeof(TreeViewItem), new PropertyMetadata(null));
 
@@ -24,10 +21,9 @@ namespace Core.Libraries.WPF.Controls
         /// </summary>
         public FontFamily? FontFamilyIcon
         {
-            get => (FontFamily?)GetValue(FontFamilyIconProperty);
-            set => SetValue(FontFamilyIconProperty, value);
+            get { return (FontFamily?)GetValue(FontFamilyIconProperty); }
+            set { SetValue(FontFamilyIconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty FontFamilyIconProperty = DependencyProperty.Register(nameof(FontFamilyIcon), typeof(FontFamily),
             typeof(TreeViewItem), new PropertyMetadata(null));
     }

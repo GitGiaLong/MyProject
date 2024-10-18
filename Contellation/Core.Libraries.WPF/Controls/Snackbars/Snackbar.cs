@@ -18,7 +18,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (string?)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(string),
             typeof(Snackbar), new PropertyMetadata(null));
 
@@ -30,7 +29,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (FontFamily?)GetValue(FontFamilyIconProperty); }
             set { SetValue(FontFamilyIconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="FontFamilyIcon"/> dependency property.</summary>
         public static readonly DependencyProperty FontFamilyIconProperty = DependencyProperty.Register(nameof(FontFamilyIcon), typeof(FontFamily),
             typeof(Snackbar), new PropertyMetadata(null));
 
@@ -42,7 +40,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(IsCloseButtonEnabledProperty); }
             set { SetValue(IsCloseButtonEnabledProperty, value); }
         }
-        /// <summary>Identifies the <see cref="IsCloseButtonEnabled"/> dependency property.</summary>
         public static readonly DependencyProperty IsCloseButtonEnabledProperty = DependencyProperty.Register(nameof(IsCloseButtonEnabled), typeof(bool),
             typeof(Snackbar), new PropertyMetadata(true));
 
@@ -54,7 +51,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (TranslateTransform?)GetValue(SlideTransformProperty); }
             set { SetValue(SlideTransformProperty, value); }
         }
-        /// <summary>Identifies the <see cref="SlideTransform"/> dependency property.</summary>
         public static readonly DependencyProperty SlideTransformProperty = DependencyProperty.Register(nameof(SlideTransform), typeof(TranslateTransform),
             typeof(Snackbar), new PropertyMetadata(null));
 
@@ -66,7 +62,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(IsShownProperty); }
             set { SetValue(IsShownProperty, value); }
         }
-        /// <summary>Identifies the <see cref="IsShown"/> dependency property.</summary>
         public static readonly DependencyProperty IsShownProperty = DependencyProperty.Register(nameof(IsShown), typeof(bool),
             typeof(Snackbar), new PropertyMetadata(false, (d, e) => (d as Snackbar)?.OnIsShownChanged(e)));
         protected void OnIsShownChanged(DependencyPropertyChangedEventArgs e)
@@ -85,7 +80,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (TimeSpan)GetValue(TimeoutProperty); }
             set { SetValue(TimeoutProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Timeout"/> dependency property.</summary>
         public static readonly DependencyProperty TimeoutProperty = DependencyProperty.Register(nameof(Timeout), typeof(TimeSpan),
             typeof(Snackbar), new PropertyMetadata(TimeSpan.FromSeconds(2)));
 
@@ -97,7 +91,6 @@ namespace Core.Libraries.WPF.Controls
             get { return GetValue(TitleProperty); }
             set { SetValue(TitleProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Title"/> dependency property.</summary>
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(nameof(Title), typeof(object),
             typeof(Snackbar), new PropertyMetadata(null));
 
@@ -109,7 +102,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (DataTemplate?)GetValue(TitleTemplateProperty); }
             set { SetValue(TitleTemplateProperty, value); }
         }
-        /// <summary>Identifies the <see cref="TitleTemplate"/> dependency property.</summary>
         public static readonly DependencyProperty TitleTemplateProperty = DependencyProperty.Register(nameof(TitleTemplate), typeof(DataTemplate),
             typeof(Snackbar), new PropertyMetadata(null));
 
@@ -153,7 +145,6 @@ namespace Core.Libraries.WPF.Controls
         /// Gets the command triggered after clicking the button in the template.
         /// </summary>
         public IRelayCommand TemplateButtonCommand => (IRelayCommand)GetValue(TemplateButtonCommandProperty);
-        /// <summary>Identifies the <see cref="TemplateButtonCommand"/> dependency property.</summary>
         public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(nameof(TemplateButtonCommand), typeof(IRelayCommand),
             typeof(Snackbar), new PropertyMetadata(null));
 
@@ -165,7 +156,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (Brush)GetValue(ContentForegroundProperty); }
             set { SetValue(ContentForegroundProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ContentForeground"/> dependency property.</summary>
         public static readonly DependencyProperty ContentForegroundProperty = DependencyProperty.Register(nameof(ContentForeground), typeof(Brush),
             typeof(Snackbar), new FrameworkPropertyMetadata(SystemColors.ControlTextBrush, FrameworkPropertyMetadataOptions.Inherits));
 
@@ -177,7 +167,6 @@ namespace Core.Libraries.WPF.Controls
             add => AddHandler(OpenedEvent, value);
             remove => RemoveHandler(OpenedEvent, value);
         }
-        /// <summary>Identifies the <see cref="Opened"/> routed event.</summary>
         public static readonly RoutedEvent OpenedEvent = EventManager.RegisterRoutedEvent(nameof(Opened), RoutingStrategy.Bubble,
             typeof(TypedEventHandler<Snackbar, RoutedEventArgs>), typeof(Snackbar));
 
@@ -189,10 +178,8 @@ namespace Core.Libraries.WPF.Controls
             add => AddHandler(ClosedEvent, value);
             remove => RemoveHandler(ClosedEvent, value);
         }
-        /// <summary>Identifies the <see cref="Closed"/> routed event.</summary>
         public static readonly RoutedEvent ClosedEvent = EventManager.RegisterRoutedEvent(nameof(Closed), RoutingStrategy.Bubble,
             typeof(TypedEventHandler<Snackbar, RoutedEventArgs>), typeof(Snackbar));
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Snackbar"/> class with a specified presenter.

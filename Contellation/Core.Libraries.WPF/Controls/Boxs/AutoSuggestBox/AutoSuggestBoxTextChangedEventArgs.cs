@@ -7,8 +7,7 @@ namespace Core.Libraries.WPF.Controls.Boxs.AutoSuggestBox
     /// </summary>
     public sealed class AutoSuggestBoxTextChangedEventArgs : RoutedEventArgs
     {
-        public AutoSuggestBoxTextChangedEventArgs(RoutedEvent eventArgs, object sender)
-            : base(eventArgs, sender) { }
+        public AutoSuggestBoxTextChangedEventArgs(RoutedEvent eventArgs, object sender) : base(eventArgs, sender) { }
 
         [Required]
         public string Text { get; init; }

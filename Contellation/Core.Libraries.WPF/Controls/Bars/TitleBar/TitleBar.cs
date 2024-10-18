@@ -1,10 +1,10 @@
-﻿using Core.Libraries.WPF.Extensions.Intputs;
+﻿using Core.Libraries.WPF.Designers;
 using Core.Libraries.WPF.Extensions;
+using Core.Libraries.WPF.Extensions.Intputs;
 using Core.Libraries.WPF.Interop;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
-using Core.Libraries.WPF.Designers;
-using System.Windows.Controls;
 
 namespace Core.Libraries.WPF.Controls
 {
@@ -32,7 +32,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (string?)GetValue(TitleProperty); }
             set { SetValue(TitleProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Title"/> dependency property.</summary>
         public static readonly DependencyProperty TitleProperty = DependencyProperty.Register(nameof(Title), typeof(string),
             typeof(TitleBar), new PropertyMetadata(null));
 
@@ -41,7 +40,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (string?)GetValue(TimeLineProperty); }
             set { SetValue(TimeLineProperty, value); }
         }
-        /// <summary>Identifies the <see cref="TimeLine"/> dependency property.</summary>
         public static readonly DependencyProperty TimeLineProperty = DependencyProperty.Register(nameof(TimeLine), typeof(string),
             typeof(TitleBar), new PropertyMetadata(null));
 
@@ -53,7 +51,6 @@ namespace Core.Libraries.WPF.Controls
             get { return GetValue(HeaderProperty); }
             set { SetValue(HeaderProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Header"/> dependency property.</summary>
         public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(nameof(Header), typeof(object),
             typeof(TitleBar), new PropertyMetadata(null));
 
@@ -65,7 +62,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (Brush)GetValue(ButtonsForegroundProperty); }
             set { SetValue(ButtonsForegroundProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ButtonsForeground"/> dependency property.</summary>
         public static readonly DependencyProperty ButtonsForegroundProperty = DependencyProperty.Register(nameof(ButtonsForeground), typeof(Brush),
             typeof(TitleBar), new FrameworkPropertyMetadata(SystemColors.ControlTextBrush, FrameworkPropertyMetadataOptions.Inherits));
 
@@ -77,7 +73,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (Brush)GetValue(ButtonsBackgroundProperty); }
             set { SetValue(ButtonsBackgroundProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ButtonsBackground"/> dependency property.</summary>
         public static readonly DependencyProperty ButtonsBackgroundProperty = DependencyProperty.Register(nameof(ButtonsBackground), typeof(Brush),
             typeof(TitleBar), new FrameworkPropertyMetadata(SystemColors.ControlBrush, FrameworkPropertyMetadataOptions.Inherits));
 
@@ -89,7 +84,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(IsMaximizedProperty); }
             internal set { SetValue(IsMaximizedProperty, value); }
         }
-        /// <summary>Identifies the <see cref="IsMaximized"/> dependency property.</summary>
         public static readonly DependencyProperty IsMaximizedProperty = DependencyProperty.Register(nameof(IsMaximized), typeof(bool),
             typeof(TitleBar), new PropertyMetadata(false));
 
@@ -101,7 +95,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(ForceShutdownProperty); }
             set { SetValue(ForceShutdownProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ForceShutdown"/> dependency property.</summary>
         public static readonly DependencyProperty ForceShutdownProperty = DependencyProperty.Register(nameof(ForceShutdown), typeof(bool),
             typeof(TitleBar), new PropertyMetadata(false));
 
@@ -113,7 +106,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(ShowMaximizeProperty); }
             set { SetValue(ShowMaximizeProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ShowMaximize"/> dependency property.</summary>
         public static readonly DependencyProperty ShowMaximizeProperty = DependencyProperty.Register(nameof(ShowMaximize), typeof(bool),
             typeof(TitleBar), new PropertyMetadata(true));
 
@@ -125,7 +117,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(ShowMinimizeProperty); }
             set { SetValue(ShowMinimizeProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ShowMinimize"/> dependency property.</summary>
         public static readonly DependencyProperty ShowMinimizeProperty = DependencyProperty.Register(nameof(ShowMinimize), typeof(bool),
             typeof(TitleBar), new PropertyMetadata(true));
 
@@ -137,7 +128,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(ShowHelpProperty); }
             set { SetValue(ShowHelpProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ShowHelp"/> dependency property.</summary>
         public static readonly DependencyProperty ShowHelpProperty = DependencyProperty.Register(nameof(ShowHelp), typeof(bool),
             typeof(TitleBar), new PropertyMetadata(false));
 
@@ -149,7 +139,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(ShowCloseProperty); }
             set { SetValue(ShowCloseProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ShowClose"/> dependency property.</summary>
         public static readonly DependencyProperty ShowCloseProperty = DependencyProperty.Register(nameof(ShowClose), typeof(bool),
             typeof(TitleBar), new PropertyMetadata(true));
 
@@ -161,7 +150,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(CanMaximizeProperty); }
             set { SetValue(CanMaximizeProperty, value); }
         }
-        /// <summary>Identifies the <see cref="CanMaximize"/> dependency property.</summary>
         public static readonly DependencyProperty CanMaximizeProperty = DependencyProperty.Register(nameof(CanMaximize), typeof(bool),
             typeof(TitleBar), new PropertyMetadata(true));
 
@@ -170,12 +158,10 @@ namespace Core.Libraries.WPF.Controls
         /// </summary>
         //public Image? Icon
         public System.Windows.Media.Imaging.BitmapImage? Icon
-        //public string? Icon
         {
             get { return (System.Windows.Media.Imaging.BitmapImage?)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(System.Windows.Media.Imaging.BitmapImage),
             typeof(TitleBar), new PropertyMetadata(null));
 
@@ -187,7 +173,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(CloseWindowByDoubleClickOnIconProperty); }
             set { SetValue(CloseWindowByDoubleClickOnIconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="CloseWindowByDoubleClickOnIcon"/> dependency property.</summary>
         public static readonly DependencyProperty CloseWindowByDoubleClickOnIconProperty = DependencyProperty.Register(nameof(CloseWindowByDoubleClickOnIcon), typeof(bool),
                 typeof(TitleBar), new PropertyMetadata(false));
 
@@ -195,7 +180,6 @@ namespace Core.Libraries.WPF.Controls
         /// Gets the command triggered when clicking the titlebar button.
         /// </summary>
         public IRelayCommand TemplateButtonCommand => (IRelayCommand)GetValue(TemplateButtonCommandProperty);
-        /// <summary>Identifies the <see cref="TemplateButtonCommand"/> dependency property.</summary>
         public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(nameof(TemplateButtonCommand), typeof(IRelayCommand),
             typeof(TitleBar), new PropertyMetadata(null));
 
@@ -227,7 +211,6 @@ namespace Core.Libraries.WPF.Controls
             Unloaded += OnUnloaded;
         }
 
-        /// <inheritdoc />
         protected override void OnInitialized(EventArgs e)
         {
             base.OnInitialized(e);

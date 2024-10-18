@@ -78,13 +78,8 @@ namespace Core.Libraries.WPF.Controls
                 ClientAreaBorder.ResizeFrameBorderThickness.Bottom + PaddedBorderThickness.Bottom
             );
 
-        public ClientAreaBorder()
-        {
+        public ClientAreaBorder() { }
 
-        }
-
-
-        /// <inheritdoc />
         protected override void OnVisualParentChanged(DependencyObject oldParent)
         {
             base.OnVisualParentChanged(oldParent);
@@ -112,39 +107,26 @@ namespace Core.Libraries.WPF.Controls
         private void OnWindowClosing(object? sender, CancelEventArgs e)
         {
             //Appearance.ApplicationThemeManager.Changed -= OnThemeChanged;
-            if (_oldWindow != null)
-            {
-                _oldWindow.Closing -= OnWindowClosing;
-            }
+            if (_oldWindow != null) { _oldWindow.Closing -= OnWindowClosing; }
         }
 
         private void OnWindowStateChanged(object? sender, EventArgs e)
         {
-            if (sender is not System.Windows.Window window)
-            {
-                return;
-            }
+            if (sender is not System.Windows.Window window) { return; }
 
-            Thickness padding =
-                window.WindowState == WindowState.Maximized ? WindowChromeNonClientFrameThickness : default;
+            Thickness padding = window.WindowState == WindowState.Maximized ? WindowChromeNonClientFrameThickness : default;
             SetCurrentValue(PaddingProperty, padding);
         }
 
         private void ApplyDefaultWindowBorder()
         {
-            if (Utilities.IsOSWindows11OrNewer || _oldWindow == null)
-            {
-                return;
-            }
+            if (Utilities.IsOSWindows11OrNewer || _oldWindow == null) { return; }
 
             _borderBrushApplied = true;
 
-            // SystemParameters.WindowGlassBrush
+            /// SystemParameters.WindowGlassBrush
             Color borderColor = Color.FromArgb(0xFF, 0x7A, 0x7A, 0x7A);
-            _oldWindow.SetCurrentValue(
-                System.Windows.Controls.Control.BorderBrushProperty,
-                new SolidColorBrush(borderColor)
-            );
+            _oldWindow.SetCurrentValue(System.Windows.Controls.Control.BorderBrushProperty, new SolidColorBrush(borderColor));
             _oldWindow.SetCurrentValue(System.Windows.Controls.Control.BorderThicknessProperty, new Thickness(1));
         }
 
@@ -152,10 +134,7 @@ namespace Core.Libraries.WPF.Controls
         {
             if (PresentationSource.FromVisual(this) is { } source)
             {
-                return (
-                    source.CompositionTarget.TransformToDevice.M11, // Possible null reference
-                    source.CompositionTarget.TransformToDevice.M22
-                );
+                return (source.CompositionTarget.TransformToDevice.M11,/*Possible null reference*/source.CompositionTarget.TransformToDevice.M22);
             }
 
             DisplayDpi systemDPi = DpiHelper.GetSystemDpi();

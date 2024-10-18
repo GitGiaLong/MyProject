@@ -16,7 +16,6 @@ namespace Core.Libraries.WPF.Controls
             get { return GetValue(HeaderProperty); }
             set { SetValue(HeaderProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Header"/> dependency property.</summary>
         public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(nameof(Header), typeof(object),
             typeof(CardControl), new PropertyMetadata(null));
 
@@ -28,7 +27,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (string?)GetValue(IconProperty); }
             set { SetValue(IconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(string),
             typeof(CardControl), new PropertyMetadata(null));
 
@@ -40,7 +38,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (FontFamily?)GetValue(FontFamilyIconProperty); }
             set { SetValue(FontFamilyIconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
         public static readonly DependencyProperty FontFamilyIconProperty = DependencyProperty.Register(nameof(Icon), typeof(FontFamily),
             typeof(CardControl), new PropertyMetadata(null));
 
@@ -52,7 +49,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(IsVisibleIconProperty); }
             set { SetValue(IsVisibleIconProperty, value); }
         }
-        /// <summary>Identifies the <see cref="IsVisibleIcon"/> dependency property.</summary>
         public static readonly DependencyProperty IsVisibleIconProperty = DependencyProperty.Register(nameof(IsVisibleIcon), typeof(bool),
             typeof(CardControl), new PropertyMetadata(false));
 
@@ -64,7 +60,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (CornerRadius)GetValue(CornerRadiusProperty); }
             set { SetValue(CornerRadiusProperty, value); }
         }
-        /// <summary>Identifies the <see cref="CornerRadius"/> dependency property.</summary>
         public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius),
             typeof(CardControl), new PropertyMetadata(new CornerRadius(0)));
 

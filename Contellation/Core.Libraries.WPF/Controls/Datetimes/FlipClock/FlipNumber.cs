@@ -31,61 +31,52 @@ namespace Core.Libraries.WPF.Controls
 
         private bool _isAnimating;
 
-        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(
-            nameof(CornerRadius), typeof(CornerRadius), typeof(FlipNumber), new PropertyMetadata(new CornerRadius(4)));
-
         public CornerRadius CornerRadius
         {
-            get => (CornerRadius)GetValue(CornerRadiusProperty);
-            set => SetValue(CornerRadiusProperty, value);
+            get { return (CornerRadius)GetValue(CornerRadiusProperty); }
+            set { SetValue(CornerRadiusProperty, value); }
         }
-
-        public static readonly DependencyProperty BackgroundProperty = DependencyProperty.Register(
-            nameof(Background), typeof(Brush), typeof(FlipNumber), new PropertyMetadata(default(Brush)));
+        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(nameof(CornerRadius), typeof(CornerRadius), 
+            typeof(FlipNumber), new PropertyMetadata(new CornerRadius(4)));
 
         public Brush Background
         {
-            get => (Brush)GetValue(BackgroundProperty);
-            set => SetValue(BackgroundProperty, value);
+            get { return (Brush)GetValue(BackgroundProperty); }
+            set { SetValue(BackgroundProperty, value); }
         }
-
-        public static readonly DependencyProperty ForegroundProperty = DependencyProperty.Register(
-            nameof(Foreground), typeof(Brush), typeof(FlipNumber), new PropertyMetadata(default(Brush)));
+        public static readonly DependencyProperty BackgroundProperty = DependencyProperty.Register(nameof(Background), typeof(Brush), 
+            typeof(FlipNumber), new PropertyMetadata(default(Brush)));
 
         public Brush Foreground
         {
-            get => (Brush)GetValue(ForegroundProperty);
-            set => SetValue(ForegroundProperty, value);
+            get { return (Brush)GetValue(ForegroundProperty); }
+            set { SetValue(ForegroundProperty, value); }
         }
-
-        public static readonly DependencyProperty FontSizeProperty = DependencyProperty.Register(
-            nameof(FontSize), typeof(double), typeof(FlipNumber), new PropertyMetadata(70.0));
+        public static readonly DependencyProperty ForegroundProperty = DependencyProperty.Register(nameof(Foreground), typeof(Brush), 
+            typeof(FlipNumber), new PropertyMetadata(default(Brush)));
 
         [TypeConverter(typeof(FontSizeConverter))]
         public double FontSize
         {
-            get => (double)GetValue(FontSizeProperty);
-            set => SetValue(FontSizeProperty, value);
+            get { return (double)GetValue(FontSizeProperty); }
+            set { SetValue(FontSizeProperty, value); }
         }
-
-        public static readonly DependencyProperty NumberProperty = DependencyProperty.Register(
-            nameof(Number), typeof(int), typeof(FlipNumber), new PropertyMetadata(0, OnNumberChanged));
-
-        private static void OnNumberChanged(DependencyObject s, DependencyPropertyChangedEventArgs e) =>
-            ((FlipNumber)s).OnNumberChanged();
+        public static readonly DependencyProperty FontSizeProperty = DependencyProperty.Register(nameof(FontSize), typeof(double), 
+            typeof(FlipNumber), new PropertyMetadata(70.0));
 
         public int Number
         {
-            get => (int)GetValue(NumberProperty);
-            set => SetValue(NumberProperty, value);
+            get { return (int)GetValue(NumberProperty); }
+            set { SetValue(NumberProperty, value); }
         }
+        public static readonly DependencyProperty NumberProperty = DependencyProperty.Register(nameof(Number), typeof(int), 
+            typeof(FlipNumber), new PropertyMetadata(0, OnNumberChanged));
+
+        private static void OnNumberChanged(DependencyObject s, DependencyPropertyChangedEventArgs e) => ((FlipNumber)s).OnNumberChanged();
 
         public FlipNumber()
         {
-            var visual3D = new ModelVisual3D
-            {
-                Content = new DirectionalLight()
-            };
+            var visual3D = new ModelVisual3D { Content = new DirectionalLight() };
             Children.Add(visual3D);
 
             _pageRotation3D = new AxisAngleRotation3D
@@ -94,10 +85,7 @@ namespace Core.Libraries.WPF.Controls
                 Axis = new Vector3D(1, 0, 0)
             };
 
-            _animation = new DoubleAnimation(0, 180, new Duration(TimeSpan.FromSeconds(0.8)))
-            {
-                FillBehavior = FillBehavior.Stop
-            };
+            _animation = new DoubleAnimation(0, 180, new Duration(TimeSpan.FromSeconds(0.8))) { FillBehavior = FillBehavior.Stop };
             _animation.Completed += Animation_Completed;
 
             Loaded += (s, e) =>
@@ -142,11 +130,11 @@ namespace Core.Libraries.WPF.Controls
             _content = new ContainerUIElement3D
             {
                 Children =
-            {
-                _page1,
-                _page2,
-                _page3
-            }
+                {
+                    _page1,
+                    _page2,
+                    _page3
+                }
             };
             Children.Add(_content);
         }
@@ -235,30 +223,30 @@ namespace Core.Libraries.WPF.Controls
             };
 
             var positions = new Point3DCollection
-        {
-            new(-quarterWidth * flag, quarterHeight, 0),
-            new(-quarterWidth * flag, 0, 0),
-            new(quarterWidth * flag, 0, 0),
-            new(quarterWidth * flag, quarterHeight, 0)
-        };
+            {
+                new(-quarterWidth * flag, quarterHeight, 0),
+                new(-quarterWidth * flag, 0, 0),
+                new(quarterWidth * flag, 0, 0),
+                new(quarterWidth * flag, quarterHeight, 0)
+            };
 
             var triangleIndices = new Int32Collection
-        {
-            0,
-            1,
-            2,
-            0,
-            2,
-            3
-        };
+            {
+                0,
+                1,
+                2,
+                0,
+                2,
+                3
+            };
 
             var textureCoordinates = new PointCollection
-        {
-            new(0, 0),
-            new(0, 1),
-            new(1, 1),
-            new(1, 0)
-        };
+            {
+                new(0, 0),
+                new(0, 1),
+                new(1, 1),
+                new(1, 0)
+            };
 
             var geometry3D = new MeshGeometry3D
             {

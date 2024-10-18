@@ -8,42 +8,20 @@ namespace Core.Libraries.WPF.Controls
     /// </summary>
     public class DynamicScrollBar : System.Windows.Controls.Primitives.ScrollBar
     {
-        private readonly EventIdentifier _interactiveIdentifier = new();
+        private readonly EventIdentifier _interactiveIdentifier = new EventIdentifier();
         private bool _isScrolling = false;
         private bool _isInteracted = false;
-
-        /// <summary>Identifies the <see cref="IsScrolling"/> dependency property.</summary>
-        public static readonly DependencyProperty IsScrollingProperty = DependencyProperty.Register(
-            nameof(IsScrolling),
-            typeof(bool),
-            typeof(DynamicScrollBar),
-            new PropertyMetadata(false, OnIsScrollingChanged)
-        );
-
-        /// <summary>Identifies the <see cref="IsInteracted"/> dependency property.</summary>
-        public static readonly DependencyProperty IsInteractedProperty = DependencyProperty.Register(
-            nameof(IsInteracted),
-            typeof(bool),
-            typeof(DynamicScrollBar),
-            new PropertyMetadata(false, OnIsInteractedChanged)
-        );
-
-        /// <summary>Identifies the <see cref="Timeout"/> dependency property.</summary>
-        public static readonly DependencyProperty TimeoutProperty = DependencyProperty.Register(
-            nameof(Timeout),
-            typeof(int),
-            typeof(DynamicScrollBar),
-            new PropertyMetadata(1000)
-        );
 
         /// <summary>
         /// Gets or sets a value indicating whether the user was recently scrolling in the last few seconds.
         /// </summary>
         public bool IsScrolling
         {
-            get => (bool)GetValue(IsScrollingProperty);
-            set => SetValue(IsScrollingProperty, value);
+            get { return (bool)GetValue(IsScrollingProperty); }
+            set { SetValue(IsScrollingProperty, value); }
         }
+        public static readonly DependencyProperty IsScrollingProperty = DependencyProperty.Register(nameof(IsScrolling), typeof(bool),
+            typeof(DynamicScrollBar), new PropertyMetadata(false, OnIsScrollingChanged));
 
         /// <summary>
         /// Gets or sets a value indicating whether the user has taken an action related to scrolling.
@@ -59,15 +37,19 @@ namespace Core.Libraries.WPF.Controls
                 }
             }
         }
+        public static readonly DependencyProperty IsInteractedProperty = DependencyProperty.Register(nameof(IsInteracted), typeof(bool),
+            typeof(DynamicScrollBar), new PropertyMetadata(false, OnIsInteractedChanged));
 
         /// <summary>
         /// Gets or sets additional delay after which the <see cref="DynamicScrollBar"/> should be hidden.
         /// </summary>
         public int Timeout
         {
-            get => (int)GetValue(TimeoutProperty);
-            set => SetValue(TimeoutProperty, value);
+            get { return (int)GetValue(TimeoutProperty); }
+            set { SetValue(TimeoutProperty, value); }
         }
+        public static readonly DependencyProperty TimeoutProperty = DependencyProperty.Register(nameof(Timeout), typeof(int),
+            typeof(DynamicScrollBar), new PropertyMetadata(1000));
 
         /// <summary>
         /// Method reporting the mouse entered this element.
@@ -94,35 +76,20 @@ namespace Core.Libraries.WPF.Controls
             var currentEvent = _interactiveIdentifier.GetNext();
             var shouldScroll = IsMouseOver || _isScrolling;
 
-            if (shouldScroll == _isInteracted)
-            {
-                return;
-            }
+            if (shouldScroll == _isInteracted) { return; }
 
-            if (!shouldScroll)
-            {
-                await Task.Delay(Timeout);
-            }
+            if (!shouldScroll) { await Task.Delay(Timeout); }
 
-            if (!_interactiveIdentifier.IsEqual(currentEvent))
-            {
-                return;
-            }
+            if (!_interactiveIdentifier.IsEqual(currentEvent)) { return; }
 
             SetCurrentValue(IsInteractedProperty, shouldScroll);
         }
 
         private static void OnIsScrollingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is not DynamicScrollBar bar)
-            {
-                return;
-            }
+            if (d is not DynamicScrollBar bar) { return; }
 
-            if (bar._isScrolling == bar.IsScrolling)
-            {
-                return;
-            }
+            if (bar._isScrolling == bar.IsScrolling) { return; }
 
             bar._isScrolling = !bar._isScrolling;
 
@@ -131,15 +98,9 @@ namespace Core.Libraries.WPF.Controls
 
         private static void OnIsInteractedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is not DynamicScrollBar bar)
-            {
-                return;
-            }
+            if (d is not DynamicScrollBar bar) { return; }
 
-            if (bar._isInteracted == bar.IsInteracted)
-            {
-                return;
-            }
+            if (bar._isInteracted == bar.IsInteracted) { return; }
 
             bar._isInteracted = !bar._isInteracted;
 

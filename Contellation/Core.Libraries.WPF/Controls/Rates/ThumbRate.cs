@@ -4,27 +4,22 @@ using Core.Libraries.WPF.Handlers;
 
 namespace Core.Libraries.WPF.Controls
 {
-
     /// <summary>
     /// Allows to rate positively or negatively by clicking on one of the thumbs.
     /// </summary>
     public class ThumbRate : System.Windows.Controls.Control
     {
-        /// <summary>Identifies the <see cref="State"/> dependency property.</summary>
-        public static readonly DependencyProperty StateProperty = DependencyProperty.Register(
-            nameof(State),
-            typeof(ThumbRateState),
-            typeof(ThumbRate),
-            new PropertyMetadata(ThumbRateState.None, OnStateChanged)
-        );
 
-        /// <summary>Identifies the <see cref="StateChanged"/> routed event.</summary>
-        public static readonly RoutedEvent StateChangedEvent = EventManager.RegisterRoutedEvent(
-            nameof(StateChanged),
-            RoutingStrategy.Bubble,
-            typeof(TypedEventHandler<ThumbRate, RoutedEventArgs>),
-            typeof(ThumbRate)
-        );
+        /// <summary>
+        /// Gets or sets the value determining the current state of the control.
+        /// </summary>
+        public ThumbRateState State
+        {
+            get { return (ThumbRateState)GetValue(StateProperty); }
+            set { SetValue(StateProperty, value); }
+        }
+        public static readonly DependencyProperty StateProperty = DependencyProperty.Register(nameof(State), typeof(ThumbRateState),
+            typeof(ThumbRate), new PropertyMetadata(ThumbRateState.None, OnStateChanged));
 
         /// <summary>
         /// Occurs when <see cref="State"/> is changed.
@@ -34,28 +29,15 @@ namespace Core.Libraries.WPF.Controls
             add => AddHandler(StateChangedEvent, value);
             remove => RemoveHandler(StateChangedEvent, value);
         }
-
-        /// <summary>Identifies the <see cref="TemplateButtonCommand"/> dependency property.</summary>
-        public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(
-            nameof(TemplateButtonCommand),
-            typeof(IRelayCommand),
-            typeof(ThumbRate),
-            new PropertyMetadata(null)
-        );
-
-        /// <summary>
-        /// Gets or sets the value determining the current state of the control.
-        /// </summary>
-        public ThumbRateState State
-        {
-            get => (ThumbRateState)GetValue(StateProperty);
-            set => SetValue(StateProperty, value);
-        }
+        public static readonly RoutedEvent StateChangedEvent = EventManager.RegisterRoutedEvent(nameof(StateChanged), RoutingStrategy.Bubble,
+            typeof(TypedEventHandler<ThumbRate, RoutedEventArgs>), typeof(ThumbRate));
 
         /// <summary>
         /// Gets the command triggered when clicking the button.
         /// </summary>
         public IRelayCommand TemplateButtonCommand => (IRelayCommand)GetValue(TemplateButtonCommandProperty);
+        public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(nameof(TemplateButtonCommand), typeof(IRelayCommand),
+            typeof(ThumbRate), new PropertyMetadata(null));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ThumbRate"/> class and attaches <see cref="TemplateButtonCommand"/>.
@@ -89,10 +71,7 @@ namespace Core.Libraries.WPF.Controls
 
         private static void OnStateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is not ThumbRate thumbRate)
-            {
-                return;
-            }
+            if (d is not ThumbRate thumbRate) { return; }
 
             thumbRate.OnStateChanged((ThumbRateState)e.OldValue, (ThumbRateState)e.NewValue);
         }

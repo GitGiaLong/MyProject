@@ -96,4 +96,5 @@
         <Setter Property="Background" Value="White"/>
         <Setter Property="Template" Value="{StaticResource WindowWin10Template}"/>
     </Style>
+    
 </ResourceDictionary>

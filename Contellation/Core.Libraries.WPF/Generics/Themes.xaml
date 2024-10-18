@@ -4,21 +4,22 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/Styles.xaml"/>
 
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Anchor.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Button.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/HyperlinkButton.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/SplitButton.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/DropDownButton.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/ToggleButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Normal/Button.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/DropDown/DropDownButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Links/Anchor.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Links/HyperlinkButton.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Split/SplitButton.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/RadioButton.xaml"/>
-        
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/ToggleButton.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/ComboBoxs/ComboBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/CheckBoxs/CheckBox.xaml"/>
         
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/Calendar.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/DatePicker.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/CalendarDatePicker.xaml"/>
-        
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/Clock.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/CalendarDatePicker/CalendarDatePicker.xaml"/>
+
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/Clock/Clock.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/FlipClock/FlipClock.xaml"/>
 
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Expanders/Expander.xaml"/>
@@ -31,7 +32,6 @@
 
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Loadings/Loading.xaml"/>
         
-        <!--<ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/NumberBoxs/NumberBox.xaml"/>-->
         
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Separators/Separator.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Rates/ThumbRate.xaml"/>
@@ -39,12 +39,13 @@
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/StatusBars/StatusBar.xaml"/>
         <!--<ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/TabControls/TabControl.xaml"/>-->
 
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Boxs/AutoSuggestBox/AutoSuggestBox.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Boxs/NumberBoxs/NumberBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Boxs/TextBox/TextBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Boxs/TextBox/TextBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Boxs/TextBoxMasked/TextBoxMasked.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Boxs/PasswordBox/PasswordBox.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Boxs/PinBox/PinBox.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Boxs/AutoSuggestBox/AutoSuggestBox.xaml"/>
         
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Scrolls/DefaultTextBoxScrollViewerStyle.xaml"/>
 

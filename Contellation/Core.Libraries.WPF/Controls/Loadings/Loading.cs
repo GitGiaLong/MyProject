@@ -26,7 +26,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (double)GetValue(SpeedRatioProperty); }
             set { SetValue(SpeedRatioProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Loading.SpeedRatio" /> dependency property.</summary>
         public static readonly DependencyProperty SpeedRatioProperty = DependencyProperty.Register(nameof(SpeedRatio), typeof(double),
             typeof(Loading), new PropertyMetadata(1d, OnSpeedRatioChanged));
 
@@ -36,7 +35,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(IsActiveProperty); }
             set { SetValue(IsActiveProperty, value); }
         }
-        /// <summary> Identifies the <see cref="Loading.IsActive" /> dependency property. </summary>
         public static readonly DependencyProperty IsActiveProperty = DependencyProperty.Register(nameof(IsActive), typeof(bool),
             typeof(Loading), new PropertyMetadata(true, OnIsActiveChanged));
 

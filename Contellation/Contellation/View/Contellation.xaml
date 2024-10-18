@@ -8,6 +8,8 @@
         mc:Ignorable="d"
         Title="Contellation" Height="450" Width="800">
     <Grid>
-        <ui:FlipClock Margin="32"/>
+        <!--<ui:ListClock/>-->
+
+        <ui:TextBoxMasked Mask="00-00-00-000" PromptChar="_"/>
     </Grid>
 </ui:Window>

@@ -26,7 +26,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (double?)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Value"/> dependency property.</summary>
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(nameof(Value), typeof(double?), typeof(NumberBox),
             new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnValueChanged, null, false, UpdateSourceTrigger.LostFocus));
 
@@ -38,7 +37,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (int)GetValue(MaxDecimalPlacesProperty); }
             set { SetValue(MaxDecimalPlacesProperty, value); }
         }
-        /// <summary>Identifies the <see cref="MaxDecimalPlaces"/> dependency property.</summary>
         public static readonly DependencyProperty MaxDecimalPlacesProperty = DependencyProperty.Register(nameof(MaxDecimalPlaces), typeof(int),
             typeof(NumberBox), new PropertyMetadata(6));
 
@@ -50,7 +48,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (double)GetValue(SmallChangeProperty); }
             set { SetValue(SmallChangeProperty, value); }
         }
-        /// <summary>Identifies the <see cref="SmallChange"/> dependency property.</summary>
         public static readonly DependencyProperty SmallChangeProperty = DependencyProperty.Register(nameof(SmallChange), typeof(double),
             typeof(NumberBox), new PropertyMetadata(1.0d));
 
@@ -62,7 +59,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (double)GetValue(LargeChangeProperty); }
             set { SetValue(LargeChangeProperty, value); }
         }
-        /// <summary>Identifies the <see cref="LargeChange"/> dependency property.</summary>
         public static readonly DependencyProperty LargeChangeProperty = DependencyProperty.Register(nameof(LargeChange), typeof(double),
             typeof(NumberBox), new PropertyMetadata(10.0d));
 
@@ -74,7 +70,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (double)GetValue(MaximumProperty); }
             set { SetValue(MaximumProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Maximum"/> dependency property.</summary>
         public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(nameof(Maximum), typeof(double),
             typeof(NumberBox), new PropertyMetadata(double.MaxValue));
 
@@ -86,7 +81,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (double)GetValue(MinimumProperty); }
             set { SetValue(MinimumProperty, value); }
         }
-        /// <summary>Identifies the <see cref="Minimum"/> dependency property.</summary>
         public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(nameof(Minimum), typeof(double),
             typeof(NumberBox), new PropertyMetadata(double.MinValue));
 
@@ -98,7 +92,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (bool)GetValue(AcceptsExpressionProperty); }
             set { SetValue(AcceptsExpressionProperty, value); }
         }
-        /// <summary>Identifies the <see cref="AcceptsExpression"/> dependency property.</summary>
         public static readonly DependencyProperty AcceptsExpressionProperty = DependencyProperty.Register(nameof(AcceptsExpression), typeof(bool),
             typeof(NumberBox), new PropertyMetadata(true));
 
@@ -110,7 +103,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (NumberBoxSpinButtonPlacementMode)GetValue(SpinButtonPlacementModeProperty); }
             set { SetValue(SpinButtonPlacementModeProperty, value); }
         }
-        /// <summary>Identifies the <see cref="SpinButtonPlacementMode"/> dependency property.</summary>
         public static readonly DependencyProperty SpinButtonPlacementModeProperty = DependencyProperty.Register(nameof(SpinButtonPlacementMode),
             typeof(NumberBoxSpinButtonPlacementMode), typeof(NumberBox), new PropertyMetadata(NumberBoxSpinButtonPlacementMode.Inline));
 
@@ -122,7 +114,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (NumberBoxValidationMode)GetValue(ValidationModeProperty); }
             set { SetValue(ValidationModeProperty, value); }
         }
-        /// <summary>Identifies the <see cref="ValidationMode"/> dependency property.</summary>
         public static readonly DependencyProperty ValidationModeProperty = DependencyProperty.Register(nameof(ValidationMode), typeof(NumberBoxValidationMode),
             typeof(NumberBox), new PropertyMetadata(NumberBoxValidationMode.InvalidInputOverwritten));
 
@@ -134,7 +125,6 @@ namespace Core.Libraries.WPF.Controls
             get { return (INumberFormatter?)GetValue(NumberFormatterProperty); }
             set { SetValue(NumberFormatterProperty, value); }
         }
-        /// <summary>Identifies the <see cref="NumberFormatter"/> dependency property.</summary>
         public static readonly DependencyProperty NumberFormatterProperty = DependencyProperty.Register(nameof(NumberFormatter), typeof(INumberFormatter),
             typeof(NumberBox), new PropertyMetadata(null, OnNumberFormatterChanged));
 
@@ -146,7 +136,6 @@ namespace Core.Libraries.WPF.Controls
             add => AddHandler(ValueChangedEvent, value);
             remove => RemoveHandler(ValueChangedEvent, value);
         }
-        /// <summary>Identifies the <see cref="ValueChanged"/> routed event.</summary>
         public static readonly RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent(nameof(ValueChanged), RoutingStrategy.Bubble,
             typeof(RoutedEventHandler), typeof(NumberBox));
 
@@ -164,7 +153,6 @@ namespace Core.Libraries.WPF.Controls
             DataObject.AddPastingHandler(this, OnClipboardPaste);
         }
 
-        /// <inheritdoc />
         protected override void OnKeyUp(KeyEventArgs e)
         {
             base.OnKeyUp(e);
@@ -196,10 +184,9 @@ namespace Core.Libraries.WPF.Controls
             }
         }
 
-        /// <inheritdoc />
         protected override void OnTemplateButtonClick(string? parameter)
         {
-            System.Diagnostics.Debug.WriteLine($"INFO: {typeof(NumberBox)} button clicked with param: {parameter}", "Core.WPF.Controls.NumberBox");
+            System.Diagnostics.Debug.WriteLine($"INFO: {typeof(NumberBox)} button clicked with param: {parameter}", "Core.Libraries.WPF.NumberBox");
 
             switch (parameter)
             {
@@ -221,7 +208,6 @@ namespace Core.Libraries.WPF.Controls
             _ = Focus();
         }
 
-        /// <inheritdoc />
         protected override void OnLostFocus(RoutedEventArgs e)
         {
             base.OnLostFocus(e);
@@ -229,7 +215,6 @@ namespace Core.Libraries.WPF.Controls
             ValidateInput();
         }
 
-        /// <inheritdoc />
         protected override void OnTemplateChanged(System.Windows.Controls.ControlTemplate oldTemplate, System.Windows.Controls.ControlTemplate newTemplate)
         {
             base.OnTemplateChanged(oldTemplate, newTemplate);

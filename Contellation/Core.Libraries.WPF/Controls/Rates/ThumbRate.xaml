@@ -6,7 +6,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/FontFamilies.xaml"/>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Button.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/Normal/Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultUiThumbRateStyle" TargetType="{x:Type controls:ThumbRate}">

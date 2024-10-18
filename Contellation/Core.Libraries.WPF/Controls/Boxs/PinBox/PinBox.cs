@@ -191,8 +191,7 @@ namespace Core.Libraries.WPF.Controls
         {
             get
             {
-                return _panel == null
-                    ? string.Empty
+                return _panel == null ? string.Empty
                     : string.Join(string.Empty, _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Select(item => item.Password));
             }
             set
@@ -221,16 +220,10 @@ namespace Core.Libraries.WPF.Controls
                 }
                 else
                 {
-                    _panel.Children
-                        .OfType<System.Windows.Controls.PasswordBox>()
-                        .Take(Math.Min(Length, value.Length))
-                        .DoWithIndex((item, index) => item.Password = value[index].ToString());
+                    _panel.Children.OfType<System.Windows.Controls.PasswordBox>()
+                        .Take(Math.Min(Length, value.Length)).DoWithIndex((item, index) => item.Password = value[index].ToString());
 
-                    _panel.Children
-                        .OfType<System.Windows.Controls.PasswordBox>()
-                        .Skip(value.Length)
-                        .Take(Length - value.Length)
-                        .Do(item => item.Clear());
+                    _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Skip(value.Length).Take(Length - value.Length).Do(item => item.Clear());
                 }
 
                 _isInternalAction = false;
@@ -242,21 +235,24 @@ namespace Core.Libraries.WPF.Controls
             }
         }
 
-        /// <summary>
-        ///     掩码字符
+        /// <summary> 
+        /// Mask character 
         /// </summary>
-        public static readonly DependencyProperty PasswordCharProperty =
-            System.Windows.Controls.PasswordBox.PasswordCharProperty.AddOwner(typeof(PinBox),
-                new FrameworkPropertyMetadata('●'));
-
         public char PasswordChar
         {
-            get => (char)GetValue(PasswordCharProperty);
-            set => SetValue(PasswordCharProperty, value);
+            get { return (char)GetValue(PasswordCharProperty); }
+            set { SetValue(PasswordCharProperty, value); }
         }
+        public static readonly DependencyProperty PasswordCharProperty = System.Windows.Controls.PasswordBox.PasswordCharProperty.AddOwner(typeof(PinBox),
+                new FrameworkPropertyMetadata('●'));
 
-        public static readonly DependencyProperty LengthProperty = DependencyProperty.Register(
-            nameof(Length), typeof(int), typeof(PinBox), new PropertyMetadata(MinLength, OnLengthChanged, CoerceLength), ValidateHelper.IsInRangeOfPosInt);
+        public int Length
+        {
+            get { return (int)GetValue(LengthProperty); }
+            set { SetValue(LengthProperty, value); }
+        }
+        public static readonly DependencyProperty LengthProperty = DependencyProperty.Register(nameof(Length), typeof(int), 
+            typeof(PinBox), new PropertyMetadata(MinLength, OnLengthChanged, CoerceLength), ValidateHelper.IsInRangeOfPosInt);
 
         private static void OnLengthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -266,82 +262,69 @@ namespace Core.Libraries.WPF.Controls
 
         private static object CoerceLength(DependencyObject d, object basevalue) => (int)basevalue < 4 ? MinLength : basevalue;
 
-        public int Length
-        {
-            get => (int)GetValue(LengthProperty);
-            set => SetValue(LengthProperty, value);
-        }
-
-        public static readonly DependencyProperty ItemMarginProperty = DependencyProperty.Register(
-            nameof(ItemMargin), typeof(Thickness), typeof(PinBox), new PropertyMetadata(default(Thickness)));
-
         public Thickness ItemMargin
         {
-            get => (Thickness)GetValue(ItemMarginProperty);
-            set => SetValue(ItemMarginProperty, value);
+            get { return (Thickness)GetValue(ItemMarginProperty); }
+            set { SetValue(ItemMarginProperty, value); }
         }
-
-        public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register(
-            nameof(ItemWidth), typeof(double), typeof(PinBox), new PropertyMetadata(.0));
+        public static readonly DependencyProperty ItemMarginProperty = DependencyProperty.Register(nameof(ItemMargin), typeof(Thickness), 
+            typeof(PinBox), new PropertyMetadata(default(Thickness)));
 
         public double ItemWidth
         {
-            get => (double)GetValue(ItemWidthProperty);
-            set => SetValue(ItemWidthProperty, value);
+            get { return (double)GetValue(ItemWidthProperty); }
+            set { SetValue(ItemWidthProperty, value); }
         }
-
-        public static readonly DependencyProperty ItemHeightProperty = DependencyProperty.Register(
-            nameof(ItemHeight), typeof(double), typeof(PinBox), new PropertyMetadata(.0));
+        public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register(nameof(ItemWidth), typeof(double), 
+            typeof(PinBox), new PropertyMetadata(.0));
 
         public double ItemHeight
         {
-            get => (double)GetValue(ItemHeightProperty);
-            set => SetValue(ItemHeightProperty, value);
+            get { return (double)GetValue(ItemHeightProperty); }
+            set { SetValue(ItemHeightProperty, value); }
         }
-
-        public static readonly DependencyProperty SelectionBrushProperty =
-            TextBoxBase.SelectionBrushProperty.AddOwner(typeof(PinBox));
+        public static readonly DependencyProperty ItemHeightProperty = DependencyProperty.Register(nameof(ItemHeight), typeof(double), 
+            typeof(PinBox), new PropertyMetadata(.0));
 
         public Brush SelectionBrush
         {
-            get => (Brush)GetValue(SelectionBrushProperty);
-            set => SetValue(SelectionBrushProperty, value);
+            get { return (Brush)GetValue(SelectionBrushProperty); }
+            set { SetValue(SelectionBrushProperty, value); }
         }
+        public static readonly DependencyProperty SelectionBrushProperty = TextBoxBase.SelectionBrushProperty.AddOwner(typeof(PinBox));
+
 
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-
-        public static readonly DependencyProperty SelectionTextBrushProperty =
-            TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(PinBox));
-
+        
         public Brush SelectionTextBrush
         {
-            get => (Brush)GetValue(SelectionTextBrushProperty);
-            set => SetValue(SelectionTextBrushProperty, value);
+            get { return (Brush)GetValue(SelectionTextBrushProperty); }
+            set { SetValue(SelectionTextBrushProperty, value); }
         }
+        public static readonly DependencyProperty SelectionTextBrushProperty = TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(PinBox));
 
 #endif
-
-        public static readonly DependencyProperty SelectionOpacityProperty =
-            TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(PinBox));
-
         public double SelectionOpacity
         {
-            get => (double)GetValue(SelectionOpacityProperty);
-            set => SetValue(SelectionOpacityProperty, value);
+            get { return (double)GetValue(SelectionOpacityProperty); }
+            set { SetValue(SelectionOpacityProperty, value); }
         }
-
-        public static readonly DependencyProperty CaretBrushProperty =
-            TextBoxBase.CaretBrushProperty.AddOwner(typeof(PinBox));
+        public static readonly DependencyProperty SelectionOpacityProperty = TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(PinBox));
 
         public Brush CaretBrush
         {
-            get => (Brush)GetValue(CaretBrushProperty);
-            set => SetValue(CaretBrushProperty, value);
+            get { return (Brush)GetValue(CaretBrushProperty); }
+            set { SetValue(CaretBrushProperty, value); }
         }
+        public static readonly DependencyProperty CaretBrushProperty = TextBoxBase.CaretBrushProperty.AddOwner(typeof(PinBox));
 
-        public static readonly DependencyProperty IsSafeEnabledProperty = PasswordBox.IsSafeEnabledProperty
-            .AddOwner(typeof(PinBox), new FrameworkPropertyMetadata(true, OnIsSafeEnabledChanged));
-
+        public bool IsSafeEnabled
+        {
+            get { return (bool)GetValue(IsSafeEnabledProperty); }
+            set { SetValue(IsSafeEnabledProperty, value); }
+        }
+        public static readonly DependencyProperty IsSafeEnabledProperty = PasswordBox.IsSafeEnabledProperty.AddOwner(typeof(PinBox), new FrameworkPropertyMetadata(true, OnIsSafeEnabledChanged));
+        
         private static void OnIsSafeEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var p = (PinBox)d;
@@ -358,15 +341,13 @@ namespace Core.Libraries.WPF.Controls
             SetCurrentValue(UnsafePasswordProperty, !newValue ? Password : string.Empty);
         }
 
-        public bool IsSafeEnabled
+        public string UnsafePassword
         {
-            get => (bool)GetValue(IsSafeEnabledProperty);
-            set => SetValue(IsSafeEnabledProperty, value);
+            get { return (string)GetValue(UnsafePasswordProperty); }
+            set { SetValue(UnsafePasswordProperty, value); }
         }
-
-        public static readonly DependencyProperty UnsafePasswordProperty = PasswordBox.UnsafePasswordProperty
-            .AddOwner(typeof(PinBox), new FrameworkPropertyMetadata(default(string),
-                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnUnsafePasswordChanged));
+        public static readonly DependencyProperty UnsafePasswordProperty = PasswordBox.UnsafePasswordProperty.AddOwner(typeof(PinBox), 
+            new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnUnsafePasswordChanged));
 
         private static void OnUnsafePasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -377,21 +358,13 @@ namespace Core.Libraries.WPF.Controls
             }
         }
 
-        public string UnsafePassword
-        {
-            get => (string)GetValue(UnsafePasswordProperty);
-            set => SetValue(UnsafePasswordProperty, value);
-        }
-
-        public static readonly RoutedEvent CompletedEvent =
-            EventManager.RegisterRoutedEvent("Completed", RoutingStrategy.Bubble,
-                typeof(RoutedEventHandler), typeof(PinBox));
-
         public event RoutedEventHandler Completed
         {
             add => AddHandler(CompletedEvent, value);
             remove => RemoveHandler(CompletedEvent, value);
         }
+        public static readonly RoutedEvent CompletedEvent = EventManager.RegisterRoutedEvent(nameof(Completed), RoutingStrategy.Bubble, 
+            typeof(RoutedEventHandler), typeof(PinBox));
 
         private void UpdateItems()
         {

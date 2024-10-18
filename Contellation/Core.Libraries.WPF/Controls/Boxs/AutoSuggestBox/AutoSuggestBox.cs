@@ -33,87 +33,27 @@ namespace Core.Libraries.WPF.Controls
         protected const string ElementSuggestionsPopup = "PART_SuggestionsPopup";
         protected const string ElementSuggestionsList = "PART_SuggestionsList";
 
-        /// <summary>Identifies the <see cref="OriginalItemsSource"/> dependency property.</summary>
-        public static readonly DependencyProperty OriginalItemsSourceProperty = DependencyProperty.Register(
-            nameof(OriginalItemsSource),
-            typeof(IList),
-            typeof(AutoSuggestBox),
-            new PropertyMetadata(Array.Empty<object>())
-        );
-
-        /// <summary>Identifies the <see cref="IsSuggestionListOpen"/> dependency property.</summary>
-        public static readonly DependencyProperty IsSuggestionListOpenProperty = DependencyProperty.Register(
-            nameof(IsSuggestionListOpen),
-            typeof(bool),
-            typeof(AutoSuggestBox),
-            new PropertyMetadata(false)
-        );
-
-        /// <summary>Identifies the <see cref="Text"/> dependency property.</summary>
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            nameof(Text),
-            typeof(string),
-            typeof(AutoSuggestBox),
-            new PropertyMetadata(string.Empty, OnTextChanged)
-        );
-
-        /// <summary>Identifies the <see cref="PlaceholderText"/> dependency property.</summary>
-        public static readonly DependencyProperty PlaceholderTextProperty = DependencyProperty.Register(
-            nameof(PlaceholderText),
-            typeof(string),
-            typeof(AutoSuggestBox),
-            new PropertyMetadata(string.Empty)
-        );
-
-        /// <summary>Identifies the <see cref="UpdateTextOnSelect"/> dependency property.</summary>
-        public static readonly DependencyProperty UpdateTextOnSelectProperty = DependencyProperty.Register(
-            nameof(UpdateTextOnSelect),
-            typeof(bool),
-            typeof(AutoSuggestBox),
-            new PropertyMetadata(true)
-        );
-
-        /// <summary>Identifies the <see cref="MaxSuggestionListHeight"/> dependency property.</summary>
-        public static readonly DependencyProperty MaxSuggestionListHeightProperty = DependencyProperty.Register(
-            nameof(MaxSuggestionListHeight),
-            typeof(double),
-            typeof(AutoSuggestBox),
-            new PropertyMetadata(0d)
-        );
-
-        /// <summary>Identifies the <see cref="Icon"/> dependency property.</summary>
-        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
-            nameof(Icon),
-            typeof(string),
-            typeof(AutoSuggestBox),
-            new PropertyMetadata(null)
-        );
-
-        /// <summary>Identifies the <see cref="FocusCommand"/> dependency property.</summary>
-        public static readonly DependencyProperty FocusCommandProperty = DependencyProperty.Register(
-            nameof(FocusCommand),
-            typeof(ICommand),
-            typeof(AutoSuggestBox),
-            new PropertyMetadata(null)
-        );
-
         /// <summary>
         /// Gets or sets your items here if you want to use the default filtering
         /// </summary>
         public IList OriginalItemsSource
         {
-            get => (IList)GetValue(OriginalItemsSourceProperty);
-            set => SetValue(OriginalItemsSourceProperty, value);
+            get { return (IList)GetValue(OriginalItemsSourceProperty); }
+            set { SetValue(OriginalItemsSourceProperty, value); }
         }
+        public static readonly DependencyProperty OriginalItemsSourceProperty = DependencyProperty.Register(nameof(OriginalItemsSource), typeof(IList),
+            typeof(AutoSuggestBox), new PropertyMetadata(Array.Empty<object>()));
 
         /// <summary>
         /// Gets or sets a value indicating whether the drop-down portion of the <see cref="AutoSuggestBox"/> is open.
         /// </summary>
         public bool IsSuggestionListOpen
         {
-            get => (bool)GetValue(IsSuggestionListOpenProperty);
-            set => SetValue(IsSuggestionListOpenProperty, value);
+            get { return (bool)GetValue(IsSuggestionListOpenProperty); }
+            set { SetValue(IsSuggestionListOpenProperty, value); }
         }
+        public static readonly DependencyProperty IsSuggestionListOpenProperty = DependencyProperty.Register(nameof(IsSuggestionListOpen), typeof(bool),
+            typeof(AutoSuggestBox), new PropertyMetadata(false));
 
         /// <summary>
         /// Gets or sets the text that is shown in the control.
@@ -123,9 +63,11 @@ namespace Core.Libraries.WPF.Controls
         /// </remarks>
         public string Text
         {
-            get => (string)GetValue(TextProperty);
-            set => SetValue(TextProperty, value);
+            get { return (string)GetValue(TextProperty); }
+            set { SetValue(TextProperty, value); }
         }
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(nameof(Text), typeof(string),
+            typeof(AutoSuggestBox), new PropertyMetadata(string.Empty, OnTextChanged));
 
         /// <summary>
         /// Gets or sets the placeholder text to be displayed in the control.
@@ -135,65 +77,51 @@ namespace Core.Libraries.WPF.Controls
         /// </remarks>
         public string PlaceholderText
         {
-            get => (string)GetValue(PlaceholderTextProperty);
-            set => SetValue(PlaceholderTextProperty, value);
+            get { return (string)GetValue(PlaceholderTextProperty); }
+            set { SetValue(PlaceholderTextProperty, value); }
         }
-
-        /// <summary>
-        /// Gets or sets the maximum height for the drop-down portion of the <see cref="AutoSuggestBox"/> control.
-        /// </summary>
-        public double MaxSuggestionListHeight
-        {
-            get => (double)GetValue(MaxSuggestionListHeightProperty);
-            set => SetValue(MaxSuggestionListHeightProperty, value);
-        }
+        public static readonly DependencyProperty PlaceholderTextProperty = DependencyProperty.Register(nameof(PlaceholderText), typeof(string),
+            typeof(AutoSuggestBox), new PropertyMetadata(string.Empty));
 
         /// <summary>
         /// Gets or sets a value indicating whether items in the view will trigger an update of the editable text part of the <see cref="AutoSuggestBox"/> when clicked.
         /// </summary>
         public bool UpdateTextOnSelect
         {
-            get => (bool)GetValue(UpdateTextOnSelectProperty);
-            set => SetValue(UpdateTextOnSelectProperty, value);
+            get { return (bool)GetValue(UpdateTextOnSelectProperty); }
+            set { SetValue(UpdateTextOnSelectProperty, value); }
         }
+        public static readonly DependencyProperty UpdateTextOnSelectProperty = DependencyProperty.Register(nameof(UpdateTextOnSelect), typeof(bool),
+            typeof(AutoSuggestBox), new PropertyMetadata(true));
+
+        /// <summary>
+        /// Gets or sets the maximum height for the drop-down portion of the <see cref="AutoSuggestBox"/> control.
+        /// </summary>
+        public double MaxSuggestionListHeight
+        {
+            get { return (double)GetValue(MaxSuggestionListHeightProperty); }
+            set { SetValue(MaxSuggestionListHeightProperty, value); }
+        }
+        public static readonly DependencyProperty MaxSuggestionListHeightProperty = DependencyProperty.Register(nameof(MaxSuggestionListHeight), typeof(double),
+            typeof(AutoSuggestBox), new PropertyMetadata(0d));
 
         /// <summary>
         /// Gets or sets displayed <see cref="IconElement"/>.
         /// </summary>
         public string? Icon
         {
-            get => (string?)GetValue(IconProperty);
-            set => SetValue(IconProperty, value);
+            get { return (string?)GetValue(IconProperty); }
+            set { SetValue(IconProperty, value); }
         }
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(nameof(Icon), typeof(string),
+            typeof(AutoSuggestBox), new PropertyMetadata(null));
 
         /// <summary>
         /// Gets command used for focusing control.
         /// </summary>
         public ICommand FocusCommand => (ICommand)GetValue(FocusCommandProperty);
-
-        /// <summary>Identifies the <see cref="QuerySubmitted"/> routed event.</summary>
-        public static readonly RoutedEvent QuerySubmittedEvent = EventManager.RegisterRoutedEvent(
-            nameof(QuerySubmitted),
-            RoutingStrategy.Bubble,
-            typeof(TypedEventHandler<AutoSuggestBox, AutoSuggestBoxQuerySubmittedEventArgs>),
-            typeof(AutoSuggestBox)
-        );
-
-        /// <summary>Identifies the <see cref="SuggestionChosen"/> routed event.</summary>
-        public static readonly RoutedEvent SuggestionChosenEvent = EventManager.RegisterRoutedEvent(
-            nameof(SuggestionChosen),
-            RoutingStrategy.Bubble,
-            typeof(TypedEventHandler<AutoSuggestBox, AutoSuggestBoxSuggestionChosenEventArgs>),
-            typeof(AutoSuggestBox)
-        );
-
-        /// <summary>Identifies the <see cref="TextChanged"/> routed event.</summary>
-        public static readonly RoutedEvent TextChangedEvent = EventManager.RegisterRoutedEvent(
-            nameof(TextChanged),
-            RoutingStrategy.Bubble,
-            typeof(TypedEventHandler<AutoSuggestBox, AutoSuggestBoxTextChangedEventArgs>),
-            typeof(AutoSuggestBox)
-        );
+        public static readonly DependencyProperty FocusCommandProperty = DependencyProperty.Register(nameof(FocusCommand), typeof(ICommand),
+            typeof(AutoSuggestBox), new PropertyMetadata(null));
 
         /// <summary>
         /// Occurs when the user submits a search query.
@@ -203,6 +131,8 @@ namespace Core.Libraries.WPF.Controls
             add => AddHandler(QuerySubmittedEvent, value);
             remove => RemoveHandler(QuerySubmittedEvent, value);
         }
+        public static readonly RoutedEvent QuerySubmittedEvent = EventManager.RegisterRoutedEvent(nameof(QuerySubmitted), RoutingStrategy.Bubble,
+            typeof(TypedEventHandler<AutoSuggestBox, AutoSuggestBoxQuerySubmittedEventArgs>), typeof(AutoSuggestBox));
 
         /// <summary>
         /// Event occurs when the user selects an item from the recommended ones.
@@ -212,6 +142,8 @@ namespace Core.Libraries.WPF.Controls
             add => AddHandler(SuggestionChosenEvent, value);
             remove => RemoveHandler(SuggestionChosenEvent, value);
         }
+        public static readonly RoutedEvent SuggestionChosenEvent = EventManager.RegisterRoutedEvent(nameof(SuggestionChosen), RoutingStrategy.Bubble,
+            typeof(TypedEventHandler<AutoSuggestBox, AutoSuggestBoxSuggestionChosenEventArgs>), typeof(AutoSuggestBox));
 
         /// <summary>
         /// Raised after the text content of the editable control component is updated.
@@ -221,6 +153,8 @@ namespace Core.Libraries.WPF.Controls
             add => AddHandler(TextChangedEvent, value);
             remove => RemoveHandler(TextChangedEvent, value);
         }
+        public static readonly RoutedEvent TextChangedEvent = EventManager.RegisterRoutedEvent(nameof(TextChanged), RoutingStrategy.Bubble,
+            typeof(TypedEventHandler<AutoSuggestBox, AutoSuggestBoxTextChangedEventArgs>), typeof(AutoSuggestBox));
 
         protected TextBox? TextBox { get; set; } = null;
 
@@ -264,11 +198,7 @@ namespace Core.Libraries.WPF.Controls
             AcquireTemplateResources();
         }
 
-        /// <inheritdoc cref="UIElement.Focus" />
-        public new bool Focus()
-        {
-            return TextBox!.Focus();
-        }
+        public new bool Focus() { return TextBox!.Focus(); }
 
         protected T GetTemplateChild<T>(string name)
             where T : DependencyObject
@@ -283,8 +213,10 @@ namespace Core.Libraries.WPF.Controls
 
         protected virtual void AcquireTemplateResources()
         {
-            // Unsubscribe each handler before subscription, to prevent memory leak from double subscriptions.
-            // Unsubscription is safe, even if event has never been subscribed to.
+            /* 
+             * Unsubscribe each handler before subscription, to prevent memory leak from double subscriptions. 
+             * Unsubscription is safe, even if event has never been subscribed to.
+             */
             if (TextBox != null)
             {
                 TextBox.PreviewKeyDown -= TextBoxOnPreviewKeyDown;
@@ -411,20 +343,14 @@ namespace Core.Libraries.WPF.Controls
                 return;
             }
 
-            if (e.Key is not Key.Down || !IsSuggestionListOpen)
-            {
-                return;
-            }
+            if (e.Key is not Key.Down || !IsSuggestionListOpen) { return; }
 
             _ = SuggestionsList?.Focus();
         }
 
         private void TextBoxOnLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            if (e.NewFocus is ListView)
-            {
-                return;
-            }
+            if (e.NewFocus is ListView) { return; }
 
             SetCurrentValue(IsSuggestionListOpenProperty, false);
         }
@@ -433,44 +359,29 @@ namespace Core.Libraries.WPF.Controls
         {
             AutoSuggestionBoxTextChangeReason changeReason = AutoSuggestionBoxTextChangeReason.UserInput;
 
-            if (_changingTextAfterSuggestionChosen)
-            {
-                changeReason = AutoSuggestionBoxTextChangeReason.SuggestionChosen;
-            }
+            if (_changingTextAfterSuggestionChosen) { changeReason = AutoSuggestionBoxTextChangeReason.SuggestionChosen; }
 
-            if (_isChangedTextOutSideOfTextBox)
-            {
-                changeReason = AutoSuggestionBoxTextChangeReason.ProgrammaticChange;
-            }
+            if (_isChangedTextOutSideOfTextBox) { changeReason = AutoSuggestionBoxTextChangeReason.ProgrammaticChange; }
 
             OnTextChanged(changeReason, TextBox!.Text);
 
             SuggestionsList!.SetCurrentValue(Selector.SelectedItemProperty, null);
 
-            if (changeReason is not AutoSuggestionBoxTextChangeReason.UserInput)
-            {
-                return;
-            }
+            if (changeReason is not AutoSuggestionBoxTextChangeReason.UserInput) { return; }
 
             SetCurrentValue(IsSuggestionListOpenProperty, true);
         }
 
         private void SuggestionsListOnLostKeyboardFocus(object sender, KeyboardFocusChangedEventArgs e)
         {
-            if (e.NewFocus is ListViewItem)
-            {
-                return;
-            }
+            if (e.NewFocus is ListViewItem) { return; }
 
             SetCurrentValue(IsSuggestionListOpenProperty, false);
         }
 
         private void SuggestionsListOnPreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (e.Key is not Key.Enter)
-            {
-                return;
-            }
+            if (e.Key is not Key.Enter) { return; }
 
             SetCurrentValue(IsSuggestionListOpenProperty, false);
 
@@ -479,10 +390,7 @@ namespace Core.Libraries.WPF.Controls
 
         private void SuggestionsListOnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (SuggestionsList!.SelectedItem is not null)
-            {
-                return;
-            }
+            if (SuggestionsList!.SelectedItem is not null) { return; }
 
             SetCurrentValue(IsSuggestionListOpenProperty, false);
 
@@ -494,20 +402,14 @@ namespace Core.Libraries.WPF.Controls
 
         private void SuggestionsListOnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (SuggestionsList!.SelectedItem is null)
-            {
-                return;
-            }
+            if (SuggestionsList!.SelectedItem is null) { return; }
 
             OnSelectedChanged(SuggestionsList.SelectedItem);
         }
 
         private IntPtr Hook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
         {
-            if (!IsSuggestionListOpen)
-            {
-                return IntPtr.Zero;
-            }
+            if (!IsSuggestionListOpen) { return IntPtr.Zero; }
 
             var message = (User32.WM)msg;
 
@@ -544,26 +446,20 @@ namespace Core.Libraries.WPF.Controls
             }
 
             var splitText = text.ToLowerInvariant().Split(' ');
-            var suitableItems = OriginalItemsSource
-                .Cast<object>()
-                .Where(item =>
+            var suitableItems = OriginalItemsSource.Cast<object>().Where(item =>
                 {
                     var itemText = GetStringFromObj(item)?.ToLowerInvariant();
                     return splitText.All(key => itemText?.Contains(key) ?? false);
-                })
-                .ToList();
+                }).ToList();
 
             SetCurrentValue(ItemsSourceProperty, suitableItems);
         }
 
         private string? GetStringFromObj(object obj)
         {
-            // uses reflection. maybe it needs some optimization?
-            var displayMemberPathText =
-                !string.IsNullOrEmpty(DisplayMemberPath)
-                && obj.GetType().GetProperty(DisplayMemberPath)?.GetValue(obj) is string value
-                    ? value
-                    : null;
+            /// uses reflection. maybe it needs some optimization?
+            var displayMemberPathText = !string.IsNullOrEmpty(DisplayMemberPath)
+                && obj.GetType().GetProperty(DisplayMemberPath)?.GetValue(obj) is string value ? value : null;
 
             return displayMemberPathText ?? obj as string ?? obj.ToString();
         }
@@ -573,15 +469,9 @@ namespace Core.Libraries.WPF.Controls
             var self = (AutoSuggestBox)d;
             var newText = (string)e.NewValue;
 
-            if (self.TextBox is null)
-            {
-                return;
-            }
+            if (self.TextBox is null) { return; }
 
-            if (self.TextBox.Text == newText)
-            {
-                return;
-            }
+            if (self.TextBox.Text == newText) { return; }
 
             self._isChangedTextOutSideOfTextBox = true;
 

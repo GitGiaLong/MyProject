@@ -7,8 +7,7 @@ namespace Core.Libraries.WPF.Controls.Boxs.AutoSuggestBox
     /// </summary>
     public sealed class AutoSuggestBoxQuerySubmittedEventArgs : RoutedEventArgs
     {
-        public AutoSuggestBoxQuerySubmittedEventArgs(RoutedEvent eventArgs, object sender)
-            : base(eventArgs, sender) { }
+        public AutoSuggestBoxQuerySubmittedEventArgs(RoutedEvent eventArgs, object sender) : base(eventArgs, sender) { }
 
         [Required]
         public  string QueryText { get; init; }
