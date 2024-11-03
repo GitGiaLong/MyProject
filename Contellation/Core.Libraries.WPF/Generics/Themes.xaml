@@ -18,6 +18,7 @@
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/Calendar.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/DatePicker.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/CalendarDatePicker/CalendarDatePicker.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/Scheduletimelines/Scheduletimeline.xaml"/>
 
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/Clock/Clock.xaml"/>
         <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Datetimes/FlipClock/FlipClock.xaml"/>

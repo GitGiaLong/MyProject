@@ -1,0 +1,81 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:Core.Libraries.WPF.Controls">
+
+    <ControlTemplate x:Key="SchedulesTimeLine_Style">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition>
+                    <ColumnDefinition.Style>
+                        <Style TargetType="ColumnDefinition">
+                            <Setter Property="Width" Value="auto"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:Scheduletimeline}}, Path=IsNeedSidePanel, Mode=OneWay}" Value="false">
+                                    <Setter Property="Width" Value="0"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ColumnDefinition.Style>
+                </ColumnDefinition>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Border Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"
+                    BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="0,0,1,1">
+                <StackPanel>
+                    <TextBlock Text="" Margin="2"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Row="1" 
+                    BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="0,1,1,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="stackPanel_Threads" Margin="4,0"/>
+                </ScrollViewer>
+            </Border>
+
+            <Border Grid.Column="1" BorderBrush="Black" BorderThickness="0" TextElement.Foreground="Black">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type controls:Scheduletimeline}}, Path=IsOnManipulate, Mode=OneWay}" Value="True">
+                                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Grid x:Name="grid_Timeline" Background="#00000000" ClipToBounds="True" 
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></Grid>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="1" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" 
+                BorderBrush="Black" BorderThickness="0">
+                <Grid Background="#00000000">
+                    <Grid x:Name="grid_MainGrid" ClipToBounds="True" Focusable="True"/>
+                    <ScrollViewer x:Name="scrollViewer_MainData" VerticalScrollBarVisibility="Hidden">
+                        <StackPanel x:Name="stackPanel_MainData" ClipToBounds="True"/>
+                    </ScrollViewer>
+                </Grid>
+            </Border>
+
+            <Popup x:Name="popup_info" Placement="Mouse" AllowsTransparency="True" StaysOpen="False" PopupAnimation="Slide">
+                <Border SnapsToDevicePixels="True" Background="White" BorderBrush="LightGray" BorderThickness="2" CornerRadius="4">
+                    <ContentControl x:Name="cc_info" Margin="2"/>
+                </Border>
+            </Popup>
+        </Grid>
+    </ControlTemplate>
+
+    <Style x:Key="SchedulesTimeLineStyle" TargetType="{x:Type controls:Scheduletimeline}">
+        <Setter Property="Template" Value="{StaticResource SchedulesTimeLine_Style}"/>
+
+    </Style>
+
+    <Style BasedOn="{StaticResource SchedulesTimeLineStyle}" TargetType="{x:Type controls:Scheduletimeline}" />
+
+</ResourceDictionary>
