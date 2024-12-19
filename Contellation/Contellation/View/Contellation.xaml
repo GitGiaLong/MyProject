@@ -9,7 +9,7 @@
         Title="Contellation" Height="450" Width="800">
     <Grid>
         <!--<ui:ListClock/>-->
-
-        <ui:TextBoxMasked Mask="00-00-00-000" PromptChar="_"/>
+        <ui:TextBox/>
+        <!--<ui:TextBoxMasked Mask="00-00-00-000" PromptChar="_"/>-->
     </Grid>
 </ui:Window>

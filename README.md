@@ -4,20 +4,19 @@
 
 - The platform will be given appropriate permissions.
 
-# Desktop - WPF(Main)
-- WPF (Windows Presentation Foundation) [_Main_]
-- Winform [_Demo_]
-- UWP (Universal Windows Platform) [_Demo_]
-# Web - Blazor(Main) & MVC
-- Blazor (Client) [_Main_]
-- Blazor (Server) [_Main_]
-- MVC [_Demo_]
-- WebForm [_Demo_]
-- Laravel [_Demo_]
-# Mobile - MobileApp(Xamarin)
-- Android [_Main_]
-- IOS [_Main_]
+# Desktop
+- WPF (Windows Presentation Foundation) [Coding]
+- Winform
+- UWP (Universal Windows Platform)
+# Web
+- Blazor (Client and Server) [Coding]
+- MVC
+- WebForm 
+- Laravel
+# Mobile 
+-  Xamarin (Android and IOS) [Frist Coding Android]
+-  Kotlin (Android)
+-  Kotlin (swift)
 # API WebApi
-- WebAPI (Csharp) [_Main_]
-- WebAPI (Fsharp) [_Demo_]
-- Python [_Demo_]
+- WebAPI (Csharp and Fsharp) [Frist Coding WebAPI C#]
+- Python

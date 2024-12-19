@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "ApiWeb.Cshrap": {
+    "WebApi.Cshrap": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",
@@ -8,7 +8,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "dotnetRunMessages": true,
-      "applicationUrl": "https://localhost:7071;http://localhost:5240"
+      "applicationUrl": "https://localhost:7202;http://localhost:5081"
     },
     "IIS Express": {
       "commandName": "IISExpress",
@@ -18,8 +18,8 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "Container (.NET SDK)": {
-      "commandName": "SdkContainer",
+    "Container (Dockerfile)": {
+      "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
       "environmentVariables": {
@@ -34,8 +34,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:31752",
-      "sslPort": 44314
+      "applicationUrl": "http://localhost:31102",
+      "sslPort": 44377
     }
   }
 }

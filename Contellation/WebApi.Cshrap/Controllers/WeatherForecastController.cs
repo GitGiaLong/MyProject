@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace ApiWeb.Cshrap.Controllers
+namespace WebApi.Cshrap.Controllers
 {
     [ApiController]
     [Route("[controller]")]

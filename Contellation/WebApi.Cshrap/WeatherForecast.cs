@@ -1,4 +1,4 @@
-namespace ApiWeb.Cshrap
+namespace WebApi.Cshrap
 {
     public class WeatherForecast
     {
