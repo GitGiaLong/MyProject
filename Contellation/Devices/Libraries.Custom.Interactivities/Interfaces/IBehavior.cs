@@ -1,0 +1,11 @@
+﻿namespace Libraries.Custom.Interactivities
+{
+    public interface IBehavior
+    {
+        DependencyObject AssociatedObject { get; }
+
+        void Attach(DependencyObject dependencyObject);
+
+        void Detach();
+    }
+}

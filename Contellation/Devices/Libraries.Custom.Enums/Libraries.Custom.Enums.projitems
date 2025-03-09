@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>c2c8555d-6d6e-44a0-b7cc-f3ae61d3cb2f</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Libraries.Custom.Enums</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Inpus\ButtonAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Placements\OrientationPlacement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Systems\CacheSlot.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TaskBars\TaskBarProgressState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\WindowBackdropType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\WindowCornerPreference.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>f04bf371-0426-4746-8059-625f4cb4f964</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Libraries.Custom.Interactivities</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\CustomPropertyValueEditorAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\DefaultTriggerAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Attributes\TypeConstraintAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\Behavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\Behavior.handle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behaviors\BehaviorCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ComparisonConditionType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ControlStoryboardOption.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\CustomPropertyValueEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\FluidMoveScope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ForwardChaining.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\KeyTriggerFiredOn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\ScreenType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Enums\TagType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Events\EventObserver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Events\EventTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Events\EventTriggerBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Events\EventTriggerBase.handle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ActionCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\AttachableCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\CallMethodAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ChangePropertyAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ComparisonCondition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ComparisonLogic.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ConditionalExpression.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ConditionBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ConditionCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DataStateBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DataStoreChangedTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\DataTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ExceptionStringTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\ExtendedVisualStateManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\GoToStateAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\InvokeCommandAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\LaunchUriOrFileAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\PropertyChangedTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\PrototypingActions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\RemoveElementAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\Serializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\SetDataStoreValueAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\TimerTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\VisualStateUtilities.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\DataBindingHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\DependencyObjectHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\TypeConverterHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Inputs\KeyTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Inputs\TranslateZoomRotateBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactions\Interaction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactions\InteractionContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\IBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ICondition.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interfaces\ITickTimer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layouts\AdornerContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layouts\FluidMoveBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layouts\FluidMoveBehaviorBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layouts\FluidMoveSetTagBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layouts\MouseDragElementBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Medias\ControlStoryboardAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Medias\PlaySoundAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Medias\StoryboardAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Medias\StoryboardCompletedTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Medias\StoryboardTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Medias\TransitionEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NameResolvers\NameResolvedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NameResolvers\NameResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triggers\PreviewInvokeEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triggers\TargetedTriggerAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triggers\TargetedTriggerAction.handle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triggers\TriggerAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triggers\TriggerAction.handle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triggers\TriggerActionCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triggers\TriggerBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triggers\TriggerBase.handle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Triggers\TriggerCollection.cs" />
+  </ItemGroup>
+</Project>

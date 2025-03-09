@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>649917bf-9b98-4d89-bb55-1c7527700dc7</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Libraries.Custom.Interops</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Dwmapi.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Handles\Collector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Handles\Common.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Hardwares\DpiHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InteropMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ShObjIdl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Unsafes\UnsafeNativeMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Unsafes\UnsafeReflection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)User32.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UxTheme.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,9 @@
+﻿namespace Libraries.Custom.Enums.Placements
+{
+    public enum OrientationPlacement
+    {
+        Normal = 0,
+        Horizontal,
+        Vertical
+    }
+}

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>4ee428a2-1fdf-4248-8959-d7faadf88e81</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Core.Api.JwtSetup</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\GetToken.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\IJsonWebToken.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Models\JsonWebToken.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BuildJwt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IBuildJwt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Options\Jwt.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Options\JwtBearer.cs" />
+  </ItemGroup>
+</Project>
