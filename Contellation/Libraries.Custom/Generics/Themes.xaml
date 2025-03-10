@@ -4,8 +4,9 @@
     <ResourceDictionary.MergedDictionaries>
 
         <ResourceDictionary Source="/Libraries.Custom;component/Generics/FontFamilies.xaml" />
-        <ResourceDictionary Source="/Libraries.Custom.Controls;component/Generics/FontFamilies.xaml" />
-        <ResourceDictionary Source="/Libraries.Custom;component/UIControls/Inpus/Button/Button.xaml" />
+        <!--<ResourceDictionary Source="/Libraries.Custom.Controls;component/Generics/FontFamilies.xaml" />-->
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Controls/Inputs/Button/Button.xaml" />
+        <!--<ResourceDictionary Source="pack://application:,,,/Libraries.Custom.Controls;component/Inputs/Button/ToggleButton.xaml" />-->
         <!--<ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Generics/Styles.xaml"/>-->
 
         <!--<ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Controls/Buttons/DropDown/DropDownButton.xaml"/>

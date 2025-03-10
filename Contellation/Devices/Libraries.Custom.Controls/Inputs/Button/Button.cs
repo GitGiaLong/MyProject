@@ -8,6 +8,7 @@ using System.Windows.Controls;
 
 namespace Libraries.Custom.Controls
 {
+
     /// <summary>
     /// Inherited from the <see cref="System.Windows.Controls.Button"/>.
     /// </summary>
@@ -273,4 +274,5 @@ namespace Libraries.Custom.Controls
         }
 
     }
+
 }

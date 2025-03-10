@@ -45,8 +45,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Libraries.Custom", "Librari
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Libraries.Custom.Icons", "Libraries.Custom.Icons\Libraries.Custom.Icons.shproj", "{FB2A0FA6-A6D4-40E5-AD9E-B5712350A318}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Libraries.Custom.Controls", "Devices\Libraries.Custom.Controls\Libraries.Custom.Controls.shproj", "{7C10F4FE-AE80-4290-8417-2A1E39EAA0D7}"
-EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Libraries.Custom.Structs", "Libraries.Custom.Structs\Libraries.Custom.Structs.shproj", "{B54F8EDF-70AD-4EAD-8E92-B3F5CB71647A}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Libraries.Custom.Enums", "Devices\Libraries.Custom.Enums\Libraries.Custom.Enums.shproj", "{C2C8555D-6D6E-44A0-B7CC-F3AE61D3CB2F}"
@@ -54,6 +52,8 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Libraries.Custom.Interops", "Devices\Libraries.Custom.Interops\Libraries.Custom.Interops.shproj", "{649917BF-9B98-4D89-BB55-1C7527700DC7}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Libraries.Custom.Helpers", "Devices\Libraries.Custom.Helpers\Libraries.Custom.Helpers.shproj", "{C5FFCF1C-7A95-464F-A9C9-ABA99D083A46}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Libraries.Custom.Controls", "Devices\Libraries.Custom.Controls\Libraries.Custom.Controls.shproj", "{FDC8F0FC-180C-4C34-9947-2B9161A7E960}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -330,11 +330,14 @@ Global
 		{F04BF371-0426-4746-8059-625F4CB4F964} = {A7972CAE-C280-4E05-A37C-EC4DA0D2438E}
 		{1CDAA4BA-889B-4407-AF26-8C3336A6EFFA} = {A7972CAE-C280-4E05-A37C-EC4DA0D2438E}
 		{FB2A0FA6-A6D4-40E5-AD9E-B5712350A318} = {A7972CAE-C280-4E05-A37C-EC4DA0D2438E}
-		{7C10F4FE-AE80-4290-8417-2A1E39EAA0D7} = {A7972CAE-C280-4E05-A37C-EC4DA0D2438E}
 		{B54F8EDF-70AD-4EAD-8E92-B3F5CB71647A} = {A7972CAE-C280-4E05-A37C-EC4DA0D2438E}
 		{C2C8555D-6D6E-44A0-B7CC-F3AE61D3CB2F} = {A7972CAE-C280-4E05-A37C-EC4DA0D2438E}
 		{649917BF-9B98-4D89-BB55-1C7527700DC7} = {A7972CAE-C280-4E05-A37C-EC4DA0D2438E}
 		{C5FFCF1C-7A95-464F-A9C9-ABA99D083A46} = {A7972CAE-C280-4E05-A37C-EC4DA0D2438E}
+		{FDC8F0FC-180C-4C34-9947-2B9161A7E960} = {A7972CAE-C280-4E05-A37C-EC4DA0D2438E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26DA62CE-76CB-4E39-8808-40B4425E5B86}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Devices\Libraries.Custom.Controls\Libraries.Custom.Controls.projitems*{1cdaa4ba-889b-4407-af26-8c3336a6effa}*SharedItemsImports = 5
@@ -347,11 +350,11 @@ Global
 		API\Core.Api.JwtSetup\Core.Api.JwtSetup.projitems*{2fd46663-cf98-4e12-92f9-030adc658d54}*SharedItemsImports = 5
 		API\Core.Api.JwtSetup\Core.Api.JwtSetup.projitems*{4ee428a2-1fdf-4248-8959-d7faadf88e81}*SharedItemsImports = 13
 		Devices\Libraries.Custom.Interops\Libraries.Custom.Interops.projitems*{649917bf-9b98-4d89-bb55-1c7527700dc7}*SharedItemsImports = 13
-		Devices\Libraries.Custom.Controls\Libraries.Custom.Controls.projitems*{7c10f4fe-ae80-4290-8417-2a1e39eaa0d7}*SharedItemsImports = 13
 		Libraries.Custom.Structs\Libraries.Custom.Structs.projitems*{b54f8edf-70ad-4ead-8e92-b3f5cb71647a}*SharedItemsImports = 13
 		Devices\Libraries.Custom.Enums\Libraries.Custom.Enums.projitems*{c2c8555d-6d6e-44a0-b7cc-f3ae61d3cb2f}*SharedItemsImports = 13
 		Devices\Libraries.Custom.Helpers\Libraries.Custom.Helpers.projitems*{c5ffcf1c-7a95-464f-a9c9-aba99d083a46}*SharedItemsImports = 13
 		Devices\Libraries.Custom.Interactivities\Libraries.Custom.Interactivities.projitems*{f04bf371-0426-4746-8059-625f4cb4f964}*SharedItemsImports = 13
 		Libraries.Custom.Icons\Libraries.Custom.Icons.projitems*{fb2a0fa6-a6d4-40e5-ad9e-b5712350a318}*SharedItemsImports = 13
+		Devices\Libraries.Custom.Controls\Libraries.Custom.Controls.projitems*{fdc8f0fc-180c-4c34-9947-2b9161a7e960}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
