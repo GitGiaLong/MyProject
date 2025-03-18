@@ -103,6 +103,7 @@ namespace Libraries.Custom.Controls
         static Window()
         {
             StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(ResourceHelper.GetResourceInternal<Style>("WindowCustom")));
+            //DefaultStyleKeyProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(typeof(Window)));
         }
 
         public Window()

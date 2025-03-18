@@ -10,6 +10,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Inputs\Button\Button.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Inputs\InputControl\InputControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Inputs\InputControl\InputType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layouts\Grid\BreakPoints.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layouts\Grid\Converter\BreakPointsTypeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layouts\Grid\ResponsiveGrid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Layouts\Grid\ResponsiveGrid.Properties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\Window.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -45,5 +51,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Layouts\Grid\Readme.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Layouts\Grid\" />
   </ItemGroup>
 </Project>

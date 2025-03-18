@@ -9,9 +9,9 @@ namespace Core.Libraries.WPF.Controls
     /// A control featuring a range of loading indicating animations.
     /// </summary>
     /// <example>
-    /// <code lang="xml">
-    /// &lt;ui:Loading Mode="Arc" /&gt;
-    /// </code>
+    ///     <code lang="xml">
+    ///         &lt;ui:Loading Mode="Arc" /&gt;
+    ///     </code>
     /// </example>
     [TemplatePart(Name = TemplateBorderName, Type = typeof(Border))]
     public class Loading : Control
