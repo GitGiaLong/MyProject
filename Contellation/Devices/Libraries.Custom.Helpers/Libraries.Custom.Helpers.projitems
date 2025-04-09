@@ -9,8 +9,12 @@
     <Import_RootNamespace>Libraries.Custom.Helpers</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ArithmeticHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Control\WindowHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DateTimeHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DesignerHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MathHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ResourceHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ValidateHelper.cs" />
   </ItemGroup>
 </Project>

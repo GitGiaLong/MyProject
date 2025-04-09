@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>bfd2cc1f-0b5d-47ac-a48f-84ebf1c9f6f4</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Libraries.Custom.Extensions</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)DateTimeExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EnumerableExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FunctionEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Intputs\IRelayCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Intputs\RelayCommand.cs" />
+  </ItemGroup>
+</Project>

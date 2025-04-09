@@ -9,7 +9,12 @@
     <Import_RootNamespace>Libraries.Custom.Enums</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Bars\InfoBarSeverity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dialog\ContentDialogButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Dialog\ContentDialogResult.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FontTypography.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inpus\ButtonAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Placements\HorizontalPlacement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Placements\OrientationPlacement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Systems\CacheSlot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TaskBars\TaskBarProgressState.cs" />

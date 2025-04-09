@@ -50,7 +50,6 @@
         </Setter>
     </Style>
 
-
     <Style BasedOn="{StaticResource TitleBarCustom}" TargetType="{x:Type controls:TitleBar}" />
 
 </ResourceDictionary>

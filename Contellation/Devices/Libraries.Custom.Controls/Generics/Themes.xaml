@@ -4,13 +4,101 @@
     <ResourceDictionary.MergedDictionaries>
 
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Generics/Styles.xaml"/>
+
+        <!--#region Bar-->
         
-        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Inputs/Button/Button.xaml" />
-        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Inputs/ToggleButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Breadcrumb/BreadcrumbBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Info/InfoBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Menu/Menu.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Menu/MenuItem.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Menu/MenuLoader.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Snack/Snackbar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Status/StatusBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Title/TitleBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Tool/ToolBar.xaml" />
+        
+        <!--#endregion-->
+        
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Buttons/Anchor/AnchorButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Buttons/DropDown/DropDownButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Buttons/Hyperlink/HyperlinkButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Buttons/Normal/Button.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Buttons/Radio/RadioButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Buttons/Split/SplitButton.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Buttons/Toggle/ToggleButton.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Boxs/AutoSuggest/AutoSuggestBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Boxs/Check/CheckBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Boxs/Combo/ComboBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Boxs/Number/NumberBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Boxs/Password/PasswordBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Boxs/Pin/PinBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Boxs/RichText/RichTextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Boxs/Text/TextBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Boxs/TextMasked/TextBoxMasked.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Cards/Color/CardColor.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Cards/Control/CardControl.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Cards/Expander/CardExpander.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Cards/Normal/Card.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/ContextMenus/ContextMenu.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/ContextMenus/DefaultContextMenu.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datas/DataGrids/DataGrid.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datas/ListBox/ListBox.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datas/ListBox/ListBoxItem.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datas/ListView/ListView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datas/ListView/ListViewItem.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datas/TreeView/TreeView.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datas/TreeView/TreeViewItem.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datetimes/Calendar/Calendar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datetimes/CalendarDatePicker/CalendarDatePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datetimes/Clock/Clock.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datetimes/DatePicker/DatePicker.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datetimes/FlipClock/FlipClock.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datetimes/Scheduletimeline/Scheduletimeline.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Datetimes/TimeBar/TimeBar.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Dialogs/ContentDialog.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Expanders/Expander.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Flyouts/Flyout.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Frames/Frame.xaml" />
+        
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Gravatars/Gravatar.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Loadings/Loading.xaml" />
+        
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Pages/Page.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Scrolls/DynamicScrollBar/DynamicScrollBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Scrolls/DynamicScrollViewer/DynamicScrollViewer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Scrolls/ScrollBar/ScrollBar.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Scrolls/ScrollViewer/ScrollViewer.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Scrolls/DefaultTextBoxScrollViewerStyle.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Separators/Separator.xaml" />
+        
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Sliders/Slider.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Tabs/TabControls/TabControl.xaml" />
+        <!--<ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Tabs/TabView/TabView.xaml" />-->
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Texts/Access/AccessText.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Texts/Block/TextBlock.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Texts/Label/Label.xaml" />
+
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/ThumbRate/ThumbRate.xaml" />
+        
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/ToggleSwitch/ToggleSwitch.xaml" />
         
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/ToolTips/ToolTip.xaml" />
         
-        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Windows/Window.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Window/Window.xaml" />
 
     </ResourceDictionary.MergedDictionaries>
 

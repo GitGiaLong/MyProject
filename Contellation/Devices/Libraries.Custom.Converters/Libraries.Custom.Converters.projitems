@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>71c469f4-1e66-4f19-80c4-6229faa9040a</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Libraries.Custom.Converters</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)ResponsiveGrid\BreakPointsTypeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Split\LeftSplitCornerRadius.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Split\LeftSplitThickness.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Split\RightSplitCornerRadius.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Split\RightSplitThickness.cs" />
+  </ItemGroup>
+</Project>

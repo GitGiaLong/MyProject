@@ -30,4 +30,12 @@
 
   <Import Project="..\Devices\Libraries.Custom.Controls\Libraries.Custom.Controls.projitems" Label="Shared" />
 
+  <Import Project="..\Devices\Libraries.Custom.Converters\Libraries.Custom.Converters.projitems" Label="Shared" />
+
+  <Import Project="..\Devices\Libraries.Custom.Interfaces\Libraries.Custom.Interfaces.projitems" Label="Shared" />
+
+  <Import Project="..\Devices\Libraries.Custom.Model\Libraries.Custom.Model.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Events\Libraries.Custom.Events.projitems" Label="Shared" />
+
 </Project>

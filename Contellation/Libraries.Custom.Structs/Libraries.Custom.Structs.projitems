@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)APPBARDATA.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)BitMapInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DateTimeRange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Hardwares\DisplayDpi.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MINMAXINFO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MONITORINFO.cs" />

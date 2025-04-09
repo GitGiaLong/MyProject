@@ -17,7 +17,16 @@
             </Setter.Value>
         </Setter>
     </Style>
-
+    
+    <!--<Style TargetType="{x:Type StatusBar}">
+        <Setter Property="Foreground" Value="{DynamicResource Col_E4000000}"/>
+        <Setter Property="Background" Value="{DynamicResource Col_B3FFFFFF}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ControlElevationBorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="Padding" Value="12" />
+        <Setter Property="Margin" Value="0" />
+    </Style>-->
+    
     <Style TargetType="{x:Type StatusBar}">
         <Setter Property="Foreground">
             <Setter.Value>
