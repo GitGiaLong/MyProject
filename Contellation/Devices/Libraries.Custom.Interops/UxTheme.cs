@@ -1,7 +1,4 @@
 ﻿using Libraries.Custom.Properties;
-using System;
-using System.Runtime.InteropServices;
-using System.Text;
 
 namespace Libraries.Custom.Interops
 {

@@ -1,4 +1,4 @@
-﻿using Libraries.Custom.Interactivities.Enums;
+﻿using Libraries.Custom.Enums.Interactivity;
 using System.Windows.Media.Animation;
 
 namespace Libraries.Custom.Interactivities.Medias

@@ -4,7 +4,7 @@
                     xmlns:typeControl="clr-namespace:Libraries.Custom.Enums.Inpus">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="/Libraries.Custom;component/Generics/Styles.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Generics/Styles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultButtonStyle" TargetType="{x:Type Button}">

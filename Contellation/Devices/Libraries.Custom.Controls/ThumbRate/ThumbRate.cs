@@ -1,4 +1,4 @@
-﻿using Libraries.Custom.Controls.ThumbRates;
+﻿using Libraries.Custom.Enums.Control;
 using Libraries.Custom.Extensions.Intputs;
 using Libraries.Custom.Handlers;
 

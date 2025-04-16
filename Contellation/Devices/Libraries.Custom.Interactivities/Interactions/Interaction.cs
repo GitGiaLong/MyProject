@@ -1,4 +1,7 @@
-﻿namespace Libraries.Custom.Interactivities
+﻿using Libraries.Custom.Extensions.Interactivity;
+using Libraries.Custom.Interfaces;
+
+namespace Libraries.Custom.Interactivities
 {
     public static class Interaction
     {

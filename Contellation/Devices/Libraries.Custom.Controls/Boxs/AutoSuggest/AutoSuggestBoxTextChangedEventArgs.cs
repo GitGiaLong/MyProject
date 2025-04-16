@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Libraries.Custom.Enums.Control;
+using System.ComponentModel.DataAnnotations;
 
 namespace Libraries.Custom.Controls.AutoSuggestBoxs
 {

@@ -9,8 +9,5 @@
         mc:Ignorable="d"
         Title="Contellation" Height="450" Width="800">
     <Grid>
-
-        <ui:Gravatar Id="aaaa"/>
-
     </Grid>
 </ui:Window>

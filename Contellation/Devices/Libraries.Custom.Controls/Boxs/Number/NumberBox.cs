@@ -1,4 +1,5 @@
 ﻿using Libraries.Custom.Controls.NumberBoxs;
+using Libraries.Custom.Enums.Control;
 using System.Windows.Data;
 using System.Windows.Input;
 
@@ -186,7 +187,7 @@ namespace Libraries.Custom.Controls
 
         protected override void OnTemplateButtonClick(string? parameter)
         {
-            System.Diagnostics.Debug.WriteLine($"INFO: {typeof(NumberBox)} button clicked with param: {parameter}", "Core.Libraries.WPF.NumberBox");
+            System.Diagnostics.Debug.WriteLine($"INFO: {typeof(NumberBox)} button clicked with param: {parameter}", "Libraries.Custom.Controls.Number.NumberBox");
 
             switch (parameter)
             {
@@ -259,7 +260,7 @@ namespace Libraries.Custom.Controls
 
         private void StepValue(double? change)
         {
-            System.Diagnostics.Debug.WriteLine($"INFO: {typeof(NumberBox)} {nameof(StepValue)} raised, change {change}", "Core.WPF.Controls.NumberBox");
+            System.Diagnostics.Debug.WriteLine($"INFO: {typeof(NumberBox)} {nameof(StepValue)} raised, change {change}", "Libraries.Custom.Controls.Number.NumberBox");
 
             /// Before adjusting the value, validate the contents of the textbox so we don't override it.
             ValidateInput();

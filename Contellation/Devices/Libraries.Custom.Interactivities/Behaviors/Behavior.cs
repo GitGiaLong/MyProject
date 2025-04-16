@@ -1,4 +1,6 @@
-﻿using System.Globalization;
+﻿using Libraries.Custom.Extensions.Interactivity;
+using Libraries.Custom.Interfaces;
+using System.Globalization;
 using System.Windows.Media.Animation;
 
 namespace Libraries.Custom.Interactivities

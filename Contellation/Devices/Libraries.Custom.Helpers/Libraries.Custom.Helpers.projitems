@@ -13,6 +13,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Control\WindowHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DateTimeHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DesignerHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Icon\FormsIconHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Icon\IconHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Icon\ProFonts.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\DataBindingHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\DependencyObjectHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\TypeConverterHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MathHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ResourceHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ValidateHelper.cs" />

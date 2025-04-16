@@ -1,5 +1,5 @@
-﻿using Libraries.Custom.Interactivities.Enums;
-using Libraries.Custom.Interactivities.Extensions;
+﻿using Libraries.Custom.Enums.Interactivity;
+using Libraries.Custom.Extensions.Interactivity;
 using System.Windows.Controls;
 using System.Windows.Data;
 

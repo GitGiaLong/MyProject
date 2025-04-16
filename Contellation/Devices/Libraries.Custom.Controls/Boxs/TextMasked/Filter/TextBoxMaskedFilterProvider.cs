@@ -1,4 +1,6 @@
-﻿namespace Libraries.Custom.Controls.TextBoxMaskeds.Filter
+﻿using Libraries.Custom.Enums.Control;
+
+namespace Libraries.Custom.Controls.TextBoxMaskeds.Filter
 {
     public class TextBoxMaskedFilterProvider
     {

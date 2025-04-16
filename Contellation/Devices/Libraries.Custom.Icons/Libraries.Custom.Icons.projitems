@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>fb2a0fa6-a6d4-40e5-ad9e-b5712350a318</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Libraries.Custom.Icons</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Awesome.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MaterialDesignFont.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\Blocks\IconBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\Blocks\IconBlockBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\Icons\Icon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\Icons\IconBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\Images\IconImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\Images\IconImageBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\Images\IconToImageConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\Sources\IconSource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\Sources\IconSourceBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\ToGeometries\ToGeometry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\ToGeometries\ToGeometryBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\ToTexts\ToText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Font\ToTexts\ToTextBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Materials\Icon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Materials\IconBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Materials\IconImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Materials\ToGeometry.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Materials\ToText.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Methods\NativeMethod.cs" />
+  </ItemGroup>
+</Project>

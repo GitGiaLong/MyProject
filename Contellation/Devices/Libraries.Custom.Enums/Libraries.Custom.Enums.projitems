@@ -10,10 +10,28 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Bars\InfoBarSeverity.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\AutoSuggestionBoxTextChangeReason.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\NumberBoxSpinButtonPlacementMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\NumberBoxValidationMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\TextBoxMaskedFilterType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Datas\ListViewViewState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Loadings\LoadingMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\ThumbRate\ThumbRateState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dialog\ContentDialogButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dialog\ContentDialogResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FontTypography.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Icon\IconFont.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Icon\IconType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Icon\MaterialIcons.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inpus\ButtonAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\ComparisonConditionType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\ControlStoryboardOption.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\CustomPropertyValueEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\FluidMoveScope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\ForwardChaining.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\KeyTriggerFiredOn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\ScreenType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\TagType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Placements\HorizontalPlacement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Placements\OrientationPlacement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Systems\CacheSlot.cs" />

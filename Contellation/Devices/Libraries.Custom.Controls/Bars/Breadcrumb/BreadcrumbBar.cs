@@ -11,9 +11,9 @@ namespace Libraries.Custom.Controls
     /// The <see cref="BreadcrumbBar"/> control provides the direct path of pages or folders to the current location.
     /// </summary>
     /// <example>
-    /// <code lang="xml">
-    /// &lt;ui:BreadcrumbBar x:Name="BreadcrumbBar" /&gt;
-    /// </code>
+    ///     <code lang="xml">
+    ///         &lt;ui:BreadcrumbBar x:Name="BreadcrumbBar" /&gt;
+    ///     </code>
     /// </example>
     [StyleTypedProperty(Property = nameof(ItemContainerStyle), StyleTargetType = typeof(BreadcrumbBarItem))]
     public class BreadcrumbBar : System.Windows.Controls.ItemsControl

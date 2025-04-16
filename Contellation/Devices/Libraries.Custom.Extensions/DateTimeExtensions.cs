@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Libraries.Custom.Extensions
+﻿namespace Libraries.Custom.Extensions
 {
     /// <summary>
     /// A collection of several extensions to the <see cref="DateTime"/> class.

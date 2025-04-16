@@ -1,4 +1,4 @@
-﻿namespace Libraries.Custom.Controls.Bars.Menu
+﻿namespace Libraries.Custom.Controls
 {
     /// <summary>
     /// Extended <see cref="System.Windows.Controls.MenuItem"/> with <see cref="SymbolRegular"/> properties.

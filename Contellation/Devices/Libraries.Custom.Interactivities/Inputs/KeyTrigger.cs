@@ -1,4 +1,5 @@
-﻿using Libraries.Custom.Interactivities.Enums;
+﻿using Libraries.Custom.Enums.Interactivity;
+using Libraries.Custom.Events;
 using System.Windows.Input;
 
 namespace Libraries.Custom.Interactivities.Inputs

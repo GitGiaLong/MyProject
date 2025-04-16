@@ -1,4 +1,4 @@
-﻿using Libraries.Custom.Interactivities.Enums;
+﻿using Libraries.Custom.Enums.Interactivity;
 
 namespace Libraries.Custom.Interactivities
 {

@@ -1,9 +1,6 @@
 ﻿using Libraries.Custom.Helpers;
 using Libraries.Custom.Interactivities;
 using Libraries.Custom.Interactivities.Layouts;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows.Input;
 
 namespace Libraries.Custom.Controls.Datetimes.TimeBar

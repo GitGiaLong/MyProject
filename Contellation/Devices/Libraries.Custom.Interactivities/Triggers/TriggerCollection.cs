@@ -1,4 +1,7 @@
-﻿namespace Libraries.Custom.Interactivities
+﻿using Libraries.Custom.Extensions;
+using Libraries.Custom.Interfaces;
+
+namespace Libraries.Custom.Interactivities
 {
 
     public sealed class TriggerCollection : AttachableCollection<TriggerBase>

@@ -4,7 +4,7 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Generics/FontFamilies.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Generics/Styles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultUiNumberBoxStyle" TargetType="{x:Type controls:NumberBox}">

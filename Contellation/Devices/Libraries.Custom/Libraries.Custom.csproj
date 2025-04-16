@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+	  <Resource Include="Fonts\*.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+  <Import Project="..\Libraries.Custom.Controls\Libraries.Custom.Controls.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Enums\Libraries.Custom.Enums.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Converters\Libraries.Custom.Converters.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Helpers\Libraries.Custom.Helpers.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Events\Libraries.Custom.Events.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Icons\Libraries.Custom.Icons.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Interactivities\Libraries.Custom.Interactivities.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Interfaces\Libraries.Custom.Interfaces.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Interops\Libraries.Custom.Interops.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Model\Libraries.Custom.Model.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Structs\Libraries.Custom.Structs.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Extensions\Libraries.Custom.Extensions.projitems" Label="Shared" />
+	
+</Project>

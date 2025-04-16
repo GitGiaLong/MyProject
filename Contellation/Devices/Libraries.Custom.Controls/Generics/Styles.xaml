@@ -8,7 +8,7 @@
         <!--<ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Generics/Converters.xaml"/>-->
     </ResourceDictionary.MergedDictionaries>
 
-    <!--<Style x:Key="BorderCircularClip" TargetType="Border">
+    <Style x:Key="BorderCircularClip" TargetType="Border">
         <Setter Property="Clip">
             <Setter.Value>
                 <MultiBinding Converter="{StaticResource BorderCircularClipConverter}">
@@ -18,6 +18,6 @@
                 </MultiBinding>
             </Setter.Value>
         </Setter>
-    </Style>-->
+    </Style>
     
 </ResourceDictionary>

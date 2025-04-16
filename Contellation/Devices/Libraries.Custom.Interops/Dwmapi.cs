@@ -1,7 +1,5 @@
 ﻿using Libraries.Custom.Properties;
 using Libraries.Custom.Structs.Points;
-using System;
-using System.Runtime.InteropServices;
 
 namespace Libraries.Custom.Interops
 {

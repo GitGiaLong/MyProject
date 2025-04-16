@@ -28,7 +28,7 @@
         {
             return new()
             {
-                Source = new Uri("pack://application:,,,/Libraries.Custom;component/Windows/Window.xaml")
+                Source = new Uri("pack://application:,,,/Libraries.Custom;component/Window/Window.xaml")
             };
         }
     }

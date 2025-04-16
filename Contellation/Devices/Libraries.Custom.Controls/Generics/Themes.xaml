@@ -5,8 +5,6 @@
 
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Generics/Styles.xaml"/>
 
-        <!--#region Bar-->
-        
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Breadcrumb/BreadcrumbBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Info/InfoBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Menu/Menu.xaml" />
@@ -16,8 +14,6 @@
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Status/StatusBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Title/TitleBar.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Bars/Tool/ToolBar.xaml" />
-        
-        <!--#endregion-->
         
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Buttons/Anchor/AnchorButton.xaml" />
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Buttons/DropDown/DropDownButton.xaml" />
@@ -65,7 +61,7 @@
 
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Expanders/Expander.xaml" />
 
-        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Flyouts/Flyout.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Flyouts/Flyouts.xaml" />
 
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Frames/Frame.xaml" />
         
@@ -85,7 +81,7 @@
         
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Sliders/Slider.xaml" />
 
-        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Tabs/TabControls/TabControl.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Tabs/TabControl/TabControl.xaml" />
         <!--<ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Tabs/TabView/TabView.xaml" />-->
 
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Texts/Access/AccessText.xaml" />
@@ -96,7 +92,7 @@
         
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/ToggleSwitch/ToggleSwitch.xaml" />
         
-        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/ToolTips/ToolTip.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/ToolTip/ToolTip.xaml" />
         
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Window/Window.xaml" />
 

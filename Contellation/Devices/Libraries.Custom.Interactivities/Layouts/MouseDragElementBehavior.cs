@@ -1,4 +1,4 @@
-﻿using Libraries.Custom.Interactivities.Extensions;
+﻿using Libraries.Custom.Extensions.Interactivity;
 using System.Diagnostics;
 using System.Windows.Input;
 

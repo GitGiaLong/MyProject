@@ -1,7 +1,4 @@
-﻿using System;
-using System.Runtime.InteropServices;
-
-namespace Libraries.Custom.Interops
+﻿namespace Libraries.Custom.Interops
 {
 #pragma warning disable SA1307 // Accessible fields should begin with upper-case letter
 

@@ -12,7 +12,7 @@ namespace Libraries.Custom.Controls.Dialogs
     /// </summary>
     /// <example>
     /// <code lang="xml">
-    /// &lt;ContentPresenter x:Name="RootContentDialogPresenter" Grid.Row="0" /&gt;
+    ///     &lt;ContentPresenter x:Name="RootContentDialogPresenter" Grid.Row="0" /&gt;
     /// </code>
     /// <code lang="csharp">
     /// var contentDialog = new ContentDialog(RootContentDialogPresenter);

@@ -3,7 +3,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Core.Libraries.WPF;component/Generics/FontFamilies.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Generics/Styles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DefaultAutoSuggestBoxItemContainerStyle" TargetType="{x:Type controls:ListViewItem}">

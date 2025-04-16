@@ -1,4 +1,5 @@
 ﻿using Libraries.Custom.Controls.TextBoxMaskeds.Filter;
+using Libraries.Custom.Enums.Control;
 using System.ComponentModel;
 using System.Windows.Input;
 

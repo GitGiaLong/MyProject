@@ -1,4 +1,4 @@
-﻿using Libraries.Custom.Interactivities.Enums;
+﻿using Libraries.Custom.Enums.Interactivity;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Controls;
 using System.Windows.Data;

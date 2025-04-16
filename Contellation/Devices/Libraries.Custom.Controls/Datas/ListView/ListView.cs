@@ -1,4 +1,4 @@
-﻿using Libraries.Custom.Controls.ListViews;
+﻿using Libraries.Custom.Enums.Control;
 using System.ComponentModel;
 
 namespace Libraries.Custom.Controls

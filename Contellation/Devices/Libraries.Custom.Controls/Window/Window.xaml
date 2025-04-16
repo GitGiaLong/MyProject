@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:Libraries.Custom.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Generics/FontFamilies.xaml"/>
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Generics/Styles.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <ControlTemplate x:Key="WindowWin10Template" TargetType="{x:Type controls:Window}">

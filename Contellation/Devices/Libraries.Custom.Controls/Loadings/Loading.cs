@@ -1,5 +1,5 @@
-﻿using Libraries.Custom.Controls.Loadings;
-using Libraries.Custom.Controls.Loadings.Indicators;
+﻿using Libraries.Custom.Controls.Loadings.Indicators;
+using Libraries.Custom.Enums.Control;
 using System.Windows.Controls;
 
 namespace Libraries.Custom.Controls

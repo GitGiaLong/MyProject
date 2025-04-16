@@ -21,7 +21,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\AutoSuggest\AutoSuggestBoxQuerySubmittedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\AutoSuggest\AutoSuggestBoxSuggestionChosenEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\AutoSuggest\AutoSuggestBoxTextChangedEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Boxs\AutoSuggest\AutoSuggestionBoxTextChangeReason.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Borders\ClientAreaBorder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Buttons\Normal\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Cards\Color\CardColor.cs" />
@@ -61,17 +60,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Layouts\Grid\ResponsiveGrid.Properties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Datas\ListView\ListView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Datas\ListView\ListViewItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Datas\ListView\ListViewViewState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Loadings\Indicators\VisualStateGroupNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Loadings\Indicators\VisualStateNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Loadings\Indicators\VisualStateUtilities.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Loadings\Loading.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Loadings\LoadingMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\Number\INumberFormatter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\Number\INumberParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\Number\NumberBox.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Boxs\Number\NumberBoxSpinButtonPlacementMode.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Boxs\Number\NumberBoxValidationMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\Number\ValidateNumberFormatter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\CirclePanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\SimplePanel.cs" />
@@ -89,11 +84,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\TextMasked\Filter\BaseFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\TextMasked\Filter\RegExFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\TextMasked\Filter\TextBoxMaskedFilterProvider.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Boxs\TextMasked\Filter\TextBoxMaskedFilterType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\TextMasked\TextBoxMasked.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\Text\TextBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ThumbRate\ThumbRate.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ThumbRate\ThumbRateState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ToggleSwitch\ToggleSwitch.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Datas\TreeView\TreeViewItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Window\Window.cs" />

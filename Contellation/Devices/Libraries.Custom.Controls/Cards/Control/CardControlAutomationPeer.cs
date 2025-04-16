@@ -7,8 +7,7 @@ namespace Libraries.Custom.Controls
     {
         private readonly CardControl _owner;
 
-        public CardControlAutomationPeer(CardControl owner)
-            : base(owner)
+        public CardControlAutomationPeer(CardControl owner) : base(owner)
         {
             _owner = owner;
         }
