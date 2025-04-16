@@ -1,4 +1,4 @@
-namespace Blazor.Shared
+namespace Blazor.Contellation.Shared
 {
     public class WeatherForecast
     {

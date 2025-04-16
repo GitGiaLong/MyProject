@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.ResponseCompression;
 
-namespace Blazor
+namespace Blazor.Contellation
 {
     public class Program
     {

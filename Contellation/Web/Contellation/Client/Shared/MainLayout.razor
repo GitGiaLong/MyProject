@@ -1,37 +1,17 @@
 ﻿@inherits LayoutComponentBase
-@inject IAuthentication AccountService
-@inject NavigationManager NavigationManager
 
 <div class="page">
-    @if (AccountService.IsLogin == true)
-    {
-        <div class="sidebar">
-            <NavMenu />
-        </div>
-    }
+    <div class="sidebar">
+        <NavMenu />
+    </div>
 
     <main>
-        @if (AccountService.IsLogin == true)
-        {
-            <div class="top-row">
-                <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-            </div>
-        }
+        <div class="top-row px-4">
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+        </div>
 
-        <article class="content">
+        <article class="content px-4">
             @Body
         </article>
     </main>
 </div>
-
-
-@code {
-    protected override void OnInitialized()
-    {
-        // redirect to home if already logged in
-        if (AccountService.User != null)
-        {
-            NavigationManager.NavigateTo("");
-        }
-    }
-}

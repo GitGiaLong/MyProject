@@ -1,7 +1,7 @@
-using Blazor.Shared;
+using Blazor.Contellation.Shared;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Blazor.Server.Controllers
+namespace Blazor.Contellation.Server.Controllers
 {
     [ApiController]
     [Route("[controller]")]
