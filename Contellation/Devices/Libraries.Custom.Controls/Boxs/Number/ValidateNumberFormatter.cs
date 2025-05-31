@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using Libraries.Custom.Interfaces.Control.Number;
+using System.Globalization;
 
 namespace Libraries.Custom.Controls.NumberBoxs
 {

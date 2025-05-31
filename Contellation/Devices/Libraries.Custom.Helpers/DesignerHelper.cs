@@ -28,10 +28,7 @@ namespace Libraries.Custom.Helpers
                 return _isInDesignMode;
             }
 
-            _isInDesignMode = (bool)(
-                DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject))?.DefaultValue
-                ?? false
-            );
+            _isInDesignMode = (bool)(DesignerProperties.IsInDesignModeProperty.GetMetadata(typeof(DependencyObject))?.DefaultValue ?? false);
 
             _isValueAlreadyValidated = true;
 

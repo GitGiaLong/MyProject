@@ -1,5 +1,5 @@
-﻿using Libraries.Custom.Controls.AutoSuggestBoxs;
-using Libraries.Custom.Enums.Control;
+﻿using Libraries.Custom.Enums.Control;
+using Libraries.Custom.Events.Control.Boxs.AutoSuggest;
 using Libraries.Custom.Extensions.Intputs;
 using Libraries.Custom.Handlers;
 using Libraries.Custom.Interops;
@@ -16,12 +16,12 @@ namespace Libraries.Custom.Controls
     /// </summary>
     /// <example>
     /// <code lang="xml">
-    /// &lt;ui:AutoSuggestBox x:Name="AutoSuggestBox" PlaceholderText="Search"&gt;
-    ///     &lt;ui:AutoSuggestBox.Icon&gt;
-    ///         &lt;ui:IconSourceElement&gt;
-    ///             &lt;ui:SymbolIconSource Symbol="Search24" /&gt;
-    ///         &lt;/ui:IconSourceElement&gt;
-    ///     &lt;/ui:AutoSuggestBox.Icon&gt;
+    /// &lt;ui:AutoSuggestBox 
+    ///     x:Name="AutoSuggestBox" 
+    ///     Icon="&#xF002;"
+    ///     FontFamilyIcon="{x:Static local:FontAwesomeIcons.FontAwesome}"
+    ///     OriginalItemsSource="{Binding ViewModel.AutoSuggestBoxSuggestions, Mode=OneWay}"
+    ///     PlaceholderText="Search"&gt;
     /// &lt;/ui:AutoSuggestBox&gt;
     /// </code>
     /// </example>
@@ -170,17 +170,13 @@ namespace Libraries.Custom.Controls
 
         public AutoSuggestBox()
         {
-            Loaded += static (sender, _) =>
-            {
+            Loaded += static (sender, _) => {
                 var self = (AutoSuggestBox)sender;
-
                 self.AcquireTemplateResources();
             };
 
-            Unloaded += static (sender, _) =>
-            {
+            Unloaded += static (sender, _) => {
                 var self = (AutoSuggestBox)sender;
-
                 self.ReleaseTemplateResources();
             };
 
@@ -302,10 +298,7 @@ namespace Libraries.Custom.Controls
 
             RaiseEvent(args);
 
-            if (UpdateTextOnSelect && !args.Handled)
-            {
-                UpdateTexBoxTextAfterSelection(selectedItem);
-            }
+            if (UpdateTextOnSelect && !args.Handled) { UpdateTexBoxTextAfterSelection(selectedItem); }
         }
 
         /// <summary>
@@ -395,10 +388,7 @@ namespace Libraries.Custom.Controls
 
             SetCurrentValue(IsSuggestionListOpenProperty, false);
 
-            if (_selectedItem is not null)
-            {
-                OnSuggestionChosen(_selectedItem);
-            }
+            if (_selectedItem is not null) { OnSuggestionChosen(_selectedItem); }
         }
 
         private void SuggestionsListOnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -447,8 +437,7 @@ namespace Libraries.Custom.Controls
             }
 
             var splitText = text.ToLowerInvariant().Split(' ');
-            var suitableItems = OriginalItemsSource.Cast<object>().Where(item =>
-            {
+            var suitableItems = OriginalItemsSource.Cast<object>().Where(item => {
                 var itemText = GetStringFromObj(item)?.ToLowerInvariant();
                 return splitText.All(key => itemText?.Contains(key) ?? false);
             }).ToList();
@@ -471,13 +460,10 @@ namespace Libraries.Custom.Controls
             var newText = (string)e.NewValue;
 
             if (self.TextBox is null) { return; }
-
             if (self.TextBox.Text == newText) { return; }
 
             self._isChangedTextOutSideOfTextBox = true;
-
             self.TextBox.SetCurrentValue(System.Windows.Controls.TextBox.TextProperty, newText);
-
             self._isChangedTextOutSideOfTextBox = false;
         }
     }

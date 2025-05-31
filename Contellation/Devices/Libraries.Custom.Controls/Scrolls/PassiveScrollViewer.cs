@@ -8,15 +8,17 @@ namespace Libraries.Custom.Controls
     /// </summary>
     public class PassiveScrollViewer : ScrollViewer
     {
-        /// <summary>Gets or sets a value indicating whether blocked inner scrolling should be propagated forward.</summary>
+        /// <summary>
+        /// Gets or sets a value indicating whether blocked inner scrolling should be propagated forward.
+        /// </summary>
         public bool IsScrollSpillEnabled
         {
             get { return (bool)GetValue(IsScrollSpillEnabledProperty); }
             set { SetValue(IsScrollSpillEnabledProperty, value); }
         }
         /// <summary>Identifies the <see cref="IsScrollSpillEnabled"/> dependency property.</summary>
-        public static readonly DependencyProperty IsScrollSpillEnabledProperty = DependencyProperty.Register(nameof(IsScrollSpillEnabled), typeof(bool),
-            typeof(PassiveScrollViewer), new PropertyMetadata(true));
+        public static readonly DependencyProperty IsScrollSpillEnabledProperty = DependencyProperty.Register(nameof(IsScrollSpillEnabled), 
+            typeof(bool), typeof(PassiveScrollViewer), new PropertyMetadata(true));
 
         protected override void OnMouseWheel(MouseWheelEventArgs e)
         {

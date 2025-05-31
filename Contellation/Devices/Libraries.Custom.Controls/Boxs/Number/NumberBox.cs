@@ -1,5 +1,6 @@
 ﻿using Libraries.Custom.Controls.NumberBoxs;
 using Libraries.Custom.Enums.Control;
+using Libraries.Custom.Interfaces.Control.Number;
 using System.Windows.Data;
 using System.Windows.Input;
 

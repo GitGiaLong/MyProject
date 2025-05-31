@@ -20,6 +20,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Rects\RECT.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Rects\RECTL.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SIZE.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SM.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Virtualizings\ItemRange.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HRESULT.cs" />
   </ItemGroup>
 </Project>

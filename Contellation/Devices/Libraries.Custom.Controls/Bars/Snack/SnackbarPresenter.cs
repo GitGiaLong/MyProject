@@ -46,7 +46,6 @@
         {
             await HideCurrent();
             await ShowSnackbar(snackbar);
-
             await ShowQueuedSnackbars();
         }
 

@@ -9,7 +9,14 @@
     <Import_RootNamespace>Libraries.Custom.Converters</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AnimationFactorToValueConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Border\BorderCircularClipConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ByteToImage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FallbackBrushConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Object2VisibilityConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Progress\ProgressThicknessConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ResponsiveGrid\BreakPointsTypeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ResponsiveGrid\Layout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Split\LeftSplitCornerRadius.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Split\LeftSplitThickness.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Split\RightSplitCornerRadius.cs" />

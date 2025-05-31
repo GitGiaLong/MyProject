@@ -7,37 +7,22 @@ namespace Libraries.Custom.Controls
     {
         private readonly CardControl _owner;
 
-        public CardControlAutomationPeer(CardControl owner) : base(owner)
-        {
-            _owner = owner;
-        }
+        public CardControlAutomationPeer(CardControl owner) : base(owner) { _owner = owner; }
 
-        protected override string GetClassNameCore()
-        {
-            return "CardControl";
-        }
+        protected override string GetClassNameCore() { return nameof(CardControl)/*"CardControl"*/; }
 
-        protected override AutomationControlType GetAutomationControlTypeCore()
-        {
-            return AutomationControlType.Pane;
-        }
+        protected override AutomationControlType GetAutomationControlTypeCore() { return AutomationControlType.Pane; }
 
         public override object GetPattern(PatternInterface patternInterface)
         {
-            if (patternInterface == PatternInterface.ItemContainer)
-            {
-                return this;
-            }
+            if (patternInterface == PatternInterface.ItemContainer) { return this; }
 
             return base.GetPattern(patternInterface);
         }
 
         protected override AutomationPeer GetLabeledByCore()
         {
-            if (_owner.Header is UIElement element)
-            {
-                return CreatePeerForElement(element);
-            }
+            if (_owner.Header is UIElement element) { return CreatePeerForElement(element); }
 
             return base.GetLabeledByCore();
         }
@@ -46,20 +31,11 @@ namespace Libraries.Custom.Controls
         {
             var result = base.GetNameCore() ?? string.Empty;
 
-            if (result == string.Empty)
-            {
-                result = AutomationProperties.GetName(_owner);
-            }
+            if (result == string.Empty) { result = AutomationProperties.GetName(_owner); }
 
-            if (result == string.Empty && _owner.Header is DependencyObject d)
-            {
-                result = AutomationProperties.GetName(d);
-            }
+            if (result == string.Empty && _owner.Header is DependencyObject d) { result = AutomationProperties.GetName(d); }
 
-            if (result == string.Empty && _owner.Header is string s)
-            {
-                result = s;
-            }
+            if (result == string.Empty && _owner.Header is string s) { result = s; }
 
             return result;
         }

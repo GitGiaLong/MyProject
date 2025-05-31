@@ -9,10 +9,17 @@
     <Import_RootNamespace>Libraries.Custom.Interfaces</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Gravatar\IGravatar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Number\INumberFormatter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Number\INumberParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Icon\IIconFont.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\IBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\ICondition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\ITickTimer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)IValueRange.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\IPageService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Control\Navigation\" />
   </ItemGroup>
 </Project>

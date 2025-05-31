@@ -15,7 +15,7 @@ namespace Libraries.Custom.Controls
             get { return (FontTypography)GetValue(FontTypographyProperty); }
             set { SetValue(FontTypographyProperty, value); }
         }
-        public static readonly DependencyProperty FontTypographyProperty = DependencyProperty.Register(nameof(FontTypography), typeof(FontTypography),
-            typeof(TextBlock), new PropertyMetadata(FontTypography.Body));
+        public static readonly DependencyProperty FontTypographyProperty = DependencyProperty.Register(nameof(FontTypography), 
+            typeof(FontTypography), typeof(TextBlock), new PropertyMetadata(FontTypography.Body));
     }
 }

@@ -9,17 +9,26 @@
     <Import_RootNamespace>Libraries.Custom.Enums</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\Transition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bars\InfoBarSeverity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\AutoSuggestionBoxTextChangeReason.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\NumberBoxSpinButtonPlacementMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\NumberBoxValidationMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\TextBoxMaskedFilterType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Control\Datas\ListViewViewState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Datetimes\Scheduletimeline\Mode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Datetimes\TimeBar\ComparerTypeCode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Control\Loadings\LoadingMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Navigation\NavigationView\NavigationCacheMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Navigation\NavigationView\NavigationViewBackButtonVisible.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Navigation\NavigationView\NavigationViewPaneDisplayMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Control\ThumbRate\ThumbRateState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Virtualizings\ScrollDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Virtualizings\SpacingMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dialog\ContentDialogButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dialog\ContentDialogResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FontTypography.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Hardware\RenderingTier.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Icon\IconFont.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Icon\IconType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Icon\MaterialIcons.cs" />
@@ -32,8 +41,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\KeyTriggerFiredOn.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\ScreenType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\TagType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\MessageBox\MessageBoxButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\MessageBox\MessageBoxResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Placements\HorizontalPlacement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Placements\OrientationPlacement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SM.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Systems\CacheSlot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TaskBars\TaskBarProgressState.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Windows\WindowBackdropType.cs" />

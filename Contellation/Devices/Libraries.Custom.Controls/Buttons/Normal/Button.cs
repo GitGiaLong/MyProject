@@ -19,6 +19,9 @@ namespace Libraries.Custom.Controls
     ///     FontFamilyIcon="{StaticReource FontAwesome_Solid}"/&gt;
     /// </code>
     /// </example>
+    /// <remarks>
+    /// The <see cref="Button"/> class inherits from the base <see cref="System.Windows.Controls.Button"/> class.
+    /// </remarks>
     public class Button : System.Windows.Controls.Button
     {
         /// <summary> 

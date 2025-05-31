@@ -21,20 +21,25 @@ namespace Libraries.Custom.Controls
         public event PropertyChangedEventHandler PropertyChanged;
 
         private Grid? grid_Timeline;
-        private Grid? grid_MainGrid;
-        private ScrollViewer? scrollViewer_MainData;
-        private StackPanel? stackPanel_Threads;
-        private StackPanel? stackPanel_MainData;
-        private Popup? popup_info;
-        private ContentControl? cc_info;
+        private const string ElementGridTimeline = nameof(grid_Timeline)/*"grid_Timeline"*/;
 
-        private const string ElementGridTimeline = "grid_Timeline";
-        private const string ElementGridMainGrid = "grid_MainGrid";
-        private const string ElementScrollViewerMainData = "scrollViewer_MainData";
-        private const string ElementStackPanelThreads = "stackPanel_Threads";
-        private const string ElementStackPanelMainData = "stackPanel_MainData";
-        private const string ElementPopupInfo = "popup_info";
-        private const string ElementCcInfo = "cc_info";
+        private Grid? grid_MainGrid;
+        private const string ElementGridMainGrid = nameof(grid_MainGrid)/*"grid_MainGrid"*/;
+
+        private ScrollViewer? scrollViewer_MainData;
+        private const string ElementScrollViewerMainData = nameof(scrollViewer_MainData)/*"scrollViewer_MainData"*/;
+
+        private StackPanel? stackPanel_Threads;
+        private const string ElementStackPanelThreads = nameof(stackPanel_Threads)/*"stackPanel_Threads"*/;
+
+        private StackPanel? stackPanel_MainData;
+        private const string ElementStackPanelMainData = nameof(stackPanel_MainData)/*"stackPanel_MainData"*/;
+
+        private Popup? popup_info;
+        private const string ElementPopupInfo = nameof(popup_info)/*"popup_info"*/;
+
+        private ContentControl? cc_info;
+        private const string ElementCcInfo = nameof(cc_info)/*"cc_info"*/;
 
         private Point initMousePoint;
         private DateTime initCaptureLeftEdge;

@@ -30,10 +30,7 @@ namespace Libraries.Custom.Controls
         {
             get
             {
-                if (_paddedBorderThickness is not null)
-                {
-                    return _paddedBorderThickness.Value;
-                }
+                if (_paddedBorderThickness is not null) { return _paddedBorderThickness.Value; }
 
                 var paddedBorder = User32.GetSystemMetrics(User32.SM.CXPADDEDBORDER);
 
@@ -42,12 +39,8 @@ namespace Libraries.Custom.Controls
                 var frameSize = new Size(paddedBorder, paddedBorder);
                 var frameSizeInDips = new Size(frameSize.Width / factorX, frameSize.Height / factorY);
 
-                _paddedBorderThickness = new Thickness(
-                    frameSizeInDips.Width,
-                    frameSizeInDips.Height,
-                    frameSizeInDips.Width,
-                    frameSizeInDips.Height
-                );
+                _paddedBorderThickness = new Thickness(frameSizeInDips.Width, frameSizeInDips.Height,
+                    frameSizeInDips.Width, frameSizeInDips.Height);
 
                 return _paddedBorderThickness.Value;
             }

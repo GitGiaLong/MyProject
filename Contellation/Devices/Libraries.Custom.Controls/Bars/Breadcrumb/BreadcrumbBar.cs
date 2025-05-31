@@ -65,7 +65,6 @@ namespace Libraries.Custom.Controls
             RaiseEvent(args);
 
             if (Command?.CanExecute(item) ?? false) { Command.Execute(item); }
-
             if (Command?.CanExecute(null) ?? false) { Command.Execute(null); }
         }
 
@@ -98,10 +97,7 @@ namespace Libraries.Custom.Controls
 
         private void ItemContainerGeneratorOnStatusChanged(object? sender, EventArgs e)
         {
-            if (ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated)
-            {
-                return;
-            }
+            if (ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated) { return; }
 
             if (ItemContainerGenerator.Items.Count <= 1)
             {
@@ -116,10 +112,7 @@ namespace Libraries.Custom.Controls
 
         private void ItemContainerGeneratorOnItemsChanged(object sender, ItemsChangedEventArgs e)
         {
-            if (e.Action != NotifyCollectionChangedAction.Remove)
-            {
-                return;
-            }
+            if (e.Action != NotifyCollectionChangedAction.Remove) { return; }
 
             UpdateLastContainer();
         }
@@ -147,7 +140,7 @@ namespace Libraries.Custom.Controls
             action.Invoke(container);
         }
 
-        private void UpdateLastContainer() =>
-            InteractWithItemContainer(1, static item => item.SetCurrentValue(BreadcrumbBarItem.IsLastProperty, true));
+        private void UpdateLastContainer() => InteractWithItemContainer(1, static item 
+            => item.SetCurrentValue(BreadcrumbBarItem.IsLastProperty, true));
     }
 }

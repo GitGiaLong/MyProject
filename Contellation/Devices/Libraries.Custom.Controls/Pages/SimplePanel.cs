@@ -29,10 +29,7 @@ namespace Libraries.Custom.Controls
 
         protected override Size ArrangeOverride(Size arrangeSize)
         {
-            foreach (UIElement child in InternalChildren)
-            {
-                child?.Arrange(new Rect(arrangeSize));
-            }
+            foreach (UIElement child in InternalChildren) { child?.Arrange(new Rect(arrangeSize)); }
 
             return arrangeSize;
         }

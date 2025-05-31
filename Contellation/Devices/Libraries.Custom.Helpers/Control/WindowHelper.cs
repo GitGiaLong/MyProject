@@ -1,4 +1,5 @@
-﻿using Libraries.Custom.Enums.Systems;
+﻿using Libraries.Custom.Enums;
+using Libraries.Custom.Enums.Systems;
 using Libraries.Custom.Extensions;
 using Libraries.Custom.Interops;
 using Libraries.Custom.Interops.Hardwares;

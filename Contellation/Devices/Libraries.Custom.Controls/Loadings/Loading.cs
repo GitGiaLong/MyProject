@@ -46,7 +46,10 @@ namespace Libraries.Custom.Controls
         public static readonly DependencyProperty ModeProperty = DependencyProperty.Register(nameof(Mode), typeof(LoadingMode),
             typeof(Loading), new PropertyMetadata(default(LoadingMode)));
 
-        static Loading() { DefaultStyleKeyProperty.OverrideMetadata(typeof(Loading), new FrameworkPropertyMetadata(typeof(Loading))); }
+        static Loading() 
+        { 
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(Loading), new FrameworkPropertyMetadata(typeof(Loading))); 
+        }
 
         private static void OnSpeedRatioChanged(DependencyObject o, DependencyPropertyChangedEventArgs e)
         {

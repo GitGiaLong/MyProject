@@ -1,4 +1,5 @@
-﻿using Libraries.Custom.Interops.Handles;
+﻿using Libraries.Custom.Enums;
+using Libraries.Custom.Interops.Handles;
 using Libraries.Custom.Properties;
 using Libraries.Custom.Structs;
 using System.ComponentModel;

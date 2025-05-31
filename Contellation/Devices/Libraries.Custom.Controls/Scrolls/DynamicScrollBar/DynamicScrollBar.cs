@@ -9,9 +9,8 @@ namespace Libraries.Custom.Controls
     public class DynamicScrollBar : System.Windows.Controls.Primitives.ScrollBar
     {
         private readonly EventIdentifier _interactiveIdentifier = new EventIdentifier();
+        
         private bool _isScrolling = false;
-        private bool _isInteracted = false;
-
         /// <summary>
         /// Gets or sets a value indicating whether the user was recently scrolling in the last few seconds.
         /// </summary>
@@ -23,12 +22,13 @@ namespace Libraries.Custom.Controls
         public static readonly DependencyProperty IsScrollingProperty = DependencyProperty.Register(nameof(IsScrolling), typeof(bool),
             typeof(DynamicScrollBar), new PropertyMetadata(false, OnIsScrollingChanged));
 
+        private bool _isInteracted = false;
         /// <summary>
         /// Gets or sets a value indicating whether the user has taken an action related to scrolling.
         /// </summary>
         public bool IsInteracted
         {
-            get => (bool)GetValue(IsInteractedProperty);
+            get { return (bool)GetValue(IsInteractedProperty); }
             set
             {
                 if ((bool)GetValue(IsInteractedProperty) != value)

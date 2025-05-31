@@ -49,10 +49,7 @@ namespace Libraries.Custom.Controls
             /// Hook for derived classes to react to ViewState property changes
         }
 
-        public ListView()
-        {
-            Loaded += OnLoaded;
-        }
+        public ListView() { Loaded += OnLoaded; }
 
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
@@ -86,14 +83,8 @@ namespace Libraries.Custom.Controls
             DefaultStyleKeyProperty.OverrideMetadata(typeof(ListView), new FrameworkPropertyMetadata(typeof(ListView)));
         }
 
-        protected override DependencyObject GetContainerForItemOverride()
-        {
-            return new ListViewItem();
-        }
+        protected override DependencyObject GetContainerForItemOverride() { return new ListViewItem(); }
 
-        protected override bool IsItemItsOwnContainerOverride(object item)
-        {
-            return item is ListViewItem;
-        }
+        protected override bool IsItemItsOwnContainerOverride(object item) { return item is ListViewItem; }
     }
 }

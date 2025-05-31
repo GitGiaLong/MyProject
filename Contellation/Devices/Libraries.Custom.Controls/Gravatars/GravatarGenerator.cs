@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using Libraries.Custom.Interfaces.Control.Gravatar;
+using System.Globalization;
 using System.Security.Cryptography;
 using System.Windows.Shapes;
 

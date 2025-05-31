@@ -16,13 +16,6 @@ namespace Libraries.Custom.Controls
 
         // Due to the large number of triggered events, we limit the complex logic of DependencyProperty
         private bool _scrollingVertically = false;
-
-        private bool _scrollingHorizontally = false;
-
-        private int _timeout = 1200;
-
-        private double _minimalChange = 40d;
-
         /// <summary>
         /// Gets or sets a value indicating whether the user was scrolling vertically for the last few seconds.
         /// </summary>
@@ -35,6 +28,7 @@ namespace Libraries.Custom.Controls
         public static readonly DependencyProperty IsScrollingVerticallyProperty = DependencyProperty.Register(nameof(IsScrollingVertically), typeof(bool),
             typeof(DynamicScrollViewer), new PropertyMetadata(false, OnIsScrollingVerticallyChanged));
 
+        private bool _scrollingHorizontally = false;
         /// <summary>
         /// Gets or sets a value indicating whether the user was scrolling horizontally for the last few seconds.
         /// </summary>
@@ -47,6 +41,7 @@ namespace Libraries.Custom.Controls
         public static readonly DependencyProperty IsScrollingHorizontallyProperty = DependencyProperty.Register(nameof(IsScrollingHorizontally), typeof(bool),
             typeof(DynamicScrollViewer), new PropertyMetadata(false, OnIsScrollingHorizontallyChanged));
 
+        private double _minimalChange = 40d;
         /// <summary>
         /// Gets or sets the value required for the scroll to show automatically.
         /// </summary>
@@ -59,6 +54,7 @@ namespace Libraries.Custom.Controls
         public static readonly DependencyProperty MinimalChangeProperty = DependencyProperty.Register(nameof(MinimalChange), typeof(double),
             typeof(DynamicScrollViewer), new PropertyMetadata(40d, OnMinimalChangeChanged));
 
+        private int _timeout = 1200;
         /// <summary>
         /// Gets or sets time after which the scroll is to be hidden.
         /// </summary>
@@ -96,11 +92,13 @@ namespace Libraries.Custom.Controls
 
         private async void UpdateVerticalScrollingState()
         {
-            // TODO: Optimize
-            // My main assumption here is that each scroll causes a new "event / thread" to be assigned.
-            // If more than Timeout has passed since the last event, there is no interaction.
-            // We pass this value to the ScrollBar and link it to IsMouseOver.
-            // This way we have a dynamic scrollbar that responds to scroll / mouse over.
+            /* 
+             * TODO: Optimize
+             * My main assumption here is that each scroll causes a new "event / thread" to be assigned.
+             * If more than Timeout has passed since the last event, there is no interaction.
+             * We pass this value to the ScrollBar and link it to IsMouseOver.
+             * This way we have a dynamic scrollbar that responds to scroll / mouse over.
+             */
             long currentEvent = _verticalIdentifier.GetNext();
 
             if (!_scrollingVertically) { SetCurrentValue(IsScrollingVerticallyProperty, true); }

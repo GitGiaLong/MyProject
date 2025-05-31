@@ -9,7 +9,6 @@ namespace Libraries.Custom.Controls
     /// </summary>
     public class ThumbRate : System.Windows.Controls.Control
     {
-
         /// <summary>
         /// Gets or sets the value determining the current state of the control.
         /// </summary>
@@ -36,8 +35,8 @@ namespace Libraries.Custom.Controls
         /// Gets the command triggered when clicking the button.
         /// </summary>
         public IRelayCommand TemplateButtonCommand => (IRelayCommand)GetValue(TemplateButtonCommandProperty);
-        public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(nameof(TemplateButtonCommand), typeof(IRelayCommand),
-            typeof(ThumbRate), new PropertyMetadata(null));
+        public static readonly DependencyProperty TemplateButtonCommandProperty = DependencyProperty.Register(nameof(TemplateButtonCommand), 
+            typeof(IRelayCommand), typeof(ThumbRate), new PropertyMetadata(null));
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ThumbRate"/> class and attaches <see cref="TemplateButtonCommand"/>.

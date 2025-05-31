@@ -104,8 +104,8 @@ namespace Libraries.Custom.Controls.Dialogs
             get { return (double)GetValue(DialogMaxHeightProperty); }
             set { SetValue(DialogMaxHeightProperty, value); }
         }
-        public static readonly DependencyProperty DialogMaxHeightProperty = DependencyProperty.Register(nameof(DialogMaxHeight), typeof(double),
-            typeof(ContentDialog), new PropertyMetadata(double.PositiveInfinity));
+        public static readonly DependencyProperty DialogMaxHeightProperty = DependencyProperty.Register(nameof(DialogMaxHeight), 
+            typeof(double), typeof(ContentDialog), new PropertyMetadata(double.PositiveInfinity));
 
         /// <summary>
         /// Gets or sets the margin of the <see cref="ContentDialog"/>.
@@ -115,8 +115,8 @@ namespace Libraries.Custom.Controls.Dialogs
             get { return (Thickness)GetValue(DialogMarginProperty); }
             set { SetValue(DialogMarginProperty, value); }
         }
-        public static readonly DependencyProperty DialogMarginProperty = DependencyProperty.Register(nameof(DialogMargin), typeof(Thickness),
-            typeof(ContentDialog));
+        public static readonly DependencyProperty DialogMarginProperty = DependencyProperty.Register(nameof(DialogMargin), 
+            typeof(Thickness), typeof(ContentDialog));
 
         /// <summary>
         /// Gets or sets the text to display on the primary button.
@@ -126,8 +126,8 @@ namespace Libraries.Custom.Controls.Dialogs
             get { return (string)GetValue(PrimaryButtonTextProperty); }
             set { SetValue(PrimaryButtonTextProperty, value); }
         }
-        public static readonly DependencyProperty PrimaryButtonTextProperty = DependencyProperty.Register(nameof(PrimaryButtonText), typeof(string),
-            typeof(ContentDialog), new PropertyMetadata(string.Empty));
+        public static readonly DependencyProperty PrimaryButtonTextProperty = DependencyProperty.Register(nameof(PrimaryButtonText), 
+            typeof(string), typeof(ContentDialog), new PropertyMetadata(string.Empty));
 
         /// <summary>
         /// Gets or sets the text to be displayed on the secondary button.
@@ -137,8 +137,8 @@ namespace Libraries.Custom.Controls.Dialogs
             get { return (string)GetValue(SecondaryButtonTextProperty); }
             set { SetValue(SecondaryButtonTextProperty, value); }
         }
-        public static readonly DependencyProperty SecondaryButtonTextProperty = DependencyProperty.Register(nameof(SecondaryButtonText), typeof(string),
-            typeof(ContentDialog), new PropertyMetadata(string.Empty));
+        public static readonly DependencyProperty SecondaryButtonTextProperty = DependencyProperty.Register(nameof(SecondaryButtonText), 
+            typeof(string), typeof(ContentDialog), new PropertyMetadata(string.Empty));
 
         /// <summary>
         /// Gets or sets the text to display on the close button.
@@ -148,8 +148,8 @@ namespace Libraries.Custom.Controls.Dialogs
             get { return (string)GetValue(CloseButtonTextProperty); }
             set { SetValue(CloseButtonTextProperty, value); }
         }
-        public static readonly DependencyProperty CloseButtonTextProperty = DependencyProperty.Register(nameof(CloseButtonText), typeof(string),
-            typeof(ContentDialog), new PropertyMetadata("Close"));
+        public static readonly DependencyProperty CloseButtonTextProperty = DependencyProperty.Register(nameof(CloseButtonText), 
+            typeof(string), typeof(ContentDialog), new PropertyMetadata("Close"));
 
         ///// <summary>
         ///// Gets or sets the <see cref="SymbolRegular"/> on the secondary button.

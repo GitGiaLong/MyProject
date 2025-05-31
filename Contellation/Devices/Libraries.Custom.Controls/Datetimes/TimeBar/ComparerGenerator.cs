@@ -1,8 +1,8 @@
-﻿using Libraries.Custom.Structs;
+﻿using Libraries.Custom.Enums.Control.Datetimes.TimeBar;
+using Libraries.Custom.Structs;
 
 namespace Libraries.Custom.Controls.Datetimes.TimeBar
 {
-
     public class ComparerGenerator
     {
         private static readonly Dictionary<Type, ComparerTypeCode> TypeCodeDic = new()
@@ -23,11 +23,6 @@ namespace Libraries.Custom.Controls.Datetimes.TimeBar
             }
 
             return null;
-        }
-
-        private enum ComparerTypeCode
-        {
-            DateTimeRange
         }
     }
 }

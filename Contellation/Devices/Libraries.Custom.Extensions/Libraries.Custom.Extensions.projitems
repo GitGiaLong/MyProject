@@ -9,12 +9,14 @@
     <Import_RootNamespace>Libraries.Custom.Extensions</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Animation\TransitionAnimationProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\CommandControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\CommandControl\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Command\CommandControl\ShutdownAppCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DateTimeExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)EnumerableExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)FunctionEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Hardware\HardwareAcceleration.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Icon\IconExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\ActionCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\AttachableCollection.cs" />
@@ -43,6 +45,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Intputs\IRelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Intputs\RelayCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MultiStyle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\ControlsServices.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UiApplication.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UiElementExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Utilities.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ValueExtension.cs" />

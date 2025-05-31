@@ -10,6 +10,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Breadcrumb\BreadcrumbBarItemClickedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\AutoSuggest\AutoSuggestBoxQuerySubmittedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\AutoSuggest\AutoSuggestBoxSuggestionChosenEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Boxs\AutoSuggest\AutoSuggestBoxTextChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Navigation\NavigationView\NavigatedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Control\Navigation\NavigationView\NavigatingCancelEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dialog\ContentDialogButtonClickEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dialog\ContentDialogClosedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Dialog\ContentDialogClosingEventArgs.cs" />

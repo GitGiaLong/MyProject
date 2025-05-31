@@ -9,6 +9,7 @@
     <Import_RootNamespace>Libraries.Custom.Controls</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Arc\Arc.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bars\Breadcrumb\BreadcrumbBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bars\Breadcrumb\BreadcrumbBarItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bars\Info\InfoBar.cs" />
@@ -18,9 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Bars\Title\TitleBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Buttons\Anchor\AnchorButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\AutoSuggest\AutoSuggestBox.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Boxs\AutoSuggest\AutoSuggestBoxQuerySubmittedEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Boxs\AutoSuggest\AutoSuggestBoxSuggestionChosenEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Boxs\AutoSuggest\AutoSuggestBoxTextChangedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Borders\ClientAreaBorder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Buttons\Normal\Button.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Cards\Color\CardColor.cs" />
@@ -30,6 +28,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Cards\Normal\Card.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Datas\DataGrids\DataGrid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Buttons\DropDown\DropDownButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Datas\TreeGrid\TreeGrid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Datas\TreeGrid\TreeGridHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Datas\TreeGrid\TreeGridItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Datetimes\CalendarDatePicker\CalendarDatePicker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Datetimes\Clock\Clock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Datetimes\Clock\ClockBase.cs" />
@@ -48,31 +49,33 @@
     <Compile Include="$(MSBuildThisFileDirectory)Flyouts\Flyout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Gravatars\Gravatar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Gravatars\GravatarGenerator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Gravatars\IGravatar.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GridViewvs\GridViewColumn.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GridViewvs\GridViewHeaderRowPresenter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)GridViewvs\GridViewRowPresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GridViews\GridViewColumn.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GridViews\GridViewHeaderRowPresenter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GridViews\GridViewRowPresenter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Buttons\Hyperlink\HyperlinkButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InfoBadges\InfoBadge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InfoBadges\InfoBadgeSeverity.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inputs\InputControl\InputControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Inputs\InputControl\InputType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Layouts\Grid\BreakPoints.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Layouts\Grid\ResponsiveGrid.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Layouts\Grid\ResponsiveGrid.Properties.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ResponsiveGrids\BreakPoints.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ResponsiveGrids\ResponsiveGrid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ResponsiveGrids\ResponsiveGrid.Properties.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Datas\ListView\ListView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Datas\ListView\ListViewItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)LoadingScreen\LoadingScreen.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Loadings\Indicators\VisualStateGroupNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Loadings\Indicators\VisualStateNames.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Loadings\Indicators\VisualStateUtilities.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Loadings\Loading.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Boxs\Number\INumberFormatter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Boxs\Number\INumberParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\Number\NumberBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\Number\ValidateNumberFormatter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MessageBox\MessageBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\CirclePanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Pages\SimplePanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\Password\PasswordBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\Pin\PinBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Boxs\RichText\RichTextBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Progress\Ring\ProgressRing.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scrolls\DynamicScrollBar\DynamicScrollBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scrolls\DynamicScrollViewer\DynamicScrollViewer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Scrolls\PassiveScrollViewer.cs" />
@@ -89,9 +92,35 @@
     <Compile Include="$(MSBuildThisFileDirectory)ThumbRate\ThumbRate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ToggleSwitch\ToggleSwitch.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Datas\TreeView\TreeViewItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Window\Window.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Virtualizings\GridView\VirtualizingGridView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Virtualizings\ItemsControls\VirtualizingItemsControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Virtualizings\UniformGrid\VirtualizingUniformGrid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Virtualizings\WrapPanel\VirtualizingPanelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Virtualizings\WrapPanel\VirtualizingWrapPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Nomal\Window.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Windows\Nomal\WindowBackdrop.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="$(MSBuildThisFileDirectory)Datas\TreeGrid\TreeGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)LoadingScreen\LoadingScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)MessageBox\MessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Progress\Nomal\ProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Progress\Ring\ProgressRing.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Texts\Access\AccessText.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -400,19 +429,32 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Window\Window.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Virtualizings\GridView\VirtualizingGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Virtualizings\ItemsControls\VirtualizingItemsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Virtualizings\WrapPanel\VirtualizingWrapPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Windows\Nomal\Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="$(MSBuildThisFileDirectory)Layouts\Grid\Readme.md" />
+    <None Include="$(MSBuildThisFileDirectory)ResponsiveGrids\Readme.md" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Layouts\Grid\" />
     <Folder Include="$(MSBuildThisFileDirectory)Boxs\" />
     <Folder Include="$(MSBuildThisFileDirectory)Buttons\" />
+    <Folder Include="$(MSBuildThisFileDirectory)ResponsiveGrids\" />
     <Folder Include="$(MSBuildThisFileDirectory)Tabs\" />
     <Folder Include="$(MSBuildThisFileDirectory)Texts\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Windows\Nomal\" />
   </ItemGroup>
 </Project>

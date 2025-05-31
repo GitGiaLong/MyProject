@@ -6,6 +6,8 @@
     <UseWPF>true</UseWPF>
     <ImplicitUsings>enable</ImplicitUsings>
 	<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+   <LangVersion>12.0</LangVersion>
+   <!--<LangVersion>preview</LangVersion>-->
   </PropertyGroup>
 
   <ItemGroup>
@@ -39,5 +41,7 @@
   <Import Project="..\Libraries.Custom.Structs\Libraries.Custom.Structs.projitems" Label="Shared" />
 
   <Import Project="..\Libraries.Custom.Extensions\Libraries.Custom.Extensions.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Handlers\Libraries.Custom.Handlers.projitems" Label="Shared" />
 	
 </Project>

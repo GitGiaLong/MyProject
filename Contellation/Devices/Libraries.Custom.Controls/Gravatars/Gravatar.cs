@@ -1,5 +1,6 @@
 ﻿using Libraries.Custom.Controls.Gravatars;
 using Libraries.Custom.Helpers;
+using Libraries.Custom.Interfaces.Control.Gravatar;
 using System.Windows.Controls;
 
 namespace Libraries.Custom.Controls

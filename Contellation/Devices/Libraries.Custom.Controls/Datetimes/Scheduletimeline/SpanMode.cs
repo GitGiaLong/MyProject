@@ -1,4 +1,6 @@
-﻿namespace Libraries.Custom.Controls.Datetimes.Scheduletimeline
+﻿using Libraries.Custom.Enums.Control.Datetimes.Scheduletimeline;
+
+namespace Libraries.Custom.Controls.Datetimes.Scheduletimeline
 {
     internal static class SpanMode
     {
@@ -93,17 +95,6 @@
                 default:
                     return default;
             }
-        }
-        public enum Mode
-        {
-            Minimum,
-            Seconds,
-            Minute,
-            Hour,
-            Day,
-            Month,
-            Year,
-            Maximum
         }
     }
 }

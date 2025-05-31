@@ -94,7 +94,7 @@
         
         <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/ToolTip/ToolTip.xaml" />
         
-        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Window/Window.xaml" />
+        <ResourceDictionary Source="pack://application:,,,/Libraries.Custom;component/Windows/Nomal/Window.xaml" />
 
     </ResourceDictionary.MergedDictionaries>
 
