@@ -79,6 +79,7 @@ universe {
     height: 100vh;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .svg-frame {
@@ -145,6 +146,8 @@ universe {
 }
 
 
+
+/*
 .night {
     position: relative;
     width: 100%;
@@ -435,3 +438,4 @@ universe {
         transform: rotate(405deg);
     }
 }
+*/
