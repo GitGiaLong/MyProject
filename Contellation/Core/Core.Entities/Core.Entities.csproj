@@ -10,4 +10,8 @@
     <Folder Include="Connects\Filters\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Functions\Core.Functions.fsproj" />
+  </ItemGroup>
+
 </Project>

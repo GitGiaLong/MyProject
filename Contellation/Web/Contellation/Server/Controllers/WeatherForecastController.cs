@@ -1,4 +1,4 @@
-using Blazor.Contellation.Shared;
+using Core.Entities.Test;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Blazor.Contellation.Server.Controllers

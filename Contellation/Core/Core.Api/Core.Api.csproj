@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.36" />
+    <PackageReference Include="pythonnet" Version="3.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<ProjectReference Include="..\..\Core\Core.Entities\Core.Entities.csproj" />
+	<ProjectReference Include="..\Core.Libraries\Core.Libraries.csproj" />
+  </ItemGroup>
+
+  <Import Project="..\Core.Api.JwtSetup\Core.Api.JwtSetup.projitems" Label="Shared" />
+
+</Project>

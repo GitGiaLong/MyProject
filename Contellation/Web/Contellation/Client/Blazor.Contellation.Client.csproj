@@ -13,8 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Core\Blazor.Contellation.Core.csproj" />
-    <ProjectReference Include="..\Shared\Blazor.Contellation.Shared.csproj" />
+    <ProjectReference Include="..\Blazor.Contellation\Blazor.Contellation.csproj" />
   </ItemGroup>
 
   <ItemGroup>

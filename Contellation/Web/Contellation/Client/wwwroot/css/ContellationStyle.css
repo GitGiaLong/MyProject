@@ -113,6 +113,7 @@
     PC Desktop  min 1024 - max 1199  
     PC Desktop min 1025 max 1200* or min 1440 Test
 */
+
 @media (min-width: 64em) and (max-width: 74.9375em) {
 
 .LG-0 { display: none; }
@@ -171,4 +172,19 @@
 .XL-o-9 {margin-left: 75%;}
 .XL-o-10 {margin-left: 83.33333%;}
 .XL-o-11 {margin-left: 91.66667%;}
+}
+
+
+/*640*/
+/*@media not all and (min-width: 640px) {}*/
+/*768*/
+/*@media not all and (min-width: 768px) {}*/
+/*1024*/
+/*@media not all and (min-width: 1024px) {}*/
+/*1280*/
+/*@media not all and (min-width: 1280px) {}*/
+/*1536px*/
+/*@media not all and (min-width: 1536px) {}*/
+
+.grid-layout{
 }

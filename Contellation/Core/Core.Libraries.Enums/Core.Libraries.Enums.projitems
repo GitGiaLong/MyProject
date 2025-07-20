@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>9a22fc6b-35b1-497b-9d98-5f6fcb4a4215</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Core.Libraries.Enums</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\BufferOrderStyle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\MaybeMethodFlags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\ParameterModifier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\PyBUF.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\PyCompilerFlags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\PyGILState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\PyMemberFlags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\PyMemberType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\PyMethodFlags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\RunFlagType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\TypeFlags.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\TypeSlotID.cs" />
+  </ItemGroup>
+</Project>

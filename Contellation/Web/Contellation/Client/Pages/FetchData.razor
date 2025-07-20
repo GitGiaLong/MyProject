@@ -1,5 +1,8 @@
 ﻿@page "/fetchdata"
-@using Blazor.Contellation.Shared
+
+@using System.Net.Http.Json
+
+
 @inject HttpClient Http
 
 <PageTitle>Weather forecast</PageTitle>
@@ -38,10 +41,10 @@ else
 }
 
 @code {
-    private WeatherForecast[]? forecasts;
+    private Core.Entities.Test.WeatherForecast[]? forecasts;
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
+        //forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("WeatherForecast");
     }
 }

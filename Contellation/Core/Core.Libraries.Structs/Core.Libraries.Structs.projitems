@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>40583d17-1aca-499e-8482-11121f96ea69</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Core.Libraries.Structs</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\MaybeMemberInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\MaybeMethodBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\MaybeType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\Method\MaybeMethodBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\Native\NativeFunc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\PendingFinalization.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\Py\PyBufferProcs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\Py\PyInterpreterState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\Py\PyMethodDef.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\Py\PyThreadState.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\Py\Py_buffer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\References\BorrowedReference.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\References\StolenReference.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\StrPtr.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PythonNet\Types\UnsafeReferenceWithRun.cs" />
+  </ItemGroup>
+</Project>

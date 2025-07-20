@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-namespace Core.Entities.Systems
+﻿namespace Core.Entities.Systems
 {
     public class WindowKernel
     {

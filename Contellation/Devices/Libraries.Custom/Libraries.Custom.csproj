@@ -20,13 +20,17 @@
 
   <Import Project="..\Libraries.Custom.Controls\Libraries.Custom.Controls.projitems" Label="Shared" />
 
-  <Import Project="..\Libraries.Custom.Enums\Libraries.Custom.Enums.projitems" Label="Shared" />
-
   <Import Project="..\Libraries.Custom.Converters\Libraries.Custom.Converters.projitems" Label="Shared" />
 
-  <Import Project="..\Libraries.Custom.Helpers\Libraries.Custom.Helpers.projitems" Label="Shared" />
+  <Import Project="..\Libraries.Custom.Enums\Libraries.Custom.Enums.projitems" Label="Shared" />
 
   <Import Project="..\Libraries.Custom.Events\Libraries.Custom.Events.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Extensions\Libraries.Custom.Extensions.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Handlers\Libraries.Custom.Handlers.projitems" Label="Shared" />
+
+  <Import Project="..\Libraries.Custom.Helpers\Libraries.Custom.Helpers.projitems" Label="Shared" />
 
   <Import Project="..\Libraries.Custom.Icons\Libraries.Custom.Icons.projitems" Label="Shared" />
 
@@ -39,9 +43,5 @@
   <Import Project="..\Libraries.Custom.Model\Libraries.Custom.Model.projitems" Label="Shared" />
 
   <Import Project="..\Libraries.Custom.Structs\Libraries.Custom.Structs.projitems" Label="Shared" />
-
-  <Import Project="..\Libraries.Custom.Extensions\Libraries.Custom.Extensions.projitems" Label="Shared" />
-
-  <Import Project="..\Libraries.Custom.Handlers\Libraries.Custom.Handlers.projitems" Label="Shared" />
 	
 </Project>
