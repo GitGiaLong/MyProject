@@ -29,15 +29,13 @@ namespace Core.Libraries.PythonNet.Types
         {
             var self = (OverloadMapper)GetManagedObject(tp)!;
 
-            // Note: if the type provides a non-generic method with N args
-            // and a generic method that takes N params, then we always
-            // prefer the non-generic version in doing overload selection.
-
+            /* 
+             * Note: if the type provides a non-generic method with N args 
+             * and a generic method that takes N params, then we always 
+             * prefer the non-generic version in doing overload selection. 
+             */
             Type[]? types =  Runtime.PythonArgsToTypeArray(idx);
-            if (types == null)
-            {
-                return Exceptions.RaiseTypeError("type(s) expected");
-            }
+            if (types == null) { return Exceptions.RaiseTypeError("type(s) expected"); }
 
             MethodBase? mi = MethodBinder.MatchSignature(self.m.info, types);
             if (mi == null)

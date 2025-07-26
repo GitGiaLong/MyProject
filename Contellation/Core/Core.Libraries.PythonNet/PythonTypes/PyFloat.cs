@@ -3,8 +3,6 @@ using Core.Libraries.PythonNet.References;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Runtime.Serialization;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.PythonTypes
 {
     /// <summary>
@@ -47,7 +45,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
 
         private static StolenReference FromString(string value)
         {
-            if (value is null) throw new ArgumentNullException(nameof(value));
+            if (value is null) { throw new ArgumentNullException(nameof(value)); }
 
             using var s = new PyString(value);
             NewReference val = PyFloat_FromString(s.Reference);
@@ -86,7 +84,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
         /// </summary>
         public static PyFloat AsFloat(PyObject value)
         {
-            if (value is null) throw new ArgumentNullException(nameof(value));
+            if (value is null) { throw new ArgumentNullException(nameof(value)); }
 
             var op = PyNumber_Float(value.Reference);
             PythonException.ThrowIfIsNull(op);

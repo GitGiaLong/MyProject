@@ -31,13 +31,14 @@ namespace Core.Libraries.PythonNet.Runtimes
                 PyThreadState_Get = (delegate* unmanaged[Cdecl]<PyThreadState*>)GetFunctionByName(nameof(PyThreadState_Get), GetUnmanagedDll(_PythonDll));
                 try
                 {
-                    // Up until Python 3.13, this function was private and named
-                    // slightly differently.
+                    /* 
+                     * Up until Python 3.13, this function was private and named 
+                     * slightly differently 
+                     */
                     PyThreadState_GetUnchecked = (delegate* unmanaged[Cdecl]<PyThreadState*>)GetFunctionByName("_PyThreadState_UncheckedGet", GetUnmanagedDll(_PythonDll));
                 }
                 catch (MissingMethodException)
                 {
-
                     PyThreadState_GetUnchecked = (delegate* unmanaged[Cdecl]<PyThreadState*>)GetFunctionByName(nameof(PyThreadState_GetUnchecked), GetUnmanagedDll(_PythonDll));
                 }
                 try
@@ -314,8 +315,7 @@ namespace Core.Libraries.PythonNet.Runtimes
                 {
                     throw new BadPythonDllException(
                         "Runtime.PythonDLL was not set or does not point to a supported Python runtime DLL." +
-                        " See https://github.com/pythonnet/pythonnet#embedding-python-in-net",
-                        e);
+                        " See https://github.com/pythonnet/pythonnet#embedding-python-in-net", e);
                 }
             }
 

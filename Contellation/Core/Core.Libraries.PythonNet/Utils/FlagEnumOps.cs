@@ -10,7 +10,6 @@ namespace Core.Libraries.PythonNet.Utils
         static readonly Func<T, T, T> and = BinaryOp(Expression.And);
         static readonly Func<T, T, T> or = BinaryOp(Expression.Or);
         static readonly Func<T, T, T> xor = BinaryOp(Expression.ExclusiveOr);
-
         static readonly Func<T, T> invert = UnaryOp(Expression.OnesComplement);
 
 #pragma warning disable IDE1006
@@ -20,8 +19,7 @@ namespace Core.Libraries.PythonNet.Utils
         public static T op_OnesComplement(T value) => invert(value);
 #pragma warning restore IDE1006
 
-        static Expression FromNumber(Expression number)
-            => Expression.Convert(number, typeof(T));
+        static Expression FromNumber(Expression number) => Expression.Convert(number, typeof(T));
 
         static Func<T, T, T> BinaryOp(Func<Expression, Expression, BinaryExpression> op)
         {

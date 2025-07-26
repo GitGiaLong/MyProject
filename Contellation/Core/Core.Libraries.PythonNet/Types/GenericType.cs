@@ -13,9 +13,7 @@ namespace Core.Libraries.PythonNet.Types
     [Serializable]
     internal class GenericType : ClassBase
     {
-        internal GenericType(Type tp) : base(tp)
-        {
-        }
+        internal GenericType(Type tp) : base(tp) {}
 
         /// <summary>
         /// Implements __new__ for reflected generic types.
@@ -53,8 +51,7 @@ namespace Core.Libraries.PythonNet.Types
 
             Type[] supportedInterfaces = obj.inst.GetType().GetInterfaces();
             Type[] constructedInterfaces = supportedInterfaces
-                .Where(i => i.IsConstructedGenericType && i.GetGenericTypeDefinition() == targetType)
-                .ToArray();
+                .Where(i => i.IsConstructedGenericType && i.GetGenericTypeDefinition() == targetType).ToArray();
 
             if (constructedInterfaces.Length == 1)
             {

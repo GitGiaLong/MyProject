@@ -1,6 +1,5 @@
 ﻿using Core.Libraries.PythonNet.Methods;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Reflection;
 
@@ -15,10 +14,7 @@ namespace Core.Libraries.PythonNet.Types
         public ModuleFunctionObject(Type type, string name, MethodInfo[] info, bool allow_threads)
             : base(type, name, info, allow_threads)
         {
-            if (info.Any(item => !item.IsStatic))
-            {
-                throw new Exception("Module function must be static.");
-            }
+            if (info.Any(item => !item.IsStatic)) { throw new Exception("Module function must be static."); }
         }
 
         /// <summary>
@@ -36,7 +32,7 @@ namespace Core.Libraries.PythonNet.Types
         public new static NewReference tp_repr(BorrowedReference ob)
         {
             var self = (ModuleFunctionObject)GetManagedObject(ob)!;
-            return Runtime.PyString_FromString($"<CLRModuleFunction '{self.name}'>");
+            return PyString_FromString($"<CLRModuleFunction '{self.name}'>");
         }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet.References;
 
 namespace Core.Libraries.PythonNet.Types
@@ -11,9 +10,7 @@ namespace Core.Libraries.PythonNet.Types
     [Serializable]
     internal class ExceptionClassObject : ClassObject
     {
-        internal ExceptionClassObject(Type tp) : base(tp)
-        {
-        }
+        internal ExceptionClassObject(Type tp) : base(tp) { }
 
         internal static Exception? ToException(BorrowedReference ob)
         {
@@ -41,7 +38,7 @@ namespace Core.Libraries.PythonNet.Types
             {
                 message = String.Format("{0}()", name);
             }
-            return Runtime.PyString_FromString(message);
+            return PyString_FromString(message);
         }
 
         /// <summary>
@@ -66,12 +63,12 @@ namespace Core.Libraries.PythonNet.Types
             {
                 message = message.Substring(fullTypeName.Length);
             }
-            return Runtime.PyString_FromString(message);
+            return PyString_FromString(message);
         }
 
         public override bool Init(BorrowedReference obj, BorrowedReference args, BorrowedReference kw)
         {
-            if (!base.Init(obj, args, kw)) return false;
+            if (!base.Init(obj, args, kw)) { return false; }
 
             var e = (CLRObject)GetManagedObject(obj)!;
 

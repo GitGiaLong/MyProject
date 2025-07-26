@@ -1,5 +1,4 @@
 ﻿using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -46,13 +45,13 @@ namespace Core.Libraries.PythonNet.Types
             {
                 return Exceptions.RaiseTypeError(self.type.DeletedMessage);
             }
-            var nargs = Runtime.PyTuple_Size(args);
+            var nargs = PyTuple_Size(args);
             Type type = self.type.Value;
             object obj;
 
             if (nargs == 1)
             {
-                BorrowedReference inst = Runtime.PyTuple_GetItem(args, 0);
+                BorrowedReference inst = PyTuple_GetItem(args, 0);
 
                 if (GetManagedObject(inst) is CLRObject co && type.IsInstanceOfType(co.inst))
                 {
@@ -89,8 +88,7 @@ namespace Core.Libraries.PythonNet.Types
         /// Wrap the given object in an interface object, so that only methods
         /// of the interface are available.
         /// </summary>
-        public NewReference TryWrapObject(object impl)
-            => this.type.Valid
+        public NewReference TryWrapObject(object impl) => this.type.Valid
                 ? CLRObject.GetReference(impl, ClassManager.GetClass(this.type.Value))
                 : Exceptions.RaiseTypeError(this.type.DeletedMessage);
 
@@ -102,12 +100,12 @@ namespace Core.Libraries.PythonNet.Types
         {
             var clrObj = (CLRObject)GetManagedObject(ob)!;
 
-            if (!Runtime.PyString_Check(key))
+            if (!PyString_Check(key))
             {
                 return Exceptions.RaiseTypeError("string expected");
             }
 
-            string? name = Runtime.GetManagedString(key);
+            string? name = GetManagedString(key);
             if (name == "__implementation__")
             {
                 return Converter.ToPython(clrObj.inst);
@@ -117,7 +115,7 @@ namespace Core.Libraries.PythonNet.Types
                 return CLRObject.GetReference(clrObj.inst);
             }
 
-            return Runtime.PyObject_GenericGetAttr(ob, key);
+            return PyObject_GenericGetAttr(ob, key);
         }
 
         protected override void OnDeserialization(object sender)

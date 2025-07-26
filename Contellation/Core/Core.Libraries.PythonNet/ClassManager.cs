@@ -5,7 +5,6 @@ using Core.Libraries.PythonNet.PY;
 using Core.Libraries.PythonNet.Python;
 using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.StateSerialization;
 using Core.Libraries.PythonNet.Types;
 using Core.Libraries.PythonNet.Utils;
@@ -27,46 +26,39 @@ namespace Core.Libraries.PythonNet
     /// </summary>
     internal class ClassManager
     {
-
-        // Binding flags to determine which members to expose in Python.
-        // This is complicated because inheritance in Python is name
-        // based. We can't just find DeclaredOnly members, because we
-        // could have a base class A that defines two overloads of a
-        // method and a class B that defines two more. The name-based
-        // descriptor Python will find needs to know about inherited
-        // overloads as well as those declared on the sub class.
-        internal static readonly BindingFlags BindingFlags = BindingFlags.Static |
-                                                             BindingFlags.Instance |
-                                                             BindingFlags.Public |
-                                                             BindingFlags.NonPublic;
+        /* 
+         * Binding flags to determine which members to expose in Python. 
+         * This is complicated because inheritance in Python is name 
+         * based. We can't just find DeclaredOnly members, because we 
+         * could have a base class A that defines two overloads of a 
+         * method and a class B that defines two more. The name-based 
+         * descriptor Python will find needs to know about inherited 
+         * overloads as well as those declared on the sub class. 
+         */
+        internal static readonly BindingFlags BindingFlags = BindingFlags.Static | BindingFlags.Instance |
+                                                             BindingFlags.Public | BindingFlags.NonPublic;
 
         internal static Dictionary<MaybeType, ReflectedClrType> cache = new(capacity: 128);
         private static readonly Type dtype;
 
-        private ClassManager()
-        {
-        }
+        private ClassManager() { }
 
         static ClassManager()
         {
-            // SEE: https://msdn.microsoft.com/en-us/library/96b1ayy4(v=vs.100).aspx
-            // ""All delegates inherit from MulticastDelegate, which inherits from Delegate.""
-            // Was Delegate, which caused a null MethodInfo returned from GetMethode("Invoke")
-            // and crashed on Linux under Mono.
+            /* 
+             * SEE: https://msdn.microsoft.com/en-us/library/96b1ayy4(v=vs.100).aspx 
+             * ""All delegates inherit from MulticastDelegate, which inherits from Delegate."" 
+             * Was Delegate, which caused a null MethodInfo returned from GetMethode("Invoke") 
+             * and crashed on Linux under Mono. 
+             */
             dtype = typeof(MulticastDelegate);
         }
 
-        public static void Reset()
-        {
-            cache.Clear();
-        }
+        public static void Reset() { cache.Clear(); }
 
         internal static void RemoveClasses()
         {
-            foreach (var @class in cache.Values)
-            {
-                @class.Dispose();
-            }
+            foreach (var @class in cache.Values) { @class.Dispose(); }
             cache.Clear();
         }
 
@@ -77,26 +69,27 @@ namespace Core.Libraries.PythonNet
             {
                 var cb = (ClassBase)ManagedType.GetManagedObject(cls.Value)!;
                 var context = cb.Save(cls.Value);
-                if (context is not null)
-                {
-                    contexts[cls.Value] = context;
-                }
+                if (context is not null) { contexts[cls.Value] = context; }
 
-                // Remove all members added in InitBaseClass.
-                // this is done so that if domain reloads and a member of a
-                // reflected dotnet class is removed, it is removed from the
-                // Python object's dictionary tool; thus raising an AttributeError
-                // instead of a TypeError.
-                // Classes are re-initialized on in RestoreRuntimeData.
-                using var dict = Runtime.PyObject_GenericGetDict(cls.Value);
+                /* 
+                 * Remove all members added in InitBaseClass. 
+                 * this is done so that if domain reloads and a member of a 
+                 * reflected dotnet class is removed, it is removed from the 
+                 * Python object's dictionary tool; thus raising an AttributeError 
+                 * instead of a TypeError. 
+                 * Classes are re-initialized on in RestoreRuntimeData. 
+                 */
+                using var dict = PyObject_GenericGetDict(cls.Value);
                 foreach (var member in cb.dotNetMembers)
                 {
-                    if ((Runtime.PyDict_DelItemString(dict.Borrow(), member) == -1) &&
+                    if ((PyDict_DelItemString(dict.Borrow(), member) == -1) &&
                         (Exceptions.ExceptionMatches(Exceptions.KeyError)))
                     {
-                        // Trying to remove a key that's not in the dictionary
-                        // raises an error. We don't care about it.
-                        Runtime.PyErr_Clear();
+                        /* 
+                         * Trying to remove a key that's not in the dictionary 
+                         * raises an error. We don't care about it. 
+                         */
+                        PyErr_Clear();
                     }
                     else if (Exceptions.ErrorOccurred())
                     {
@@ -104,7 +97,7 @@ namespace Core.Libraries.PythonNet
                     }
                 }
                 // We modified the Type object, notify it we did.
-                Runtime.PyType_Modified(cls.Value);
+                PyType_Modified(cls.Value);
             }
 
             return new()
@@ -122,10 +115,7 @@ namespace Core.Libraries.PythonNet
             foreach (var pair in cache)
             {
                 var context = contexts[pair.Value];
-                if (pair.Key.Valid)
-                {
-                    pair.Value.Restore(context);
-                }
+                if (pair.Key.Valid) { pair.Value.Restore(context); }
                 else
                 {
                     invalidClasses.Add(pair);
@@ -158,54 +148,47 @@ namespace Core.Libraries.PythonNet
         /// </summary>
         internal static ClassBase CreateClass(Type type)
         {
-            // Next, select the appropriate managed implementation class.
-            // Different kinds of types, such as array types or interface
-            // types, want to vary certain implementation details to make
-            // sure that the type semantics are consistent in Python.
+            /* 
+             * Next, select the appropriate managed implementation class. 
+             * Different kinds of types, such as array types or interface 
+             * types, want to vary certain implementation details to make 
+             * sure that the type semantics are consistent in Python. 
+             */
 
             ClassBase impl;
 
-            // Check to see if the given type extends System.Exception. This
-            // lets us check once (vs. on every lookup) in case we need to
-            // wrap Exception-derived types in old-style classes
-
+            /* 
+             * Check to see if the given type extends System.Exception. 
+             * This lets us check once (vs. on every lookup) in case we need to 
+             * wrap Exception-derived types in old-style classes 
+             */
             if (type.ContainsGenericParameters)
             {
                 impl = new GenericType(type);
             }
-
             else if (type.IsSubclassOf(dtype))
             {
                 impl = new DelegateObject(type);
             }
-
             else if (type.IsArray)
             {
                 impl = new ArrayObject(type);
             }
-
             else if (type.IsInterface)
             {
                 impl = new InterfaceObject(type);
             }
-
-            else if (type == typeof(Exception) ||
-                     type.IsSubclassOf(typeof(Exception)))
+            else if (type == typeof(Exception) || type.IsSubclassOf(typeof(Exception)))
             {
                 impl = new ExceptionClassObject(type);
             }
-
 #pragma warning disable CS0618 // Type or member is obsolete. OK for internal use.
             else if (null != PythonDerivedType.GetPyObjField(type))
 #pragma warning restore CS0618 // Type or member is obsolete
             {
                 impl = new ClassDerivedObject(type);
             }
-
-            else
-            {
-                impl = new ClassObject(type);
-            }
+            else { impl = new ClassObject(type); }
 
 
             return impl;
@@ -213,19 +196,19 @@ namespace Core.Libraries.PythonNet
 
         internal static void InitClassBase(Type type, ClassBase impl, ReflectedClrType pyType)
         {
-            // First, we introspect the managed type and build some class
-            // information, including generating the member descriptors
-            // that we'll be putting in the Python class __dict__.
-
+            /* 
+             * First, we introspect the managed type and build some class 
+             * information, including generating the member descriptors 
+             * that we'll be putting in the Python class __dict__. 
+             */
             ClassInfo info = GetClassInfo(type, impl);
 
             impl.indexer = info.indexer;
             impl.del = info.del;
             impl.richcompare.Clear();
 
-
             // Finally, initialize the class __dict__ and return the object.
-            using var newDict = Runtime.PyObject_GenericGetDict(pyType.Reference);
+            using var newDict = PyObject_GenericGetDict(pyType.Reference);
             BorrowedReference dict = newDict.Borrow();
 
             foreach (var iter in info.members)
@@ -233,7 +216,7 @@ namespace Core.Libraries.PythonNet
                 var item = iter.Value;
                 var name = iter.Key;
                 impl.dotNetMembers.Add(name);
-                Runtime.PyDict_SetItemString(dict, name, item);
+                PyDict_SetItemString(dict, name, item);
                 if (ClassBase.CilToPyOpMap.TryGetValue(name, out var pyOp)
                     // workaround for unintialized types crashing in GetManagedObject
                     && item is not ReflectedClrType
@@ -251,12 +234,14 @@ namespace Core.Libraries.PythonNet
             {
                 var attr = (DocStringAttribute)attrs[0];
                 string docStr = attr.DocString;
-                doc = Runtime.PyString_FromString(docStr);
-                Runtime.PyDict_SetItem(dict, PyIdentifier.__doc__, doc.Borrow());
+                doc = PyString_FromString(docStr);
+                PyDict_SetItem(dict, PyIdentifier.__doc__, doc.Borrow());
             }
 
-            // If this is a ClassObject AND it has constructors, generate a __doc__ attribute.
-            // required that the ClassObject.ctors be changed to internal
+            /* 
+             * If this is a ClassObject AND it has constructors, generate a __doc__ attribute. 
+             * required that the ClassObject.ctors be changed to internal 
+             */
             if (impl is ClassObject co)
             {
                 if (co.NumCtors > 0 && !co.HasCustomNew())
@@ -264,47 +249,50 @@ namespace Core.Libraries.PythonNet
                     // Implement Overloads on the class object
                     if (!CLRModule._SuppressOverloads)
                     {
-                        // HACK: __init__ points to instance constructors.
-                        // When unbound they fully instantiate object, so we get overloads for free from MethodBinding.
+                        /* 
+                         * HACK: __init__ points to instance constructors. 
+                         * When unbound they fully instantiate object, 
+                         * so we get overloads for free from MethodBinding. 
+                         */
                         var init = info.members["__init__"];
                         // TODO: deprecate __overloads__ soon...
-                        Runtime.PyDict_SetItem(dict, PyIdentifier.__overloads__, init);
-                        Runtime.PyDict_SetItem(dict, PyIdentifier.Overloads, init);
+                        PyDict_SetItem(dict, PyIdentifier.__overloads__, init);
+                        PyDict_SetItem(dict, PyIdentifier.Overloads, init);
                     }
 
                     // don't generate the docstring if one was already set from a DocStringAttribute.
                     if (!CLRModule._SuppressDocs && doc.IsNull())
                     {
                         doc = co.GetDocString();
-                        Runtime.PyDict_SetItem(dict, PyIdentifier.__doc__, doc.Borrow());
+                        PyDict_SetItem(dict, PyIdentifier.__doc__, doc.Borrow());
                     }
                 }
 
-                if (Runtime.PySequence_Contains(dict, PyIdentifier.__doc__) != 1)
+                if (PySequence_Contains(dict, PyIdentifier.__doc__) != 1)
                 {
                     // Ensure that at least some doc string is set
-                    using var fallbackDoc = Runtime.PyString_FromString(
-                        $"Python wrapper for .NET type {type}"
-                    );
-                    Runtime.PyDict_SetItem(dict, PyIdentifier.__doc__, fallbackDoc.Borrow());
+                    using var fallbackDoc = PyString_FromString($"Python wrapper for .NET type {type}");
+                    PyDict_SetItem(dict, PyIdentifier.__doc__, fallbackDoc.Borrow());
                 }
             }
             doc.Dispose();
 
-            // The type has been modified after PyType_Ready has been called
-            // Refresh the type
-            Runtime.PyType_Modified(pyType.Reference);
+            /* 
+             * The type has been modified after PyType_Ready has been called 
+             * Refresh the type 
+             */
+            PyType_Modified(pyType.Reference);
         }
 
         internal static bool ShouldBindMethod(MethodBase mb)
         {
-            if (mb is null) throw new ArgumentNullException(nameof(mb));
+            if (mb is null) { throw new ArgumentNullException(nameof(mb)); }
             return (mb.IsPublic || mb.IsFamily || mb.IsFamilyOrAssembly);
         }
 
         internal static bool ShouldBindField(FieldInfo fi)
         {
-            if (fi is null) throw new ArgumentNullException(nameof(fi));
+            if (fi is null) { throw new ArgumentNullException(nameof(fi)); }
             return (fi.IsPublic || fi.IsFamily || fi.IsFamilyOrAssembly);
         }
 
@@ -314,22 +302,18 @@ namespace Core.Libraries.PythonNet
             try
             {
                 mm = pi.GetGetMethod(true);
-                if (mm == null)
-                {
-                    mm = pi.GetSetMethod(true);
-                }
+                if (mm == null) { mm = pi.GetSetMethod(true); }
             }
             catch (SecurityException)
             {
-                // GetGetMethod may try to get a method protected by
-                // StrongNameIdentityPermission - effectively private.
+                /* 
+                 * GetGetMethod may try to get a method protected by 
+                 * StrongNameIdentityPermission - effectively private. 
+                 */
                 return false;
             }
 
-            if (mm == null)
-            {
-                return false;
-            }
+            if (mm == null) { return false; }
 
             return ShouldBindMethod(mm);
         }
@@ -358,10 +342,7 @@ namespace Core.Libraries.PythonNet
             for (i = 0; i < info.Length; i++)
             {
                 m = info[i];
-                if (m.DeclaringType == type)
-                {
-                    local.Add(m.Name);
-                }
+                if (m.DeclaringType == type) { local.Add(m.Name); }
             }
 
             if (type.IsEnum)
@@ -389,24 +370,23 @@ namespace Core.Libraries.PythonNet
             for (i = 0; i < info.Length; i++)
             {
                 m = info[i];
-                if (local.Contains(m.Name))
-                {
-                    items.Add(m);
-                }
+                if (local.Contains(m.Name)) { items.Add(m); }
             }
 
             if (type.IsInterface)
             {
-                // Interface inheritance seems to be a different animal:
-                // more contractual, less structural.  Thus, a Type that
-                // represents an interface that inherits from another
-                // interface does not return the inherited interface's
-                // methods in GetMembers. For example ICollection inherits
-                // from IEnumerable, but ICollection's GetMemebers does not
-                // return GetEnumerator.
-                //
-                // Not sure if this is the correct way to fix this, but it
-                // seems to work. Thanks to Bruce Dodson for the fix.
+                /* 
+                 * Interface inheritance seems to be a different animal: 
+                 * more contractual, less structural. Thus, a Type that 
+                 * represents an interface that inherits from another 
+                 * interface does not return the inherited interface's 
+                 * methods in GetMembers. For example ICollection inherits 
+                 * from IEnumerable, but ICollection's GetMemebers does not 
+                 * return GetEnumerator.
+                 *  
+                 *  Not sure if this is the correct way to fix this, but it 
+                 *  seems to work. Thanks to Bruce Dodson for the fix. 
+                 */
 
                 Type[] inheritedInterfaces = type.GetInterfaces();
 
@@ -417,15 +397,14 @@ namespace Core.Libraries.PythonNet
                     for (n = 0; n < imembers.Length; n++)
                     {
                         m = imembers[n];
-                        if (!local.Contains(m.Name))
-                        {
-                            items.Add(m);
-                        }
+                        if (!local.Contains(m.Name)) { items.Add(m); }
                     }
                 }
 
-                // All interface implementations inherit from Object,
-                // but GetMembers don't return them either.
+                /* 
+                 * All interface implementations inherit from Object,
+                 * but GetMembers don't return them either. 
+                 */
                 var objFlags = BindingFlags.Public | BindingFlags.Instance;
                 foreach (var mi in typeof(object).GetMembers(objFlags))
                 {
@@ -444,15 +423,11 @@ namespace Core.Libraries.PythonNet
                 {
                     case MemberTypes.Method:
                         meth = (MethodInfo)mi;
-                        if (!ShouldBindMethod(meth))
-                        {
-                            continue;
-                        }
+                        if (!ShouldBindMethod(meth)) { continue; }
                         name = meth.Name;
 
                         //TODO mangle?
-                        if (name == "__init__" && !impl.HasCustomNew())
-                            continue;
+                        if (name == "__init__" && !impl.HasCustomNew()) { continue; }
 
                         if (!methods.TryGetValue(name, out var methodList))
                         {
@@ -463,10 +438,7 @@ namespace Core.Libraries.PythonNet
 
                     case MemberTypes.Constructor when !impl.HasCustomNew():
                         var ctor = (ConstructorInfo)mi;
-                        if (ctor.IsStatic)
-                        {
-                            continue;
-                        }
+                        if (ctor.IsStatic) { continue; }
 
                         name = "__init__";
                         if (!methods.TryGetValue(name, out methodList))
@@ -479,10 +451,7 @@ namespace Core.Libraries.PythonNet
                     case MemberTypes.Property:
                         var pi = (PropertyInfo)mi;
 
-                        if (!ShouldBindProperty(pi))
-                        {
-                            continue;
-                        }
+                        if (!ShouldBindProperty(pi)) { continue; }
 
                         // Check for indexer
                         ParameterInfo[] args = pi.GetIndexParameters();
@@ -504,33 +473,21 @@ namespace Core.Libraries.PythonNet
 
                     case MemberTypes.Field:
                         var fi = (FieldInfo)mi;
-                        if (!ShouldBindField(fi))
-                        {
-                            continue;
-                        }
+                        if (!ShouldBindField(fi)) { continue; }
                         ob = new FieldObject(fi);
                         ci.members[mi.Name] = ob.AllocObject();
                         continue;
 
                     case MemberTypes.Event:
                         var ei = (EventInfo)mi;
-                        if (!ShouldBindEvent(ei))
-                        {
-                            continue;
-                        }
-                        ob = ei.AddMethod.IsStatic
-                            ? new EventBinding(ei)
-                            : new EventObject(ei);
+                        if (!ShouldBindEvent(ei)) { continue; }
+                        ob = ei.AddMethod.IsStatic ? new EventBinding(ei) : new EventObject(ei);
                         ci.members[ei.Name] = ob.AllocObject();
                         continue;
 
                     case MemberTypes.NestedType:
                         tp = (Type)mi;
-                        if (!(tp.IsNestedPublic || tp.IsNestedFamily ||
-                              tp.IsNestedFamORAssem))
-                        {
-                            continue;
-                        }
+                        if (!(tp.IsNestedPublic || tp.IsNestedFamily || tp.IsNestedFamORAssem)) { continue; }
                         // Note the given instance might be uninitialized
                         var pyType = GetClass(tp);
                         // make a copy, that could be disposed later
@@ -546,15 +503,13 @@ namespace Core.Libraries.PythonNet
 
                 ob = new MethodObject(type, name, mlist);
                 ci.members[name] = ob.AllocObject();
-                if (name == nameof(IDictionary<int, int>.Remove)
-                    && mlist.Any(m => m.DeclaringType?.GetInterfaces()
+                if (name == nameof(IDictionary<int, int>.Remove) && mlist.Any(m => m.DeclaringType?.GetInterfaces()
                         .Any(i => i.TryGetGenericDefinition() == typeof(IDictionary<,>)) is true))
                 {
                     ci.del = new();
                     ci.del.AddRange(mlist.Where(m => !m.IsStatic));
                 }
-                else if (name == nameof(IList<int>.RemoveAt)
-                         && mlist.Any(m => m.DeclaringType?.GetInterfaces()
+                else if (name == nameof(IList<int>.RemoveAt) && mlist.Any(m => m.DeclaringType?.GetInterfaces()
                              .Any(i => i.TryGetGenericDefinition() == typeof(IList<>)) is true))
                 {
                     ci.del = new();
@@ -568,10 +523,14 @@ namespace Core.Libraries.PythonNet
                     OperatorMethod.FilterMethods(mlist, out var forwardMethods, out var reverseMethods);
                     // Only methods where the left operand is the declaring type.
                     if (forwardMethods.Length > 0)
+                    {
                         ci.members[pyName] = new MethodObject(type, name, forwardMethods).AllocObject();
+                    }
                     // Only methods where only the right operand is the declaring type.
                     if (reverseMethods.Length > 0)
+                    {
                         ci.members[pyNameReverse] = new MethodObject(type, name, reverseMethods, argsReversed: true).AllocObject();
+                    }
                 }
             }
 
@@ -608,10 +567,7 @@ namespace Core.Libraries.PythonNet
             public MethodBinder? del;
             public readonly Dictionary<string, PyObject> members = new();
 
-            internal ClassInfo()
-            {
-                indexer = null;
-            }
+            internal ClassInfo() { indexer = null; }
         }
     }
 }

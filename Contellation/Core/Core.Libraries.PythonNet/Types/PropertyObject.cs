@@ -5,8 +5,6 @@ using Core.Libraries.Structs.PythonNet.References;
 using System.Reflection;
 using System.Runtime.Serialization;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.Types
 {
     /// <summary>
@@ -34,7 +32,6 @@ namespace Core.Libraries.PythonNet.Types
             setter = md.GetSetMethod(true) ?? md.GetBaseSetMethod(true);
         }
 
-
         /// <summary>
         /// Descriptor __get__ implementation. This method returns the
         /// value of the property on the given object. The returned value
@@ -43,26 +40,17 @@ namespace Core.Libraries.PythonNet.Types
         public static NewReference tp_descr_get(BorrowedReference ds, BorrowedReference ob, BorrowedReference tp)
         {
             var self = (PropertyObject)GetManagedObject(ds)!;
-            if (!self.info.Valid)
-            {
-                return Exceptions.RaiseTypeError(self.info.DeletedMessage);
-            }
+            if (!self.info.Valid) { return Exceptions.RaiseTypeError(self.info.DeletedMessage); }
             var info = self.info.Value;
             MethodInfo? getter = self.getter;
             object result;
 
 
-            if (getter == null)
-            {
-                return Exceptions.RaiseTypeError("property cannot be read");
-            }
+            if (getter == null) { return Exceptions.RaiseTypeError("property cannot be read"); }
 
             if (ob == null || ob == PyNone)
             {
-                if (!getter.IsStatic)
-                {
-                    return new NewReference(ds);
-                }
+                if (!getter.IsStatic) { return new NewReference(ds); }
 
                 try
                 {
@@ -76,10 +64,7 @@ namespace Core.Libraries.PythonNet.Types
             }
 
             var co = GetManagedObject(ob) as CLRObject;
-            if (co == null)
-            {
-                return Exceptions.RaiseTypeError("invalid target");
-            }
+            if (co == null) { return Exceptions.RaiseTypeError("invalid target"); }
 
             try
             {
@@ -96,7 +81,6 @@ namespace Core.Libraries.PythonNet.Types
                 return default;
             }
         }
-
 
         /// <summary>
         /// Descriptor __set__ implementation. This method sets the value of
@@ -128,10 +112,7 @@ namespace Core.Libraries.PythonNet.Types
             }
 
 
-            if (!Converter.ToManaged(val, info.PropertyType, out var newval, true))
-            {
-                return -1;
-            }
+            if (!Converter.ToManaged(val, info.PropertyType, out var newval, true)) { return -1; }
 
             bool is_static = setter.IsStatic;
 
@@ -173,7 +154,6 @@ namespace Core.Libraries.PythonNet.Types
             }
         }
 
-
         /// <summary>
         /// Descriptor __repr__ implementation.
         /// </summary>
@@ -185,10 +165,7 @@ namespace Core.Libraries.PythonNet.Types
 
         void IDeserializationCallback.OnDeserialization(object sender)
         {
-            if (info.Valid)
-            {
-                CacheAccessors();
-            }
+            if (info.Valid) { CacheAccessors(); }
         }
     }
 }

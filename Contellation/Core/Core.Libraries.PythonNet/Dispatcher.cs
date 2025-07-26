@@ -2,30 +2,30 @@
 using Core.Libraries.PythonNet.Python;
 using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Reflection;
 
 namespace Core.Libraries.PythonNet
 {
-    /* When a delegate instance is created that has a Python implementation,
-       the delegate manager generates a custom subclass of Dispatcher and
-       instantiates it, passing the IntPtr of the Python callable.
-
-       The "real" delegate is created using CreateDelegate, passing the
-       instance of the generated type and the name of the (generated)
-       implementing method (Invoke).
-
-       The true delegate instance holds the only reference to the dispatcher
-       instance, which ensures that when the delegate dies, the finalizer
-       of the referenced instance will be able to decref the Python
-       callable.
-
-       A possible alternate strategy would be to create custom subclasses
-       of the required delegate type, storing the IntPtr in it directly.
-       This would be slightly cleaner, but I'm not sure if delegates are
-       too "special" for this to work. It would be more work, so for now
-       the 80/20 rule applies :) */
+    /* 
+     * When a delegate instance is created that has a Python implementation, 
+     * the delegate manager generates a custom subclass of Dispatcher and 
+     * instantiates it, passing the IntPtr of the Python callable.
+     *  
+     * The "real" delegate is created using CreateDelegate, passing the 
+     * instance of the generated type and the name of the (generated) 
+     * implementing method (Invoke). 
+     * 
+     * The true delegate instance holds the only reference to the dispatcher 
+     * instance, which ensures that when the delegate dies, the finalizer 
+     * of the referenced instance will be able to decref the Python callable. 
+     * 
+     * A possible alternate strategy would be to create custom subclasses 
+     * of the required delegate type, storing the IntPtr in it directly. 
+     * This would be slightly cleaner, but I'm not sure if delegates are 
+     * too "special" for this to work. It would be more work, so for now 
+     * the 80/20 rule applies :) 
+     */
 
     public class Dispatcher
     {
@@ -42,14 +42,8 @@ namespace Core.Libraries.PythonNet
         {
             PyGILState gs = PythonEngine.AcquireLock();
 
-            try
-            {
-                return TrueDispatch(args);
-            }
-            finally
-            {
-                PythonEngine.ReleaseLock(gs);
-            }
+            try { return TrueDispatch(args); }
+            finally { PythonEngine.ReleaseLock(gs); }
         }
 
         private object? TrueDispatch(object?[] args)
@@ -59,27 +53,23 @@ namespace Core.Libraries.PythonNet
             Type rtype = method.ReturnType;
 
             NewReference callResult;
-            using (var pyargs = Runtime.PyTuple_New(pi.Length))
+            using (var pyargs = PyTuple_New(pi.Length))
             {
                 for (var i = 0; i < pi.Length; i++)
                 {
-                    // Here we own the reference to the Python value, and we
-                    // give the ownership to the arg tuple.
+                    /* 
+                     * Here we own the reference to the Python value, 
+                     * and give the ownership to the arg tuple. 
+                     */
                     using var arg = Converter.ToPython(args[i], pi[i].ParameterType);
-                    int res = Runtime.PyTuple_SetItem(pyargs.Borrow(), i, arg.StealOrThrow());
-                    if (res != 0)
-                    {
-                        throw PythonException.ThrowLastAsClrException();
-                    }
+                    int res = PyTuple_SetItem(pyargs.Borrow(), i, arg.StealOrThrow());
+                    if (res != 0) { throw PythonException.ThrowLastAsClrException(); }
                 }
 
-                callResult = Runtime.PyObject_Call(target, pyargs.Borrow(), null);
+                callResult = PyObject_Call(target, pyargs.Borrow(), null);
             }
 
-            if (callResult.IsNull())
-            {
-                throw PythonException.ThrowLastAsClrException();
-            }
+            if (callResult.IsNull()) { throw PythonException.ThrowLastAsClrException(); }
 
             using (callResult)
             {
@@ -87,12 +77,13 @@ namespace Core.Libraries.PythonNet
                 int byRefCount = pi.Count(parameterInfo => parameterInfo.ParameterType.IsByRef);
                 if (byRefCount > 0)
                 {
-                    // By symmetry with MethodBinder.Invoke, when there are out
-                    // parameters we expect to receive a tuple containing
-                    // the result, if any, followed by the out parameters. If there is only
-                    // one out parameter and the return type of the method is void,
-                    // we instead receive the out parameter as the result from Python.
-
+                    /* 
+                     * By symmetry with MethodBinder.Invoke, when there are out 
+                     * parameters we expect to receive a tuple containing 
+                     * the result, if any, followed by the out parameters. If there is only 
+                     * one out parameter and the return type of the method is void, 
+                     * we instead receive the out parameter as the result from Python. 
+                     */
                     bool isVoid = rtype == typeof(void);
                     int tupleSize = byRefCount + (isVoid ? 0 : 1);
                     if (isVoid && byRefCount == 1)
@@ -113,7 +104,7 @@ namespace Core.Libraries.PythonNet
                         }
                         return null;
                     }
-                    else if (Runtime.PyTuple_Check(op) && Runtime.PyTuple_Size(op) == tupleSize)
+                    else if (PyTuple_Check(op) && PyTuple_Size(op) == tupleSize)
                     {
                         int index = isVoid ? 0 : 1;
                         for (int i = 0; i < pi.Length; i++)
@@ -121,7 +112,7 @@ namespace Core.Libraries.PythonNet
                             Type t = pi[i].ParameterType;
                             if (t.IsByRef)
                             {
-                                BorrowedReference item = Runtime.PyTuple_GetItem(op, index++);
+                                BorrowedReference item = PyTuple_GetItem(op, index++);
                                 if (!Converter.ToManaged(item, t, out args[i], true))
                                 {
                                     Exceptions.RaiseTypeError($"The Python function returned a tuple where element {i} was not {t.GetElementType()} (the out parameter type)");
@@ -129,11 +120,9 @@ namespace Core.Libraries.PythonNet
                                 }
                             }
                         }
-                        if (isVoid)
-                        {
-                            return null;
-                        }
-                        BorrowedReference item0 = Runtime.PyTuple_GetItem(op, 0);
+                        if (isVoid) { return null; }
+
+                        BorrowedReference item0 = PyTuple_GetItem(op, 0);
                         if (!Converter.ToManaged(item0, rtype, out object? result0, true))
                         {
                             Exceptions.RaiseTypeError($"The Python function returned a tuple where element 0 was not {rtype} (the return type)");
@@ -143,11 +132,9 @@ namespace Core.Libraries.PythonNet
                     }
                     else
                     {
-                        string tpName = Runtime.PyObject_GetTypeName(op);
-                        if (Runtime.PyTuple_Check(op))
-                        {
-                            tpName += $" of size {Runtime.PyTuple_Size(op)}";
-                        }
+                        string tpName = PyObject_GetTypeName(op);
+                        if (PyTuple_Check(op)) { tpName += $" of size {PyTuple_Size(op)}"; }
+
                         var sb = new StringBuilder();
                         if (!isVoid) sb.Append(rtype.FullName);
                         for (int i = 0; i < pi.Length; i++)
@@ -165,15 +152,9 @@ namespace Core.Libraries.PythonNet
                     }
                 }
 
-                if (rtype == typeof(void))
-                {
-                    return null;
-                }
+                if (rtype == typeof(void)) { return null; }
 
-                if (!Converter.ToManaged(op, rtype, out object? result, true))
-                {
-                    throw PythonException.ThrowLastAsClrException();
-                }
+                if (!Converter.ToManaged(op, rtype, out object? result, true)) { throw PythonException.ThrowLastAsClrException(); }
 
                 return result;
             }

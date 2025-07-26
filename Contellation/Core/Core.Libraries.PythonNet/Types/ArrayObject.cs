@@ -3,7 +3,6 @@ using Core.Libraries.PythonNet.PY;
 using Core.Libraries.PythonNet.Python;
 using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.TypeOffsets;
 using Core.Libraries.PythonNet.Utils;
 using Core.Libraries.Structs.PythonNet.Py;
@@ -39,7 +38,7 @@ namespace Core.Libraries.PythonNet.Types
             }
             Type arrType = self.type.Value;
 
-            long[] dimensions = new long[Runtime.PyTuple_Size(args)];
+            long[] dimensions = new long[PyTuple_Size(args)];
             if (dimensions.Length == 0)
             {
                 return Exceptions.RaiseTypeError("array constructor requires at least one integer argument or an object convertible to array");
@@ -49,12 +48,12 @@ namespace Core.Libraries.PythonNet.Types
                 return CreateMultidimensional(arrType.GetElementType(), dimensions, shapeTuple: args, pyType: tp);
             }
 
-            BorrowedReference op = Runtime.PyTuple_GetItem(args, 0);
+            BorrowedReference op = PyTuple_GetItem(args, 0);
 
             // create single dimensional array
-            if (Runtime.PyInt_Check(op))
+            if (PyInt_Check(op))
             {
-                dimensions[0] = Runtime.PyLong_AsSignedSize_t(op);
+                dimensions[0] = PyLong_AsSignedSize_t(op);
                 if (dimensions[0] == -1 && Exceptions.ErrorOccurred()) { Exceptions.Clear(); }
                 else { return NewInstance(arrType.GetElementType(), tp, dimensions); }
             }
@@ -74,16 +73,16 @@ namespace Core.Libraries.PythonNet.Types
         {
             for (int dimIndex = 0; dimIndex < dimensions.Length; dimIndex++)
             {
-                BorrowedReference dimObj = Runtime.PyTuple_GetItem(shapeTuple, dimIndex);
+                BorrowedReference dimObj = PyTuple_GetItem(shapeTuple, dimIndex);
                 PythonException.ThrowIfIsNull(dimObj);
 
-                if (!Runtime.PyInt_Check(dimObj))
+                if (!PyInt_Check(dimObj))
                 {
                     Exceptions.RaiseTypeError("array constructor expects integer dimensions");
                     return default;
                 }
 
-                dimensions[dimIndex] = Runtime.PyLong_AsSignedSize_t(dimObj);
+                dimensions[dimIndex] = PyLong_AsSignedSize_t(dimObj);
                 if (dimensions[dimIndex] == -1 && Exceptions.ErrorOccurred())
                 {
                     Exceptions.RaiseTypeError("array constructor expects integer dimensions");
@@ -140,7 +139,7 @@ namespace Core.Libraries.PythonNet.Types
         public static NewReference mp_subscript(BorrowedReference ob, BorrowedReference idx)
         {
             var obj = (CLRObject)GetManagedObject(ob)!;
-            var arrObj = (ArrayObject)GetManagedObject(Runtime.PyObject_TYPE(ob))!;
+            var arrObj = (ArrayObject)GetManagedObject(PyObject_TYPE(ob))!;
             if (!arrObj.type.Valid)
             {
                 return Exceptions.RaiseTypeError(arrObj.type.DeletedMessage);
@@ -151,22 +150,24 @@ namespace Core.Libraries.PythonNet.Types
             long index;
             object value;
 
-            // Note that CLR 1.0 only supports int indexes - methods to
-            // support long indices were introduced in 1.1. We could
-            // support long indices automatically, but given that long
-            // indices are not backward compatible and a relative edge
-            // case, we won't bother for now.
-
-            // Single-dimensional arrays are the most common case and are
-            // cheaper to deal with than multi-dimensional, so check first.
+            /* 
+             * Note that CLR 1.0 only supports int indexes - methods to 
+             * support long indices were introduced in 1.1. We could 
+             * support long indices automatically, but given that long 
+             * indices are not backward compatible and a relative edge 
+             * case, we won't bother for now.
+             *  
+             * Single-dimensional arrays are the most common case and are 
+             * cheaper to deal with than multi-dimensional, so check first. 
+             */
 
             if (rank == 1)
             {
-                if (!Runtime.PyInt_Check(idx))
+                if (!PyInt_Check(idx))
                 {
                     return RaiseIndexMustBeIntegerError(idx);
                 }
-                index = Runtime.PyLong_AsSignedSize_t(idx);
+                index = PyLong_AsSignedSize_t(idx);
 
                 if (index == -1 && Exceptions.ErrorOccurred())
                 {
@@ -191,24 +192,24 @@ namespace Core.Libraries.PythonNet.Types
 
             // Multi-dimensional arrays can be indexed a la: list[1, 2, 3].
 
-            if (!Runtime.PyTuple_Check(idx))
+            if (!PyTuple_Check(idx))
             {
                 Exceptions.SetError(Exceptions.TypeError, "invalid index value");
                 return default;
             }
 
-            var count = Runtime.PyTuple_Size(idx);
+            var count = PyTuple_Size(idx);
 
             long[] indices = new long[count];
 
             for (int dimension = 0; dimension < count; dimension++)
             {
-                BorrowedReference op = Runtime.PyTuple_GetItem(idx, dimension);
-                if (!Runtime.PyInt_Check(op))
+                BorrowedReference op = PyTuple_GetItem(idx, dimension);
+                if (!PyInt_Check(op))
                 {
                     return RaiseIndexMustBeIntegerError(op);
                 }
-                index = Runtime.PyLong_AsSignedSize_t(op);
+                index = PyLong_AsSignedSize_t(op);
 
                 if (index == -1 && Exceptions.ErrorOccurred())
                 {
@@ -267,12 +268,12 @@ namespace Core.Libraries.PythonNet.Types
 
             if (rank == 1)
             {
-                if (!Runtime.PyInt_Check(idx))
+                if (!PyInt_Check(idx))
                 {
                     RaiseIndexMustBeIntegerError(idx);
                     return -1;
                 }
-                index = Runtime.PyLong_AsSignedSize_t(idx);
+                index = PyLong_AsSignedSize_t(idx);
 
                 if (index == -1 && Exceptions.ErrorOccurred())
                 {
@@ -295,24 +296,24 @@ namespace Core.Libraries.PythonNet.Types
                 return 0;
             }
 
-            if (!Runtime.PyTuple_Check(idx))
+            if (!PyTuple_Check(idx))
             {
                 Exceptions.RaiseTypeError("invalid index value");
                 return -1;
             }
 
-            var count = Runtime.PyTuple_Size(idx);
+            var count = PyTuple_Size(idx);
             long[] indices = new long[count];
 
             for (int dimension = 0; dimension < count; dimension++)
             {
-                BorrowedReference op = Runtime.PyTuple_GetItem(idx, dimension);
-                if (!Runtime.PyInt_Check(op))
+                BorrowedReference op = PyTuple_GetItem(idx, dimension);
+                if (!PyInt_Check(op))
                 {
                     RaiseIndexMustBeIntegerError(op);
                     return -1;
                 }
-                index = Runtime.PyLong_AsSignedSize_t(op);
+                index = PyLong_AsSignedSize_t(op);
 
                 if (index == -1 && Exceptions.ErrorOccurred())
                 {
@@ -343,7 +344,7 @@ namespace Core.Libraries.PythonNet.Types
 
         private static NewReference RaiseIndexMustBeIntegerError(BorrowedReference idx)
         {
-            string tpName = Runtime.PyObject_GetTypeName(idx);
+            string tpName = PyObject_GetTypeName(idx);
             return Exceptions.RaiseTypeError($"array index has type {tpName}, expected an integer");
         }
 

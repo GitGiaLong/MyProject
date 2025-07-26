@@ -77,12 +77,12 @@ namespace Core.Libraries.PythonNet
             {
                 get
                 {
-                    if (message is not null) return message;
+                    if (message is not null) { return message; }
                     var gil = PythonEngine.AcquireLock();
                     try
                     {
-                        using var pyname = Runtime.PyObject_Str(new BorrowedReference(PyPtr));
-                        string name = Runtime.GetManagedString(pyname.BorrowOrThrow()) ?? Util.BadStr;
+                        using var pyname = PyObject_Str(new BorrowedReference(PyPtr));
+                        string name = GetManagedString(pyname.BorrowOrThrow()) ?? Util.BadStr;
                         message = $"<{name}> may has a incorrect ref count";
                     }
                     finally
@@ -93,11 +93,7 @@ namespace Core.Libraries.PythonNet
                 }
             }
 
-            internal IncorrectRefCountException(IntPtr ptr)
-            {
-                PyPtr = ptr;
-
-            }
+            internal IncorrectRefCountException(IntPtr ptr) { PyPtr = ptr; }
         }
 
         internal delegate bool IncorrectRefCntHandler(object sender, IncorrectFinalizeArgs e);
@@ -113,10 +109,10 @@ namespace Core.Libraries.PythonNet
 
         internal void ThrottledCollect()
         {
-            if (!started) throw new InvalidOperationException($"{nameof(PythonEngine)} is not initialized");
+            if (!started) { throw new InvalidOperationException($"{nameof(PythonEngine)} is not initialized"); }
 
             _throttled = unchecked(this._throttled + 1);
-            if (!started || !Enable || _throttled < Threshold) return;
+            if (!started || !Enable || _throttled < Threshold) { return; }
             _throttled = 0;
             this.Collect();
         }
@@ -133,12 +129,9 @@ namespace Core.Libraries.PythonNet
         )
         {
             Debug.Assert(obj != IntPtr.Zero);
-            if (!Enable)
-            {
-                return;
-            }
+            if (!Enable) { return; }
 
-            Debug.Assert(Runtime.Refcount(new BorrowedReference(obj)) > 0);
+            Debug.Assert(Refcount(new BorrowedReference(obj)) > 0);
 
 #if FINALIZER_CHECK
             lock (_queueLock)
@@ -158,13 +151,9 @@ namespace Core.Libraries.PythonNet
 
         internal void AddDerivedFinalizedObject(ref IntPtr derived, int run)
         {
-            if (derived == IntPtr.Zero)
-                throw new ArgumentNullException(nameof(derived));
+            if (derived == IntPtr.Zero) { throw new ArgumentNullException(nameof(derived)); }
 
-            if (!Enable)
-            {
-                return;
-            }
+            if (!Enable) { return; }
 
             var pending = new PendingFinalization { PyObj = derived, RuntimeRun = run };
             derived = IntPtr.Zero;
@@ -173,21 +162,16 @@ namespace Core.Libraries.PythonNet
 
         internal void AddFinalizedBuffer(ref Py_buffer buffer)
         {
-            if (buffer.obj == IntPtr.Zero)
-                throw new ArgumentNullException(nameof(buffer));
+            if (buffer.obj == IntPtr.Zero) { throw new ArgumentNullException(nameof(buffer)); }
 
-            if (!Enable)
-                return;
+            if (!Enable) { return; }
 
             var pending = buffer;
             buffer = default;
             _bufferQueue.Enqueue(pending);
         }
 
-        internal static void Initialize()
-        {
-            Instance.started = true;
-        }
+        internal static void Initialize() { Instance.started = true; }
 
         internal static void Shutdown()
         {
@@ -197,8 +181,7 @@ namespace Core.Libraries.PythonNet
 
         internal nint DisposeAll(bool disposeObj = true, bool disposeDerived = true, bool disposeBuffer = true)
         {
-            if (_objQueue.IsEmpty && _derivedQueue.IsEmpty && _bufferQueue.IsEmpty)
-                return 0;
+            if (_objQueue.IsEmpty && _derivedQueue.IsEmpty && _bufferQueue.IsEmpty) { return 0; }
 
             nint collected = 0;
 
@@ -213,17 +196,16 @@ namespace Core.Libraries.PythonNet
 #if FINALIZER_CHECK
                 ValidateRefCount();
 #endif
-                Runtime.PyErr_Fetch(out var errType, out var errVal, out var traceback);
+                PyErr_Fetch(out var errType, out var errVal, out var traceback);
                 Debug.Assert(errType.IsNull());
 
-                int run = Runtime.GetRun();
+                int run = GetRun();
 
                 try
                 {
                     if (disposeObj) while (!_objQueue.IsEmpty)
                         {
-                            if (!_objQueue.TryDequeue(out var obj))
-                                continue;
+                            if (!_objQueue.TryDequeue(out var obj)) { continue; }
 
                             if (obj.RuntimeRun != run)
                             {
@@ -232,22 +214,15 @@ namespace Core.Libraries.PythonNet
                             }
 
                             IntPtr copyForException = obj.PyObj;
-                            Runtime.XDecref(StolenReference.Take(ref obj.PyObj));
+                            XDecref(StolenReference.Take(ref obj.PyObj));
                             collected++;
-                            try
-                            {
-                                Runtime.CheckExceptionOccurred();
-                            }
-                            catch (Exception e)
-                            {
-                                HandleFinalizationException(obj.PyObj, e);
-                            }
+                            try { CheckExceptionOccurred(); }
+                            catch (Exception e) { HandleFinalizationException(obj.PyObj, e); }
                         }
 
                     if (disposeDerived) while (!_derivedQueue.IsEmpty)
                         {
-                            if (!_derivedQueue.TryDequeue(out var derived))
-                                continue;
+                            if (!_derivedQueue.TryDequeue(out var derived)) { continue; }
 
                             if (derived.RuntimeRun != run)
                             {
@@ -264,10 +239,9 @@ namespace Core.Libraries.PythonNet
 
                     if (disposeBuffer) while (!_bufferQueue.IsEmpty)
                         {
-                            if (!_bufferQueue.TryDequeue(out var buffer))
-                                continue;
+                            if (!_bufferQueue.TryDequeue(out var buffer)) { continue; }
 
-                            Runtime.PyBuffer_Release(ref buffer);
+                            PyBuffer_Release(ref buffer);
                             collected++;
                         }
                 }
@@ -275,7 +249,7 @@ namespace Core.Libraries.PythonNet
                 {
                     // Python requires finalizers to preserve exception:
                     // https://docs.python.org/3/extending/newtypes.html#finalization-and-de-allocation
-                    Runtime.PyErr_Restore(errType.StealNullable(), errVal.StealNullable(), traceback.StealNullable());
+                    PyErr_Restore(errType.StealNullable(), errVal.StealNullable(), traceback.StealNullable());
                 }
             }
             return collected;
@@ -289,9 +263,7 @@ namespace Core.Libraries.PythonNet
 
             if (!errorArgs.Handled)
             {
-                throw new FinalizationException(
-                    "Python object finalization failed",
-                    disposable: obj, innerException: cause);
+                throw new FinalizationException("Python object finalization failed", disposable: obj, innerException: cause);
             }
         }
 
@@ -315,7 +287,7 @@ namespace Core.Libraries.PythonNet
                 counter[handle]++;
                 if (!holdRefs.ContainsKey(handle))
                 {
-                    holdRefs[handle] = Runtime.Refcount(handle);
+                    holdRefs[handle] = Refcount(handle);
                 }
                 List<IntPtr> objs;
                 if (!indexer.TryGetValue(handle, out objs))

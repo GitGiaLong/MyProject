@@ -3,8 +3,6 @@ using Core.Libraries.PythonNet.References;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Runtime.Serialization;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.PythonTypes
 {
     /// <summary>
@@ -34,11 +32,11 @@ namespace Core.Libraries.PythonNet.PythonTypes
         public PyIter(PyObject pyObject) : base(FromPyObject(pyObject)) { }
         static BorrowedReference FromPyObject(PyObject pyObject)
         {
-            if (pyObject is null) throw new ArgumentNullException(nameof(pyObject));
+            if (pyObject is null) { throw new ArgumentNullException(nameof(pyObject)); }
 
             if (!PyIter_Check(pyObject.Reference))
-            { 
-                throw new ArgumentException("Object does not support iterator protocol"); 
+            {
+                throw new ArgumentException("Object does not support iterator protocol");
             }
 
             return pyObject.Reference;

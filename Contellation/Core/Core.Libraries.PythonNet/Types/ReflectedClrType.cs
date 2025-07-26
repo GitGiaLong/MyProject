@@ -9,8 +9,6 @@ using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 
-using static Core.Libraries.PythonNet.Python.PythonException;
-
 namespace Core.Libraries.PythonNet.Types
 {
 
@@ -32,16 +30,15 @@ namespace Core.Libraries.PythonNet.Types
         /// </remarks>
         public static ReflectedClrType GetOrCreate(Type type)
         {
-            if (ClassManager.cache.TryGetValue(type, out var pyType))
-            {
-                return pyType;
-            }
+            if (ClassManager.cache.TryGetValue(type, out var pyType)) { return pyType; }
 
             try
             {
-                // Ensure, that matching Python type exists first.
-                // It is required for self-referential classes
-                // (e.g. with members, that refer to the same class)
+                /* 
+                 * Ensure, that matching Python type exists first. 
+                 * It is required for self-referential classes 
+                 * (e.g. with members, that refer to the same class) 
+                 */
                 pyType = AllocateClass(type);
                 ClassManager.cache.Add(type, pyType);
 
@@ -51,9 +48,11 @@ namespace Core.Libraries.PythonNet.Types
 
                 ClassManager.InitClassBase(type, impl, pyType);
 
-                // Now we force initialize the Python type object to reflect the given
-                // managed type, filling the Python type slots with thunks that
-                // point to the managed methods providing the implementation.
+                /* 
+                 * Now we force initialize the Python type object to reflect the given 
+                 * managed type, filling the Python type slots with thunks that 
+                 * point to the managed methods providing the implementation. 
+                 */
                 TypeManager.InitializeClass(pyType, impl, type);
             }
             catch (Exception e)
@@ -88,17 +87,15 @@ namespace Core.Libraries.PythonNet.Types
         {
             try
             {
-                Type subType = ClassDerivedObject.CreateDerivedType(name,
-                    baseClass.type.Value,
-                    interfaces,
-                    dict,
-                    ns,
-                    assembly);
+                Type subType = ClassDerivedObject.CreateDerivedType(name, baseClass.type.Value,
+                    interfaces, dict, ns, assembly);
 
                 var py_type = GetOrCreate(subType);
 
-                // by default the class dict will have all the C# methods in it, but as this is a
-                // derived class we want the python overrides in there instead if they exist.
+                /* 
+                 * by default the class dict will have all the C# methods in it, but as this is a 
+                 * derived class we want the python overrides in there instead if they exist. 
+                 */
                 var cls_dict = Util.ReadRef(py_type, TypeOffset.tp_dict);
                 PythonException.ThrowIfIsNotZero(Runtime.PyDict_Update(cls_dict, dict));
                 // Update the __classcell__ if it exists
@@ -122,11 +119,8 @@ namespace Core.Libraries.PythonNet.Types
             string name = TypeManager.GetPythonTypeName(clrType);
 
             var type = TypeManager.AllocateTypeObject(name, Runtime.PyCLRMetaType);
-            type.Flags = TypeFlags.Default
-                            | TypeFlags.HasClrInstance
-                            | TypeFlags.HeapType
-                            | TypeFlags.BaseType
-                            | TypeFlags.HaveGC;
+            type.Flags = TypeFlags.Default | TypeFlags.HasClrInstance | TypeFlags.HeapType
+                            | TypeFlags.BaseType | TypeFlags.HaveGC;
 
             return new ReflectedClrType(type.Steal());
         }

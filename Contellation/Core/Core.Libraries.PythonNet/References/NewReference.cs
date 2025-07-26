@@ -6,8 +6,6 @@ using System.Diagnostics;
 using System.Diagnostics.Contracts;
 using System.Runtime.CompilerServices;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.References
 {
     /// <summary>
@@ -64,7 +62,7 @@ namespace Core.Libraries.PythonNet.References
         /// </summary>
         public IntPtr DangerousMoveToPointer()
         {
-            if (this.IsNull()) throw new NullReferenceException();
+            if (this.IsNull()) { throw new NullReferenceException(); }
 
             var result = this.pointer;
             this.pointer = IntPtr.Zero;

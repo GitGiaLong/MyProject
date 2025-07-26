@@ -4,8 +4,6 @@ using Core.Libraries.PythonNet.Utils;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Runtime.Serialization;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.PythonTypes
 {
     /// <summary>
@@ -65,8 +63,8 @@ namespace Core.Libraries.PythonNet.PythonTypes
         {
             if (items is null) { throw new ArgumentNullException(nameof(items)); }
             if (items.Any(item => item is null))
-            { 
-                throw new ArgumentException(message: Util.UseNone, paramName: nameof(items)); 
+            {
+                throw new ArgumentException(message: Util.UseNone, paramName: nameof(items));
             }
 
             int count = items.Length;

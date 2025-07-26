@@ -35,8 +35,8 @@ namespace Core.Libraries.PythonNet.Runtimes
             set
             {
                 if (_isInitialized)
-                { 
-                    throw new InvalidOperationException("This property must be set before runtime is initialized"); 
+                {
+                    throw new InvalidOperationException("This property must be set before runtime is initialized");
                 }
                 _PythonDll = value;
             }
@@ -58,11 +58,9 @@ namespace Core.Libraries.PythonNet.Runtimes
         {
             string prefix = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "" : "lib";
             string suffix = RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
-                ? Invariant($"{version.Major}{version.Minor}")
-                : Invariant($"{version.Major}.{version.Minor}");
+                ? Invariant($"{version.Major}{version.Minor}") : Invariant($"{version.Major}.{version.Minor}");
             string ext = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? ".dll"
-                : RuntimeInformation.IsOSPlatform(OSPlatform.OSX) ? ".dylib"
-                : ".so";
+                : RuntimeInformation.IsOSPlatform(OSPlatform.OSX) ? ".dylib" : ".so";
             return prefix + "python" + suffix + ext;
         }
 
@@ -80,8 +78,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         // .NET core: System.Runtime.InteropServices.RuntimeInformation.IsOSPlatform(OSPlatform.Windows)
         internal static bool IsWindows = Environment.OSVersion.Platform == PlatformID.Win32NT;
 
-        internal static Version InteropVersion { get; }
-            = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+        internal static Version InteropVersion { get; } = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
 
         public static int MainManagedThreadId { get; private set; }
 
@@ -129,28 +126,16 @@ namespace Core.Libraries.PythonNet.Runtimes
 
                 NewRun();
 
-                if (PyEval_ThreadsInitialized() == 0)
-                {
-                    PyEval_InitThreads();
-                }
+                if (PyEval_ThreadsInitialized() == 0) { PyEval_InitThreads(); }
                 RuntimeState.Save();
             }
             else
             {
-                if (!HostedInPython)
-                {
-                    PyGILState_Ensure();
-                }
+                if (!HostedInPython) { PyGILState_Ensure(); }
 
                 BorrowedReference pyRun = PySys_GetObject(RunSysPropName);
-                if (pyRun != null)
-                {
-                    run = checked((int)PyLong_AsSignedSize_t(pyRun));
-                }
-                else
-                {
-                    NewRun();
-                }
+                if (pyRun != null) { run = checked((int)PyLong_AsSignedSize_t(pyRun)); }
+                else { NewRun(); }
             }
             MainManagedThreadId = Thread.CurrentThread.ManagedThreadId;
 
@@ -267,10 +252,7 @@ namespace Core.Libraries.PythonNet.Runtimes
 
         internal static void Shutdown()
         {
-            if (Py_IsInitialized() == 0 || !_isInitialized)
-            {
-                return;
-            }
+            if (Py_IsInitialized() == 0 || !_isInitialized) { return; }
             _isInitialized = false;
 
             var state = PyGILState_Ensure();
@@ -290,8 +272,7 @@ namespace Core.Libraries.PythonNet.Runtimes
             ClearClrModules();
             RemoveClrRootModule();
 
-            TryCollectingGarbage(MaxCollectRetriesOnShutdown, forceBreakLoops: true,
-                                 obj: true, derived: false, buffer: false);
+            TryCollectingGarbage(MaxCollectRetriesOnShutdown, forceBreakLoops: true, obj: true, derived: false, buffer: false);
             CLRObject.creationBlocked = true;
 
             NullGCHandles(ExtensionType.loadedExtensions);
@@ -346,10 +327,9 @@ namespace Core.Libraries.PythonNet.Runtimes
 
         const int MaxCollectRetriesOnShutdown = 20;
         internal static int _collected;
-        static bool TryCollectingGarbage(int runs, bool forceBreakLoops,
-                                         bool obj = true, bool derived = true, bool buffer = true)
+        static bool TryCollectingGarbage(int runs, bool forceBreakLoops, bool obj = true, bool derived = true, bool buffer = true)
         {
-            if (runs <= 0) throw new ArgumentOutOfRangeException(nameof(runs));
+            if (runs <= 0) { throw new ArgumentOutOfRangeException(nameof(runs)); }
 
             for (int attempt = 0; attempt < runs; attempt++)
             {
@@ -387,24 +367,16 @@ namespace Core.Libraries.PythonNet.Runtimes
 
         static void DisposeLazyObject(Lazy<PyObject> pyObject)
         {
-            if (pyObject.IsValueCreated)
-            {
-                pyObject.Value.Dispose();
-            }
+            if (pyObject.IsValueCreated) { pyObject.Value.Dispose(); }
         }
 
-        private static Lazy<PyObject> GetModuleLazy(string moduleName)
-            => moduleName is null
-                ? throw new ArgumentNullException(nameof(moduleName))
-                : new Lazy<PyObject>(() => PyModule.Import(moduleName), isThreadSafe: false);
+        private static Lazy<PyObject> GetModuleLazy(string moduleName) => moduleName is null
+            ? throw new ArgumentNullException(nameof(moduleName)) : new Lazy<PyObject>(() => PyModule.Import(moduleName), isThreadSafe: false);
 
         private static void SetPyMember(out PyObject obj, StolenReference value)
         {
             // XXX: For current usages, value should not be null.
-            if (value == null)
-            {
-                throw PythonException.ThrowLastAsClrException();
-            }
+            if (value == null) { throw PythonException.ThrowLastAsClrException(); }
             obj = new PyObject(value);
             _pyRefs.Add(obj);
         }
@@ -418,10 +390,7 @@ namespace Core.Libraries.PythonNet.Runtimes
 
         private static void SetPyMemberTypeOf(out PyObject obj, StolenReference value)
         {
-            if (value == null)
-            {
-                throw PythonException.ThrowLastAsClrException();
-            }
+            if (value == null) { throw PythonException.ThrowLastAsClrException(); }
             var @ref = new BorrowedReference(value.Pointer);
             var type = PyObject_Type(@ref);
             XDecref(value.AnalyzerWorkaround());
@@ -430,8 +399,7 @@ namespace Core.Libraries.PythonNet.Runtimes
 
         private static void ResetPyMembers()
         {
-            foreach (var pyObj in _pyRefs)
-                pyObj.Dispose();
+            foreach (var pyObj in _pyRefs) { pyObj.Dispose(); }
             _pyRefs.Clear();
         }
 
@@ -440,7 +408,7 @@ namespace Core.Libraries.PythonNet.Runtimes
             var modules = PyImport_GetModuleDict();
             using var items = PyDict_Items(modules);
             nint length = PyList_Size(items.BorrowOrThrow());
-            if (length < 0) throw PythonException.ThrowLastAsClrException();
+            if (length < 0) { throw PythonException.ThrowLastAsClrException(); }
             for (nint i = 0; i < length; i++)
             {
                 var item = PyList_GetItem(items.Borrow(), i);
@@ -462,10 +430,7 @@ namespace Core.Libraries.PythonNet.Runtimes
 
         private static void PyDictTryDelItem(BorrowedReference dict, string key)
         {
-            if (PyDict_DelItemString(dict, key) == 0)
-            {
-                return;
-            }
+            if (PyDict_DelItemString(dict, key) == 0) { return; }
             if (!PythonException.CurrentMatches(Exceptions.KeyError))
             {
                 throw PythonException.ThrowLastAsClrException();
@@ -543,10 +508,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         /// </remarks>
         internal static void CheckExceptionOccurred()
         {
-            if (PyErr_Occurred() != null)
-            {
-                throw PythonException.ThrowLastAsClrException();
-            }
+            if (PyErr_Occurred() != null) { throw PythonException.ThrowLastAsClrException(); }
         }
 
         internal static Type[]? PythonArgsToTypeArray(BorrowedReference arg)
@@ -592,10 +554,7 @@ namespace Core.Libraries.PythonNet.Runtimes
                 else if (mt is CLRObject ob)
                 {
                     var inst = ob.inst;
-                    if (inst is Type ty)
-                    {
-                        t = ty;
-                    }
+                    if (inst is Type ty) { t = ty; }
                 }
                 else
                 {
@@ -631,7 +590,7 @@ namespace Core.Libraries.PythonNet.Runtimes
             Debug.Assert(op == null || Refcount(new BorrowedReference(op.Pointer)) > 0);
             Debug.Assert(_isInitialized || Py_IsInitialized() != 0 || _Py_IsFinalizing() != false);
 #endif
-            if (op == null) return;
+            if (op == null) { return; }
             Py_DecRef(op.AnalyzerWorkaround());
             return;
         }
@@ -639,10 +598,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         [Pure]
         internal static unsafe nint Refcount(BorrowedReference op)
         {
-            if (op == null)
-            {
-                return 0;
-            }
+            if (op == null) { return 0; }
             var p = (nint*)(op.DangerousGetAddress() + ABI.RefCountOffset);
             return *p;
         }
@@ -657,10 +613,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         /// </summary>
         internal static T TryUsingDll<T>(Func<T> op)
         {
-            try
-            {
-                return op();
-            }
+            try { return op(); }
             catch (TypeInitializationException loadFailure)
             {
                 var delegatesLoadFailure = loadFailure;
@@ -916,7 +869,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         internal static int PyObject_IsTrue(BorrowedReference pointer) => Delegates.PyObject_IsTrue(pointer);
 
         internal static int PyObject_Not(BorrowedReference o) => Delegates.PyObject_Not(o);
-        
+
         internal static nint PyObject_Size(BorrowedReference pointer) => Delegates.PyObject_Size(pointer);
 
         internal static nint PyObject_Hash(BorrowedReference op) => Delegates.PyObject_Hash(op);
@@ -954,7 +907,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         internal static bool? _Py_IsFinalizing()
         {
             if (Delegates._Py_IsFinalizing != null) { return Delegates._Py_IsFinalizing() != 0; }
-            else {return null; }
+            else { return null; }
         }
 
         //====================================================================
@@ -998,7 +951,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         internal static bool PyInt_CheckExact(BorrowedReference ob) => PyObject_TypeCheckExact(ob, PyLongType);
 
         internal static bool PyBool_Check(BorrowedReference ob) => PyObject_TypeCheck(ob, PyBoolType);
-        
+
         internal static bool PyBool_CheckExact(BorrowedReference ob) => PyObject_TypeCheckExact(ob, PyBoolType);
 
         internal static NewReference PyInt_FromInt32(int value) => PyLong_FromLongLong(value);
@@ -1040,7 +993,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         }
 
         internal static bool PyFloat_Check(BorrowedReference ob) => PyObject_TypeCheck(ob, PyFloatType);
-        
+
         internal static bool PyFloat_CheckExact(BorrowedReference ob) => PyObject_TypeCheckExact(ob, PyFloatType);
 
         /// <summary>
@@ -1118,7 +1071,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         internal static bool PySequence_Check(BorrowedReference pointer) => Delegates.PySequence_Check(pointer);
 
         internal static NewReference PySequence_GetItem(BorrowedReference pointer, nint index) => Delegates.PySequence_GetItem(pointer, index);
-        
+
         internal static int PySequence_SetItem(BorrowedReference pointer, nint index, BorrowedReference value) => Delegates.PySequence_SetItem(pointer, index, value);
 
         internal static int PySequence_DelItem(BorrowedReference pointer, nint index) => Delegates.PySequence_DelItem(pointer, index);
@@ -1149,7 +1102,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         // Python string API
         //====================================================================
         internal static bool PyString_Check(BorrowedReference ob) => PyObject_TypeCheck(ob, PyStringType);
-        
+
         internal static bool PyString_CheckExact(BorrowedReference ob) => PyObject_TypeCheckExact(ob, PyStringType);
 
         internal static NewReference PyString_FromString(string value)
@@ -1170,7 +1123,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         }
 
         internal static NewReference PyByteArray_FromStringAndSize(IntPtr strPtr, nint len) => Delegates.PyByteArray_FromStringAndSize(strPtr, len);
-        
+
         internal static NewReference PyByteArray_FromStringAndSize(string s)
         {
             using var ptr = new StrPtr(s);
@@ -1187,7 +1140,9 @@ namespace Core.Libraries.PythonNet.Runtimes
 
         internal static IntPtr PyUnicode_AsUTF8(BorrowedReference unicode) => Delegates.PyUnicode_AsUTF8(unicode);
 
-        /// <summary>Length in code points</summary>
+        /// <summary>
+        /// Length in code points
+        /// </summary>
         internal static nint PyUnicode_GetLength(BorrowedReference ob) => Delegates.PyUnicode_GetLength(ob);
 
         internal static NewReference PyUnicode_AsUTF16String(BorrowedReference ob) => Delegates.PyUnicode_AsUTF16String(ob);
@@ -1416,10 +1371,7 @@ namespace Core.Libraries.PythonNet.Runtimes
             IntPtr valueAddr = value.DangerousGetAddressOrNull();
             int res = Delegates.PyModule_AddObject(module, namePtr, valueAddr);
             // We can't just exit here because the reference is stolen only on success.
-            if (res != 0)
-            {
-                XDecref(StolenReference.TakeNullable(ref valueAddr));
-            }
+            if (res != 0) { XDecref(StolenReference.TakeNullable(ref valueAddr)); }
             return res;
 
         }
@@ -1448,14 +1400,8 @@ namespace Core.Libraries.PythonNet.Runtimes
         {
             var marshaler = StrArrayMarshaler.GetInstance(null);
             var argvPtr = marshaler.MarshalManagedToNative(argv);
-            try
-            {
-                Delegates.PySys_SetArgvEx(argc, argvPtr, updatepath);
-            }
-            finally
-            {
-                marshaler.CleanUpNativeData(argvPtr);
-            }
+            try { Delegates.PySys_SetArgvEx(argc, argvPtr, updatepath); }
+            finally { marshaler.CleanUpNativeData(argvPtr); }
         }
 
         /// <summary>
@@ -1486,8 +1432,7 @@ namespace Core.Libraries.PythonNet.Runtimes
             Debug.Assert(t1 != null && t2 != null);
             return Delegates.PyType_IsSubtype(t1, t2);
         }
-        internal static bool PyObject_TypeCheckExact(BorrowedReference ob, BorrowedReference tp)
-            => PyObject_TYPE(ob) == tp;
+        internal static bool PyObject_TypeCheckExact(BorrowedReference ob, BorrowedReference tp) => PyObject_TYPE(ob) == tp;
         internal static bool PyObject_TypeCheck(BorrowedReference ob, BorrowedReference tp)
         {
             BorrowedReference t = PyObject_TYPE(ob);
@@ -1504,7 +1449,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         internal static NewReference PyType_GenericAlloc(BorrowedReference type, nint n) => Delegates.PyType_GenericAlloc(type, n);
 
         internal static IntPtr PyType_GetSlot(BorrowedReference type, TypeSlotID slot) => Delegates.PyType_GetSlot(type, slot);
-       
+
         internal static NewReference PyType_FromSpecWithBases(in NativeTypeSpec spec, BorrowedReference bases) => Delegates.PyType_FromSpecWithBases(in spec, bases);
 
         /// <summary>
@@ -1520,15 +1465,14 @@ namespace Core.Libraries.PythonNet.Runtimes
         internal static int PyObject_GenericSetAttr(BorrowedReference obj, BorrowedReference name, BorrowedReference value) => Delegates.PyObject_GenericSetAttr(obj, name, value);
 
         internal static NewReference PyObject_GenericGetDict(BorrowedReference o) => PyObject_GenericGetDict(o, IntPtr.Zero);
-        
+
         internal static NewReference PyObject_GenericGetDict(BorrowedReference o, IntPtr context) => Delegates.PyObject_GenericGetDict(o, context);
 
         internal static void PyObject_GC_Del(StolenReference ob) => Delegates.PyObject_GC_Del(ob);
 
         internal static bool PyObject_GC_IsTracked(BorrowedReference ob)
         {
-            if (PyVersion >= new Version(3, 9))
-                return Delegates.PyObject_GC_IsTracked(ob) != 0;
+            if (PyVersion >= new Version(3, 9)) { return Delegates.PyObject_GC_IsTracked(ob) != 0; }
 
             throw new NotSupportedException("Requires Python 3.9");
         }
@@ -1543,10 +1487,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         // Python memory API
         //====================================================================
 
-        internal static IntPtr PyMem_Malloc(long size)
-        {
-            return PyMem_Malloc(new IntPtr(size));
-        }
+        internal static IntPtr PyMem_Malloc(long size) { return PyMem_Malloc(new IntPtr(size)); }
 
         private static IntPtr PyMem_Malloc(nint size) => Delegates.PyMem_Malloc(size);
 
@@ -1582,18 +1523,14 @@ namespace Core.Libraries.PythonNet.Runtimes
 
         internal static void PyErr_Print() => Delegates.PyErr_Print();
 
-        internal static NewReference PyException_GetCause(BorrowedReference ex)
-            => Delegates.PyException_GetCause(ex);
-        internal static NewReference PyException_GetTraceback(BorrowedReference ex)
-            => Delegates.PyException_GetTraceback(ex);
+        internal static NewReference PyException_GetCause(BorrowedReference ex) => Delegates.PyException_GetCause(ex);
+        internal static NewReference PyException_GetTraceback(BorrowedReference ex) => Delegates.PyException_GetTraceback(ex);
 
         /// <summary>
         /// Set the cause associated with the exception to cause. Use NULL to clear it. There is no type check to make sure that cause is either an exception instance or None. This steals a reference to cause.
         /// </summary>
-        internal static void PyException_SetCause(BorrowedReference ex, StolenReference cause)
-            => Delegates.PyException_SetCause(ex, cause);
-        internal static int PyException_SetTraceback(BorrowedReference ex, BorrowedReference tb)
-            => Delegates.PyException_SetTraceback(ex, tb);
+        internal static void PyException_SetCause(BorrowedReference ex, StolenReference cause) => Delegates.PyException_SetCause(ex, cause);
+        internal static int PyException_SetTraceback(BorrowedReference ex, BorrowedReference tb) => Delegates.PyException_SetTraceback(ex, tb);
 
         //====================================================================
         // Cell API
@@ -1604,9 +1541,9 @@ namespace Core.Libraries.PythonNet.Runtimes
         internal static int PyCell_Set(BorrowedReference cell, BorrowedReference value) => Delegates.PyCell_Set(cell, value);
 
         internal static nint PyGC_Collect() => Delegates.PyGC_Collect();
-        
+
         internal static void Py_CLEAR(BorrowedReference ob, int offset) => ReplaceReference(ob, offset, default);
-        
+
         internal static void Py_CLEAR<T>(ref T? ob) where T : PyObject
         {
             ob?.Dispose();

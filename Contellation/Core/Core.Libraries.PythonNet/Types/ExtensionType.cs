@@ -1,6 +1,5 @@
 ﻿using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -17,10 +16,12 @@ namespace Core.Libraries.PythonNet.Types
     {
         public virtual NewReference Alloc()
         {
-            // Create a new PyObject whose type is a generated type that is
-            // implemented by the particular concrete ExtensionType subclass.
-            // The Python instance object is related to an instance of a
-            // particular concrete subclass with a hidden CLR gchandle.
+            /* 
+             * Create a new PyObject whose type is a generated type that is 
+             * implemented by the particular concrete ExtensionType subclass. 
+             * The Python instance object is related to an instance of a 
+             * particular concrete subclass with a hidden CLR gchandle. 
+             */
 
             BorrowedReference tp = TypeManager.GetTypeReference(GetType());
 
@@ -31,7 +32,7 @@ namespace Core.Libraries.PythonNet.Types
             //    DebugUtil.DumpType(tp);
             //}
 
-            NewReference py = Runtime.PyType_GenericAlloc(tp, 0);
+            NewReference py = PyType_GenericAlloc(tp, 0);
 
 #if DEBUG
             GetGCHandle(py.BorrowOrThrow(), tp, out var existing);
@@ -54,12 +55,14 @@ namespace Core.Libraries.PythonNet.Types
             bool isNew = loadedExtensions.Add(ob.DangerousGetAddress());
             Debug.Assert(isNew);
 
-            // We have to support gc because the type machinery makes it very
-            // hard not to - but we really don't have a need for it in most
-            // concrete extension types, so untrack the object to save calls
-            // from Python into the managed runtime that are pure overhead.
+            /* 
+             * We have to support gc because the type machinery makes it very 
+             * hard not to - but we really don't have a need for it in most 
+             * concrete extension types, so untrack the object to save calls 
+             * from Python into the managed runtime that are pure overhead. 
+             */
 
-            Runtime.PyObject_GC_UnTrack(ob);
+            PyObject_GC_UnTrack(ob);
         }
 
         /// <summary>
@@ -68,17 +71,14 @@ namespace Core.Libraries.PythonNet.Types
         public static int tp_setattro(BorrowedReference ob, BorrowedReference key, BorrowedReference val)
         {
             var message = "type does not support setting attributes";
-            if (val == null)
-            {
-                message = "readonly attribute";
-            }
+            if (val == null) { message = "readonly attribute"; }
             Exceptions.SetError(Exceptions.AttributeError, message);
             return -1;
         }
 
         public unsafe static void tp_dealloc(NewReference lastRef)
         {
-            Runtime.PyObject_GC_UnTrack(lastRef.Borrow());
+            PyObject_GC_UnTrack(lastRef.Borrow());
 
             tp_clear(lastRef.Borrow());
 
@@ -88,10 +88,10 @@ namespace Core.Libraries.PythonNet.Types
 
         public static int tp_clear(BorrowedReference ob)
         {
-            var weakrefs = Runtime.PyObject_GetWeakRefList(ob);
+            var weakrefs = PyObject_GetWeakRefList(ob);
             if (weakrefs != null)
             {
-                Runtime.PyObject_ClearWeakRefs(ob);
+                PyObject_ClearWeakRefs(ob);
             }
 
             if (TryFreeGCHandle(ob))
@@ -107,7 +107,7 @@ namespace Core.Libraries.PythonNet.Types
         protected override void OnLoad(BorrowedReference ob, Dictionary<string, object?>? context)
         {
             base.OnLoad(ob, context);
-            SetupGc(ob, Runtime.PyObject_TYPE(ob));
+            SetupGc(ob, PyObject_TYPE(ob));
         }
     }
 }

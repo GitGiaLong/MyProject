@@ -1,7 +1,6 @@
 ﻿using Core.Libraries.PythonNet.Python;
 using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.Types;
 using Core.Libraries.PythonNet.Utils;
 using Core.Libraries.Structs.PythonNet.References;
@@ -36,35 +35,28 @@ namespace Core.Libraries.PythonNet
             Type type = typeof(Exceptions);
             foreach (FieldInfo fi in type.GetFields(BindingFlags.Public | BindingFlags.Static))
             {
-                using var op = Runtime.PyObject_GetAttrString(exceptions_module.obj, fi.Name);
-                if (!@op.IsNull())
-                {
-                    fi.SetValue(type, op.MoveToPyObject());
-                }
+                using var op = PyObject_GetAttrString(exceptions_module.obj, fi.Name);
+                if (!@op.IsNull()) { fi.SetValue(type, op.MoveToPyObject()); }
                 else
                 {
                     fi.SetValue(type, null);
                     DebugUtil.Print($"Unknown exception: {fi.Name}");
                 }
             }
-            Runtime.PyErr_Clear();
+            PyErr_Clear();
         }
-
 
         /// <summary>
         /// Cleanup resources upon shutdown of the Python runtime.
         /// </summary>
         internal static void Shutdown()
         {
-            if (Runtime.Py_IsInitialized() == 0) { return; }
+            if (Py_IsInitialized() == 0) { return; }
             Type type = typeof(Exceptions);
             foreach (FieldInfo fi in type.GetFields(BindingFlags.Public | BindingFlags.Static))
             {
                 var op = (PyObject?)fi.GetValue(type);
-                if (op is null)
-                {
-                    continue;
-                }
+                if (op is null) { continue; }
                 op.Dispose();
                 fi.SetValue(null, null);
             }
@@ -84,28 +76,25 @@ namespace Core.Libraries.PythonNet
             NewReference args;
             if (!string.IsNullOrEmpty(e.Message))
             {
-                args = Runtime.PyTuple_New(1);
-                using var msg = Runtime.PyString_FromString(e.Message);
-                Runtime.PyTuple_SetItem(args.Borrow(), 0, msg.StealOrThrow());
+                args = PyTuple_New(1);
+                using var msg = PyString_FromString(e.Message);
+                PyTuple_SetItem(args.Borrow(), 0, msg.StealOrThrow());
             }
             else
             {
-                args = Runtime.PyTuple_New(0);
+                args = PyTuple_New(0);
             }
 
             using (args)
             {
-                if (Runtime.PyObject_SetAttrString(ob, "args", args.Borrow()) != 0)
-                {
-                    return false;
-                }
+                if (PyObject_SetAttrString(ob, "args", args.Borrow()) != 0) { return false; }
             }
 
             if (e.InnerException != null)
             {
                 // Note: For an AggregateException, InnerException is only the first of the InnerExceptions.
                 using var cause = CLRObject.GetReference(e.InnerException);
-                Runtime.PyException_SetCause(ob, cause.Steal());
+                PyException_SetCause(ob, cause.Steal());
             }
 
             return true;
@@ -117,10 +106,7 @@ namespace Core.Libraries.PythonNet
         /// <param name="pointer">Pointer to a Python object</param>
         internal static BorrowedReference ErrorCheck(BorrowedReference pointer)
         {
-            if (pointer.IsNull)
-            {
-                throw PythonException.ThrowLastAsClrException();
-            }
+            if (pointer.IsNull) { throw PythonException.ThrowLastAsClrException(); }
 
             return pointer;
         }
@@ -132,18 +118,12 @@ namespace Core.Libraries.PythonNet
         /// </summary>
         internal static void ErrorOccurredCheck(IntPtr pointer)
         {
-            if (pointer == IntPtr.Zero || ErrorOccurred())
-            {
-                throw PythonException.ThrowLastAsClrException();
-            }
+            if (pointer == IntPtr.Zero || ErrorOccurred()) { throw PythonException.ThrowLastAsClrException(); }
         }
 
         internal static IntPtr ErrorCheckIfNull(IntPtr pointer)
         {
-            if (pointer == IntPtr.Zero && ErrorOccurred())
-            {
-                throw PythonException.ThrowLastAsClrException();
-            }
+            if (pointer == IntPtr.Zero && ErrorOccurred()) { throw PythonException.ThrowLastAsClrException(); }
             return pointer;
         }
 
@@ -156,7 +136,7 @@ namespace Core.Libraries.PythonNet
         /// </remarks>
         public static bool ExceptionMatches(BorrowedReference ob)
         {
-            return Runtime.PyErr_ExceptionMatches(ob) != 0;
+            return PyErr_ExceptionMatches(ob) != 0;
         }
 
         /// <summary>
@@ -165,7 +145,7 @@ namespace Core.Libraries.PythonNet
         /// </summary>
         public static void SetError(BorrowedReference type, string message)
         {
-            Runtime.PyErr_SetString(type, message);
+            PyErr_SetString(type, message);
         }
 
         /// <summary>
@@ -177,7 +157,7 @@ namespace Core.Libraries.PythonNet
         /// </remarks>
         public static void SetError(BorrowedReference type, BorrowedReference exceptionObject)
         {
-            Runtime.PyErr_SetObject(type, exceptionObject);
+            PyErr_SetObject(type, exceptionObject);
         }
 
         internal const string DispatchInfoAttribute = "__dispatch_info__";
@@ -193,10 +173,12 @@ namespace Core.Libraries.PythonNet
         {
             Debug.Assert(e is not null);
 
-            // Because delegates allow arbitrary nesting of Python calling
-            // managed calling Python calling... etc. it is possible that we
-            // might get a managed exception raised that is a wrapper for a
-            // Python exception. In that case we'd rather have the real thing.
+            /* 
+             * Because delegates allow arbitrary nesting of Python calling 
+             * managed calling Python calling... etc. it is possible that we 
+             * might get a managed exception raised that is a wrapper for a 
+             * Python exception. In that case we'd rather have the real thing. 
+             */
 
             if (e is PythonException pe)
             {
@@ -205,18 +187,17 @@ namespace Core.Libraries.PythonNet
             }
 
             using var instance = Converter.ToPython(e);
-            if (instance.IsNull()) return false;
+            if (instance.IsNull()) { return false; }
 
             var exceptionInfo = ExceptionDispatchInfo.Capture(e);
             using var pyInfo = Converter.ToPython(exceptionInfo);
 
-            if (Runtime.PyObject_SetAttrString(instance.Borrow(), DispatchInfoAttribute, pyInfo.Borrow()) != 0)
-                return false;
+            if (PyObject_SetAttrString(instance.Borrow(), DispatchInfoAttribute, pyInfo.Borrow()) != 0) { return false; }
 
-            Debug.Assert(Runtime.PyObject_TypeCheck(instance.Borrow(), BaseException));
+            Debug.Assert(PyObject_TypeCheck(instance.Borrow(), BaseException));
 
-            var type = Runtime.PyObject_TYPE(instance.Borrow());
-            Runtime.PyErr_SetObject(type, instance.Borrow());
+            var type = PyObject_TYPE(instance.Borrow());
+            PyErr_SetObject(type, instance.Borrow());
             return true;
         }
 
@@ -229,7 +210,7 @@ namespace Core.Libraries.PythonNet
             var currentException = PythonException.FetchCurrentRaw();
             currentException.Normalize();
             using var causeInstance = Converter.ToPython(cause);
-            Runtime.PyException_SetCause(currentException.Value!.Reference, causeInstance.Steal());
+            PyException_SetCause(currentException.Value!.Reference, causeInstance.Steal());
             currentException.Restore();
         }
 
@@ -240,10 +221,7 @@ namespace Core.Libraries.PythonNet
         /// Returns true if an exception occurred in the Python runtime.
         /// This is a wrapper for the Python PyErr_Occurred call.
         /// </remarks>
-        public static bool ErrorOccurred()
-        {
-            return Runtime.PyErr_Occurred() != null;
-        }
+        public static bool ErrorOccurred() { return PyErr_Occurred() != null; }
 
         /// <summary>
         /// Clear Method
@@ -251,10 +229,7 @@ namespace Core.Libraries.PythonNet
         /// <remarks>
         /// Clear any exception that has been set in the Python runtime.
         /// </remarks>
-        public static void Clear()
-        {
-            Runtime.PyErr_Clear();
-        }
+        public static void Clear() { PyErr_Clear(); }
 
         //====================================================================
         // helper methods for raising warnings
@@ -265,26 +240,25 @@ namespace Core.Libraries.PythonNet
         /// </summary>
         public static void warn(string message, BorrowedReference exception, int stacklevel)
         {
-            if (exception == null ||
-                (Runtime.PyObject_IsSubclass(exception, Exceptions.Warning) != 1))
+            if (exception == null || (PyObject_IsSubclass(exception, Exceptions.Warning) != 1))
             {
                 Exceptions.RaiseTypeError("Invalid exception");
             }
 
-            using var warn = Runtime.PyObject_GetAttrString(warnings_module.obj, "warn");
+            using var warn = PyObject_GetAttrString(warnings_module.obj, "warn");
             warn.BorrowOrThrow();
 
-            using var argsTemp = Runtime.PyTuple_New(3);
+            using var argsTemp = PyTuple_New(3);
             BorrowedReference args = argsTemp.BorrowOrThrow();
 
-            using var msg = Runtime.PyString_FromString(message);
-            Runtime.PyTuple_SetItem(args, 0, msg.StealOrThrow());
-            Runtime.PyTuple_SetItem(args, 1, exception);
+            using var msg = PyString_FromString(message);
+            PyTuple_SetItem(args, 0, msg.StealOrThrow());
+            PyTuple_SetItem(args, 1, exception);
 
-            using var level = Runtime.PyInt_FromInt32(stacklevel);
-            Runtime.PyTuple_SetItem(args, 2, level.StealOrThrow());
+            using var level = PyInt_FromInt32(stacklevel);
+            PyTuple_SetItem(args, 2, level.StealOrThrow());
 
-            using var result = Runtime.PyObject_CallObject(warn.Borrow(), args);
+            using var result = PyObject_CallObject(warn.Borrow(), args);
             result.BorrowOrThrow();
         }
 
@@ -298,10 +272,7 @@ namespace Core.Libraries.PythonNet
             warn(message, Exceptions.DeprecationWarning, stacklevel);
         }
 
-        public static void deprecation(string message)
-        {
-            deprecation(message, 1);
-        }
+        public static void deprecation(string message) { deprecation(message, 1); }
 
         //====================================================================
         // Internal helper methods for common error handling scenarios.
@@ -319,24 +290,24 @@ namespace Core.Libraries.PythonNet
 
             Exceptions.SetError(Exceptions.TypeError, message);
 
-            if (cause is null) return default;
+            if (cause is null) { return default; }
 
             var typeError = PythonException.FetchCurrentRaw();
             typeError.Normalize();
 
-            Runtime.PyException_SetCause(
-                typeError.Value!,
-                new NewReference(cause.Value!).Steal());
+            PyException_SetCause(typeError.Value!, new NewReference(cause.Value!).Steal());
             typeError.Restore();
 
             return default;
         }
 
-        // 2010-11-16: Arranged in python (2.6 & 2.7) source header file order
-        /* Predefined exceptions are
-           public static variables on the Exceptions class filled in from
-           the python class using reflection in Initialize() looked up by
-		   name, not position. */
+        /* 
+         * 2010-11-16: Arranged in python (2.6 & 2.7) source header file order 
+         * Predefined exceptions are 
+         * public static variables on the Exceptions class filled in from 
+         * the python class using reflection in Initialize() looked up by 
+         * name, not position. 
+         */
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         // set in Initialize
         public static PyObject BaseException;

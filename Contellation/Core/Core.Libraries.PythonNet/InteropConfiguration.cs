@@ -9,10 +9,11 @@ namespace Core.Libraries.PythonNet
 
     public sealed class InteropConfiguration : IDisposable
     {
-        internal readonly PythonBaseTypeProviderGroup pythonBaseTypeProviders
-            = new();
+        internal readonly PythonBaseTypeProviderGroup pythonBaseTypeProviders = new();
 
-        /// <summary>Enables replacing base types of CLR types as seen from Python</summary>
+        /// <summary>
+        /// Enables replacing base types of CLR types as seen from Python
+        /// </summary>
         public IList<IPythonBaseTypeProvider> PythonBaseTypeProviders => this.pythonBaseTypeProviders;
 
         public static InteropConfiguration MakeDefault()

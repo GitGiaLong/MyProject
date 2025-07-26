@@ -36,4 +36,6 @@
 
   <Import Project="..\Core.Libraries.Structs\Core.Libraries.Structs.projitems" Label="Shared" />
 
+  <Import Project="..\Core.Libraries.Interops\Core.Libraries.Interops.projitems" Label="Shared" />
+
 </Project>

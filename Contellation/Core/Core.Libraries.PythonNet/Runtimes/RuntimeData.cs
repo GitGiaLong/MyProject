@@ -10,8 +10,6 @@ using System.Runtime.InteropServices;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.Runtimes
 {
     public static class RuntimeData
@@ -38,7 +36,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         private static Type? _formatterType = null;
         public static Type? FormatterType
         {
-            get { return _formatterType;}
+            get { return _formatterType; }
             set
             {
                 if (!typeof(IFormatter).IsAssignableFrom(value))
@@ -53,7 +51,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         /// Callback called as a last step in the serialization process
         /// </summary>
         public static Action? PostStashHook { get; set; } = null;
-        
+
         /// <summary>
         /// Callback called as the first step in the deserialization process
         /// </summary>
@@ -106,24 +104,15 @@ namespace Core.Libraries.PythonNet.Runtimes
 
         internal static void RestoreRuntimeData()
         {
-            try
-            {
-                RestoreRuntimeDataImpl();
-            }
-            finally
-            {
-                ClearStash();
-            }
+            try { RestoreRuntimeDataImpl(); }
+            finally { ClearStash(); }
         }
 
         private static void RestoreRuntimeDataImpl()
         {
             PreRestoreHook?.Invoke();
             BorrowedReference capsule = PySys_GetObject("clr_data");
-            if (capsule.IsNull)
-            {
-                return;
-            }
+            if (capsule.IsNull) { return; }
             IntPtr mem = PyCapsule_GetPointer(capsule, IntPtr.Zero);
             int length = (int)Marshal.ReadIntPtr(mem);
             byte[] data = new byte[length];
@@ -157,10 +146,7 @@ namespace Core.Libraries.PythonNet.Runtimes
             Type type = o.GetType();
             do
             {
-                if (!type.IsSerializable)
-                {
-                    return false;
-                }
+                if (!type.IsSerializable) { return false; }
             } while ((type = type.BaseType) != null);
             return true;
         }
@@ -186,8 +172,7 @@ namespace Core.Libraries.PythonNet.Runtimes
             var wrappers = new Dictionary<object, List<CLRObject>>();
             var userObjects = new CLRWrapperCollection();
             // make a copy with strongly typed references to avoid concurrent modification
-            var reflectedObjects = CLRObject.reflectedObjects
-                .Select(addr => new PyObject(new BorrowedReference(addr),
+            var reflectedObjects = CLRObject.reflectedObjects.Select(addr => new PyObject(new BorrowedReference(addr),
                 // if we don't skip collect, finalizer might modify reflectedObjects
                 skipCollect: true)).ToList();
             foreach (var pyObj in reflectedObjects)
@@ -221,10 +206,8 @@ namespace Core.Libraries.PythonNet.Runtimes
             {
                 if (!item.Stored)
                 {
-                    if (!CheckSerializable(item.Instance))
-                    {
-                        continue;
-                    }
+                    if (!CheckSerializable(item.Instance)) { continue; }
+
                     var clrO = wrappers[item.Instance].First();
                     foreach (var @ref in item.PyRefs)
                     {
@@ -273,7 +256,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         }
 
         static readonly string serialization_key_namepsace = "pythonnet_serialization_";
-        
+
         /// <summary>
         /// Removes the serialization capsule from the `sys` module object.
         /// </summary>
@@ -332,7 +315,7 @@ namespace Core.Libraries.PythonNet.Runtimes
         }
 
         static byte[] emptyBuffer = new byte[0];
-        
+
         /// <summary>
         /// Retreives the previously stored data on a Python capsule.
         /// Throws if the object corresponding to the <paramref name="key"/> parameter

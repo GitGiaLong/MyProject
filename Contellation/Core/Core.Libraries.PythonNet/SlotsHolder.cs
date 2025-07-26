@@ -1,5 +1,4 @@
 ﻿using Core.Libraries.PythonNet.PythonTypes;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.TypeOffsets;
 using Core.Libraries.PythonNet.Types;
 using Core.Libraries.PythonNet.Utils;
@@ -26,34 +25,19 @@ namespace Core.Libraries.PythonNet
         /// Create slots holder for holding the delegate of slots and be able  to reset them.
         /// </summary>
         /// <param name="type">Steals a reference to target type</param>
-        public SlotsHolder(PyType type)
-        {
-            this.Type = type;
-        }
+        public SlotsHolder(PyType type) { this.Type = type; }
 
         public bool IsHolding(int offset) => _slots.ContainsKey(offset);
 
         public ICollection<int> Slots => _slots.Keys;
 
-        public void Set(int offset, ThunkInfo thunk)
-        {
-            _slots[offset] = thunk;
-        }
+        public void Set(int offset, ThunkInfo thunk) { _slots[offset] = thunk; }
 
-        public void Set(int offset, Resetor resetor)
-        {
-            _customResetors[offset] = resetor;
-        }
+        public void Set(int offset, Resetor resetor) { _customResetors[offset] = resetor; }
 
-        public void AddDealloctor(Action deallocate)
-        {
-            _deallocators.Add(deallocate);
-        }
+        public void AddDealloctor(Action deallocate) { _deallocators.Add(deallocate); }
 
-        public void KeeapAlive(ThunkInfo thunk)
-        {
-            _keepalive.Add(thunk);
-        }
+        public void KeeapAlive(ThunkInfo thunk) { _keepalive.Add(thunk); }
 
         public static void ResetSlots(BorrowedReference type, IEnumerable<int> slots)
         {
@@ -69,10 +53,8 @@ namespace Core.Libraries.PythonNet
 
         public void ResetSlots()
         {
-            if (_alreadyReset)
-            {
-                return;
-            }
+            if (_alreadyReset) { return; }
+
             _alreadyReset = true;
 #if DEBUG
             IntPtr tp_name = Util.ReadIntPtr(Type, TypeOffset.tp_name);
@@ -80,10 +62,7 @@ namespace Core.Libraries.PythonNet
 #endif
             ResetSlots(Type, _slots.Keys);
 
-            foreach (var action in _deallocators)
-            {
-                action();
-            }
+            foreach (var action in _deallocators) { action(); }
 
             foreach (var pair in _customResetors)
             {
@@ -98,12 +77,12 @@ namespace Core.Libraries.PythonNet
             _deallocators.Clear();
 
             // Custom reset
-            if (Type != Runtime.CLRMetaType)
+            if (Type != CLRMetaType)
             {
-                var metatype = Runtime.PyObject_TYPE(Type);
+                var metatype = PyObject_TYPE(Type);
                 ManagedType.TryFreeGCHandle(Type, metatype);
             }
-            Runtime.PyType_Modified(Type);
+            PyType_Modified(Type);
         }
 
         public static IntPtr GetDefaultSlot(int offset)
@@ -119,12 +98,12 @@ namespace Core.Libraries.PythonNet
             else if (offset == TypeOffset.tp_dealloc)
             {
                 // tp_free of PyTypeType is point to PyObejct_GC_Del.
-                return Util.ReadIntPtr(Runtime.PyTypeType, TypeOffset.tp_free);
+                return Util.ReadIntPtr(PyTypeType, TypeOffset.tp_free);
             }
             else if (offset == TypeOffset.tp_free)
             {
                 // PyObject_GC_Del
-                return Util.ReadIntPtr(Runtime.PyTypeType, TypeOffset.tp_free);
+                return Util.ReadIntPtr(PyTypeType, TypeOffset.tp_free);
             }
             else if (offset == TypeOffset.tp_call)
             {
@@ -133,20 +112,20 @@ namespace Core.Libraries.PythonNet
             else if (offset == TypeOffset.tp_new)
             {
                 // PyType_GenericNew
-                return Util.ReadIntPtr(Runtime.PySuper_Type, TypeOffset.tp_new);
+                return Util.ReadIntPtr(PySuper_Type, TypeOffset.tp_new);
             }
             else if (offset == TypeOffset.tp_getattro)
             {
                 // PyObject_GenericGetAttr
-                return Util.ReadIntPtr(Runtime.PyBaseObjectType, TypeOffset.tp_getattro);
+                return Util.ReadIntPtr(PyBaseObjectType, TypeOffset.tp_getattro);
             }
             else if (offset == TypeOffset.tp_setattro)
             {
                 // PyObject_GenericSetAttr
-                return Util.ReadIntPtr(Runtime.PyBaseObjectType, TypeOffset.tp_setattro);
+                return Util.ReadIntPtr(PyBaseObjectType, TypeOffset.tp_setattro);
             }
 
-            return Util.ReadIntPtr(Runtime.PyTypeType, offset);
+            return Util.ReadIntPtr(PyTypeType, offset);
         }
     }
 }

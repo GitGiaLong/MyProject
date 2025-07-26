@@ -1,5 +1,4 @@
 ﻿using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
@@ -19,10 +18,12 @@ namespace Core.Libraries.PythonNet.Types
         static NewReference Create(object ob, BorrowedReference tp)
         {
             if (creationBlocked)
-                throw new InvalidOperationException("Reflected objects should not be created anymore.");
+            { 
+                throw new InvalidOperationException("Reflected objects should not be created anymore."); 
+            }
 
             Debug.Assert(tp != null);
-            var py = Runtime.PyType_GenericAlloc(tp, 0);
+            var py = PyType_GenericAlloc(tp, 0);
 
             var self = new CLRObject(ob);
 
@@ -32,20 +33,18 @@ namespace Core.Libraries.PythonNet.Types
             bool isNew = reflectedObjects.Add(py.DangerousGetAddress());
             Debug.Assert(isNew);
 
-            // Fix the BaseException args (and __cause__ in case of Python 3)
-            // slot if wrapping a CLR exception
-            if (ob is Exception e) Exceptions.SetArgsAndCause(py.Borrow(), e);
+            /* 
+             * Fix the BaseException args (and __cause__ in case of Python 3) 
+             * slot if wrapping a CLR exception 
+             */
+            if (ob is Exception e) { Exceptions.SetArgsAndCause(py.Borrow(), e); }
 
             return py;
         }
 
-        CLRObject(object inst)
-        {
-            this.inst = inst;
-        }
+        CLRObject(object inst) { this.inst = inst; }
 
-        internal static NewReference GetReference(object ob, BorrowedReference pyType)
-            => Create(ob, pyType);
+        internal static NewReference GetReference(object ob, BorrowedReference pyType) => Create(ob, pyType);
 
         internal static NewReference GetReference(object ob, Type type)
         {
@@ -68,7 +67,9 @@ namespace Core.Libraries.PythonNet.Types
         protected override void OnLoad(BorrowedReference ob, Dictionary<string, object?>? context)
         {
             if (creationBlocked)
-                throw new InvalidOperationException("Reflected objects should not be loaded anymore.");
+            { 
+                throw new InvalidOperationException("Reflected objects should not be loaded anymore."); 
+            }
 
             base.OnLoad(ob, context);
             GCHandle gc = GCHandle.Alloc(this);

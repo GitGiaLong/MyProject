@@ -1,6 +1,5 @@
 ﻿using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.Utils;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
@@ -37,19 +36,15 @@ namespace Core.Libraries.PythonNet.Types
                 return Exceptions.RaiseTypeError("invalid argument");
             }
 
-            if (ob == null)
-            {
-                return new NewReference(ds);
-            }
+            if (ob == null) { return new NewReference(ds); }
 
-            if (Runtime.PyObject_IsInstance(ob, tp) < 1)
+            if (PyObject_IsInstance(ob, tp) < 1)
             {
                 return Exceptions.RaiseTypeError("invalid argument");
             }
 
             return new EventBinding(self.name, self.reg, new PyObject(ob)).Alloc();
         }
-
 
         /// <summary>
         /// Descriptor __set__ implementation. This actually never allows you
@@ -60,15 +55,11 @@ namespace Core.Libraries.PythonNet.Types
         /// </summary>
         public static int tp_descr_set(BorrowedReference ds, BorrowedReference ob, BorrowedReference val)
         {
-            if (GetManagedObject(val) is EventBinding _)
-            {
-                return 0;
-            }
+            if (GetManagedObject(val) is EventBinding _) { return 0; }
 
             Exceptions.RaiseTypeError("cannot set event attributes");
             return -1;
         }
-
 
         /// <summary>
         /// Descriptor __repr__ implementation.
@@ -76,7 +67,7 @@ namespace Core.Libraries.PythonNet.Types
         public static NewReference tp_repr(BorrowedReference ob)
         {
             var self = (EventObject)GetManagedObject(ob)!;
-            return Runtime.PyString_FromString($"<event '{self.name}'>");
+            return PyString_FromString($"<event '{self.name}'>");
         }
     }
 }

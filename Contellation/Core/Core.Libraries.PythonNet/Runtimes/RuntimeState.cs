@@ -3,8 +3,6 @@ using Core.Libraries.PythonNet.References;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.Runtimes
 {
     class RuntimeState
@@ -47,7 +45,7 @@ namespace Core.Libraries.PythonNet.Runtimes
             var modules = PyImport_GetModuleDict();
             using var names = PyDict_Keys(modules);
             nint length = PyList_Size(names.BorrowOrThrow());
-            if (length < 0) throw PythonException.ThrowLastAsClrException();
+            if (length < 0) { throw PythonException.ThrowLastAsClrException(); }
             var result = new IntPtr[length];
             for (int i = 0; i < length; i++)
             {

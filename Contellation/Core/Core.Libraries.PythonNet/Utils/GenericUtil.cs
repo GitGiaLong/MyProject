@@ -11,10 +11,7 @@
         /// </summary>
         private static Dictionary<string, Dictionary<string, List<string>>> mapping = new();
 
-        public static void Reset()
-        {
-            mapping = new Dictionary<string, Dictionary<string, List<string>>>();
-        }
+        public static void Reset() { mapping = new Dictionary<string, Dictionary<string, List<string>>>(); }
 
         /// <summary>
         /// Register a generic type that appears in a given namespace.
@@ -22,10 +19,7 @@
         /// <param name="t">A generic type definition (<c>t.IsGenericTypeDefinition</c> must be true)</param>
         internal static void Register(Type t)
         {
-            if (null == t.Namespace || null == t.Name)
-            {
-                return;
-            }
+            if (null == t.Namespace || null == t.Name) { return; }
 
             if (!mapping.TryGetValue(t.Namespace, out var nsmap))
             {
@@ -46,10 +40,7 @@
         /// </summary>
         public static List<string>? GetGenericBaseNames(string ns)
         {
-            if (mapping.TryGetValue(ns, out var nsmap))
-            {
-                return nsmap.Keys.ToList();
-            }
+            if (mapping.TryGetValue(ns, out var nsmap)) { return nsmap.Keys.ToList(); }
             return null;
         }
 
@@ -74,10 +65,7 @@
                     {
                         string qname = $"{ns}.{name}";
                         Type o = AssemblyManager.LookupTypes(qname).FirstOrDefault();
-                        if (o != null && o.GetGenericArguments().Length == paramCount)
-                        {
-                            return o;
-                        }
+                        if (o != null && o.GetGenericArguments().Length == paramCount) { return o; }
                     }
                 }
             }
@@ -92,10 +80,7 @@
             if (mapping.TryGetValue(ns, out var nsmap))
             {
                 nsmap.TryGetValue(name, out var gnames);
-                if (gnames?.Count > 0)
-                {
-                    return gnames[0];
-                }
+                if (gnames?.Count > 0) { return gnames[0]; }
             }
             return null;
         }
@@ -103,14 +88,8 @@
         private static string GetBasename(string name)
         {
             int tick = name.IndexOf("`");
-            if (tick > -1)
-            {
-                return name.Substring(0, tick);
-            }
-            else
-            {
-                return name;
-            }
+            if (tick > -1) { return name.Substring(0, tick); }
+            else { return name; }
         }
     }
 }

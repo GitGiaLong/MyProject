@@ -1,5 +1,4 @@
 ﻿using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.TypeOffsets;
 using Core.Libraries.PythonNet.Utils;
 using Core.Libraries.Structs.PythonNet.References;
@@ -28,7 +27,6 @@ namespace Core.Libraries.PythonNet.Types
             NumCtors = _ctors.Length;
         }
 
-
         /// <summary>
         /// Helper to get docstring from reflected constructor info.
         /// </summary>
@@ -49,7 +47,7 @@ namespace Core.Libraries.PythonNet.Types
                 }
                 str += t.ToString();
             }
-            return Runtime.PyString_FromString(str);
+            return PyString_FromString(str);
         }
 
         private static string ConvertFlags(Enum value)
@@ -96,7 +94,7 @@ namespace Core.Libraries.PythonNet.Types
             }
             if (co.inst.GetType().IsEnum)
             {
-                return Runtime.PyString_FromString(GetEnumReprString((Enum)co.inst));
+                return PyString_FromString(GetEnumReprString((Enum)co.inst));
             }
 
             return ClassBase.tp_repr(ob);
@@ -107,9 +105,11 @@ namespace Core.Libraries.PythonNet.Types
         /// </summary>
         static NewReference tp_new_impl(BorrowedReference tp, BorrowedReference args, BorrowedReference kw)
         {
-            // Sanity check: this ensures a graceful error if someone does
-            // something intentially wrong like use the managed metatype for
-            // a class that is not really derived from a managed class.
+            /* 
+             * Sanity check: this ensures a graceful error if someone does 
+             * something intentially wrong like use the managed metatype for 
+             * a class that is not really derived from a managed class. 
+             */
             if (GetManagedObject(tp) is not ClassObject self)
             {
                 return Exceptions.RaiseTypeError("invalid object");
@@ -121,13 +121,12 @@ namespace Core.Libraries.PythonNet.Types
             }
             Type type = self.type.Value;
 
-            // Primitive types do not have constructors, but they look like
-            // they do from Python. If the ClassObject represents one of the
-            // convertible primitive types, just convert the arg directly.
-            if (type.IsPrimitive)
-            {
-                return NewPrimitive(tp, args, type);
-            }
+            /* 
+             * Primitive types do not have constructors, but they look like 
+             * they do from Python. If the ClassObject represents one of the 
+             * convertible primitive types, just convert the arg directly. 
+             */
+            if (type.IsPrimitive) { return NewPrimitive(tp, args, type); }
 
             if (type.IsAbstract)
             {
@@ -135,21 +134,17 @@ namespace Core.Libraries.PythonNet.Types
                 return default;
             }
 
-            if (type.IsEnum)
-            {
-                return NewEnum(type, args, tp);
-            }
+            if (type.IsEnum) { return NewEnum(type, args, tp); }
 
-            if (type == typeof(string))
-            {
-                return NewString(args, tp);
-            }
+            if (type == typeof(string)) { return NewString(args, tp); }
 
             if (IsGenericNullable(type))
             {
-                // Nullable<T> has special handling in .NET runtime.
-                // Invoking its constructor via reflection on an uninitialized instance
-                // does not actually set the object fields.
+                /* 
+                 * Nullable<T> has special handling in .NET runtime. 
+                 * Invoking its constructor via reflection on an uninitialized instance 
+                 * does not actually set the object fields. 
+                 */
                 return NewNullable(type, args, kw, tp);
             }
 
@@ -168,16 +163,15 @@ namespace Core.Libraries.PythonNet.Types
         /// </summary>
         private static NewReference NewString(BorrowedReference args, BorrowedReference tp)
         {
-            var argCount = Runtime.PyTuple_Size(args);
+            var argCount = PyTuple_Size(args);
 
             string? result = null;
             if (argCount == 1)
             {
-                BorrowedReference ob = Runtime.PyTuple_GetItem(args, 0);
-                if (Runtime.PyString_Check(ob))
+                BorrowedReference ob = PyTuple_GetItem(args, 0);
+                if (PyString_Check(ob))
                 {
-                    if (Runtime.GetManagedString(ob) is string val)
-                        result = val;
+                    if (GetManagedString(ob) is string val) { result = val; }
                 }
                 else if (Converter.ToManagedValue(ob, typeof(char[]), out object? arr, false))
                 {
@@ -186,35 +180,30 @@ namespace Core.Libraries.PythonNet.Types
             }
             else if (argCount == 2)
             {
-                BorrowedReference p1 = Runtime.PyTuple_GetItem(args, 0);
-                BorrowedReference p2 = Runtime.PyTuple_GetItem(args, 1);
+                BorrowedReference p1 = PyTuple_GetItem(args, 0);
+                BorrowedReference p2 = PyTuple_GetItem(args, 1);
 
-                if (
-                    Converter.ToManagedValue(p1, typeof(char), out object? chr, false) &&
-                    Converter.ToManagedValue(p2, typeof(int), out object? count, false)
-                   )
+                if (Converter.ToManagedValue(p1, typeof(char), out object? chr, false) &&
+                    Converter.ToManagedValue(p2, typeof(int), out object? count, false))
                 {
                     result = new String((char)chr!, (int)count!);
                 }
             }
             else if (argCount == 3)
             {
-                BorrowedReference p1 = Runtime.PyTuple_GetItem(args, 0);
-                BorrowedReference p2 = Runtime.PyTuple_GetItem(args, 1);
-                BorrowedReference p3 = Runtime.PyTuple_GetItem(args, 2);
+                BorrowedReference p1 = PyTuple_GetItem(args, 0);
+                BorrowedReference p2 = PyTuple_GetItem(args, 1);
+                BorrowedReference p3 = PyTuple_GetItem(args, 2);
 
-                if (
-                    Converter.ToManagedValue(p1, typeof(char[]), out object? arr, false) &&
+                if (Converter.ToManagedValue(p1, typeof(char[]), out object? arr, false) &&
                     Converter.ToManagedValue(p2, typeof(int), out object? offset, false) &&
-                    Converter.ToManagedValue(p3, typeof(int), out object? length, false)
-                   )
+                    Converter.ToManagedValue(p3, typeof(int), out object? length, false))
                 {
                     result = new String((char[])arr!, (int)offset!, (int)length!);
                 }
             }
 
-            if (result != null)
-                return CLRObject.GetReference(result!, tp);
+            if (result != null) { return CLRObject.GetReference(result!, tp); }
 
             Exceptions.SetError(Exceptions.TypeError, "no constructors match given arguments");
             return default;
@@ -237,13 +226,13 @@ namespace Core.Libraries.PythonNet.Types
         private static NewReference NewPrimitive(BorrowedReference tp, BorrowedReference args, Type type)
         {
             // TODO: Handle IntPtr
-            if (Runtime.PyTuple_Size(args) != 1)
+            if (PyTuple_Size(args) != 1)
             {
                 Exceptions.SetError(Exceptions.TypeError, "no constructors match given arguments");
                 return default;
             }
 
-            BorrowedReference op = Runtime.PyTuple_GetItem(args, 0);
+            BorrowedReference op = PyTuple_GetItem(args, 0);
             object? result = null;
 
             if (type == typeof(IntPtr))
@@ -263,10 +252,10 @@ namespace Core.Libraries.PythonNet.Types
                             break;
                     }
                 }
-                else if (Runtime.PyInt_Check(op))
+                else if (PyInt_Check(op))
                 {
-                    long? num = Runtime.PyLong_AsLongLong(op);
-                    if (num is long n && n >= Runtime.IntPtrMinValue && n <= Runtime.IntPtrMaxValue)
+                    long? num = PyLong_AsLongLong(op);
+                    if (num is long n && n >= IntPtrMinValue && n <= IntPtrMaxValue)
                     {
                         result = new IntPtr(n);
                     }
@@ -295,10 +284,10 @@ namespace Core.Libraries.PythonNet.Types
                             break;
                     }
                 }
-                else if (Runtime.PyInt_Check(op))
+                else if (PyInt_Check(op))
                 {
-                    ulong? num = Runtime.PyLong_AsUnsignedLongLong(op);
-                    if (num is ulong n && n <= Runtime.UIntPtrMaxValue)
+                    ulong? num = PyLong_AsUnsignedLongLong(op);
+                    if (num is ulong n && n <= UIntPtrMaxValue)
                     {
                         result = new UIntPtr(n);
                     }
@@ -328,20 +317,16 @@ namespace Core.Libraries.PythonNet.Types
             if (base.HasCustomNew()) return true;
 
             Type clrType = type.Value;
-            return clrType.IsPrimitive
-                || clrType.IsEnum
-                || clrType == typeof(string)
-                || IsGenericNullable(clrType);
+            return clrType.IsPrimitive || clrType.IsEnum
+                || clrType == typeof(string) || IsGenericNullable(clrType);
         }
 
-        static bool IsGenericNullable(Type type)
-            => type.IsValueType && type.IsGenericType
+        static bool IsGenericNullable(Type type) => type.IsValueType && type.IsGenericType
             && type.GetGenericTypeDefinition() == typeof(Nullable<>);
 
         public override void InitializeSlots(BorrowedReference pyType, SlotsHolder slotsHolder)
         {
             base.InitializeSlots(pyType, slotsHolder);
-
             this.SetTypeNewSlot(pyType, slotsHolder);
         }
 
@@ -350,11 +335,11 @@ namespace Core.Libraries.PythonNet.Types
 
         private static NewReference NewEnum(Type type, BorrowedReference args, BorrowedReference tp)
         {
-            nint argCount = Runtime.PyTuple_Size(args);
+            nint argCount = PyTuple_Size(args);
             bool allowUnchecked = false;
             if (argCount == 2)
             {
-                var allow = Runtime.PyTuple_GetItem(args, 1);
+                var allow = PyTuple_GetItem(args, 1);
                 if (!Converter.ToManaged(allow, typeof(bool), out var allowObj, true) || allowObj is null)
                 {
                     Exceptions.RaiseTypeError("second argument to enum constructor must be a boolean");
@@ -369,7 +354,7 @@ namespace Core.Libraries.PythonNet.Types
                 return default;
             }
 
-            var op = Runtime.PyTuple_GetItem(args, 0);
+            var op = PyTuple_GetItem(args, 0);
             if (!Converter.ToManaged(op, type.GetEnumUnderlyingType(), out object? result, true))
             {
                 return default;
@@ -394,17 +379,16 @@ namespace Core.Libraries.PythonNet.Types
                 return Exceptions.RaiseTypeError("System.Nullable<T> constructor does not support keyword arguments");
             }
 
-            nint argsCount = Runtime.PyTuple_Size(args);
+            nint argsCount = PyTuple_Size(args);
             if (argsCount != 1)
             {
                 return Exceptions.RaiseTypeError("System.Nullable<T> constructor expects 1 argument, got " + (int)argsCount);
             }
 
-            var value = Runtime.PyTuple_GetItem(args, 0);
+            var value = PyTuple_GetItem(args, 0);
             var elementType = type.GetGenericArguments()[0];
             return Converter.ToManaged(value, elementType, out var result, setError: true)
-                ? CLRObject.GetReference(result!, tp)
-                : default;
+                ? CLRObject.GetReference(result!, tp) : default;
         }
 
 
@@ -420,11 +404,13 @@ namespace Core.Libraries.PythonNet.Types
                 return Exceptions.RaiseTypeError(type.DeletedMessage);
             }
 
-            // If this type is the Array type, the [<type>] means we need to
-            // construct and return an array type of the given element type.
+            /* 
+             * If this type is the Array type, the [<type>] means we need to 
+             * construct and return an array type of the given element type. 
+             */
             if (type.Value == typeof(Array))
             {
-                if (Runtime.PyTuple_Check(idx))
+                if (PyTuple_Check(idx))
                 {
                     return Exceptions.RaiseTypeError("type expected");
                 }
@@ -446,10 +432,12 @@ namespace Core.Libraries.PythonNet.Types
                 return new NewReference(o);
             }
 
-            // If there are generics in our namespace with the same base name
-            // as the current type, then [<type>] means the caller wants to
-            // bind the generic type matching the given type parameters.
-            Type[]? types = Runtime.PythonArgsToTypeArray(idx);
+            /* 
+             * If there are generics in our namespace with the same base name 
+             * as the current type, then [<type>] means the caller wants to 
+             * bind the generic type matching the given type parameters. 
+             */
+            Type[]? types = PythonArgsToTypeArray(idx);
             if (types == null)
             {
                 return Exceptions.RaiseTypeError("type(s) expected");

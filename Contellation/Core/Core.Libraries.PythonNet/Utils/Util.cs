@@ -1,6 +1,5 @@
 ﻿using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -12,10 +11,8 @@ namespace Core.Libraries.PythonNet.Utils
     {
         internal const string UnstableApiMessage =
             "This API is unstable, and might be changed or removed in the next minor release";
-        internal const string MinimalPythonVersionRequired =
-            "Only Python 3.7 or newer is supported";
-        internal const string InternalUseOnly =
-            "This API is for internal use only";
+        internal const string MinimalPythonVersionRequired = "Only Python 3.7 or newer is supported";
+        internal const string InternalUseOnly = "This API is for internal use only";
 
         internal const string UseOverloadWithReferenceTypes =
             "This API is unsafe, and will be removed in the future. Use overloads working with *Reference types";
@@ -39,8 +36,7 @@ namespace Core.Libraries.PythonNet.Utils
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal unsafe static T* ReadPtr<T>(BorrowedReference ob, int offset)
-            where T : unmanaged
+        internal unsafe static T* ReadPtr<T>(BorrowedReference ob, int offset) where T : unmanaged
         {
             Debug.Assert(offset >= 0);
             IntPtr ptr = Marshal.ReadIntPtr(ob.DangerousGetAddress(), offset);
@@ -93,30 +89,20 @@ namespace Core.Libraries.PythonNet.Utils
             Marshal.WriteIntPtr(ob.DangerousGetAddress(), offset, @ref.DangerousGetAddressOrNull());
         }
 
-
         internal static Int64 ReadCLong(BorrowedReference tp, int offset)
         {
             // On Windows, a C long is always 32 bits.
-            if (Runtime.IsWindows || Runtime.Is32Bit)
-            {
-                return ReadInt32(tp, offset);
-            }
-            else
-            {
-                return ReadInt64(tp, offset);
-            }
+            if (IsWindows || Is32Bit) { return ReadInt32(tp, offset); }
+            else { return ReadInt64(tp, offset); }
         }
 
         internal static void WriteCLong(BorrowedReference type, int offset, Int64 value)
         {
-            if (Runtime.IsWindows || Runtime.Is32Bit)
+            if (IsWindows || Is32Bit)
             {
                 WriteInt32(type, offset, (Int32)(value & 0xffffffffL));
             }
-            else
-            {
-                WriteInt64(type, offset, value);
-            }
+            else { WriteInt64(type, offset, value); }
         }
 
         /// <summary>
@@ -124,8 +110,7 @@ namespace Core.Libraries.PythonNet.Utils
         /// </summary>
         internal static string? AfterLast(this string str, char symbol)
         {
-            if (str is null)
-                throw new ArgumentNullException(nameof(str));
+            if (str is null) { throw new ArgumentNullException(nameof(str)); }
 
             int last = str.LastIndexOf(symbol);
             return last >= 0 ? str.Substring(last + 1) : null;
@@ -133,8 +118,8 @@ namespace Core.Libraries.PythonNet.Utils
 
         internal static string ReadStringResource(this System.Reflection.Assembly assembly, string resourceName)
         {
-            if (assembly is null) throw new ArgumentNullException(nameof(assembly));
-            if (string.IsNullOrEmpty(resourceName)) throw new ArgumentNullException(nameof(resourceName));
+            if (assembly is null) { throw new ArgumentNullException(nameof(assembly)); }
+            if (string.IsNullOrEmpty(resourceName)) { throw new ArgumentNullException(nameof(resourceName)); }
 
             using var stream = assembly.GetManifestResourceStream(resourceName);
             using var reader = new StreamReader(stream);
@@ -153,10 +138,7 @@ namespace Core.Libraries.PythonNet.Utils
         public static IEnumerable<T> WhereNotNull<T>(this IEnumerable<T?> source)
             where T : class
         {
-            foreach (var item in source)
-            {
-                if (item is not null) yield return item;
-            }
+            foreach (var item in source) { if (item is not null) yield return item; }
         }
     }
 }

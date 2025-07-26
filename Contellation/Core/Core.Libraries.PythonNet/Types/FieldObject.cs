@@ -1,5 +1,4 @@
 ﻿using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Reflection;
@@ -7,6 +6,7 @@ using System.Reflection;
 namespace Core.Libraries.PythonNet.Types
 {
     using MaybeFieldInfo = MaybeMemberInfo<FieldInfo>;
+
     /// <summary>
     /// Implements a Python descriptor type that provides access to CLR fields.
     /// </summary>
@@ -43,7 +43,7 @@ namespace Core.Libraries.PythonNet.Types
 
             FieldInfo info = self.info.Value;
 
-            if (ob == null || ob == Runtime.PyNone)
+            if (ob == null || ob == PyNone)
             {
                 if (!info.IsStatic)
                 {
@@ -116,7 +116,7 @@ namespace Core.Libraries.PythonNet.Types
 
             bool is_static = info.IsStatic;
 
-            if (ob == null || ob == Runtime.PyNone)
+            if (ob == null || ob == PyNone)
             {
                 if (!is_static)
                 {
@@ -161,7 +161,7 @@ namespace Core.Libraries.PythonNet.Types
         public static NewReference tp_repr(BorrowedReference ob)
         {
             var self = (FieldObject)GetManagedObject(ob)!;
-            return Runtime.PyString_FromString($"<field '{self.info}'>");
+            return PyString_FromString($"<field '{self.info}'>");
         }
     }
 }

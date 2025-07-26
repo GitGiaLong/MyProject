@@ -9,6 +9,7 @@
     <Import_RootNamespace>Core.Libraries.Structs</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Connect\UnicodeString.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PythonNet\MaybeMemberInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PythonNet\MaybeMethodBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PythonNet\MaybeType.cs" />

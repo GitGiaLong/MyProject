@@ -1,7 +1,6 @@
 ﻿using Core.Libraries.PythonNet.Attributes;
 using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using System.Reflection;
 
 namespace Core.Libraries.PythonNet.Types
@@ -20,10 +19,7 @@ namespace Core.Libraries.PythonNet.Types
         internal static bool _SuppressDocs = false;
         internal static bool _SuppressOverloads = false;
 
-        static CLRModule()
-        {
-            Reset();
-        }
+        static CLRModule() { Reset(); }
 
         private CLRModule() : base("clr")
         {
@@ -56,8 +52,7 @@ namespace Core.Libraries.PythonNet.Types
             if (interactive_preload)
             {
                 interactive_preload = false;
-                if (!
-                    Runtime.PySys_GetObject("ps1").IsNull)
+                if (!PySys_GetObject("ps1").IsNull)
                 {
                     preload = true;
                 }
@@ -70,16 +65,10 @@ namespace Core.Libraries.PythonNet.Types
         }
 
         [ModuleFunction]
-        public static bool getPreload()
-        {
-            return preload;
-        }
+        public static bool getPreload() { return preload; }
 
         [ModuleFunction]
-        public static void setPreload(bool preloadFlag)
-        {
-            preload = preloadFlag;
-        }
+        public static void setPreload(bool preloadFlag) { preload = preloadFlag; }
 
         //[ModuleProperty]
         public static bool SuppressDocs
@@ -121,14 +110,13 @@ namespace Core.Libraries.PythonNet.Types
             // Classes that are not in a namespace needs an extra nudge to be found.
             ImportHook.UpdateCLRModuleDict();
 
-            // A bit heavyhanded, but we can't use the AssemblyManager's AssemblyLoadHandler
-            // method because it may be called from other threads, leading to deadlocks
-            // if it is called while Python code is executing.
+            /* 
+             * A bit heavyhanded, but we can't use the AssemblyManager's AssemblyLoadHandler 
+             * method because it may be called from other threads, leading to deadlocks 
+             * if it is called while Python code is executing. 
+             */
             var currNs = AssemblyManager.GetNamespaces().Except(origNs);
-            foreach (var ns in currNs)
-            {
-                ImportHook.AddNamespaceWithGIL(ns);
-            }
+            foreach (var ns in currNs) { ImportHook.AddNamespaceWithGIL(ns); }
             return assembly;
         }
 
@@ -143,10 +131,7 @@ namespace Core.Libraries.PythonNet.Types
         /// <returns>The Type object</returns>
 
         [ModuleFunction]
-        public static Type GetClrType(Type type)
-        {
-            return type;
-        }
+        public static Type GetClrType(Type type) { return type; }
 
         [ModuleFunction]
         [ForbidPythonThreads]

@@ -29,9 +29,7 @@ namespace Core.Libraries.PythonNet.Types
             moduleBuilders = new Dictionary<Tuple<string, string>, ModuleBuilder>();
         }
 
-        internal ClassDerivedObject(Type tp) : base(tp)
-        {
-        }
+        internal ClassDerivedObject(Type tp) : base(tp) { }
 
         protected override NewReference NewObjectToPython(object obj, BorrowedReference tp)
         {
@@ -39,10 +37,12 @@ namespace Core.Libraries.PythonNet.Types
 
             PythonDerivedType.SetPyObj((IPythonDerivedType)obj, self.Borrow());
 
-            // Decrement the python object's reference count.
-            // This doesn't actually destroy the object, it just sets the reference to this object
-            // to be a weak reference and it will be destroyed when the C# object is destroyed.
-            Runtime.XDecref(self.Steal());
+            /* 
+             * Decrement the python object's reference count. 
+             * This doesn't actually destroy the object, it just sets the reference to this object 
+             * to be a weak reference and it will be destroyed when the C# object is destroyed. 
+             */
+            XDecref(self.Steal());
 
             return Converter.ToPython(obj, type.Value);
         }
@@ -57,15 +57,17 @@ namespace Core.Libraries.PythonNet.Types
             var self = (CLRObject?)GetManagedObject(ob.Borrow());
 
             // don't let the python GC destroy this object
-            Runtime.PyObject_GC_UnTrack(ob.Borrow());
+            PyObject_GC_UnTrack(ob.Borrow());
 
             // self may be null after Shutdown begun
             if (self is not null)
             {
-                // The python should now have a ref count of 0, but we don't actually want to
-                // deallocate the object until the C# object that references it is destroyed.
-                // So we don't call PyObject_GC_Del here and instead we set the python
-                // reference to a weak reference so that the C# object can be collected.
+                /* 
+                 * The python should now have a ref count of 0, but we don't actually want to 
+                 * deallocate the object until the C# object that references it is destroyed. 
+                 * So we don't call PyObject_GC_Del here and instead we set the python 
+                 * reference to a weak reference so that the C# object can be collected. 
+                 */
                 GCHandle oldHandle = GetGCHandle(ob.Borrow());
                 GCHandle gc = GCHandle.Alloc(self, GCHandleType.Weak);
                 SetGCHandle(ob.Borrow(), gc);
@@ -84,8 +86,10 @@ namespace Core.Libraries.PythonNet.Types
         /// </summary>
         internal static NewReference ToPython(IPythonDerivedType obj)
         {
-            // derived types have a __pyobj__ field that gets set to the python
-            // object in the overridden constructor
+            /* 
+             * derived types have a __pyobj__ field that gets set to the python 
+             * object in the overridden constructor 
+             */
             BorrowedReference self;
             try
             {
@@ -99,14 +103,16 @@ namespace Core.Libraries.PythonNet.Types
 
             var result = new NewReference(self);
 
-            // when the C# constructor creates the python object it starts as a weak
-            // reference with a reference count of 0. Now we're passing this object
-            // to Python the reference count needs to be incremented and the reference
-            // needs to be replaced with a strong reference to stop the C# object being
-            // collected while Python still has a reference to it.
-            if (Runtime.Refcount(self) == 1)
+            /* 
+             * when the C# constructor creates the python object it starts as a weak 
+             * reference with a reference count of 0. Now we're passing this object 
+             * to Python the reference count needs to be incremented and the reference 
+             * needs to be replaced with a strong reference to stop the C# object being 
+             * collected while Python still has a reference to it. 
+             */
+            if (Refcount(self) == 1)
             {
-                Runtime._Py_NewReference(self);
+                _Py_NewReference(self);
                 GCHandle weak = GetGCHandle(self);
                 var clrObject = GetManagedObject(self);
                 GCHandle gc = GCHandle.Alloc(clrObject, GCHandleType.Normal);
@@ -114,7 +120,7 @@ namespace Core.Libraries.PythonNet.Types
                 weak.Free();
 
                 // now the object has a python reference it's safe for the python GC to track it
-                Runtime.PyObject_GC_Track(self);
+                PyObject_GC_Track(self);
             }
 
             return result;
@@ -134,25 +140,20 @@ namespace Core.Libraries.PythonNet.Types
             string moduleName = "Python.Runtime.Dynamic.dll")
         {
             // TODO: clean up
-            if (null != namespaceStr)
-            {
-                name = namespaceStr + "." + name;
-            }
+            if (null != namespaceStr) { name = namespaceStr + "." + name; }
 
-            if (null == assemblyName)
-            {
-                assemblyName = "Python.Runtime.Dynamic";
-            }
+            if (null == assemblyName) { assemblyName = "Python.Runtime.Dynamic"; }
 
             ModuleBuilder moduleBuilder = GetModuleBuilder(assemblyName, moduleName);
 
             Type baseClass = baseType;
             var interfaces = new HashSet<Type> { typeof(IPythonDerivedType) };
-            foreach (var interfaceType in typeInterfaces)
-                interfaces.Add(interfaceType);
+            foreach (var interfaceType in typeInterfaces) { interfaces.Add(interfaceType); }
 
-            // if the base type is an interface then use System.Object as the base class
-            // and add the base type to the list of interfaces this new class will implement.
+            /* 
+             * if the base type is an interface then use System.Object as the base class 
+             * and add the base type to the list of interfaces this new class will implement. 
+             */
             if (baseType.IsInterface)
             {
                 interfaces.Add(baseType);
@@ -161,8 +162,7 @@ namespace Core.Libraries.PythonNet.Types
 
             TypeBuilder typeBuilder = moduleBuilder.DefineType(name,
                 TypeAttributes.Public | TypeAttributes.Class,
-                baseClass,
-                interfaces.ToArray());
+                baseClass, interfaces.ToArray());
 
             // add a field for storing the python object pointer
             // FIXME: fb not used
@@ -181,7 +181,7 @@ namespace Core.Libraries.PythonNet.Types
 
             // Override any properties explicitly overridden in python
             var pyProperties = new HashSet<string>();
-            if (py_dict != null && Runtime.PyDict_Check(py_dict))
+            if (py_dict != null && PyDict_Check(py_dict))
             {
                 using var dict = new PyDict(py_dict);
                 using var keys = dict.Keys();
@@ -216,8 +216,7 @@ namespace Core.Libraries.PythonNet.Types
                 }
 
                 // skip if this property has already been overridden
-                if ((method.Name.StartsWith("get_") || method.Name.StartsWith("set_"))
-                    && pyProperties.Contains(method.Name.Substring(4)))
+                if ((method.Name.StartsWith("get_") || method.Name.StartsWith("set_")) && pyProperties.Contains(method.Name.Substring(4)))
                 {
                     continue;
                 }
@@ -230,7 +229,7 @@ namespace Core.Libraries.PythonNet.Types
             }
 
             // Add any additional methods and properties explicitly exposed from Python.
-            if (py_dict != null && Runtime.PyDict_Check(py_dict))
+            if (py_dict != null && PyDict_Check(py_dict))
             {
                 using var dict = new PyDict(py_dict);
                 using var keys = dict.Keys();
@@ -242,10 +241,7 @@ namespace Core.Libraries.PythonNet.Types
                         string methodName = pyKey.ToString()!;
 
                         // if this method has already been redirected to the python method skip it
-                        if (virtualMethods.Contains(methodName))
-                        {
-                            continue;
-                        }
+                        if (virtualMethods.Contains(methodName)) { continue; }
 
                         // Add the method to the type
                         AddPythonMethod(methodName, value, typeBuilder);
@@ -256,12 +252,8 @@ namespace Core.Libraries.PythonNet.Types
 
             // add the destructor so the python object created in the constructor gets destroyed
             MethodBuilder methodBuilder = typeBuilder.DefineMethod("Finalize",
-                MethodAttributes.Family |
-                MethodAttributes.Virtual |
-                MethodAttributes.HideBySig,
-                CallingConventions.Standard,
-                typeof(void),
-                Type.EmptyTypes);
+                MethodAttributes.Family | MethodAttributes.Virtual | MethodAttributes.HideBySig,
+                CallingConventions.Standard, typeof(void), Type.EmptyTypes);
             ILGenerator il = methodBuilder.GetILGenerator();
             il.Emit(OpCodes.Ldarg_0);
 #pragma warning disable CS0618 // PythonDerivedType is for internal use only
@@ -297,28 +289,19 @@ namespace Core.Libraries.PythonNet.Types
             // create a method for calling the original constructor
             string baseCtorName = "_" + baseType.Name + "__cinit__";
             MethodBuilder methodBuilder = typeBuilder.DefineMethod(baseCtorName,
-                MethodAttributes.Public |
-                MethodAttributes.Final |
-                MethodAttributes.HideBySig,
-                typeof(void),
-                parameterTypes);
+                MethodAttributes.Public | MethodAttributes.Final |
+                MethodAttributes.HideBySig, typeof(void), parameterTypes);
 
             // emit the assembly for calling the original method using call instead of callvirt
             ILGenerator il = methodBuilder.GetILGenerator();
             il.Emit(OpCodes.Ldarg_0);
-            for (var i = 0; i < parameters.Length; ++i)
-            {
-                il.Emit(OpCodes.Ldarg, i + 1);
-            }
+            for (var i = 0; i < parameters.Length; ++i) { il.Emit(OpCodes.Ldarg, i + 1); }
             il.Emit(OpCodes.Call, ctor);
             il.Emit(OpCodes.Ret);
 
             // override the original method with a new one that dispatches to python
-            ConstructorBuilder cb = typeBuilder.DefineConstructor(MethodAttributes.Public |
-                                                                  MethodAttributes.ReuseSlot |
-                                                                  MethodAttributes.HideBySig,
-                ctor.CallingConvention,
-                parameterTypes);
+            ConstructorBuilder cb = typeBuilder.DefineConstructor(MethodAttributes.Public | MethodAttributes.ReuseSlot |
+                MethodAttributes.HideBySig, ctor.CallingConvention, parameterTypes);
             il = cb.GetILGenerator();
             il.DeclareLocal(typeof(object[]));
             il.Emit(OpCodes.Ldarg_0);
@@ -331,10 +314,7 @@ namespace Core.Libraries.PythonNet.Types
                 il.Emit(OpCodes.Ldloc_0);
                 il.Emit(OpCodes.Ldc_I4, i);
                 il.Emit(OpCodes.Ldarg, i + 1);
-                if (parameterTypes[i].IsValueType)
-                {
-                    il.Emit(OpCodes.Box, parameterTypes[i]);
-                }
+                if (parameterTypes[i].IsValueType) { il.Emit(OpCodes.Box, parameterTypes[i]); }
                 il.Emit(OpCodes.Stelem, typeof(object));
             }
             il.Emit(OpCodes.Ldloc_0);
@@ -371,37 +351,23 @@ namespace Core.Libraries.PythonNet.Types
                 // emit the assembly for calling the original method using call instead of callvirt
                 ILGenerator baseIl = baseMethodBuilder.GetILGenerator();
                 baseIl.Emit(OpCodes.Ldarg_0);
-                for (var i = 0; i < parameters.Length; ++i)
-                {
-                    baseIl.Emit(OpCodes.Ldarg, i + 1);
-                }
+                for (var i = 0; i < parameters.Length; ++i) { baseIl.Emit(OpCodes.Ldarg, i + 1); }
                 baseIl.Emit(OpCodes.Call, method);
                 baseIl.Emit(OpCodes.Ret);
             }
 
             // override the original method with a new one that dispatches to python
-            MethodBuilder methodBuilder = typeBuilder.DefineMethod(method.Name,
-                MethodAttributes.Public |
-                MethodAttributes.ReuseSlot |
-                MethodAttributes.Virtual |
-                MethodAttributes.HideBySig,
-                method.CallingConvention,
-                method.ReturnType,
-                parameterTypes);
+            MethodBuilder methodBuilder = typeBuilder.DefineMethod(method.Name, MethodAttributes.Public |
+                MethodAttributes.ReuseSlot | MethodAttributes.Virtual | MethodAttributes.HideBySig,
+                method.CallingConvention, method.ReturnType, parameterTypes);
             ILGenerator il = methodBuilder.GetILGenerator();
             il.DeclareLocal(typeof(object[]));
             il.Emit(OpCodes.Ldarg_0);
             il.Emit(OpCodes.Ldstr, method.Name);
 
             // don't fall back to the base type's method if it's abstract
-            if (null != baseMethodName)
-            {
-                il.Emit(OpCodes.Ldstr, baseMethodName);
-            }
-            else
-            {
-                il.Emit(OpCodes.Ldnull);
-            }
+            if (null != baseMethodName) { il.Emit(OpCodes.Ldstr, baseMethodName); }
+            else { il.Emit(OpCodes.Ldnull); }
 
             il.Emit(OpCodes.Ldc_I4, parameters.Length);
             il.Emit(OpCodes.Newarr, typeof(object));
@@ -464,10 +430,7 @@ namespace Core.Libraries.PythonNet.Types
             using var pyArgTypes = func.GetAttr("_clr_arg_types_");
             using var pyArgTypesIter = PyIter.GetIter(pyArgTypes);
             var returnType = pyReturnType.AsManagedObject(typeof(Type)) as Type;
-            if (returnType == null)
-            {
-                returnType = typeof(void);
-            }
+            if (returnType == null) { returnType = typeof(void); }
 
             var argTypes = new List<Type>();
             foreach (PyObject pyArgType in pyArgTypesIter)
@@ -482,15 +445,10 @@ namespace Core.Libraries.PythonNet.Types
             }
 
             // add the method to call back into python
-            MethodAttributes methodAttribs = MethodAttributes.Public |
-                                             MethodAttributes.Virtual |
-                                             MethodAttributes.ReuseSlot |
-                                             MethodAttributes.HideBySig;
+            MethodAttributes methodAttribs = MethodAttributes.Public | MethodAttributes.Virtual |
+                                             MethodAttributes.ReuseSlot | MethodAttributes.HideBySig;
 
-            MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodName,
-                methodAttribs,
-                returnType,
-                argTypes.ToArray());
+            MethodBuilder methodBuilder = typeBuilder.DefineMethod(methodName, methodAttribs, returnType, argTypes.ToArray());
 
             ILGenerator il = methodBuilder.GetILGenerator();
 
@@ -552,8 +510,7 @@ namespace Core.Libraries.PythonNet.Types
             }
             else
             {
-                il.Emit(OpCodes.Call,
-                    typeof(PythonDerivedType).GetMethod(nameof(PythonDerivedType.InvokeMethod)).MakeGenericMethod(returnType));
+                il.Emit(OpCodes.Call, typeof(PythonDerivedType).GetMethod(nameof(PythonDerivedType.InvokeMethod)).MakeGenericMethod(returnType));
             }
 
             CodeGenerator.GenerateMarshalByRefsBack(il, argTypes);
@@ -572,11 +529,8 @@ namespace Core.Libraries.PythonNet.Types
         private static void AddPythonProperty(string propertyName, PyObject func, TypeBuilder typeBuilder)
         {
             // add the method to call back into python
-            MethodAttributes methodAttribs = MethodAttributes.Public |
-                                             MethodAttributes.Virtual |
-                                             MethodAttributes.ReuseSlot |
-                                             MethodAttributes.HideBySig |
-                                             MethodAttributes.SpecialName;
+            MethodAttributes methodAttribs = MethodAttributes.Public | MethodAttributes.Virtual |
+                MethodAttributes.ReuseSlot | MethodAttributes.HideBySig | MethodAttributes.SpecialName;
 
             using var pyPropertyType = func.GetAttr("_clr_property_type_");
             var propertyType = pyPropertyType.AsManagedObject(typeof(Type)) as Type;
@@ -585,27 +539,20 @@ namespace Core.Libraries.PythonNet.Types
                 throw new ArgumentException("_clr_property_type must be a CLR type");
             }
 
-            PropertyBuilder propertyBuilder = typeBuilder.DefineProperty(propertyName,
-                PropertyAttributes.None,
-                propertyType,
-                null);
+            PropertyBuilder propertyBuilder = typeBuilder.DefineProperty(propertyName, PropertyAttributes.None, propertyType, null);
 
             if (func.HasAttr("fget"))
             {
                 using var pyfget = func.GetAttr("fget");
                 if (pyfget.IsTrue())
                 {
-                    MethodBuilder methodBuilder = typeBuilder.DefineMethod("get_" + propertyName,
-                        methodAttribs,
-                        propertyType,
-                        null);
+                    MethodBuilder methodBuilder = typeBuilder.DefineMethod("get_" + propertyName, methodAttribs, propertyType, null);
 
                     ILGenerator il = methodBuilder.GetILGenerator();
                     il.Emit(OpCodes.Ldarg_0);
                     il.Emit(OpCodes.Ldstr, propertyName);
 #pragma warning disable CS0618 // PythonDerivedType is for internal use only
-                    il.Emit(OpCodes.Call,
-                        typeof(PythonDerivedType).GetMethod("InvokeGetProperty").MakeGenericMethod(propertyType));
+                    il.Emit(OpCodes.Call, typeof(PythonDerivedType).GetMethod("InvokeGetProperty").MakeGenericMethod(propertyType));
 #pragma warning restore CS0618 // PythonDerivedType is for internal use only
                     il.Emit(OpCodes.Ret);
 
@@ -618,10 +565,7 @@ namespace Core.Libraries.PythonNet.Types
                 using var pyset = func.GetAttr("fset");
                 if (pyset.IsTrue())
                 {
-                    MethodBuilder methodBuilder = typeBuilder.DefineMethod("set_" + propertyName,
-                        methodAttribs,
-                        null,
-                        new[] { propertyType });
+                    MethodBuilder methodBuilder = typeBuilder.DefineMethod("set_" + propertyName, methodAttribs, null, new[] { propertyType });
 
                     ILGenerator il = methodBuilder.GetILGenerator();
                     il.Emit(OpCodes.Ldarg_0);

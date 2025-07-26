@@ -8,8 +8,6 @@ using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
 using System.Runtime.Serialization;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.PythonTypes
 {
     [Serializable]
@@ -43,10 +41,10 @@ namespace Core.Libraries.PythonNet.PythonTypes
 
         protected PyType(SerializationInfo info, StreamingContext context) : base(info, context) { }
 
-        internal new static PyType? FromNullableReference(BorrowedReference reference) 
+        internal new static PyType? FromNullableReference(BorrowedReference reference)
             => reference == null ? null : new PyType(new NewReference(reference).Steal());
 
-        internal static PyType FromReference(BorrowedReference reference) 
+        internal static PyType FromReference(BorrowedReference reference)
             => FromNullableReference(reference) ?? throw new ArgumentNullException(nameof(reference));
 
         public string Name
@@ -162,8 +160,8 @@ namespace Core.Libraries.PythonNet.PythonTypes
             if (spec is null) { throw new ArgumentNullException(nameof(spec)); }
 
             if ((spec.Flags & TypeFlags.HeapType) == 0)
-            { 
-                throw new NotSupportedException("Only heap types are supported"); 
+            {
+                throw new NotSupportedException("Only heap types are supported");
             }
 
             using var nativeSpec = new NativeTypeSpec(spec);

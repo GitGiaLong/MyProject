@@ -20,7 +20,6 @@ namespace Core.Libraries.PythonNet.Types
             this.elemType = elemType;
         }
 
-
         /// <summary>
         /// Implements support for the Python iteration protocol.
         /// </summary>
@@ -37,10 +36,7 @@ namespace Core.Libraries.PythonNet.Types
             }
             catch (Exception e)
             {
-                if (e.InnerException != null)
-                {
-                    e = e.InnerException;
-                }
+                if (e.InnerException != null) { e = e.InnerException; }
                 Exceptions.SetError(e);
                 return default;
             }

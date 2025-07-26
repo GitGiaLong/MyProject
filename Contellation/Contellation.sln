@@ -81,6 +81,8 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Core.Libraries.Helpers", "C
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Core.Libraries.Structs", "Core\Core.Libraries.Structs\Core.Libraries.Structs.shproj", "{40583D17-1ACA-499E-8482-11121F96EA69}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Core.Libraries.Interops", "Core\Core.Libraries.Interops\Core.Libraries.Interops.shproj", "{EB60668C-8BFB-4488-BBE9-CB4C70DD5213}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -356,6 +358,7 @@ Global
 		{9A22FC6B-35B1-497B-9D98-5F6FCB4A4215} = {B08D39BA-3677-444A-8474-A773189F576C}
 		{232AA131-0910-46A2-B15C-7B20A569A55D} = {B08D39BA-3677-444A-8474-A773189F576C}
 		{40583D17-1ACA-499E-8482-11121F96EA69} = {B08D39BA-3677-444A-8474-A773189F576C}
+		{EB60668C-8BFB-4488-BBE9-CB4C70DD5213} = {B08D39BA-3677-444A-8474-A773189F576C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {26DA62CE-76CB-4E39-8808-40B4425E5B86}
@@ -393,6 +396,7 @@ Global
 		Devices\Libraries.Custom.Helpers\Libraries.Custom.Helpers.projitems*{c5ffcf1c-7a95-464f-a9c9-aba99d083a46}*SharedItemsImports = 13
 		Web\Contellation\Blazor.Contellation.Controls\Blazor.Contellation.Controls.projitems*{c60cae4f-3bee-4a1e-bdaf-c22ad06ea6ea}*SharedItemsImports = 5
 		Devices\Libraries.Custom.Model\Libraries.Custom.Model.projitems*{eb25f691-253d-4db9-8507-b980f0364583}*SharedItemsImports = 13
+		Core\Core.Libraries.Interops\Core.Libraries.Interops.projitems*{eb60668c-8bfb-4488-bbe9-cb4c70dd5213}*SharedItemsImports = 13
 		Core\Core.Libraries.PythonNet\Core.Libraries.PythonNet.projitems*{edaac910-1d3a-492f-a77a-f87cc4af9632}*SharedItemsImports = 13
 		Devices\Libraries.Custom.Interactivities\Libraries.Custom.Interactivities.projitems*{f04bf371-0426-4746-8059-625f4cb4f964}*SharedItemsImports = 13
 		Web\Contellation\Blazor.Contellation.Controls\Blazor.Contellation.Controls.projitems*{f56fd933-b62d-41ec-b71a-7a0d8697723e}*SharedItemsImports = 13
@@ -400,6 +404,7 @@ Global
 		Core\Core.Libraries.Enums\Core.Libraries.Enums.projitems*{fb4b7ddb-a91a-8e4f-31ad-abc47527b52c}*SharedItemsImports = 5
 		Core\Core.Libraries.Helpers\Core.Libraries.Helpers.projitems*{fb4b7ddb-a91a-8e4f-31ad-abc47527b52c}*SharedItemsImports = 5
 		Core\Core.Libraries.Interfaces\Core.Libraries.Interfaces.projitems*{fb4b7ddb-a91a-8e4f-31ad-abc47527b52c}*SharedItemsImports = 5
+		Core\Core.Libraries.Interops\Core.Libraries.Interops.projitems*{fb4b7ddb-a91a-8e4f-31ad-abc47527b52c}*SharedItemsImports = 5
 		Core\Core.Libraries.PythonNet\Core.Libraries.PythonNet.projitems*{fb4b7ddb-a91a-8e4f-31ad-abc47527b52c}*SharedItemsImports = 5
 		Core\Core.Libraries.Structs\Core.Libraries.Structs.projitems*{fb4b7ddb-a91a-8e4f-31ad-abc47527b52c}*SharedItemsImports = 5
 		Devices\Libraries.Custom.Controls\Libraries.Custom.Controls.projitems*{fdc8f0fc-180c-4c34-9947-2b9161a7e960}*SharedItemsImports = 13

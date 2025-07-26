@@ -1,5 +1,4 @@
 ﻿using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.TypeOffsets;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
@@ -21,21 +20,15 @@ namespace Core.Libraries.PythonNet.Utils
             string result = msg;
             result += " ";
 
-            if (member == null)
-            {
-                Console.WriteLine("null arg to print");
-            }
-            using var ob = Runtime.PyObject_Repr(member);
-            result += Runtime.GetManagedString(ob.BorrowOrThrow());
+            if (member == null) { Console.WriteLine("null arg to print"); }
+            using var ob = PyObject_Repr(member);
+            result += GetManagedString(ob.BorrowOrThrow());
             result += " ";
             Console.WriteLine(result);
         }
 
         [Conditional("DEBUG")]
-        public static void Print(string msg)
-        {
-            Console.WriteLine(msg);
-        }
+        public static void Print(string msg) { Console.WriteLine(msg); }
 
         [Conditional("DEBUG")]
         internal static void DumpType(BorrowedReference type)
@@ -57,7 +50,6 @@ namespace Core.Libraries.PythonNet.Utils
             //op = Util.ReadIntPtr(type, TypeOffset.tp_mro);
             //DebugUtil.Print("  mro: ", op);
 
-
             var slots = TypeOffset.GetOffsets();
 
             foreach (var entry in slots)
@@ -72,20 +64,14 @@ namespace Core.Libraries.PythonNet.Utils
             Console.WriteLine("");
 
             objMember = Util.ReadRef(type, TypeOffset.tp_dict);
-            if (objMember == null)
-            {
-                Console.WriteLine("  dict: null");
-            }
-            else
-            {
-                Print("  dict: ", objMember);
-            }
+            if (objMember == null) { Console.WriteLine("  dict: null"); }
+            else { Print("  dict: ", objMember); }
         }
 
         [Conditional("DEBUG")]
         internal static void DumpInst(BorrowedReference ob)
         {
-            BorrowedReference tp = Runtime.PyObject_TYPE(ob);
+            BorrowedReference tp = PyObject_TYPE(ob);
             nint sz = Util.ReadIntPtr(tp, TypeOffset.tp_basicsize);
 
             for (nint i = 0; i < sz; i += IntPtr.Size)
@@ -121,16 +107,10 @@ namespace Core.Libraries.PythonNet.Utils
         [Conditional("DEBUG")]
         public static void PrintHexBytes(byte[] bytes)
         {
-            if ((bytes == null) || (bytes.Length == 0))
-            {
-                Console.WriteLine("<none>");
-            }
+            if ((bytes == null) || (bytes.Length == 0)) { Console.WriteLine("<none>"); }
             else
             {
-                foreach (byte t in bytes)
-                {
-                    Console.Write("{0:X2} ", t);
-                }
+                foreach (byte t in bytes) { Console.Write("{0:X2} ", t); }
                 Console.WriteLine();
             }
         }
@@ -138,7 +118,7 @@ namespace Core.Libraries.PythonNet.Utils
         [Conditional("DEBUG")]
         public static void AssertHasReferences(BorrowedReference obj)
         {
-            nint refcount = Runtime.Refcount(obj);
+            nint refcount = Refcount(obj);
             System.Diagnostics.Debug.Assert(refcount > 0, "Object refcount is 0 or less");
         }
 
@@ -148,6 +128,6 @@ namespace Core.Libraries.PythonNet.Utils
             System.Diagnostics.Debug.Assert(HaveInterpreterLock(), "GIL must be acquired");
         }
 
-        public static bool HaveInterpreterLock() => Runtime.PyGILState_Check() == 1;
+        public static bool HaveInterpreterLock() => PyGILState_Check() == 1;
     }
 }

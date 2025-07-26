@@ -73,7 +73,7 @@ namespace Core.Libraries.PythonNet.TypeOffsets
 
         internal static void Use(ITypeOffsets offsets, int extraHeadOffset)
         {
-            if (offsets is null) throw new ArgumentNullException(nameof(offsets));
+            if (offsets is null) { throw new ArgumentNullException(nameof(offsets)); }
 
             slotNames.Clear();
             var offsetProperties = typeof(TypeOffset).GetProperties(FieldFlags);
@@ -101,20 +101,14 @@ namespace Core.Libraries.PythonNet.TypeOffsets
         internal static Dictionary<string, int> GetOffsets()
         {
             var properties = typeof(TypeOffset).GetProperties(FieldFlags);
-            var result = properties.ToDictionary(
-                            keySelector: p => p.Name,
-                            elementSelector: p => (int)p.GetValue(obj: null, index: null));
+            var result = properties.ToDictionary(keySelector: p => p.Name, elementSelector: p => (int)p.GetValue(obj: null, index: null));
             Debug.Assert(result.Values.Any(v => v != 0));
             return result;
         }
 
-        public static int GetSlotOffset(string slotName)
-        {
-            return SlotOffsets[slotName];
-        }
+        public static int GetSlotOffset(string slotName) { return SlotOffsets[slotName]; }
 
-        public static string? GetSlotName(int offset)
-            => SlotOffsets.FirstOrDefault(kv => kv.Value == offset).Key;
+        public static string? GetSlotName(int offset) => SlotOffsets.FirstOrDefault(kv => kv.Value == offset).Key;
 
         static readonly HashSet<string> slotNames = new();
         internal static bool IsSupportedSlotName(string name) => slotNames.Contains(name);
@@ -125,8 +119,7 @@ namespace Core.Libraries.PythonNet.TypeOffsets
             var extras = new List<string>();
             foreach (var property in typeof(ITypeOffsets).GetProperties(FieldFlags))
             {
-                if (!offsetProperties.Any(prop => prop.Name == property.Name))
-                    extras.Add(property.Name);
+                if (!offsetProperties.Any(prop => prop.Name == property.Name)) { extras.Add(property.Name); }
             }
             extras.Sort();
             Debug.Assert(extras.Count == 0, message: string.Join(", ", extras));
@@ -139,15 +132,14 @@ namespace Core.Libraries.PythonNet.TypeOffsets
             var missing = new HashSet<string>();
 
             var thisAssembly = Assembly.GetExecutingAssembly();
-            var managedTypes = thisAssembly.GetTypes()
-                .Where(typeof(ManagedType).IsAssignableFrom)
-                .ToList();
+            var managedTypes = thisAssembly.GetTypes().Where(typeof(ManagedType).IsAssignableFrom).ToList();
             foreach (var managedType in managedTypes)
             {
                 var slots = managedType.GetMethods(BindingFlags.Public | BindingFlags.Static);
                 foreach (var slot in slots)
-                    if (!present.Contains(slot.Name))
-                        missing.Add(slot.Name);
+                {
+                    if (!present.Contains(slot.Name)) { missing.Add(slot.Name); }
+                }
             }
             foreach (string notSlot in new[]
             {

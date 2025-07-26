@@ -5,8 +5,6 @@ using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.PythonTypes
 {
     public sealed class PyBuffer : IDisposable
@@ -74,18 +72,12 @@ namespace Core.Libraries.PythonNet.PythonTypes
         private static char OrderStyleToChar(BufferOrderStyle order, bool eitherOneValid)
         {
             char style = 'C';
-            if (order == BufferOrderStyle.C) 
-            { 
-                style = 'C'; 
-            }
-            else if (order == BufferOrderStyle.Fortran) 
-            { 
-                style = 'F'; 
-            }
+            if (order == BufferOrderStyle.C) { style = 'C'; }
+            else if (order == BufferOrderStyle.Fortran) { style = 'F'; }
             else if (order == BufferOrderStyle.EitherOne)
             {
-                if (eitherOneValid) style = 'A';
-                else throw new ArgumentException("BufferOrderStyle can not be EitherOne and has to be C or Fortran");
+                if (eitherOneValid) { style = 'A'; }
+                else { throw new ArgumentException("BufferOrderStyle can not be EitherOne and has to be C or Fortran"); }
             }
             return style;
         }
@@ -97,11 +89,11 @@ namespace Core.Libraries.PythonNet.PythonTypes
         public static long SizeFromFormat(string format)
         {
             if (PyVersion < new Version(3, 9))
-            { 
-                throw new NotSupportedException("SizeFromFormat requires at least Python 3.9"); 
+            {
+                throw new NotSupportedException("SizeFromFormat requires at least Python 3.9");
             }
             nint result = PyBuffer_SizeFromFormat(format);
-            if (result == -1) throw PythonException.ThrowLastAsClrException();
+            if (result == -1) { throw PythonException.ThrowLastAsClrException(); }
             return result;
         }
 
@@ -111,10 +103,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
         /// <param name="order">C-style (order is 'C') or Fortran-style (order is 'F') contiguous or either one (order is 'A')</param>
         public bool IsContiguous(BufferOrderStyle order)
         {
-            if (disposedValue)
-            { 
-                throw new ObjectDisposedException(nameof(PyBuffer)); 
-            }
+            if (disposedValue) { throw new ObjectDisposedException(nameof(PyBuffer)); }
             return Convert.ToBoolean(PyBuffer_IsContiguous(ref _view, OrderStyleToChar(order, true)));
         }
 
@@ -126,8 +115,8 @@ namespace Core.Libraries.PythonNet.PythonTypes
             if (indices is null) { throw new ArgumentNullException(nameof(indices)); }
             if (disposedValue) { throw new ObjectDisposedException(nameof(PyBuffer)); }
             if (PyVersion < new Version(3, 7))
-            { 
-                throw new NotSupportedException("GetPointer requires at least Python 3.7"); 
+            {
+                throw new NotSupportedException("GetPointer requires at least Python 3.7");
             }
             return PyBuffer_GetPointer(ref _view, indices.Select(x => checked((nint)x)).ToArray());
         }
@@ -139,13 +128,13 @@ namespace Core.Libraries.PythonNet.PythonTypes
         {
             if (disposedValue) { throw new ObjectDisposedException(nameof(PyBuffer)); }
             if (PyVersion < new Version(3, 7))
-            { 
-                throw new NotSupportedException("FromContiguous requires at least Python 3.7"); 
+            {
+                throw new NotSupportedException("FromContiguous requires at least Python 3.7");
             }
 
             if (PyBuffer_FromContiguous(ref _view, buf, checked((nint)len), OrderStyleToChar(fort, false)) < 0)
-            { 
-                throw PythonException.ThrowLastAsClrException(); 
+            {
+                throw PythonException.ThrowLastAsClrException();
             }
         }
 
@@ -158,9 +147,9 @@ namespace Core.Libraries.PythonNet.PythonTypes
         {
             if (disposedValue) { throw new ObjectDisposedException(nameof(PyBuffer)); }
 
-            if (PyBuffer_ToContiguous(buf, ref _view, _view.len, OrderStyleToChar(order, true)) < 0) 
-            { 
-                throw PythonException.ThrowLastAsClrException(); 
+            if (PyBuffer_ToContiguous(buf, ref _view, _view.len, OrderStyleToChar(order, true)) < 0)
+            {
+                throw PythonException.ThrowLastAsClrException();
             }
         }
 
@@ -186,8 +175,8 @@ namespace Core.Libraries.PythonNet.PythonTypes
         {
             if (disposedValue) { throw new ObjectDisposedException(nameof(PyBuffer)); }
             if (PyBuffer_FillInfo(ref _view, exporter, buf, (IntPtr)len, Convert.ToInt32(_readonly), flags) < 0)
-            { 
-                throw PythonException.ThrowLastAsClrException(); 
+            {
+                throw PythonException.ThrowLastAsClrException();
             }
         }
 
@@ -198,31 +187,37 @@ namespace Core.Libraries.PythonNet.PythonTypes
         {
             if (disposedValue) { throw new ObjectDisposedException(nameof(PyBuffer)); }
             if (_view.ndim != 1)
-            { 
-                throw new NotImplementedException("Multidimensional arrays, scalars and objects without a buffer are not supported."); 
+            {
+                throw new NotImplementedException("Multidimensional arrays, scalars and objects without a buffer are not supported.");
             }
             if (!this.IsContiguous(BufferOrderStyle.C))
-            { 
-                throw new NotImplementedException("Only continuous buffers are supported"); 
+            {
+                throw new NotImplementedException("Only continuous buffers are supported");
             }
             if (ReadOnly) { throw new InvalidOperationException("Buffer is read-only"); }
             if (buffer is null) { throw new ArgumentNullException(nameof(buffer)); }
 
-            if (sourceOffset < 0) 
-            { 
-                throw new IndexOutOfRangeException($"{nameof(sourceOffset)} is negative"); 
+            if (sourceOffset < 0)
+            {
+                throw new IndexOutOfRangeException($"{nameof(sourceOffset)} is negative");
             }
             if (destinationOffset < 0)
-            { 
-                throw new IndexOutOfRangeException($"{nameof(destinationOffset)} is negative"); 
+            {
+                throw new IndexOutOfRangeException($"{nameof(destinationOffset)} is negative");
             }
-            if (count < 0) 
-            { throw new ArgumentOutOfRangeException(nameof(count), count, "Value must be >= 0"); }
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count), count, "Value must be >= 0");
+            }
 
             if (checked(count + sourceOffset) > buffer.Length)
-                { throw new ArgumentOutOfRangeException("count", "Count is bigger than the buffer."); }
+            {
+                throw new ArgumentOutOfRangeException("count", "Count is bigger than the buffer.");
+            }
             if (checked(count + destinationOffset) > _view.len)
-                { throw new ArgumentOutOfRangeException("count", "Count is bigger than the python buffer."); }
+            {
+                throw new ArgumentOutOfRangeException("count", "Count is bigger than the python buffer.");
+            }
 
             Marshal.Copy(buffer, sourceOffset, _view.buf + destinationOffset, count);
         }
@@ -232,26 +227,38 @@ namespace Core.Libraries.PythonNet.PythonTypes
         /// </summary>
         public void Read(byte[] buffer, int destinationOffset, int count, nint sourceOffset)
         {
-            if (disposedValue)
-                { throw new ObjectDisposedException(nameof(PyBuffer)); }
+            if (disposedValue) { throw new ObjectDisposedException(nameof(PyBuffer)); }
             if (_view.ndim != 1)
-                { throw new NotImplementedException("Multidimensional arrays, scalars and objects without a buffer are not supported."); }
+            {
+                throw new NotImplementedException("Multidimensional arrays, scalars and objects without a buffer are not supported.");
+            }
             if (!this.IsContiguous(BufferOrderStyle.C))
-                { throw new NotImplementedException("Only continuous buffers are supported"); }
-            if (buffer is null)
-                { throw new ArgumentNullException(nameof(buffer)); }
+            {
+                throw new NotImplementedException("Only continuous buffers are supported");
+            }
+            if (buffer is null) { throw new ArgumentNullException(nameof(buffer)); }
 
             if (sourceOffset < 0)
-                { throw new IndexOutOfRangeException($"{nameof(sourceOffset)} is negative"); }
+            {
+                throw new IndexOutOfRangeException($"{nameof(sourceOffset)} is negative");
+            }
             if (destinationOffset < 0)
-                { throw new IndexOutOfRangeException($"{nameof(destinationOffset)} is negative"); }
+            {
+                throw new IndexOutOfRangeException($"{nameof(destinationOffset)} is negative");
+            }
             if (count < 0)
-                { throw new ArgumentOutOfRangeException(nameof(count), count, "Value must be >= 0"); }
+            {
+                throw new ArgumentOutOfRangeException(nameof(count), count, "Value must be >= 0");
+            }
 
             if (checked(count + destinationOffset) > buffer.Length)
-                { throw new ArgumentOutOfRangeException("count", "Count is bigger than the buffer."); }
+            {
+                throw new ArgumentOutOfRangeException("count", "Count is bigger than the buffer.");
+            }
             if (checked(count + sourceOffset) > _view.len)
-                { throw new ArgumentOutOfRangeException("count", "Count is bigger than the python buffer."); }
+            {
+                throw new ArgumentOutOfRangeException("count", "Count is bigger than the python buffer.");
+            }
 
             Marshal.Copy(_view.buf + sourceOffset, buffer, destinationOffset, count);
         }
@@ -263,7 +270,9 @@ namespace Core.Libraries.PythonNet.PythonTypes
             if (!disposedValue)
             {
                 if (Py_IsInitialized() == 0)
+                {
                     throw new InvalidOperationException("Python runtime must be initialized");
+                }
 
                 // this also decrements ref count for _view->obj
                 PyBuffer_Release(ref _view);
@@ -281,10 +290,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
         {
             Debug.Assert(!disposedValue);
 
-            if (_view.obj != IntPtr.Zero)
-            {
-                Finalizer.Instance.AddFinalizedBuffer(ref _view);
-            }
+            if (_view.obj != IntPtr.Zero) { Finalizer.Instance.AddFinalizedBuffer(ref _view); }
 
             Dispose(false);
         }

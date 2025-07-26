@@ -3,15 +3,13 @@ using Core.Libraries.PythonNet.Marshaler;
 using Core.Libraries.PythonNet.PY;
 using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
+using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.Utils;
 using Core.Libraries.Structs.PythonNet.Py;
 using Core.Libraries.Structs.PythonNet.References;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
-
-using Core.Libraries.PythonNet.Runtimes;
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
 
 namespace Core.Libraries.PythonNet.Python
 {
@@ -43,8 +41,8 @@ namespace Core.Libraries.PythonNet.Python
         private static void EnsureInitialized()
         {
             if (!IsInitialized)
-            { 
-                throw new InvalidOperationException("Python must be initialized for this operation"); 
+            {
+                throw new InvalidOperationException("Python must be initialized for this operation");
             }
         }
 
@@ -72,8 +70,8 @@ namespace Core.Libraries.PythonNet.Python
             set
             {
                 if (IsInitialized)
-                { 
-                    throw new NotSupportedException("Changing interop configuration when engine is running is not supported"); 
+                {
+                    throw new NotSupportedException("Changing interop configuration when engine is running is not supported");
                 }
 
                 interopConfiguration = value ?? throw new ArgumentNullException(nameof(InteropConfiguration));

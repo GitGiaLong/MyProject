@@ -84,8 +84,7 @@ namespace Core.Libraries.PythonNet.Utils
             for (int i = 0; i < int.MaxValue; i++)
             {
                 string candidate = name + i.ToString(CultureInfo.InvariantCulture);
-                if (!taken.Contains(candidate))
-                    return candidate;
+                if (!taken.Contains(candidate)) { return candidate; }
             }
 
             throw new NotSupportedException("Too many assemblies");

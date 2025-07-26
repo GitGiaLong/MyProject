@@ -1,8 +1,6 @@
 ﻿using Core.Libraries.PythonNet.PY;
 using Core.Libraries.PythonNet.References;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.PythonTypes
 {
     partial class PyInt : IComparable<long>, IComparable<int>, IComparable<sbyte>, IComparable<short>

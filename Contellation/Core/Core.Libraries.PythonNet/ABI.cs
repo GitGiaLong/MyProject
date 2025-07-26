@@ -1,6 +1,5 @@
 ﻿using Core.Libraries.Interfaces.PythonNet.TypeOffsets;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.TypeOffsets;
 using System.Globalization;
 using System.Reflection;
@@ -14,8 +13,7 @@ namespace Core.Libraries.PythonNet
 
         internal static void Initialize(Version version)
         {
-            string offsetsClassSuffix = string.Format(CultureInfo.InvariantCulture,
-                                                      "{0}{1}", version.Major, version.Minor);
+            string offsetsClassSuffix = string.Format(CultureInfo.InvariantCulture, "{0}{1}", version.Major, version.Minor);
 
             var thisAssembly = Assembly.GetExecutingAssembly();
 
@@ -38,14 +36,16 @@ namespace Core.Libraries.PythonNet
 
         static unsafe int GetRefCountOffset()
         {
-            using var tempObject = Runtime.PyList_New(0);
+            using var tempObject = PyList_New(0);
             IntPtr* tempPtr = (IntPtr*)tempObject.DangerousGetAddress();
             int offset = 0;
             while (tempPtr[offset] != (IntPtr)1)
             {
                 offset++;
                 if (offset > 100)
+                {
                     throw new InvalidProgramException("PyObject_HEAD could not be found withing reasonable distance from the start of PyObject");
+                }
             }
             return offset * IntPtr.Size;
         }

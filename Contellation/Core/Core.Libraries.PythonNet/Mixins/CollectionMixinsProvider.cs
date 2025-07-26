@@ -1,7 +1,6 @@
 ﻿using Core.Libraries.Interfaces.PythonNet;
 using Core.Libraries.PythonNet.Python;
 using Core.Libraries.PythonNet.PythonTypes;
-using Core.Libraries.PythonNet.Runtimes;
 
 namespace Core.Libraries.PythonNet.Mixins
 {
@@ -68,7 +67,7 @@ namespace Core.Libraries.PythonNet.Mixins
 
             if (type.IsInterface && type.BaseType is null)
             {
-                newBases.RemoveAll(@base => PythonReferenceComparer.Instance.Equals(@base, Runtime.PyBaseObjectType));
+                newBases.RemoveAll(@base => PythonReferenceComparer.Instance.Equals(@base, PyBaseObjectType));
             }
 
             return newBases;

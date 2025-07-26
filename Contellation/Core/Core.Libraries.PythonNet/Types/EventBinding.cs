@@ -1,6 +1,5 @@
 ﻿using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.Utils;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
@@ -30,7 +29,6 @@ namespace Core.Libraries.PythonNet.Types
             Debug.Assert(@event.AddMethod.IsStatic);
         }
 
-
         /// <summary>
         /// EventBinding += operator implementation.
         /// </summary>
@@ -38,7 +36,7 @@ namespace Core.Libraries.PythonNet.Types
         {
             var self = (EventBinding)GetManagedObject(ob)!;
 
-            if (Runtime.PyCallable_Check(arg) < 1)
+            if (PyCallable_Check(arg) < 1)
             {
                 Exceptions.SetError(Exceptions.TypeError, "event handlers must be callable");
                 return default;
@@ -52,7 +50,6 @@ namespace Core.Libraries.PythonNet.Types
             return new NewReference(ob);
         }
 
-
         /// <summary>
         /// EventBinding -= operator implementation.
         /// </summary>
@@ -60,7 +57,7 @@ namespace Core.Libraries.PythonNet.Types
         {
             var self = (EventBinding)GetManagedObject(ob)!;
 
-            if (Runtime.PyCallable_Check(arg) < 1)
+            if (PyCallable_Check(arg) < 1)
             {
                 Exceptions.SetError(Exceptions.TypeError, "invalid event handler");
                 return default;
@@ -77,7 +74,6 @@ namespace Core.Libraries.PythonNet.Types
         public static int tp_descr_set(BorrowedReference ds, BorrowedReference ob, BorrowedReference val)
             => EventObject.tp_descr_set(ds, ob, val);
 
-
         /// <summary>
         /// EventBinding  __hash__ implementation.
         /// </summary>
@@ -88,14 +84,13 @@ namespace Core.Libraries.PythonNet.Types
 
             if (self.target != null)
             {
-                x = Runtime.PyObject_Hash(self.target);
+                x = PyObject_Hash(self.target);
                 if (x == -1) { return x; }
             }
 
             nint y = self.e.GetHashCode();
             return x ^ y;
         }
-
 
         /// <summary>
         /// EventBinding __repr__ implementation.
@@ -105,7 +100,7 @@ namespace Core.Libraries.PythonNet.Types
             var self = (EventBinding)GetManagedObject(ob)!;
             string type = self.target == null ? "unbound" : "bound";
             string s = string.Format("<{0} event '{1}'>", type, self.name);
-            return Runtime.PyString_FromString(s);
+            return PyString_FromString(s);
         }
     }
 }

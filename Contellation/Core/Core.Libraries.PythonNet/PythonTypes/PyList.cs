@@ -4,8 +4,6 @@ using Core.Libraries.PythonNet.Utils;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Runtime.Serialization;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.PythonTypes
 {
     /// <summary>

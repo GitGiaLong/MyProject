@@ -9,11 +9,11 @@ namespace Core.Libraries.PythonNet
 
         /// <summary>
         /// Gets the object, whose finalization failed.
-        ///
         /// <para>If this function crashes, you can also try <see cref="DebugGetObject"/>,
         /// which does not attempt to increase the object reference count.</para>
         /// </summary>
         public PyObject GetObject() => new(new BorrowedReference(this.Handle));
+        
         /// <summary>
         /// Gets the object, whose finalization failed without incrementing
         /// its reference count. This should only ever be called during debugging.
@@ -25,17 +25,15 @@ namespace Core.Libraries.PythonNet
             return new(StolenReference.Take(ref dangerousNoIncRefCopy));
         }
 
-        public FinalizationException(string message, IntPtr disposable, Exception innerException)
-            : base(message, innerException)
+        public FinalizationException(string message, IntPtr disposable, Exception innerException) : base(message, innerException)
         {
-            if (disposable == IntPtr.Zero) throw new ArgumentNullException(nameof(disposable));
+            if (disposable == IntPtr.Zero) { throw new ArgumentNullException(nameof(disposable)); }
             this.Handle = disposable;
         }
 
-        protected FinalizationException(string message, IntPtr disposable)
-            : base(message)
+        protected FinalizationException(string message, IntPtr disposable) : base(message)
         {
-            if (disposable == IntPtr.Zero) throw new ArgumentNullException(nameof(disposable));
+            if (disposable == IntPtr.Zero) { throw new ArgumentNullException(nameof(disposable)); }
             this.Handle = disposable;
         }
     }

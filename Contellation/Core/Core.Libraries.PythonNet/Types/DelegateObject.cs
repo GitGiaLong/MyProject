@@ -2,7 +2,6 @@
 using Core.Libraries.PythonNet.Python;
 using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet.References;
 
 namespace Core.Libraries.PythonNet.Types
@@ -38,12 +37,7 @@ namespace Core.Libraries.PythonNet.Types
             return null;
         }
 
-
-        internal override bool CanSubclass()
-        {
-            return false;
-        }
-
+        internal override bool CanSubclass() { return false; }
 
         /// <summary>
         /// DelegateObject __new__ implementation. The result of this is a new
@@ -62,15 +56,14 @@ namespace Core.Libraries.PythonNet.Types
             }
             Type type = self.type.Value;
 
-            if (
-                Runtime.PyTuple_Size(args) != 1)
+            if (PyTuple_Size(args) != 1)
             {
                 return Exceptions.RaiseTypeError("class takes exactly one argument");
             }
 
-            BorrowedReference method = Runtime.PyTuple_GetItem(args, 0);
+            BorrowedReference method = PyTuple_GetItem(args, 0);
 
-            if (Runtime.PyCallable_Check(method) != 1)
+            if (PyCallable_Check(method) != 1)
             {
                 return Exceptions.RaiseTypeError("argument must be callable");
             }
@@ -86,7 +79,7 @@ namespace Core.Libraries.PythonNet.Types
         public static NewReference tp_call(BorrowedReference ob, BorrowedReference args, BorrowedReference kw)
         {
             // TODO: add fast type check!
-            BorrowedReference pytype = Runtime.PyObject_TYPE(ob);
+            BorrowedReference pytype = PyObject_TYPE(ob);
             var self = (DelegateObject)GetManagedObject(pytype)!;
 
             if (GetManagedObject(ob) is CLRObject o && o.inst is Delegate _)
@@ -96,25 +89,24 @@ namespace Core.Libraries.PythonNet.Types
             return Exceptions.RaiseTypeError("invalid argument");
         }
 
-
         /// <summary>
         /// Implements __cmp__ for reflected delegate types.
         /// </summary>
         public new static NewReference tp_richcompare(BorrowedReference ob, BorrowedReference other, int op)
         {
-            if (op != Runtime.Py_EQ && op != Runtime.Py_NE)
+            if (op != Py_EQ && op != Py_NE)
             {
-                return new NewReference(Runtime.PyNotImplemented);
+                return new NewReference(PyNotImplemented);
             }
 
-            BorrowedReference pytrue = Runtime.PyTrue;
-            BorrowedReference pyfalse = Runtime.PyFalse;
+            BorrowedReference pytrue = PyTrue;
+            BorrowedReference pyfalse = PyFalse;
 
             // swap true and false for NE
-            if (op != Runtime.Py_EQ)
+            if (op != Py_EQ)
             {
-                pytrue = Runtime.PyFalse;
-                pyfalse = Runtime.PyTrue;
+                pytrue = PyFalse;
+                pyfalse = PyTrue;
             }
 
             Delegate? d1 = GetTrueDelegate(ob);

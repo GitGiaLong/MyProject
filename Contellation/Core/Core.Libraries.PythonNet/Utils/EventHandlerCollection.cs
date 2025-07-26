@@ -1,6 +1,5 @@
 ﻿using Core.Libraries.PythonNet.Python;
 using Core.Libraries.PythonNet.PythonTypes;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.Types;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Reflection;
@@ -13,10 +12,7 @@ namespace Core.Libraries.PythonNet.Utils
     internal class EventHandlerCollection : Dictionary<object, List<Handler>>
     {
         readonly EventInfo info;
-        public EventHandlerCollection(EventInfo @event)
-        {
-            info = @event;
-        }
+        public EventHandlerCollection(EventInfo @event) { info = @event; }
 
         /// <summary>
         /// Register a new Python object event handler with the event.
@@ -30,31 +26,36 @@ namespace Core.Libraries.PythonNet.Utils
                 obj = co.inst;
             }
 
-            // Create a true delegate instance of the appropriate type to
-            // wrap the Python handler. Note that wrapper delegate creation
-            // always succeeds, though calling the wrapper may fail.
+            /* 
+             * Create a true delegate instance of the appropriate type to 
+             * wrap the Python handler. Note that wrapper delegate creation 
+             * always succeeds, though calling the wrapper may fail. 
+             */
             Type type = info.EventHandlerType;
             Delegate d = PythonEngine.DelegateManager.GetDelegate(type, handler);
 
-            // Now register the handler in a mapping from instance to pairs
-            // of (handler hash, delegate) so we can lookup to remove later.
+            /* 
+             * Now register the handler in a mapping from instance to pairs 
+             * of (handler hash, delegate) so we can lookup to remove later. 
+             */
             object key = obj ?? info.ReflectedType;
             if (!TryGetValue(key, out var list))
             {
                 list = new List<Handler>();
                 this[key] = list;
             }
-            list.Add(new Handler(Runtime.PyObject_Hash(handler), d));
+            list.Add(new Handler(PyObject_Hash(handler), d));
 
-            // Note that AddEventHandler helper only works for public events,
-            // so we have to get the underlying add method explicitly.
+            /* 
+             * Note that AddEventHandler helper only works for public events, 
+             * so we have to get the underlying add method explicitly. 
+             */
             object[] args = { d };
             MethodInfo mi = info.GetAddMethod(true);
             mi.Invoke(obj, BindingFlags.Default, null, args, null);
 
             return true;
         }
-
 
         /// <summary>
         /// Remove the given Python object event handler.
@@ -68,11 +69,8 @@ namespace Core.Libraries.PythonNet.Utils
                 obj = co.inst;
             }
 
-            nint hash = Runtime.PyObject_Hash(handler);
-            if (hash == -1 && Exceptions.ErrorOccurred())
-            {
-                return false;
-            }
+            nint hash = PyObject_Hash(handler);
+            if (hash == -1 && Exceptions.ErrorOccurred()) { return false; }
 
             object key = obj ?? info.ReflectedType;
 
@@ -88,24 +86,16 @@ namespace Core.Libraries.PythonNet.Utils
             for (var i = 0; i < list.Count; i++)
             {
                 var item = (Handler)list[i];
-                if (item.hash != hash)
-                {
-                    continue;
-                }
+                if (item.hash != hash) { continue; }
+                
                 args[0] = item.del;
-                try
-                {
-                    mi.Invoke(obj, BindingFlags.Default, null, args, null);
-                }
-                catch
-                {
-                    continue;
-                }
+                
+                try { mi.Invoke(obj, BindingFlags.Default, null, args, null); }
+                catch { continue; }
+
                 list.RemoveAt(i);
-                if (list.Count == 0)
-                {
-                    Remove(key);
-                }
+
+                if (list.Count == 0) { Remove(key); }
                 return true;
             }
 
@@ -115,8 +105,7 @@ namespace Core.Libraries.PythonNet.Utils
 
         #region Serializable
         [SecurityPermission(SecurityAction.Demand, SerializationFormatter = true)]
-        protected EventHandlerCollection(SerializationInfo info, StreamingContext context)
-                : base(info, context)
+        protected EventHandlerCollection(SerializationInfo info, StreamingContext context) : base(info, context)
         {
             this.info = (EventInfo)info.GetValue("event", typeof(EventInfo));
         }

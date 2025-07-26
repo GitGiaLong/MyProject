@@ -6,39 +6,36 @@ using System.Runtime.InteropServices;
 
 namespace Core.Libraries.PythonNet
 {
-    // This class defines the function prototypes (delegates) used for low
-    // level integration with the CPython runtime. It also provides name
-    // based lookup of the correct prototype for a particular Python type
-    // slot and utilities for generating method thunks for managed methods.
-
+    /* 
+     * This class defines the function prototypes (delegates) used for low 
+     * level integration with the CPython runtime. It also provides name 
+     * based lookup of the correct prototype for a particular Python type 
+     * slot and utilities for generating method thunks for managed methods. 
+     */
     internal class Interop
     {
         static readonly Dictionary<MethodInfo, Type> delegateTypes = new();
 
         internal static Type GetPrototype(MethodInfo method)
         {
-            if (delegateTypes.TryGetValue(method, out var delegateType))
-                return delegateType;
+            if (delegateTypes.TryGetValue(method, out var delegateType)) { return delegateType; }
 
             var parameters = method.GetParameters().Select(p => new ParameterHelper(p)).ToArray();
 
             foreach (var candidate in typeof(Interop).GetNestedTypes())
             {
-                if (!typeof(Delegate).IsAssignableFrom(candidate))
-                    continue;
+                if (!typeof(Delegate).IsAssignableFrom(candidate)) { continue; }
 
                 MethodInfo invoke = candidate.GetMethod("Invoke");
                 var candiateParameters = invoke.GetParameters();
-                if (candiateParameters.Length != parameters.Length)
-                    continue;
+                if (candiateParameters.Length != parameters.Length) { continue; }
 
-                var parametersMatch = parameters.Zip(candiateParameters,
-                    (expected, actual) => expected.Matches(actual))
-                    .All(matches => matches);
+                var parametersMatch = parameters.Zip(candiateParameters, (expected, actual) 
+                    => expected.Matches(actual)).All(matches => matches);
 
-                if (!parametersMatch) continue;
+                if (!parametersMatch) { continue; }
 
-                if (invoke.ReturnType != method.ReturnType) continue;
+                if (invoke.ReturnType != method.ReturnType) { continue; }
 
                 delegateTypes.Add(method, candidate);
                 return candidate;
@@ -46,7 +43,6 @@ namespace Core.Libraries.PythonNet
 
             throw new NotImplementedException(method.ToString());
         }
-
 
         internal static Dictionary<IntPtr, Delegate> allocatedThunks = new();
 

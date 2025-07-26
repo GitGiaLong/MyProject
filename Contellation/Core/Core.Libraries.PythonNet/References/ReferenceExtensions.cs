@@ -1,8 +1,6 @@
 ﻿using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics.Contracts;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.References
 {
     static class ReferenceExtensions

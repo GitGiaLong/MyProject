@@ -2,8 +2,6 @@
 using Core.Libraries.PythonNet.Python;
 using Core.Libraries.PythonNet.Utils;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet
 {
 
@@ -16,23 +14,15 @@ namespace Core.Libraries.PythonNet
             {
                 var dllPath = Encodings.UTF8.GetString((byte*)data.ToPointer(), size);
 
-                if (!string.IsNullOrEmpty(dllPath))
-                {
-                    PythonDLL = dllPath;
-                }
-                else
-                {
-                    PythonDLL = null;
-                }
+                if (!string.IsNullOrEmpty(dllPath)) { PythonDLL = dllPath; }
+                else { PythonDLL = null; }
 
                 using var _ = Py.GIL();
                 PythonEngine.InitExt();
             }
             catch (Exception exc)
             {
-                Console.Error.Write(
-                    $"Failed to initialize pythonnet: {exc}\n{exc.StackTrace}"
-                );
+                Console.Error.Write($"Failed to initialize pythonnet: {exc}\n{exc.StackTrace}");
                 return 1;
             }
 
@@ -53,9 +43,7 @@ namespace Core.Libraries.PythonNet
             }
             catch (Exception exc)
             {
-                Console.Error.Write(
-                    $"Failed to shutdown pythonnet: {exc}\n{exc.StackTrace}"
-                );
+                Console.Error.Write($"Failed to shutdown pythonnet: {exc}\n{exc.StackTrace}");
                 return 1;
             }
 

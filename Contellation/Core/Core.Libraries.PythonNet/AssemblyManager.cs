@@ -1,12 +1,10 @@
 ﻿using Core.Libraries.PythonNet.PY;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.Utils;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Reflection;
-
 
 namespace Core.Libraries.PythonNet
 {
@@ -16,17 +14,16 @@ namespace Core.Libraries.PythonNet
     /// </summary>
     internal class AssemblyManager
     {
-        // modified from event handlers below, potentially triggered from different .NET threads
-        // therefore this should be a ConcurrentDictionary
-        //
-        // WARNING: Dangerous if cross-app domain usage is ever supported
-        //    Reusing the dictionary with assemblies accross multiple initializations is problematic.
-        //    Loading happens from CurrentDomain (see line 53). And if the first call is from AppDomain that is later unloaded,
-        //    than it can end up referring to assemblies that are already unloaded (default behavior after unload appDomain -
-        //     unless LoaderOptimization.MultiDomain is used);
-        //    So for multidomain support it is better to have the dict. recreated for each app-domain initialization
-        private static readonly ConcurrentDictionary<string, ConcurrentDictionary<Assembly, string>> namespaces =
-            new();
+        /* modified from event handlers below, potentially triggered from different .NET threads 
+         * therefore this should be a ConcurrentDictionary
+         *  
+         *  WARNING: Dangerous if cross-app domain usage is ever supported 
+         *   Reusing the dictionary with assemblies accross multiple initializations is problematic. 
+         *      Loading happens from CurrentDomain (see line 53). And if the first call is from AppDomain that is later unloaded, 
+         *      than it can end up referring to assemblies that are already unloaded (default behavior after unload appDomain - 
+         *      unless LoaderOptimization.MultiDomain is used); 
+         *      So for multidomain support it is better to have the dict. recreated for each app-domain initialization */
+        private static readonly ConcurrentDictionary<string, ConcurrentDictionary<Assembly, string>> namespaces = new();
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         // domain-level handlers are initialized in Initialize
@@ -40,9 +37,7 @@ namespace Core.Libraries.PythonNet
         // modified from event handlers below, potentially triggered from different .NET threads
         private static readonly ConcurrentQueue<Assembly> assemblies = new();
         internal static readonly List<string> pypath = new(capacity: 16);
-        private AssemblyManager()
-        {
-        }
+        private AssemblyManager() { }
 
         /// <summary>
         /// Initialization performed on startup of the Python runtime. Here we
@@ -76,7 +71,6 @@ namespace Core.Libraries.PythonNet
             }
         }
 
-
         /// <summary>
         /// Cleanup resources upon shutdown of the Python runtime.
         /// </summary>
@@ -86,7 +80,6 @@ namespace Core.Libraries.PythonNet
             domain.AssemblyLoad -= lhandler;
             domain.AssemblyResolve -= rhandler;
         }
-
 
         /// <summary>
         /// Event handler for assembly load events. At the time the Python
@@ -102,7 +95,6 @@ namespace Core.Libraries.PythonNet
             ScanAssembly(assembly);
         }
 
-
         /// <summary>
         /// Event handler for assembly resolve events. This is needed because
         /// we augment the assembly search path with the PYTHONPATH when we
@@ -115,26 +107,16 @@ namespace Core.Libraries.PythonNet
             var name = new AssemblyName(args.Name);
             foreach (var alreadyLoaded in assemblies)
             {
-                if (AssemblyName.ReferenceMatchesDefinition(name, alreadyLoaded.GetName()))
-                {
-                    return alreadyLoaded;
-                }
+                if (AssemblyName.ReferenceMatchesDefinition(name, alreadyLoaded.GetName())) { return alreadyLoaded; }
             }
             return LoadAssemblyPath(name.Name);
         }
 
         internal static AssemblyName? TryParseAssemblyName(string name)
         {
-            try
-            {
-                return new AssemblyName(name);
-            }
-            catch (FileLoadException)
-            {
-                return null;
-            }
+            try { return new AssemblyName(name); }
+            catch (FileLoadException) { return null; }
         }
-
 
         /// <summary>
         /// We __really__ want to avoid using Python objects or APIs when
@@ -149,20 +131,17 @@ namespace Core.Libraries.PythonNet
         /// </summary>
         internal static void UpdatePath()
         {
-            BorrowedReference list = Runtime.PySys_GetObject("path");
-            var count = Runtime.PyList_Size(list);
+            BorrowedReference list = PySys_GetObject("path");
+            var count = PyList_Size(list);
             if (count != pypath.Count)
             {
                 pypath.Clear();
                 probed.Clear();
                 for (var i = 0; i < count; i++)
                 {
-                    BorrowedReference item = Runtime.PyList_GetItem(list, i);
-                    string? path = Runtime.GetManagedString(item);
-                    if (path != null)
-                    {
-                        pypath.Add(path);
-                    }
+                    BorrowedReference item = PyList_GetItem(list, i);
+                    string? path = GetManagedString(item);
+                    if (path != null) { pypath.Add(path); }
                 }
             }
         }
@@ -174,7 +153,7 @@ namespace Core.Libraries.PythonNet
         /// </summary>
         public static string FindAssembly(AssemblyName name)
         {
-            if (name is null) throw new ArgumentNullException(nameof(name));
+            if (name is null) { throw new ArgumentNullException(nameof(name)); }
 
             return FindAssembly(name.Name);
         }
@@ -186,7 +165,7 @@ namespace Core.Libraries.PythonNet
         /// </summary>
         public static string FindAssembly(string name)
         {
-            if (name is null) throw new ArgumentNullException(nameof(name));
+            if (name is null) { throw new ArgumentNullException(nameof(name)); }
 
             return FindAssemblyCandidates(name).FirstOrDefault();
         }
@@ -196,16 +175,13 @@ namespace Core.Libraries.PythonNet
             foreach (string head in pypath)
             {
                 string path;
-                if (head == null || head.Length == 0)
-                {
-                    path = name;
-                }
+                if (head == null || head.Length == 0) { path = name; }
                 else
                 {
                     int invalidCharIndex = head.IndexOfAny(Path.GetInvalidPathChars());
                     if (invalidCharIndex >= 0)
                     {
-                        using var importWarning = Runtime.PyObject_GetAttrString(Exceptions.exceptions_module, "ImportWarning");
+                        using var importWarning = PyObject_GetAttrString(Exceptions.exceptions_module, "ImportWarning");
                         Exceptions.warn($"Path entry '{head}' has invalid char at position {invalidCharIndex}", importWarning.BorrowOrThrow());
                         continue;
                     }
@@ -213,29 +189,18 @@ namespace Core.Libraries.PythonNet
                 }
 
                 string temp = path + ".dll";
-                if (File.Exists(temp))
-                {
-                    yield return temp;
-                }
+                if (File.Exists(temp)) { yield return temp; }
 
                 temp = path + ".exe";
-                if (File.Exists(temp))
-                {
-                    yield return temp;
-                }
+                if (File.Exists(temp)) { yield return temp; }
             }
         }
-
 
         /// <summary>
         /// Loads an assembly from the application directory or the GAC
         /// given its name. Returns the assembly if loaded.
         /// </summary>
-        public static Assembly LoadAssembly(AssemblyName name)
-        {
-            return Assembly.Load(name);
-        }
-
+        public static Assembly LoadAssembly(AssemblyName name) { return Assembly.Load(name); }
 
         /// <summary>
         /// Loads an assembly using an augmented search path (the python path).
@@ -243,7 +208,7 @@ namespace Core.Libraries.PythonNet
         public static Assembly? LoadAssemblyPath(string name)
         {
             string path = FindAssembly(name);
-            if (path == null) return null;
+            if (path == null) { return null; }
             return Assembly.LoadFrom(path);
         }
 
@@ -256,10 +221,7 @@ namespace Core.Libraries.PythonNet
         {
             if (Path.IsPathRooted(name))
             {
-                if (File.Exists(name))
-                {
-                    return Assembly.LoadFrom(name);
-                }
+                if (File.Exists(name)) { return Assembly.LoadFrom(name); }
             }
             return null;
         }
@@ -269,13 +231,7 @@ namespace Core.Libraries.PythonNet
         /// </summary>
         public static Assembly? FindLoadedAssembly(string name)
         {
-            foreach (Assembly a in assemblies)
-            {
-                if (a.GetName().Name == name)
-                {
-                    return a;
-                }
-            }
+            foreach (Assembly a in assemblies) { if (a.GetName().Name == name) { return a; } }
             return null;
         }
 
@@ -292,9 +248,11 @@ namespace Core.Libraries.PythonNet
             {
                 return;
             }
-            // A couple of things we want to do here: first, we want to
-            // gather a list of all of the namespaces contributed to by
-            // the assembly.
+            /* 
+             * A couple of things we want to do here: first, we want to 
+             * gather a list of all of the namespaces contributed to by 
+             * the assembly. 
+             */
             foreach (Type t in GetTypes(assembly))
             {
                 string ns = t.Namespace ?? "";
@@ -312,15 +270,9 @@ namespace Core.Libraries.PythonNet
                     }
                 }
 
-                if (ns != null)
-                {
-                    namespaces[ns].TryAdd(assembly, string.Empty);
-                }
+                if (ns != null) { namespaces[ns].TryAdd(assembly, string.Empty); }
 
-                if (ns != null && t.IsGenericTypeDefinition)
-                {
-                    GenericUtil.Register(t);
-                }
+                if (ns != null && t.IsGenericTypeDefinition) { GenericUtil.Register(t); }
             }
         }
 
@@ -347,10 +299,7 @@ namespace Core.Libraries.PythonNet
         /// Returns an enumerable collection containing the namepsaces exported
         /// by loaded assemblies in the current app domain.
         /// </summary>
-        public static IEnumerable<string> GetNamespaces()
-        {
-            return namespaces.Keys;
-        }
+        public static IEnumerable<string> GetNamespaces() { return namespaces.Keys; }
 
         /// <summary>
         /// Returns list of assemblies that declare types in a given namespace
@@ -369,13 +318,7 @@ namespace Core.Libraries.PythonNet
             var names = new List<string>(8);
 
             List<string>? g = GenericUtil.GetGenericBaseNames(nsname);
-            if (g != null)
-            {
-                foreach (string n in g)
-                {
-                    names.Add(n);
-                }
-            }
+            if (g != null) { foreach (string n in g) { names.Add(n); } }
 
             if (namespaces.ContainsKey(nsname))
             {
@@ -383,10 +326,7 @@ namespace Core.Libraries.PythonNet
                 {
                     foreach (Type t in GetTypes(a))
                     {
-                        if ((t.Namespace ?? "") == nsname && !t.IsNested)
-                        {
-                            names.Add(t.Name);
-                        }
+                        if ((t.Namespace ?? "") == nsname && !t.IsNested) { names.Add(t.Name); }
                     }
                 }
                 int nslen = nsname.Length;
@@ -395,10 +335,7 @@ namespace Core.Libraries.PythonNet
                     if (key.Length > nslen && key.StartsWith(nsname))
                     {
                         //string tail = key.Substring(nslen);
-                        if (key.IndexOf('.') == -1)
-                        {
-                            names.Add(key);
-                        }
+                        if (key.IndexOf('.') == -1) { names.Add(key); }
                     }
                 }
             }
@@ -417,10 +354,7 @@ namespace Core.Libraries.PythonNet
         {
             if (a.IsDynamic)
             {
-                try
-                {
-                    return a.GetTypes().Where(IsExported).ToArray();
-                }
+                try { return a.GetTypes().Where(IsExported).ToArray(); }
                 catch (ReflectionTypeLoadException exc)
                 {
                     // Return all types that were successfully loaded
@@ -429,14 +363,8 @@ namespace Core.Libraries.PythonNet
             }
             else
             {
-                try
-                {
-                    return a.GetExportedTypes().Where(IsExported).ToArray();
-                }
-                catch (FileNotFoundException)
-                {
-                    return new Type[0];
-                }
+                try { return a.GetExportedTypes().Where(IsExported).ToArray(); }
+                catch (FileNotFoundException) { return new Type[0]; }
             }
         }
 

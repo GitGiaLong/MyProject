@@ -9,6 +9,8 @@
     <Import_RootNamespace>Core.Libraries.Enums</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Connects\IoControlCodeAccess.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Connects\IoControlTransferType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PythonNet\BufferOrderStyle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PythonNet\MaybeMethodFlags.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)PythonNet\ParameterModifier.cs" />

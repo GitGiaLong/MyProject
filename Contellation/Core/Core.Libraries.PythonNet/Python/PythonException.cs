@@ -12,8 +12,6 @@ using System.Runtime.ExceptionServices;
 using System.Runtime.Serialization;
 using System.Security.Permissions;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.Python
 {
     /// <summary>
@@ -318,8 +316,8 @@ namespace Core.Libraries.PythonNet.Python
                 if (Traceback is null) { return base.StackTrace; }
 
                 if (!PythonEngine.IsInitialized && Py_IsInitialized() == 0)
-                { 
-                    return "Python stack unavailable as runtime was shut down\n" + base.StackTrace; 
+                {
+                    return "Python stack unavailable as runtime was shut down\n" + base.StackTrace;
                 }
 
                 using var _ = new Py.GILState();
@@ -415,7 +413,7 @@ namespace Core.Libraries.PythonNet.Python
 
         }
 
-        public PythonException Clone() => new(type: Type, value: Value, 
+        public PythonException Clone() => new(type: Type, value: Value,
             traceback: Traceback, Message, InnerException);
 
         #region Serializable
@@ -448,8 +446,8 @@ namespace Core.Libraries.PythonNet.Python
         private static void CheckRuntimeIsRunning()
         {
             if (!PythonEngine.IsInitialized && Py_IsInitialized() == 0)
-            { 
-                throw new InvalidOperationException("Python runtime must be running"); 
+            {
+                throw new InvalidOperationException("Python runtime must be running");
             }
         }
 

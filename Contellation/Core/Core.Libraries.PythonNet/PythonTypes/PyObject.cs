@@ -11,8 +11,6 @@ using System.Dynamic;
 using System.Linq.Expressions;
 using System.Runtime.Serialization;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.PythonTypes
 {
     /// <summary>
@@ -185,7 +183,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
 
         void CheckDisposed()
         {
-            if (IsDisposed) throw new ObjectDisposedException(nameof(PyObject));
+            if (IsDisposed) { throw new ObjectDisposedException(nameof(PyObject)); }
         }
 
         protected virtual void Dispose(bool disposing)
@@ -925,10 +923,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
         /// Returns true if the object is iterable object. This method
         /// always succeeds.
         /// </remarks>
-        public bool IsIterable()
-        {
-            return PyObject_IsIterable(obj);
-        }
+        public bool IsIterable() { return PyObject_IsIterable(obj); }
 
         /// <summary>
         /// IsTrue Method
@@ -937,10 +932,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
         /// Return true if the object is true according to Python semantics.
         /// This method always succeeds.
         /// </remarks>
-        public bool IsTrue()
-        {
-            return PyObject_IsTrue(obj) != 0;
-        }
+        public bool IsTrue() { return PyObject_IsTrue(obj) != 0; }
 
         /// <summary>
         /// Return true if the object is None
@@ -1017,11 +1009,11 @@ namespace Core.Libraries.PythonNet.PythonTypes
             if (other is null) { return false; }
 
             if (obj == other.obj) { return true; }
-            
+
             int result = PyObject_RichCompareBool(obj, other.obj, Py_EQ);
-            
+
             if (result < 0) { throw PythonException.ThrowLastAsClrException(); }
-            
+
             return result != 0;
         }
 
@@ -1069,7 +1061,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
             Debug.Assert(greater != -1);
 
             if (greater > 0) { return 1; }
-            
+
             int less = PyObject_RichCompareBool(this.Reference, other, Py_LT);
             Debug.Assert(less != -1);
             return less > 0 ? -1 : 0;
@@ -1129,11 +1121,11 @@ namespace Core.Libraries.PythonNet.PythonTypes
         private void GetArgs(object?[] inargs, out PyTuple args, out PyDict? kwargs)
         {
             int arg_count;
-            
-            for (arg_count = 0; arg_count < inargs.Length && !(inargs[arg_count] is Py.KeywordArguments); ++arg_count) { ; }
-            
+
+            for (arg_count = 0; arg_count < inargs.Length && !(inargs[arg_count] is Py.KeywordArguments); ++arg_count) {; }
+
             using var argtuple = PyTuple_New(arg_count);
-            
+
             for (var i = 0; i < arg_count; i++)
             {
                 AddArgument(argtuple.Borrow(), i, inargs[i]);
@@ -1141,7 +1133,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
             args = new PyTuple(argtuple.Steal());
 
             kwargs = null;
-            
+
             for (int i = arg_count; i < inargs.Length; i++)
             {
                 if (inargs[i] is not Py.KeywordArguments kw)
@@ -1149,14 +1141,8 @@ namespace Core.Libraries.PythonNet.PythonTypes
                     throw new ArgumentException("Keyword arguments must come after normal arguments.");
                 }
 
-                if (kwargs == null)
-                {
-                    kwargs = kw;
-                }
-                else
-                {
-                    kwargs.Update(kw);
-                }
+                if (kwargs == null) { kwargs = kw; }
+                else { kwargs.Update(kw); }
             }
         }
 
@@ -1272,10 +1258,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
         {
             using var _ = Py.GIL();
             NewReference res;
-            if (arg is not PyObject)
-            {
-                arg = arg.ToPython();
-            }
+            if (arg is not PyObject) { arg = arg.ToPython(); }
 
             switch (binder.Operation)
             {
@@ -1395,7 +1378,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
         {
             if (pyObj != null)
             {
-                if (pyObj.obj == PyNone) {  return null; }
+                if (pyObj.obj == PyNone) { return null; }
             }
 
             return pyObj;

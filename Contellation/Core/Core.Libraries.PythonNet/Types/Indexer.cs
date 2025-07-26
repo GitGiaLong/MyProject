@@ -1,8 +1,9 @@
 ﻿using Core.Libraries.PythonNet.Methods;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Reflection;
+
+using static Core.Libraries.PythonNet.Runtimes.Runtime;
 
 namespace Core.Libraries.PythonNet.Types
 {
@@ -21,7 +22,6 @@ namespace Core.Libraries.PythonNet.Types
             SetterBinder = new MethodBinder();
         }
 
-
         public bool CanGet
         {
             get { return GetterBinder.Count > 0; }
@@ -32,26 +32,18 @@ namespace Core.Libraries.PythonNet.Types
             get { return SetterBinder.Count > 0; }
         }
 
-
         public void AddProperty(PropertyInfo pi)
         {
             MethodInfo getter = pi.GetGetMethod(true);
             MethodInfo setter = pi.GetSetMethod(true);
-            if (getter != null)
-            {
-                GetterBinder.AddMethod(getter);
-            }
-            if (setter != null)
-            {
-                SetterBinder.AddMethod(setter);
-            }
+            if (getter != null) { GetterBinder.AddMethod(getter); }
+            if (setter != null) { SetterBinder.AddMethod(setter); }
         }
 
         internal NewReference GetItem(BorrowedReference inst, BorrowedReference args)
         {
             return GetterBinder.Invoke(inst, args, null);
         }
-
 
         internal NewReference SetItem(BorrowedReference inst, BorrowedReference args)
         {
@@ -60,12 +52,9 @@ namespace Core.Libraries.PythonNet.Types
 
         internal bool NeedsDefaultArgs(BorrowedReference args)
         {
-            var pynargs = Runtime.PyTuple_Size(args);
+            var pynargs = PyTuple_Size(args);
             MethodBase[] methods = SetterBinder.GetMethods();
-            if (methods.Length == 0)
-            {
-                return false;
-            }
+            if (methods.Length == 0) { return false; }
 
             MethodBase mi = methods[0];
             ParameterInfo[] pi = mi.GetParameters();
@@ -78,10 +67,7 @@ namespace Core.Libraries.PythonNet.Types
 
             for (var v = pynargs; v < clrnargs; v++)
             {
-                if (pi[v].DefaultValue == DBNull.Value)
-                {
-                    return false;
-                }
+                if (pi[v].DefaultValue == DBNull.Value) { return false; }
             }
             return true;
         }
@@ -95,26 +81,20 @@ namespace Core.Libraries.PythonNet.Types
         internal NewReference GetDefaultArgs(BorrowedReference args)
         {
             // if we don't need default args return empty tuple
-            if (!NeedsDefaultArgs(args))
-            {
-                return Runtime.PyTuple_New(0);
-            }
-            var pynargs = Runtime.PyTuple_Size(args);
+            if (!NeedsDefaultArgs(args)) { return PyTuple_New(0); }
+            var pynargs = PyTuple_Size(args);
 
             // Get the default arg tuple
             MethodBase[] methods = SetterBinder.GetMethods();
             MethodBase mi = methods[0];
             ParameterInfo[] pi = mi.GetParameters();
             int clrnargs = pi.Length - 1;
-            var defaultArgs = Runtime.PyTuple_New(clrnargs - pynargs);
+            var defaultArgs = PyTuple_New(clrnargs - pynargs);
             for (var i = 0; i < clrnargs - pynargs; i++)
             {
-                if (pi[i + pynargs].DefaultValue == DBNull.Value)
-                {
-                    continue;
-                }
+                if (pi[i + pynargs].DefaultValue == DBNull.Value) { continue; }
                 using var arg = Converter.ToPython(pi[i + pynargs].DefaultValue, pi[i + pynargs].ParameterType);
-                Runtime.PyTuple_SetItem(defaultArgs.Borrow(), i, arg.Steal());
+                PyTuple_SetItem(defaultArgs.Borrow(), i, arg.Steal());
             }
             return defaultArgs;
         }

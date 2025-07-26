@@ -1,7 +1,6 @@
 ﻿using Core.Libraries.PythonNet.PY;
 using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Diagnostics;
 using System.Reflection;
@@ -37,19 +36,13 @@ namespace Core.Libraries.PythonNet
 
         static InternString()
         {
-            var identifierNames = typeof(PyIdentifier).GetFields(PyIdentifierFieldFlags)
-                                    .Select(fi => fi.Name.Substring(1));
+            var identifierNames = typeof(PyIdentifier).GetFields(PyIdentifierFieldFlags).Select(fi => fi.Name.Substring(1));
             var validNames = new HashSet<string>(identifierNames);
-            if (validNames.Count != _builtinNames.Length)
-            {
-                throw new InvalidOperationException("Identifiers args not matching");
-            }
+            if (validNames.Count != _builtinNames.Length) { throw new InvalidOperationException("Identifiers args not matching"); }
+
             foreach (var name in _builtinNames)
             {
-                if (!validNames.Contains(name))
-                {
-                    throw new InvalidOperationException($"{name} is not declared");
-                }
+                if (!validNames.Contains(name)) { throw new InvalidOperationException($"{name} is not declared"); }
             }
         }
 
@@ -60,7 +53,7 @@ namespace Core.Libraries.PythonNet
             Type type = typeof(PyIdentifier);
             foreach (string name in _builtinNames)
             {
-                NewReference pyStr = Runtime.PyUnicode_InternFromString(name);
+                NewReference pyStr = PyUnicode_InternFromString(name);
                 var op = new PyString(pyStr.StealOrThrow());
                 Debug.Assert(name == op.As<string>());
                 SetIntern(name, op);
@@ -84,11 +77,8 @@ namespace Core.Libraries.PythonNet
 
         public static string? GetManagedString(BorrowedReference op)
         {
-            if (TryGetInterned(op, out string s))
-            {
-                return s;
-            }
-            return Runtime.GetManagedString(op);
+            if (TryGetInterned(op, out string s)) { return s; }
+            return GetManagedString(op);
         }
 
         public static bool TryGetInterned(BorrowedReference op, out string s)

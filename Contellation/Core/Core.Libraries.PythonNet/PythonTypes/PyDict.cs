@@ -3,8 +3,6 @@ using Core.Libraries.PythonNet.References;
 using Core.Libraries.Structs.PythonNet.References;
 using System.Runtime.Serialization;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.PythonTypes
 {
     /// <summary>
@@ -45,8 +43,8 @@ namespace Core.Libraries.PythonNet.PythonTypes
         /// </remarks>
         public static bool IsDictType(PyObject value)
         {
-            if (value is null) {throw new ArgumentNullException(nameof(value));}
-            { return PyDict_Check(value.obj); }
+            if (value is null) { throw new ArgumentNullException(nameof(value)); }
+            return PyDict_Check(value.obj);
         }
 
         /// <summary>
@@ -57,7 +55,7 @@ namespace Core.Libraries.PythonNet.PythonTypes
         /// </remarks>
         public bool HasKey(PyObject key)
         {
-            if (key is null) {throw new ArgumentNullException(nameof(key));}
+            if (key is null) { throw new ArgumentNullException(nameof(key)); }
             return PyMapping_HasKey(obj, key.obj) != 0;
         }
 

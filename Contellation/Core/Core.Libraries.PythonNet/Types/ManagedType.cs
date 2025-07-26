@@ -2,7 +2,6 @@
 using Core.Libraries.PythonNet.PY;
 using Core.Libraries.PythonNet.PythonTypes;
 using Core.Libraries.PythonNet.References;
-using Core.Libraries.PythonNet.Runtimes;
 using Core.Libraries.PythonNet.TypeOffsets;
 using Core.Libraries.PythonNet.Utils;
 using Core.Libraries.Structs.PythonNet.References;
@@ -26,7 +25,7 @@ namespace Core.Libraries.PythonNet.Types
         {
             if (ob != null)
             {
-                BorrowedReference tp = Runtime.PyObject_TYPE(ob);
+                BorrowedReference tp = PyObject_TYPE(ob);
                 var flags = PyType.GetFlags(tp);
                 if ((flags & TypeFlags.HasClrInstance) != 0)
                 {
@@ -41,8 +40,8 @@ namespace Core.Libraries.PythonNet.Types
         {
             if (ob != null)
             {
-                BorrowedReference tp = Runtime.PyObject_TYPE(ob);
-                if (tp == Runtime.PyTypeType || tp == Runtime.PyCLRMetaType)
+                BorrowedReference tp = PyObject_TYPE(ob);
+                if (tp == PyTypeType || tp == PyCLRMetaType)
                 {
                     tp = ob;
                 }
@@ -71,45 +70,38 @@ namespace Core.Libraries.PythonNet.Types
 
         internal unsafe static int PyVisit(BorrowedReference ob, IntPtr visit, IntPtr arg)
         {
-            if (ob == null)
-            {
-                return 0;
-            }
+            if (ob == null) { return 0; }
             var visitFunc = (delegate* unmanaged[Cdecl]<BorrowedReference, IntPtr, int>)(visit);
             return visitFunc(ob, arg);
         }
 
         internal static unsafe void DecrefTypeAndFree(StolenReference ob)
         {
-            if (ob == null) throw new ArgumentNullException(nameof(ob));
+            if (ob == null) { throw new ArgumentNullException(nameof(ob)); }
             var borrowed = new BorrowedReference(ob.DangerousGetAddress());
 
-            var type = Runtime.PyObject_TYPE(borrowed);
+            var type = PyObject_TYPE(borrowed);
 
             var freePtr = Util.ReadIntPtr(type, TypeOffset.tp_free);
             Debug.Assert(freePtr != IntPtr.Zero);
             var free = (delegate* unmanaged[Cdecl]<StolenReference, void>)freePtr;
             free(ob);
 
-            Runtime.XDecref(StolenReference.DangerousFromPointer(type.DangerousGetAddress()));
+            XDecref(StolenReference.DangerousFromPointer(type.DangerousGetAddress()));
         }
 
-        internal static int CallClear(BorrowedReference ob)
-            => CallTypeClear(ob, Runtime.PyObject_TYPE(ob));
+        internal static int CallClear(BorrowedReference ob) => CallTypeClear(ob, PyObject_TYPE(ob));
 
         /// <summary>
         /// Wrapper for calling tp_clear
         /// </summary>
         internal static unsafe int CallTypeClear(BorrowedReference ob, BorrowedReference tp)
         {
-            if (ob == null) throw new ArgumentNullException(nameof(ob));
-            if (tp == null) throw new ArgumentNullException(nameof(tp));
+            if (ob == null) { throw new ArgumentNullException(nameof(ob)); }
+            if (tp == null) { throw new ArgumentNullException(nameof(tp)); }
 
             var clearPtr = Util.ReadIntPtr(tp, TypeOffset.tp_clear);
-            if (clearPtr == IntPtr.Zero)
-            {
-                return 0;
-            }
+            if (clearPtr == IntPtr.Zero) { return 0; }
             var clearFunc = (delegate* unmanaged[Cdecl]<BorrowedReference, int>)clearPtr;
             return clearFunc(ob);
         }
@@ -133,17 +125,14 @@ namespace Core.Libraries.PythonNet.Types
         public virtual bool Init(BorrowedReference obj, BorrowedReference args, BorrowedReference kw)
         {
             // this just calls obj.__init__(*args, **kw)
-            using var init = Runtime.PyObject_GetAttr(obj, PyIdentifier.__init__);
-            Runtime.PyErr_Clear();
+            using var init = PyObject_GetAttr(obj, PyIdentifier.__init__);
+            PyErr_Clear();
 
             if (!init.IsNull())
             {
-                using var result = Runtime.PyObject_Call(init.Borrow(), args, kw);
+                using var result = PyObject_Call(init.Borrow(), args, kw);
 
-                if (result.IsNull())
-                {
-                    return false;
-                }
+                if (result.IsNull()) { return false; }
             }
 
             return true;
@@ -151,16 +140,15 @@ namespace Core.Libraries.PythonNet.Types
 
         protected static void ClearObjectDict(BorrowedReference ob)
         {
-            BorrowedReference type = Runtime.PyObject_TYPE(ob);
+            BorrowedReference type = PyObject_TYPE(ob);
             int instanceDictOffset = Util.ReadInt32(type, TypeOffset.tp_dictoffset);
             // Debug.Assert(instanceDictOffset > 0);
-            if (instanceDictOffset > 0)
-                Runtime.Py_CLEAR(ob, instanceDictOffset);
+            if (instanceDictOffset > 0) { Py_CLEAR(ob, instanceDictOffset); }
         }
 
         protected static BorrowedReference GetObjectDict(BorrowedReference ob)
         {
-            BorrowedReference type = Runtime.PyObject_TYPE(ob);
+            BorrowedReference type = PyObject_TYPE(ob);
             int instanceDictOffset = Util.ReadInt32(type, TypeOffset.tp_dictoffset);
             Debug.Assert(instanceDictOffset > 0);
             return Util.ReadRef(ob, instanceDictOffset);
@@ -168,22 +156,22 @@ namespace Core.Libraries.PythonNet.Types
 
         protected static void SetObjectDict(BorrowedReference ob, StolenReference value)
         {
-            if (value.Pointer == IntPtr.Zero) throw new ArgumentNullException(nameof(value));
+            if (value.Pointer == IntPtr.Zero) { throw new ArgumentNullException(nameof(value)); }
             SetObjectDictNullable(ob, value.AnalyzerWorkaround());
         }
         protected static void SetObjectDictNullable(BorrowedReference ob, StolenReference value)
         {
-            BorrowedReference type = Runtime.PyObject_TYPE(ob);
+            BorrowedReference type = PyObject_TYPE(ob);
             int instanceDictOffset = Util.ReadInt32(type, TypeOffset.tp_dictoffset);
             Debug.Assert(instanceDictOffset > 0);
-            Runtime.ReplaceReference(ob, instanceDictOffset, value.AnalyzerWorkaround());
+            ReplaceReference(ob, instanceDictOffset, value.AnalyzerWorkaround());
         }
 
         internal static void GetGCHandle(BorrowedReference reflectedClrObject, BorrowedReference type, out IntPtr handle)
         {
             Debug.Assert(reflectedClrObject != null);
             Debug.Assert(IsManagedType(type) || IsManagedType(reflectedClrObject));
-            Debug.Assert(Runtime.PyObject_TypeCheck(reflectedClrObject, type));
+            Debug.Assert(PyObject_TypeCheck(reflectedClrObject, type));
 
             int gcHandleOffset = Util.ReadInt32(type, Offsets.tp_clr_inst_offset);
             Debug.Assert(gcHandleOffset > 0);
@@ -198,7 +186,7 @@ namespace Core.Libraries.PythonNet.Types
         }
         internal static GCHandle? TryGetGCHandle(BorrowedReference reflectedClrObject)
         {
-            BorrowedReference reflectedType = Runtime.PyObject_TYPE(reflectedClrObject);
+            BorrowedReference reflectedType = PyObject_TYPE(reflectedClrObject);
 
             return TryGetGCHandle(reflectedClrObject, reflectedType);
         }
@@ -215,14 +203,14 @@ namespace Core.Libraries.PythonNet.Types
             SetGCHandle(reflectedClrObject, type: type, handle);
         }
         internal static void InitGCHandle(BorrowedReference reflectedClrObject, GCHandle handle)
-            => InitGCHandle(reflectedClrObject, Runtime.PyObject_TYPE(reflectedClrObject), handle);
+            => InitGCHandle(reflectedClrObject, PyObject_TYPE(reflectedClrObject), handle);
 
         internal static void SetGCHandle(BorrowedReference reflectedClrObject, BorrowedReference type, GCHandle newHandle)
         {
             Debug.Assert(type != null);
             Debug.Assert(reflectedClrObject != null);
             Debug.Assert(IsManagedType(type) || IsManagedType(reflectedClrObject));
-            Debug.Assert(Runtime.PyObject_TypeCheck(reflectedClrObject, type));
+            Debug.Assert(PyObject_TypeCheck(reflectedClrObject, type));
 
             int offset = Util.ReadInt32(type, Offsets.tp_clr_inst_offset);
             Debug.Assert(offset > 0);
@@ -230,23 +218,23 @@ namespace Core.Libraries.PythonNet.Types
             Util.WriteIntPtr(reflectedClrObject, offset, (IntPtr)newHandle);
         }
         internal static void SetGCHandle(BorrowedReference reflectedClrObject, GCHandle newHandle)
-            => SetGCHandle(reflectedClrObject, Runtime.PyObject_TYPE(reflectedClrObject), newHandle);
+            => SetGCHandle(reflectedClrObject, PyObject_TYPE(reflectedClrObject), newHandle);
 
         internal static bool TryFreeGCHandle(BorrowedReference reflectedClrObject)
-            => TryFreeGCHandle(reflectedClrObject, Runtime.PyObject_TYPE(reflectedClrObject));
+            => TryFreeGCHandle(reflectedClrObject, PyObject_TYPE(reflectedClrObject));
 
         internal static bool TryFreeGCHandle(BorrowedReference reflectedClrObject, BorrowedReference type)
         {
             Debug.Assert(type != null);
             Debug.Assert(reflectedClrObject != null);
             Debug.Assert(IsManagedType(type) || IsManagedType(reflectedClrObject));
-            Debug.Assert(Runtime.PyObject_TypeCheck(reflectedClrObject, type));
+            Debug.Assert(PyObject_TypeCheck(reflectedClrObject, type));
 
             int offset = Util.ReadInt32(type, Offsets.tp_clr_inst_offset);
             Debug.Assert(offset > 0);
 
             IntPtr raw = Util.ReadIntPtr(reflectedClrObject, offset);
-            if (raw == IntPtr.Zero) return false;
+            if (raw == IntPtr.Zero) { return false; }
 
             var handle = (GCHandle)raw;
             handle.Free();
@@ -259,8 +247,8 @@ namespace Core.Libraries.PythonNet.Types
         {
             static Offsets()
             {
-                int pyTypeSize = Util.ReadInt32(Runtime.PyTypeType, TypeOffset.tp_basicsize);
-                if (pyTypeSize < 0) throw new InvalidOperationException();
+                int pyTypeSize = Util.ReadInt32(PyTypeType, TypeOffset.tp_basicsize);
+                if (pyTypeSize < 0) { throw new InvalidOperationException(); }
 
                 tp_clr_inst_offset = pyTypeSize;
                 tp_clr_inst = tp_clr_inst_offset + IntPtr.Size;

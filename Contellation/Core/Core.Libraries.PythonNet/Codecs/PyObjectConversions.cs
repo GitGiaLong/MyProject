@@ -24,10 +24,7 @@ namespace Core.Libraries.PythonNet.Codecs
         {
             if (encoder == null) { throw new ArgumentNullException(nameof(encoder)); }
 
-            lock (encoders)
-            {
-                encoders.Add(encoder);
-            }
+            lock (encoders) { encoders.Add(encoder); }
         }
 
         /// <summary>

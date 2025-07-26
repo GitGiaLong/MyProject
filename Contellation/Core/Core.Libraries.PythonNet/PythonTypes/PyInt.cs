@@ -6,8 +6,6 @@ using System.Globalization;
 using System.Numerics;
 using System.Runtime.Serialization;
 
-using static Core.Libraries.PythonNet.Runtimes.Runtime;
-
 namespace Core.Libraries.PythonNet.PythonTypes
 {
     /// <summary>
@@ -180,15 +178,15 @@ namespace Core.Libraries.PythonNet.PythonTypes
             string hex = pyHex.As<string>();
             int offset = 0;
             bool neg = false;
-            
+
             if (hex[0] == '-')
             {
                 offset++;
                 neg = true;
             }
-            
+
             byte[] littleEndianBytes = new byte[(hex.Length - offset + 1) / 2 + 1];
-            
+
             for (; offset < hex.Length; offset++)
             {
                 int littleEndianHexIndex = hex.Length - 1 - offset;
